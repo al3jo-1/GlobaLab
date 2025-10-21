@@ -1,0 +1,138 @@
+import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Home, BarChart2, LogOut, UserCircle, Settings, BookOpen, Briefcase, ShieldCheck, Info, Copy, CheckCircle, X } from 'lucide-react';
+import { useTradingContext } from '@/contexts/TradingContext';
+import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import { useToast } from "@/components/ui/use-toast";
+import { useState } from 'react';
+
+const Sidebar = ({ onLinkClick }) => {
+  const { user, logout } = useTradingContext();
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  const [copied, setCopied] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    if (onLinkClick) onLinkClick();
+    navigate('/login');
+  };
+
+  const handleCopyCode = () => {
+    if (user && user.role === 'teacher' && user.classCode) {
+      navigator.clipboard.writeText(user.classCode).then(() => {
+        setCopied(true);
+        toast({
+          title: "¡Copiado!",
+          description: "Código de sala copiado al portapapeles.",
+        });
+        setTimeout(() => setCopied(false), 2000);
+      });
+    }
+  };
+
+  const navItems = [
+    { name: 'Dashboard', icon: <Home className="h-5 w-5" />, path: '/', role: ['student', 'teacher'] },
+    { name: 'Mercados', icon: <BarChart2 className="h-5 w-5" />, path: '/markets', role: ['student', 'teacher'] },
+    { name: 'Portafolio', icon: <Briefcase className="h-5 w-5" />, path: '/portfolio', role: ['student', 'teacher'] },
+    { name: 'Aprender', icon: <BookOpen className="h-5 w-5" />, path: '/learn', role: ['student'] },
+    { name: 'Administrar', icon: <ShieldCheck className="h-5 w-5" />, path: '/admin', role: ['teacher'] },
+    { name: 'Configuración', icon: <Settings className="h-5 w-5" />, path: '/settings', role: ['student', 'teacher'] },
+    { name: 'Ayuda', icon: <Info className="h-5 w-5" />, path: '/help', role: ['student', 'teacher'] },
+  ];
+
+  const handleNavLinkClick = () => {
+    if (onLinkClick) {
+      onLinkClick();
+    }
+  };
+
+  return (
+    <motion.aside 
+      className="bg-background text-foreground p-6 flex flex-col justify-between h-full sticky top-0 glass-sidebar shadow-xl lg:shadow-none"
+      initial={{ x: -250 }} // Initial animation for desktop sidebar if needed, or remove if only for mobile
+      animate={{ x: 0 }}
+      transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+    >
+      <div>
+        <div className="mb-10 flex items-center justify-between">
+          <NavLink to="/" className="inline-block" onClick={handleNavLinkClick}>
+            <div className="flex items-center justify-center">
+              <h1 className="text-xl font-bold">
+                <span className="text-primary">GlobalTrade</span>
+                <span className="text-primary/70">Lab</span>
+              </h1>
+            </div>
+          </NavLink>
+          <Button variant="ghost" size="icon" className="lg:hidden text-foreground" onClick={onLinkClick}>
+            <X className="h-6 w-6" />
+          </Button>
+        </div>
+        
+        <nav className="space-y-3">
+          {navItems.map((item) => 
+            item.role.includes(user?.role || 'student') && (
+            <NavLink
+              key={item.name}
+              to={item.path}
+              onClick={handleNavLinkClick}
+              className={({ isActive }) =>
+                `flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 hover:bg-primary/10 hover:text-primary ${
+                  isActive ? 'bg-primary/20 text-primary font-semibold shadow-md' : 'text-muted-foreground'
+                }`
+              }
+            >
+              {item.icon}
+              <span>{item.name}</span>
+            </NavLink>
+          ))}
+        </nav>
+      </div>
+      
+      <div className="mt-auto">
+        {user ? (
+          <div className="text-center mb-4 p-3 bg-secondary/30 rounded-lg">
+            <UserCircle className="h-10 w-10 mx-auto mb-2 text-primary" />
+            <p className="text-sm font-medium">{user.name}</p>
+            <p className="text-xs text-muted-foreground">{user.email}</p>
+            <p className="text-xs text-muted-foreground capitalize mb-1">{user.role}</p>
+            {user.role === 'teacher' && user.classCode && (
+              <div className="mt-2">
+                <p className="text-xs text-muted-foreground">Código de Sala:</p>
+                <div className="flex items-center justify-center bg-background p-2 rounded-md">
+                  <span className="text-sm font-mono text-primary mr-2">{user.classCode}</span>
+                  <Button variant="ghost" size="icon" onClick={handleCopyCode} className="h-6 w-6">
+                    {copied ? <CheckCircle className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4 text-muted-foreground" />}
+                  </Button>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+           <NavLink
+              to="/login"
+              onClick={handleNavLinkClick}
+              className="flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 hover:bg-primary/10 hover:text-primary text-muted-foreground"
+            >
+              <UserCircle className="h-5 w-5" />
+              <span>Iniciar Sesión</span>
+            </NavLink>
+        )}
+        
+        {user && (
+          <Button
+            variant="ghost"
+            className="w-full flex items-center space-x-3 justify-start p-3 text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
+            onClick={handleLogout}
+          >
+            <LogOut className="h-5 w-5" />
+            <span>Cerrar sesión</span>
+          </Button>
+        )}
+      </div>
+    </motion.aside>
+  );
+};
+
+export default Sidebar;
