@@ -16,19 +16,31 @@ const Login = () => {
     email: '',
     password: '',
   });
+  const [errors, setErrors] = useState({
+    email: false,
+    password: false,
+  });
   
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    setErrors(prev => ({ ...prev, [name]: false }));
   };
   
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (!formData.email || !formData.password) {
+    const newErrors = {
+      email: !formData.email || !formData.email.includes('@'),
+      password: !formData.password || formData.password.length < 6,
+    };
+    
+    setErrors(newErrors);
+    
+    if (newErrors.email || newErrors.password) {
       toast({
-        title: "Campos incompletos",
-        description: "Por favor, ingresa tu correo y contraseña.",
+        title: "Campos incompletos o inválidos",
+        description: "Por favor, verifica tu correo y contraseña (mínimo 6 caracteres).",
         variant: "destructive",
       });
       return;
@@ -39,7 +51,14 @@ const Login = () => {
       password: formData.password,
     });
     
-    if (success) {
+    if (!success) {
+      setErrors({ email: true, password: true });
+      toast({
+        title: "Error de autenticación",
+        description: "Correo o contraseña incorrectos.",
+        variant: "destructive",
+      });
+    } else {
       navigate('/');
     }
   };
@@ -76,6 +95,7 @@ const Login = () => {
                     placeholder="tu@email.com"
                     value={formData.email}
                     onChange={handleChange}
+                    className={errors.email ? "border-red-500 focus-visible:ring-red-500" : ""}
                     required
                   />
                 </div>
@@ -93,6 +113,7 @@ const Login = () => {
                     placeholder="••••••••"
                     value={formData.password}
                     onChange={handleChange}
+                    className={errors.password ? "border-red-500 focus-visible:ring-red-500" : ""}
                     required
                   />
                 </div>

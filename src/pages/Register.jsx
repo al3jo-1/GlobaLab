@@ -29,10 +29,17 @@ const Register = () => {
     joinedClassCode: '',
     leverage: '1:1', // Default leverage
   });
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    password: false,
+    confirmPassword: false,
+  });
   
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    setErrors(prev => ({ ...prev, [name]: false }));
   };
 
   const handleRoleChange = (value) => {
@@ -51,21 +58,29 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
-      toast({
-        title: "Campos incompletos",
-        description: "Por favor, completa todos los campos requeridos.",
-        variant: "destructive",
-      });
-      return;
-    }
+    const newErrors = {
+      name: !formData.name || formData.name.length < 2,
+      email: !formData.email || !formData.email.includes('@'),
+      password: !formData.password || formData.password.length < 6,
+      confirmPassword: !formData.confirmPassword || formData.password !== formData.confirmPassword,
+    };
     
-    if (formData.password !== formData.confirmPassword) {
-      toast({
-        title: "Las contraseñas no coinciden",
-        description: "Por favor, verifica tu contraseña.",
-        variant: "destructive",
-      });
+    setErrors(newErrors);
+    
+    if (newErrors.name || newErrors.email || newErrors.password || newErrors.confirmPassword) {
+      if (formData.password !== formData.confirmPassword) {
+        toast({
+          title: "Las contraseñas no coinciden",
+          description: "Por favor, verifica que ambas contraseñas sean iguales.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Campos incompletos o inválidos",
+          description: "Por favor, completa todos los campos correctamente.",
+          variant: "destructive",
+        });
+      }
       return;
     }
     
@@ -87,6 +102,8 @@ const Register = () => {
         });
       }
       navigate('/');
+    } else {
+      setErrors({ email: true, password: true, name: false, confirmPassword: false });
     }
   };
 
@@ -123,6 +140,7 @@ const Register = () => {
                     placeholder="Tu nombre"
                     value={formData.name}
                     onChange={handleChange}
+                    className={errors.name ? "border-red-500 focus-visible:ring-red-500" : ""}
                     required
                   />
                 </div>
@@ -135,6 +153,7 @@ const Register = () => {
                     placeholder="tu@email.com"
                     value={formData.email}
                     onChange={handleChange}
+                    className={errors.email ? "border-red-500 focus-visible:ring-red-500" : ""}
                     required
                   />
                 </div>
@@ -147,6 +166,7 @@ const Register = () => {
                     placeholder="••••••••"
                     value={formData.password}
                     onChange={handleChange}
+                    className={errors.password ? "border-red-500 focus-visible:ring-red-500" : ""}
                     required
                   />
                 </div>
@@ -159,6 +179,7 @@ const Register = () => {
                     placeholder="••••••••"
                     value={formData.confirmPassword}
                     onChange={handleChange}
+                    className={errors.confirmPassword ? "border-red-500 focus-visible:ring-red-500" : ""}
                     required
                   />
                 </div>
