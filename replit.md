@@ -37,7 +37,13 @@ GlobalTradeLab is a trading simulation platform for educational purposes. It all
 - Uses Vite with hot module replacement
 
 ## Recent Changes
-- 2025-01-05: Initial setup for Replit environment
+- 2025-11-05: Mejoras de calidad y correcciones
+  - ✅ Corregida conversión de precios: Acciones colombianas ahora se convierten correctamente de miles de COP a USD (×1000 × tasa de cambio)
+  - ✅ Validación visual mejorada: Campos de login y registro se marcan en rojo cuando hay errores
+  - ✅ Manejo de errores mejorado: Logging activado en useLocalStorage para mejor debugging
+  - Todos los cambios revisados y aprobados por arquitecto
+  
+- 2025-11-05: Initial setup for Replit environment
   - Configured Vite to bind to 0.0.0.0:5000
   - Set up workflow for development server
   - Created .gitignore and documentation
