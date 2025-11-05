@@ -1,0 +1,124 @@
+{
+  "app_name": "GlobalTradeLab",
+  "welcome": "Welcome to",
+  "login": {
+    "title": "Sign in to your account to continue",
+    "email": "Email address",
+    "password": "Password",
+    "forgot_password": "Forgot your password?",
+    "button": "Sign in",
+    "no_account": "Don't have an account?",
+    "register": "Sign up",
+    "terms_accept": "By signing in, you accept our terms of service and privacy policy",
+    "error_email": "Please enter a valid email address",
+    "error_password": "Password must be at least 6 characters"
+  },
+  "register": {
+    "title": "Create your account on",
+    "name": "Full name",
+    "email": "Email address",
+    "password": "Password",
+    "role": "Account type",
+    "student": "Student",
+    "teacher": "Teacher",
+    "button": "Sign up",
+    "have_account": "Already have an account?",
+    "login": "Sign in",
+    "error_name": "Name must be at least 2 characters",
+    "error_email": "Please enter a valid email address",
+    "error_password": "Password must be at least 6 characters"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "cash_balance": "Cash balance",
+    "portfolio_value": "Portfolio value",
+    "total_value": "Total value",
+    "profit_loss": "Profit/Loss",
+    "market_overview": "Market overview",
+    "my_positions": "My positions"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "portfolio": "Portfolio",
+    "markets": "Markets",
+    "help": "Help",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "trading": {
+    "buy": "Buy",
+    "sell": "Sell",
+    "quantity": "Quantity",
+    "price": "Price",
+    "total": "Total",
+    "market_price": "Market price",
+    "limit_price": "Limit price",
+    "execute": "Execute order",
+    "positions": "Positions",
+    "history": "History",
+    "symbol": "Symbol",
+    "type": "Type",
+    "amount": "Amount",
+    "date": "Date",
+    "status": "Status"
+  },
+  "markets": {
+    "title": "Financial Markets",
+    "stocks": "Stocks",
+    "crypto": "Cryptocurrency",
+    "forex": "Forex",
+    "search": "Search market..."
+  },
+  "teacher": {
+    "dashboard": "Teacher Dashboard",
+    "class_code": "Class code",
+    "students": "Students",
+    "performance": "Performance",
+    "events": "Historical events",
+    "create_event": "Create event",
+    "simulator": "Market simulator"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "profile": "Profile",
+    "notifications": "Notifications",
+    "security": "Security",
+    "theme": "Theme",
+    "save": "Save changes"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "hi": "हिन्दी",
+    "ru": "Русский",
+    "de": "Deutsch",
+    "fr": "Français",
+    "it": "Italiano"
+  },
+  "legal": {
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "download_pdf": "Download PDF",
+    "view": "View document",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "back": "Back"
+  }
+}

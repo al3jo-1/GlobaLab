@@ -1,0 +1,124 @@
+{
+  "app_name": "GlobalTradeLab",
+  "welcome": "में आपका स्वागत है",
+  "login": {
+    "title": "जारी रखने के लिए अपने खाते में साइन इन करें",
+    "email": "ईमेल पता",
+    "password": "पासवर्ड",
+    "forgot_password": "अपना पासवर्ड भूल गए?",
+    "button": "साइन इन करें",
+    "no_account": "खाता नहीं है?",
+    "register": "साइन अप करें",
+    "terms_accept": "साइन इन करके, आप हमारी सेवा की शर्तों और गोपनीयता नीति को स्वीकार करते हैं",
+    "error_email": "कृपया एक वैध ईमेल पता दर्ज करें",
+    "error_password": "पासवर्ड कम से कम 6 वर्णों का होना चाहिए"
+  },
+  "register": {
+    "title": "पर अपना खाता बनाएं",
+    "name": "पूरा नाम",
+    "email": "ईमेल पता",
+    "password": "पासवर्ड",
+    "role": "खाता प्रकार",
+    "student": "छात्र",
+    "teacher": "शिक्षक",
+    "button": "साइन अप करें",
+    "have_account": "पहले से ही एक खाता है?",
+    "login": "साइन इन करें",
+    "error_name": "नाम कम से कम 2 वर्णों का होना चाहिए",
+    "error_email": "कृपया एक वैध ईमेल पता दर्ज करें",
+    "error_password": "पासवर्ड कम से कम 6 वर्णों का होना चाहिए"
+  },
+  "dashboard": {
+    "title": "डैशबोर्ड",
+    "cash_balance": "नकद शेष",
+    "portfolio_value": "पोर्टफोलियो मूल्य",
+    "total_value": "कुल मूल्य",
+    "profit_loss": "लाभ/हानि",
+    "market_overview": "बाजार का अवलोकन",
+    "my_positions": "मेरे पोजीशन"
+  },
+  "navigation": {
+    "dashboard": "डैशबोर्ड",
+    "portfolio": "पोर्टफोलियो",
+    "markets": "बाजार",
+    "help": "सहायता",
+    "settings": "सेटिंग्स",
+    "logout": "लॉग आउट"
+  },
+  "trading": {
+    "buy": "खरीदें",
+    "sell": "बेचें",
+    "quantity": "मात्रा",
+    "price": "कीमत",
+    "total": "कुल",
+    "market_price": "बाजार मूल्य",
+    "limit_price": "सीमा मूल्य",
+    "execute": "ऑर्डर निष्पादित करें",
+    "positions": "पोजीशन",
+    "history": "इतिहास",
+    "symbol": "प्रतीक",
+    "type": "प्रकार",
+    "amount": "राशि",
+    "date": "तारीख",
+    "status": "स्थिति"
+  },
+  "markets": {
+    "title": "वित्तीय बाजार",
+    "stocks": "शेयर",
+    "crypto": "क्रिप्टोकरेंसी",
+    "forex": "फॉरेक्स",
+    "search": "बाजार खोजें..."
+  },
+  "teacher": {
+    "dashboard": "शिक्षक डैशबोर्ड",
+    "class_code": "कक्षा कोड",
+    "students": "छात्र",
+    "performance": "प्रदर्शन",
+    "events": "ऐतिहासिक घटनाएं",
+    "create_event": "ईवेंट बनाएं",
+    "simulator": "बाजार सिम्युलेटर"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "language": "भाषा",
+    "profile": "प्रोफ़ाइल",
+    "notifications": "सूचनाएं",
+    "security": "सुरक्षा",
+    "theme": "थीम",
+    "save": "परिवर्तन सहेजें"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "hi": "हिन्दी",
+    "ru": "Русский",
+    "de": "Deutsch",
+    "fr": "Français",
+    "it": "Italiano"
+  },
+  "legal": {
+    "terms": "सेवा की शर्तें",
+    "privacy": "गोपनीयता नीति",
+    "download_pdf": "पीडीएफ डाउनलोड करें",
+    "view": "दस्तावेज़ देखें",
+    "accept": "स्वीकार करें",
+    "decline": "अस्वीकार करें"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "success": "सफलता",
+    "cancel": "रद्द करें",
+    "confirm": "पुष्टि करें",
+    "close": "बंद करें",
+    "search": "खोजें",
+    "filter": "फ़िल्टर करें",
+    "export": "निर्यात करें",
+    "import": "आयात करें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "save": "सहेजें",
+    "back": "वापस"
+  }
+}

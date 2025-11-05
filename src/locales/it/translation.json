@@ -1,0 +1,124 @@
+{
+  "app_name": "GlobalTradeLab",
+  "welcome": "Benvenuto su",
+  "login": {
+    "title": "Accedi al tuo account per continuare",
+    "email": "Indirizzo email",
+    "password": "Password",
+    "forgot_password": "Password dimenticata?",
+    "button": "Accedi",
+    "no_account": "Non hai un account?",
+    "register": "Registrati",
+    "terms_accept": "Effettuando l'accesso, accetti i nostri termini di servizio e l'informativa sulla privacy",
+    "error_email": "Inserisci un indirizzo email valido",
+    "error_password": "La password deve contenere almeno 6 caratteri"
+  },
+  "register": {
+    "title": "Crea il tuo account su",
+    "name": "Nome completo",
+    "email": "Indirizzo email",
+    "password": "Password",
+    "role": "Tipo di account",
+    "student": "Studente",
+    "teacher": "Insegnante",
+    "button": "Registrati",
+    "have_account": "Hai già un account?",
+    "login": "Accedi",
+    "error_name": "Il nome deve contenere almeno 2 caratteri",
+    "error_email": "Inserisci un indirizzo email valido",
+    "error_password": "La password deve contenere almeno 6 caratteri"
+  },
+  "dashboard": {
+    "title": "Pannello di Controllo",
+    "cash_balance": "Saldo contanti",
+    "portfolio_value": "Valore portafoglio",
+    "total_value": "Valore totale",
+    "profit_loss": "Profitto/Perdita",
+    "market_overview": "Panoramica del mercato",
+    "my_positions": "Le mie posizioni"
+  },
+  "navigation": {
+    "dashboard": "Pannello",
+    "portfolio": "Portafoglio",
+    "markets": "Mercati",
+    "help": "Aiuto",
+    "settings": "Impostazioni",
+    "logout": "Esci"
+  },
+  "trading": {
+    "buy": "Acquista",
+    "sell": "Vendi",
+    "quantity": "Quantità",
+    "price": "Prezzo",
+    "total": "Totale",
+    "market_price": "Prezzo di mercato",
+    "limit_price": "Prezzo limite",
+    "execute": "Esegui ordine",
+    "positions": "Posizioni",
+    "history": "Storico",
+    "symbol": "Simbolo",
+    "type": "Tipo",
+    "amount": "Importo",
+    "date": "Data",
+    "status": "Stato"
+  },
+  "markets": {
+    "title": "Mercati Finanziari",
+    "stocks": "Azioni",
+    "crypto": "Criptovalute",
+    "forex": "Forex",
+    "search": "Cerca mercato..."
+  },
+  "teacher": {
+    "dashboard": "Pannello Insegnante",
+    "class_code": "Codice classe",
+    "students": "Studenti",
+    "performance": "Prestazioni",
+    "events": "Eventi storici",
+    "create_event": "Crea evento",
+    "simulator": "Simulatore di mercato"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "language": "Lingua",
+    "profile": "Profilo",
+    "notifications": "Notifiche",
+    "security": "Sicurezza",
+    "theme": "Tema",
+    "save": "Salva modifiche"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "hi": "हिन्दी",
+    "ru": "Русский",
+    "de": "Deutsch",
+    "fr": "Français",
+    "it": "Italiano"
+  },
+  "legal": {
+    "terms": "Termini di Servizio",
+    "privacy": "Informativa sulla Privacy",
+    "download_pdf": "Scarica PDF",
+    "view": "Visualizza documento",
+    "accept": "Accetta",
+    "decline": "Rifiuta"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "close": "Chiudi",
+    "search": "Cerca",
+    "filter": "Filtra",
+    "export": "Esporta",
+    "import": "Importa",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "save": "Salva",
+    "back": "Indietro"
+  }
+}
