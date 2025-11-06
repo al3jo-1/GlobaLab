@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -25,29 +26,30 @@ const TradeFormUI = ({
   userBalance,
   isStock,
 }) => {
+  const { t } = useTranslation();
 
   const renderFormContent = (type) => (
     <form onSubmit={handleSubmit}>
       <div className="space-y-3">
         {isStock && (
           <div className="flex items-center space-x-2 mb-3">
-            <Label htmlFor={`trade-mode-${type}`} className={tradeMode === 'amount' ? 'font-semibold' : 'text-muted-foreground'}>Invertir por Monto</Label>
+            <Label htmlFor={`trade-mode-${type}`} className={tradeMode === 'amount' ? 'font-semibold' : 'text-muted-foreground'}>{t('trade.mode_amount', { defaultValue: 'Invest by Amount' })}</Label>
             <Switch
               id={`trade-mode-${type}`}
               checked={tradeMode === 'quantity'}
               onCheckedChange={(checked) => setTradeMode(checked ? 'quantity' : 'amount')}
             />
-            <Label htmlFor={`trade-mode-${type}`} className={tradeMode === 'quantity' ? 'font-semibold' : 'text-muted-foreground'}>Comprar por Cantidad</Label>
+            <Label htmlFor={`trade-mode-${type}`} className={tradeMode === 'quantity' ? 'font-semibold' : 'text-muted-foreground'}>{t('trade.mode_quantity', { defaultValue: 'Buy by Quantity' })}</Label>
           </div>
         )}
 
         {tradeMode === 'amount' ? (
           <div className="space-y-1">
-            <Label htmlFor={`${type}-amount`}>Monto a invertir ({userCurrency})</Label>
+            <Label htmlFor={`${type}-amount`}>{t('trading.amount')} ({userCurrency})</Label>
             <Input
               id={`${type}-amount`}
               type="number"
-              placeholder={`Monto en ${userCurrency}`}
+              placeholder={`${t('trading.amount')} ${userCurrency}`}
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               min="0.01"
@@ -56,11 +58,11 @@ const TradeFormUI = ({
           </div>
         ) : ( // tradeMode === 'quantity'
           <div className="space-y-1">
-            <Label htmlFor={`${type}-quantity`}>Cantidad de Acciones</Label>
+            <Label htmlFor={`${type}-quantity`}>{t('trading.quantity')}</Label>
             <Input
               id={`${type}-quantity`}
               type="number"
-              placeholder="Número de acciones"
+              placeholder={t('trading.quantity')}
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
               min="0.000001" // Allow fractional for some assets potentially
@@ -71,16 +73,16 @@ const TradeFormUI = ({
         
         {tradeMode === 'quantity' && parseFloat(quantity) > 0 && currentPrice > 0 && (
           <p className="text-xs text-muted-foreground">
-            Costo total estimado: {formatCurrency(totalCostUSD, userCurrency)}
+            {t('trade.estimated_total', { defaultValue: 'Estimated total' })}: {formatCurrency(totalCostUSD, userCurrency)}
           </p>
         )}
 
 
         <div className="space-y-1">
-          <Label htmlFor={`${type}-justification`}>Justificación de la operación</Label>
+          <Label htmlFor={`${type}-justification`}>{t('trading.justification', { defaultValue: 'Justification' })}</Label>
           <Textarea
             id={`${type}-justification`}
-            placeholder="¿Por qué estás realizando esta operación?"
+            placeholder={t('trade.justification_placeholder', { defaultValue: 'Why are you making this trade?' })}
             value={justification}
             onChange={(e) => setJustification(e.target.value)}
             rows={3}
@@ -88,7 +90,7 @@ const TradeFormUI = ({
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor={`${type}-attachment`}>Adjuntar imagen (Opcional, PNG/JPG, máx 2MB)</Label>
+          <Label htmlFor={`${type}-attachment`}>{t('trade.attachment_label', { defaultValue: 'Attach image (Optional, PNG/JPG, max 2MB)' })}</Label>
           <Input
             id={`${type}-attachment`}
             type="file"
@@ -96,11 +98,11 @@ const TradeFormUI = ({
             onChange={handleFileChange}
             className="text-xs file:text-foreground"
           />
-          {attachmentName && <p className="text-xs text-muted-foreground mt-1">Archivo: {attachmentName}</p>}
+          {attachmentName && <p className="text-xs text-muted-foreground mt-1">{t('trade.file', { defaultValue: 'File' })}: {attachmentName}</p>}
         </div>
         
         <div className="space-y-1">
-          <Label>Saldo disponible</Label>
+          <Label>{t('trade.available_balance', { defaultValue: 'Available balance' })}</Label>
           <p className="text-sm font-medium">{formatCurrency(userBalance, userCurrency)}</p>
         </div>
         
@@ -110,7 +112,7 @@ const TradeFormUI = ({
             className={`w-full ${type === 'BUY' ? 'bg-green-500 hover:bg-green-500/90 text-white' : 'bg-red-500 hover:bg-red-500/90 text-white'}`}
             disabled={!userBalance || userBalance <=0 || totalCostUSD > userBalance || !justification.trim() || totalCostUSD <= 0}
           >
-            {type === 'BUY' ? 'Comprar' : 'Vender'} {selectedSymbol}
+            {type === 'BUY' ? t('trading.buy') : t('trading.sell')} {selectedSymbol}
           </Button>
         </motion.div>
       </div>
@@ -119,9 +121,9 @@ const TradeFormUI = ({
 
   return (
     <div className="glass-card rounded-lg p-4">
-      <h2 className="text-xl font-bold mb-2">Operar {selectedSymbol}</h2>
+      <h2 className="text-xl font-bold mb-2">{(tradeType === 'SELL' ? t('trading.sell') : t('trading.buy'))} {selectedSymbol}</h2>
       <p className="text-sm text-muted-foreground mb-3">
-        Precio actual: <span className="font-medium">{formatCurrency(currentPrice, assetCurrency)}</span>
+        {t('trading.market_price')}: <span className="font-medium">{formatCurrency(currentPrice, assetCurrency)}</span>
         {/* Optional: Display an approximate USD price if assetCurrency is not USD.
             This would require an exchange rate. For now, focusing on USD investment.
             (aprox. ${formatCurrency(currentPriceInUSD, userCurrency)}) 
@@ -130,8 +132,8 @@ const TradeFormUI = ({
       
       <Tabs defaultValue="BUY" onValueChange={setTradeType}>
         <TabsList className="grid grid-cols-2 mb-3">
-          <TabsTrigger value="BUY" className="data-[state=active]:bg-green-500/20 data-[state=active]:text-green-600 dark:data-[state=active]:text-green-400">Comprar</TabsTrigger>
-          <TabsTrigger value="SELL" className="data-[state=active]:bg-red-500/20 data-[state=active]:text-red-600 dark:data-[state=active]:text-red-400">Vender</TabsTrigger>
+          <TabsTrigger value="BUY" className="data-[state=active]:bg-green-500/20 data-[state=active]:text-green-600 dark:data-[state=active]:text-green-400">{t('trading.buy')}</TabsTrigger>
+          <TabsTrigger value="SELL" className="data-[state=active]:bg-red-500/20 data-[state=active]:text-red-600 dark:data-[state=active]:text-red-400">{t('trading.sell')}</TabsTrigger>
         </TabsList>
         
         <TabsContent value="BUY">
@@ -144,12 +146,12 @@ const TradeFormUI = ({
       </Tabs>
       
       <div className="mt-4 text-xs text-muted-foreground">
-        <p className="mb-1">Información importante:</p>
+        <p className="mb-1">{t('trade.important_info', { defaultValue: 'Important information' })}:</p>
         <ul className="list-disc pl-4 space-y-0.5">
-          <li>Todas las operaciones son simuladas con dinero virtual ({userCurrency}).</li>
-          <li>Los precios se actualizan para simular el mercado.</li>
-          <li>Puedes cerrar tus posiciones desde la sección de Posiciones.</li>
-          <li>La justificación es obligatoria para cada operación.</li>
+          <li>{t('trade.note_virtual', { defaultValue: 'All trades are simulated with virtual money' })} ({userCurrency}).</li>
+          <li>{t('trade.note_prices', { defaultValue: 'Prices update to simulate the market.' })}</li>
+          <li>{t('trade.note_close_positions', { defaultValue: 'You can close positions from the Positions section.' })}</li>
+          <li>{t('trade.note_justification', { defaultValue: 'A justification is required for each trade.' })}</li>
         </ul>
       </div>
     </div>

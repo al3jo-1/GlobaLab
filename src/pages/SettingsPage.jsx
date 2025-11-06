@@ -1,11 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Sun, Moon, Palette } from 'lucide-react';
 import { motion } from 'framer-motion';
+import LanguageSelector from '@/components/LanguageSelector';
 
 const SettingsPage = ({ currentTheme, toggleTheme }) => {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -17,7 +20,7 @@ const SettingsPage = ({ currentTheme, toggleTheme }) => {
         <CardHeader>
           <CardTitle className="flex items-center text-2xl">
             <Palette className="mr-3 h-7 w-7 text-primary" />
-            Configuración de Apariencia
+            {t('settings.title')}
           </CardTitle>
           <CardDescription>
             Personaliza la apariencia de la plataforma GlobalTradeLab.
@@ -25,8 +28,20 @@ const SettingsPage = ({ currentTheme, toggleTheme }) => {
         </CardHeader>
         <CardContent className="space-y-8">
           <div className="space-y-3 p-6 border border-border rounded-lg bg-background/50">
+            <Label className="text-lg font-medium">
+              {t('settings.language')}
+            </Label>
+            <p className="text-sm text-muted-foreground">
+              Selecciona el idioma preferido para la interfaz.
+            </p>
+            <div className="pt-2">
+              <LanguageSelector />
+            </div>
+          </div>
+
+          <div className="space-y-3 p-6 border border-border rounded-lg bg-background/50">
             <Label htmlFor="theme-toggle" className="text-lg font-medium">
-              Tema de la Plataforma
+              {t('settings.theme')}
             </Label>
             <p className="text-sm text-muted-foreground">
               Selecciona entre el tema claro o el tema oscuro para tu comodidad visual.

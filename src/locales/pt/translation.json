@@ -43,7 +43,9 @@
     "markets": "Mercados",
     "help": "Ajuda",
     "settings": "Configurações",
-    "logout": "Sair"
+    "logout": "Sair",
+    "learn": "Aprender",
+    "admin": "Administrador"
   },
   "trading": {
     "buy": "Comprar",
@@ -60,7 +62,8 @@
     "type": "Tipo",
     "amount": "Montante",
     "date": "Data",
-    "status": "Status"
+    "status": "Status",
+    "justification": "Justificativa"
   },
   "markets": {
     "title": "Mercados Financeiros",
@@ -76,7 +79,8 @@
     "performance": "Desempenho",
     "events": "Eventos históricos",
     "create_event": "Criar evento",
-    "simulator": "Simulador de mercado"
+    "simulator": "Simulador de mercado",
+    "no_students": "Ainda não há estudantes na sua turma. Compartilhe o código para que possam entrar."
   },
   "settings": {
     "title": "Configurações",
@@ -104,6 +108,54 @@
     "view": "Ver documento",
     "accept": "Aceitar",
     "decline": "Recusar"
+  },
+  "positions": {
+    "empty": "Não há posições abertas.",
+    "hint": "Abra uma operação para começar.",
+    "close": "Fechar posição"
+  },
+  "history": {
+    "empty": "Ainda não há transações.",
+    "hint": "Suas operações aparecerão aqui.",
+    "latest": "Últimas {{count}} transações",
+    "open": "Abertura",
+    "close": "Fechamento",
+    "attachment": "Anexo"
+  },
+  "trade": {
+    "mode_amount": "Investir por valor",
+    "mode_quantity": "Comprar por quantidade",
+    "estimated_total": "Total estimado",
+    "justification_placeholder": "Por que você está fazendo esta operação?",
+    "attachment_label": "Anexar imagem (Opcional, PNG/JPG, máx 2MB)",
+    "file": "Arquivo",
+    "available_balance": "Saldo disponível",
+    "operate": "Operar",
+    "important_info": "Informações importantes",
+    "note_virtual": "Todas as operações são simuladas com dinheiro virtual",
+    "note_prices": "Os preços se atualizam para simular o mercado.",
+    "note_close_positions": "Você pode fechar posições na seção Posições.",
+    "note_justification": "É necessária uma justificativa para cada operação."
+  },
+  "chart": {
+    "clear_drawings": "Limpar desenhos",
+    "period": "Período",
+    "candles": "Velas",
+    "line": "Linha",
+    "heikin": "Heikin Ashi",
+    "trendline": "Linha de tendência (Sim.)",
+    "timeframe": "TF",
+    "indicators": "Indicadores",
+    "exit_fullscreen": "Sair da tela cheia",
+    "fullscreen": "Tela cheia"
+  },
+  "help": {
+    "description": "Encontre informações de contato e recursos úteis.",
+    "teacher_contact": "Para dúvidas sobre a turma, contate seu professor:",
+    "developer_support": "Suporte Técnico (Desenvolvedor)",
+    "developer_support_desc": "Para problemas técnicos, bugs ou sugestões, contate:",
+    "faq": "FAQ (Em breve)",
+    "faq_desc": "Estamos trabalhando em uma seção de FAQ. Volte em breve!"
   },
   "common": {
     "loading": "Carregando...",

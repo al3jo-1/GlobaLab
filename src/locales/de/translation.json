@@ -43,7 +43,9 @@
     "markets": "Märkte",
     "help": "Hilfe",
     "settings": "Einstellungen",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "learn": "Lernen",
+    "admin": "Administrator"
   },
   "trading": {
     "buy": "Kaufen",
@@ -60,7 +62,8 @@
     "type": "Typ",
     "amount": "Betrag",
     "date": "Datum",
-    "status": "Status"
+    "status": "Status",
+    "justification": "Begründung"
   },
   "markets": {
     "title": "Finanzmärkte",
@@ -76,7 +79,8 @@
     "performance": "Leistung",
     "events": "Historische Ereignisse",
     "create_event": "Ereignis erstellen",
-    "simulator": "Marktsimulator"
+    "simulator": "Marktsimulator",
+    "no_students": "Es gibt noch keine Studenten in Ihrem Raum. Teilen Sie Ihren Klassencode, damit sie beitreten können."
   },
   "settings": {
     "title": "Einstellungen",
@@ -104,6 +108,54 @@
     "view": "Dokument anzeigen",
     "accept": "Akzeptieren",
     "decline": "Ablehnen"
+  },
+  "positions": {
+    "empty": "Keine offenen Positionen.",
+    "hint": "Eröffnen Sie einen Trade, um zu beginnen.",
+    "close": "Position schließen"
+  },
+  "history": {
+    "empty": "Noch keine Transaktionen.",
+    "hint": "Ihre Trades erscheinen hier.",
+    "latest": "Neueste {{count}} Transaktionen",
+    "open": "Eröffnung",
+    "close": "Schließung",
+    "attachment": "Anlage"
+  },
+  "trade": {
+    "mode_amount": "Nach Betrag investieren",
+    "mode_quantity": "Nach Anzahl kaufen",
+    "estimated_total": "Geschätzte Gesamtsumme",
+    "justification_placeholder": "Warum tätigen Sie diesen Trade?",
+    "attachment_label": "Bild anhängen (optional, PNG/JPG, max. 2MB)",
+    "file": "Datei",
+    "available_balance": "Verfügbares Guthaben",
+    "operate": "Handeln",
+    "important_info": "Wichtige Informationen",
+    "note_virtual": "Alle Trades sind mit virtuellem Geld simuliert",
+    "note_prices": "Preise aktualisieren sich zur Marktsimulation.",
+    "note_close_positions": "Positionen können im Bereich Positionen geschlossen werden.",
+    "note_justification": "Für jeden Trade ist eine Begründung erforderlich."
+  },
+  **"chart": {
+    "clear_drawings": "Zeichnungen löschen",
+    "period": "Zeitraum",
+    "candles": "Kerzen",
+    "line": "Linie",
+    "heikin": "Heikin Ashi",
+    "trendline": "Trendlinie (Sim.)",
+    "timeframe": "TF",
+    "indicators": "Indikatoren",
+    "exit_fullscreen": "Vollbild verlassen",
+    "fullscreen": "Vollbild"
+  },**
+  "help": {
+    "description": "Kontaktinformationen und hilfreiche Ressourcen.",
+    "teacher_contact": "Bei klassenspezifischen Fragen wenden Sie sich an Ihren Lehrer:",
+    "developer_support": "Technischer Support (Entwickler)",
+    "developer_support_desc": "Für technische Probleme, Bugs oder Vorschläge kontaktieren Sie:",
+    "faq": "FAQ (Bald verfügbar)",
+    "faq_desc": "Wir arbeiten an einem FAQ-Bereich. Bitte bald wieder vorbeischauen!"
   },
   "common": {
     "loading": "Wird geladen...",

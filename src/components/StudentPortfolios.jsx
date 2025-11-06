@@ -1,21 +1,23 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { formatCurrency } from '@/lib/market-data';
 import { Users, Briefcase, DollarSign } from 'lucide-react';
 
 const StudentPortfolios = ({ students }) => {
+  const { t } = useTranslation();
   if (!students || students.length === 0) {
     return (
       <Card className="glass-card">
         <CardHeader>
           <CardTitle className="flex items-center">
             <Users className="mr-2 h-5 w-5 text-primary" />
-            Mis Estudiantes
+            {t('teacher.students')}
           </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground">
-            Aún no hay estudiantes en tu sala. Comparte tu código de sala para que puedan unirse.
+            {t('teacher.no_students', { defaultValue: 'No students yet in your room.' })}
           </p>
         </CardContent>
       </Card>
@@ -27,7 +29,7 @@ const StudentPortfolios = ({ students }) => {
       <CardHeader>
         <CardTitle className="flex items-center">
           <Users className="mr-2 h-5 w-5 text-primary" />
-          Mis Estudiantes ({students.length})
+          {t('teacher.students')} ({students.length})
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -40,14 +42,14 @@ const StudentPortfolios = ({ students }) => {
                 <div className="flex items-center">
                   <DollarSign className="h-4 w-4 mr-2 text-green-500" />
                   <div>
-                    <p className="text-muted-foreground">Saldo:</p>
+                    <p className="text-muted-foreground">{t('dashboard.cash_balance')}:</p>
                     <p className="font-medium text-foreground">{formatCurrency(student.balance, 'USD')}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <Briefcase className="h-4 w-4 mr-2 text-blue-500" />
                   <div>
-                    <p className="text-muted-foreground">Posiciones Abiertas:</p>
+                    <p className="text-muted-foreground">{t('trading.positions')}:</p>
                     <p className="font-medium text-foreground">{student.positions?.length || 0}</p>
                   </div>
                 </div>

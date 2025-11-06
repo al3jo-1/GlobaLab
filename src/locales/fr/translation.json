@@ -43,7 +43,9 @@
     "markets": "Marchés",
     "help": "Aide",
     "settings": "Paramètres",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "learn": "Apprendre",
+    "admin": "Administrateur"
   },
   "trading": {
     "buy": "Acheter",
@@ -60,7 +62,8 @@
     "type": "Type",
     "amount": "Montant",
     "date": "Date",
-    "status": "Statut"
+    "status": "Statut",
+    "justification": "Justification"
   },
   "markets": {
     "title": "Marchés Financiers",
@@ -76,7 +79,8 @@
     "performance": "Performance",
     "events": "Événements historiques",
     "create_event": "Créer un événement",
-    "simulator": "Simulateur de marché"
+    "simulator": "Simulateur de marché",
+    "no_students": "Il n'y a pas encore d'étudiants dans votre salle. Partagez votre code de classe pour qu'ils puissent rejoindre."
   },
   "settings": {
     "title": "Paramètres",
@@ -104,6 +108,54 @@
     "view": "Voir le document",
     "accept": "Accepter",
     "decline": "Refuser"
+  },
+  "positions": {
+    "empty": "Aucune position ouverte.",
+    "hint": "Ouvrez un trade pour commencer.",
+    "close": "Fermer la position"
+  },
+  "history": {
+    "empty": "Aucune transaction pour le moment.",
+    "hint": "Vos opérations apparaîtront ici.",
+    "latest": "Dernières {{count}} transactions",
+    "open": "Ouverture",
+    "close": "Fermeture",
+    "attachment": "Pièce jointe"
+  },
+  "trade": {
+    "mode_amount": "Investir par montant",
+    "mode_quantity": "Acheter par quantité",
+    "estimated_total": "Total estimé",
+    "justification_placeholder": "Pourquoi effectuez-vous ce trade ?",
+    "attachment_label": "Joindre une image (Optionnel, PNG/JPG, max 2MB)",
+    "file": "Fichier",
+    "available_balance": "Solde disponible",
+    "operate": "Trader",
+    "important_info": "Informations importantes",
+    "note_virtual": "Tous les trades sont simulés avec de l'argent virtuel",
+    "note_prices": "Les prix se mettent à jour pour simuler le marché.",
+    "note_close_positions": "Vous pouvez clôturer vos positions depuis la section Positions.",
+    "note_justification": "Une justification est requise pour chaque trade."
+  },
+  "chart": {
+    "clear_drawings": "Effacer les dessins",
+    "period": "Période",
+    "candles": "Chandeliers",
+    "line": "Ligne",
+    "heikin": "Heikin Ashi",
+    "trendline": "Ligne de tendance (Sim.)",
+    "timeframe": "TF",
+    "indicators": "Indicateurs",
+    "exit_fullscreen": "Quitter le plein écran",
+    "fullscreen": "Plein écran"
+  },
+  "help": {
+    "description": "Trouvez des informations de contact et des ressources utiles.",
+    "teacher_contact": "Pour des questions liées au cours, contactez votre enseignant :",
+    "developer_support": "Support technique (Développeur)",
+    "developer_support_desc": "Pour des problèmes techniques, bugs ou suggestions, contactez :",
+    "faq": "FAQ (Bientôt disponible)",
+    "faq_desc": "Nous travaillons sur une section FAQ. Revenez bientôt !"
   },
   "common": {
     "loading": "Chargement...",

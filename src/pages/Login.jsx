@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useTradingContext } from '@/contexts/TradingContext';
 import { Button } from '@/components/ui/button';
@@ -10,6 +11,7 @@ import { useToast } from "@/components/ui/use-toast";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { login } = useTradingContext();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -39,8 +41,8 @@ const Login = () => {
     
     if (newErrors.email || newErrors.password) {
       toast({
-        title: "Campos incompletos o inválidos",
-        description: "Por favor, verifica tu correo y contraseña (mínimo 6 caracteres).",
+        title: t('common.error'),
+        description: t('login.error_password'),
         variant: "destructive",
       });
       return;
@@ -54,8 +56,8 @@ const Login = () => {
     if (!success) {
       setErrors({ email: true, password: true });
       toast({
-        title: "Error de autenticación",
-        description: "Correo o contraseña incorrectos.",
+        title: t('common.error'),
+        description: t('login.error_password'),
         variant: "destructive",
       });
     } else {
@@ -80,19 +82,19 @@ const Login = () => {
               </h1>
             </div>
             <CardDescription>
-              Inicia sesión en tu cuenta para continuar
+              {t('login.title')}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit}>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Correo electrónico</Label>
+                  <Label htmlFor="email">{t('login.email')}</Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="tu@email.com"
+                    placeholder={t('login.email')}
                     value={formData.email}
                     onChange={handleChange}
                     className={errors.email ? "border-red-500 focus-visible:ring-red-500" : ""}
@@ -101,9 +103,9 @@ const Login = () => {
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <Label htmlFor="password">Contraseña</Label>
+                    <Label htmlFor="password">{t('login.password')}</Label>
                     <a href="#" className="text-sm text-primary hover:underline">
-                      ¿Olvidaste tu contraseña?
+                      {t('login.forgot_password')}
                     </a>
                   </div>
                   <Input
@@ -118,21 +120,21 @@ const Login = () => {
                   />
                 </div>
                 <Button type="submit" className="w-full">
-                  Iniciar sesión
+                  {t('login.button')}
                 </Button>
               </div>
             </form>
             
             <div className="mt-4 text-center text-sm">
-              <span className="text-muted-foreground">¿No tienes una cuenta? </span>
+              <span className="text-muted-foreground">{t('login.no_account')} </span>
               <a href="/register" className="text-primary hover:underline">
-                Regístrate
+                {t('login.register')}
               </a>
             </div>
           </CardContent>
           <CardFooter className="flex flex-col">
             <p className="text-xs text-center text-muted-foreground mt-4">
-              Al iniciar sesión, aceptas nuestros términos de servicio y política de privacidad.
+              {t('login.terms_accept')}
             </p>
           </CardFooter>
         </Card>

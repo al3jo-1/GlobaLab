@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { formatCurrency, formatPercentage } from '@/lib/market-data';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
@@ -23,6 +24,7 @@ const ChartHeader = ({
   currentTimeframe, setCurrentTimeframe
 }) => {
   const { initialSymbols, setSelectedSymbol } = useTradingContext();
+  const { t } = useTranslation();
 
   return (
     <div className={`flex flex-col sm:flex-row justify-between items-start sm:items-center pb-2 mb-2 border-b border-border ${isFullScreen ? 'pt-0' : ''}`}>
@@ -30,7 +32,7 @@ const ChartHeader = ({
         <div className="flex items-center">
           <Select value={selectedSymbol} onValueChange={setSelectedSymbol}>
             <SelectTrigger className="text-lg font-bold h-9 pl-2 pr-1 w-auto">
-              <SelectValue placeholder="Seleccionar Símbolo" />
+              <SelectValue placeholder={t('markets.search')} />
             </SelectTrigger>
             <SelectContent>
               {initialSymbols.map(s => (
@@ -74,7 +76,7 @@ const ChartHeader = ({
             setCurrentTimeframe={setCurrentTimeframe}
           />
            {hasDrawings && (
-             <Button variant="ghost" size="icon" onClick={clearDrawings} title="Limpiar Dibujos">
+             <Button variant="ghost" size="icon" onClick={clearDrawings} title={t('chart.clear_drawings', { defaultValue: 'Clear drawings' })}>
                <Trash2 className="h-4 w-4 text-destructive" />
             </Button>
            )}

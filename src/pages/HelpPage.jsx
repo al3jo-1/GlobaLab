@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTradingContext } from '@/contexts/TradingContext';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { HelpCircle, LifeBuoy, Mail, UserCheck, Copy } from 'lucide-react';
@@ -9,8 +10,9 @@ import { useToast } from "@/components/ui/use-toast";
 
 const HelpPage = () => {
   const { user, allUsers } = useTradingContext();
+  const { t } = useTranslation();
   const { toast } = useToast();
-  const developerEmail = "alejo.madera123@gmail.com";
+  const developerEmail = "Master@globaltradelab.online";
   let teacherEmail = null;
 
   if (user?.role === 'student' && user.joinedClassCode) {
@@ -23,13 +25,13 @@ const HelpPage = () => {
   const copyToClipboard = (text, type) => {
     navigator.clipboard.writeText(text).then(() => {
       toast({
-        title: "¡Copiado!",
-        description: `${type} copiado al portapapeles.`,
+        title: t('common.success'),
+        description: t('common.copy', { defaultValue: 'Copied to clipboard' }),
       });
     }).catch(err => {
       toast({
-        title: "Error al copiar",
-        description: `No se pudo copiar el ${type}.`,
+        title: t('common.error'),
+        description: t('common.copy_error', { defaultValue: 'Unable to copy' }),
         variant: "destructive",
       });
     });
@@ -46,10 +48,10 @@ const HelpPage = () => {
         <CardHeader>
           <CardTitle className="flex items-center text-2xl">
             <LifeBuoy className="mr-3 h-7 w-7 text-primary" />
-            Centro de Ayuda
+            {t('navigation.help')}
           </CardTitle>
           <CardDescription>
-            Encuentra información de contacto y recursos útiles.
+            {t('help.description', { defaultValue: 'Find contact information and useful resources.' })}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
@@ -58,10 +60,10 @@ const HelpPage = () => {
             <div className="p-6 border border-border rounded-lg bg-background/50">
               <h3 className="text-lg font-semibold mb-2 flex items-center">
                 <UserCheck className="mr-2 h-5 w-5 text-primary/80" />
-                Contacto de tu Docente
+                {t('teacher.dashboard')}
               </h3>
               <p className="text-sm text-muted-foreground mb-3">
-                Si tienes preguntas específicas sobre la clase o el contenido, puedes contactar a tu docente:
+                {t('help.teacher_contact', { defaultValue: 'If you have class-specific questions, contact your teacher:' })}
               </p>
               <div className="flex items-center justify-between p-3 bg-secondary/50 rounded-md">
                 <span className="text-sm font-medium">{teacherEmail}</span>
@@ -75,10 +77,10 @@ const HelpPage = () => {
           <div className="p-6 border border-border rounded-lg bg-background/50">
             <h3 className="text-lg font-semibold mb-2 flex items-center">
               <Mail className="mr-2 h-5 w-5 text-primary/80" />
-              Soporte Técnico (Desarrollador)
+              {t('help.developer_support', { defaultValue: 'Technical Support (Developer)' })}
             </h3>
             <p className="text-sm text-muted-foreground mb-3">
-              Para problemas técnicos con la plataforma, errores o sugerencias, contacta al desarrollador:
+              {t('help.developer_support_desc', { defaultValue: 'For technical issues, bugs or suggestions contact:' })}
             </p>
             <div className="flex items-center justify-between p-3 bg-secondary/50 rounded-md">
                <span className="text-sm font-medium">{developerEmail}</span>
@@ -91,10 +93,10 @@ const HelpPage = () => {
           <div className="p-6 border border-border rounded-lg bg-background/50">
             <h3 className="text-lg font-semibold mb-2 flex items-center">
               <HelpCircle className="mr-2 h-5 w-5 text-primary/80" />
-              Preguntas Frecuentes (Próximamente)
+              {t('help.faq', { defaultValue: 'FAQ (Coming soon)' })}
             </h3>
             <p className="text-sm text-muted-foreground">
-              Estamos trabajando en una sección de preguntas frecuentes para resolver tus dudas comunes rápidamente. ¡Vuelve pronto!
+              {t('help.faq_desc', { defaultValue: 'We are working on a FAQ section. Check back soon!' })}
             </p>
           </div>
 

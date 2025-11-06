@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Maximize, Minimize, TrendingUp, Edit2, Square, Circle, Type, Settings2, Clock } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -11,14 +12,15 @@ const ChartControls = ({
   toggleIndicators,
   currentTimeframe, setCurrentTimeframe
 }) => {
+  const { t } = useTranslation();
   const controlButtons = [
-    { type: 'candlestick', title: 'Velas', icon: <TrendingUp className="h-4 w-4" /> },
-    { type: 'line', title: 'Línea', icon: <Type className="h-4 w-4 transform rotate-45" /> },
-    { type: 'heikinashi', title: 'Heikin Ashi', icon: <TrendingUp className="h-4 w-4 opacity-70" /> },
+    { type: 'candlestick', title: t('chart.candles', { defaultValue: 'Candles' }), icon: <TrendingUp className="h-4 w-4" /> },
+    { type: 'line', title: t('chart.line', { defaultValue: 'Line' }), icon: <Type className="h-4 w-4 transform rotate-45" /> },
+    { type: 'heikinashi', title: t('chart.heikin', { defaultValue: 'Heikin Ashi' }), icon: <TrendingUp className="h-4 w-4 opacity-70" /> },
   ];
 
   const drawingTools = [
-    { tool: 'trendline', title: 'Línea de Tendencia (Sim.)', icon: <Edit2 className="h-4 w-4" /> },
+    { tool: 'trendline', title: t('chart.trendline', { defaultValue: 'Trendline (Sim.)' }), icon: <Edit2 className="h-4 w-4" /> },
     // { tool: 'rectangle', title: 'Rectángulo (Sim.)', icon: <Square className="h-4 w-4" /> },
     // { tool: 'ellipse', title: 'Elipse (Sim.)', icon: <Circle className="h-4 w-4" /> },
   ];
@@ -36,7 +38,7 @@ const ChartControls = ({
       <Select value={currentTimeframe} onValueChange={setCurrentTimeframe}>
         <SelectTrigger className="h-9 w-[70px] text-xs px-2">
           <Clock className="h-3 w-3 mr-1 opacity-70" />
-          <SelectValue placeholder="TF" />
+          <SelectValue placeholder={t('chart.timeframe', { defaultValue: 'TF' })} />
         </SelectTrigger>
         <SelectContent>
           {timeframes.map(tf => (
@@ -74,11 +76,11 @@ const ChartControls = ({
           {toolBtn.icon}
         </Button>
       ))}
-      <Button variant="ghost" size="icon" onClick={toggleIndicators} title="Indicadores">
+      <Button variant="ghost" size="icon" onClick={toggleIndicators} title={t('chart.indicators', { defaultValue: 'Indicators' })}>
         <Settings2 className="h-4 w-4" />
       </Button>
        <span className="mx-1 h-5 w-px bg-border" />
-      <Button variant="ghost" size="icon" onClick={toggleFullScreen} title={isFullScreen ? "Salir Pantalla Completa" : "Pantalla Completa"}>
+      <Button variant="ghost" size="icon" onClick={toggleFullScreen} title={isFullScreen ? t('chart.exit_fullscreen', { defaultValue: 'Exit Fullscreen' }) : t('chart.fullscreen', { defaultValue: 'Fullscreen' })}>
         {isFullScreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
       </Button>
     </div>

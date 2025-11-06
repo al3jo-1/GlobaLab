@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,6 +11,7 @@ const ChartIndicatorControls = ({
   emaPeriod, setEmaPeriod,
   showMACD, setShowMACD
 }) => {
+  const { t } = useTranslation();
   if (!showPanel) return null;
 
   return (
@@ -20,7 +22,7 @@ const ChartIndicatorControls = ({
         </Button>
         {showEMA && (
           <div className="flex items-center space-x-1">
-            <Label htmlFor="emaPeriod" className="mb-0">Período:</Label>
+            <Label htmlFor="emaPeriod" className="mb-0">{t('chart.period', { defaultValue: 'Period' })}:</Label>
             <Input 
               type="number" 
               id="emaPeriod" 

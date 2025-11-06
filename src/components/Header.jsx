@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTradingContext } from '@/contexts/TradingContext';
 import { Sun, Moon, Menu, Bell, Wallet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -16,6 +17,7 @@ import { formatCurrency } from '@/lib/market-data';
 
 const Header = ({ isMobileMenuOpen, toggleMobileMenu }) => {
   const { user, logout, theme, toggleTheme, balance } = useTradingContext(); // Added balance
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -87,14 +89,14 @@ const Header = ({ isMobileMenuOpen, toggleMobileMenu }) => {
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="sm:hidden" />
                 <DropdownMenuItem onClick={() => navigate('/settings')}>
-                  Configuración
+                  {t('navigation.settings')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigate('/help')}>
-                  Ayuda
+                  {t('navigation.help')}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout} className="text-destructive focus:text-destructive focus:bg-destructive/10">
-                  Cerrar sesión
+                  {t('navigation.logout')}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

@@ -43,7 +43,9 @@
     "markets": "Mercati",
     "help": "Aiuto",
     "settings": "Impostazioni",
-    "logout": "Esci"
+    "logout": "Esci",
+    "learn": "Impara",
+    "admin": "Amministratore"
   },
   "trading": {
     "buy": "Acquista",
@@ -60,7 +62,8 @@
     "type": "Tipo",
     "amount": "Importo",
     "date": "Data",
-    "status": "Stato"
+    "status": "Stato",
+    "justification": "Giustificazione"
   },
   "markets": {
     "title": "Mercati Finanziari",
@@ -76,7 +79,8 @@
     "performance": "Prestazioni",
     "events": "Eventi storici",
     "create_event": "Crea evento",
-    "simulator": "Simulatore di mercato"
+    "simulator": "Simulatore di mercato",
+    "no_students": "Non ci sono ancora studenti nella tua classe. Condividi il codice per farli unire."
   },
   "settings": {
     "title": "Impostazioni",
@@ -104,6 +108,54 @@
     "view": "Visualizza documento",
     "accept": "Accetta",
     "decline": "Rifiuta"
+  },
+  "positions": {
+    "empty": "Nessuna posizione aperta.",
+    "hint": "Apri un trade per iniziare.",
+    "close": "Chiudi posizione"
+  },
+  "history": {
+    "empty": "Nessuna transazione ancora.",
+    "hint": "I tuoi trade appariranno qui.",
+    "latest": "Ultime {{count}} transazioni",
+    "open": "Apertura",
+    "close": "Chiusura",
+    "attachment": "Allegato"
+  },
+  "trade": {
+    "mode_amount": "Investi per importo",
+    "mode_quantity": "Acquista per quantità",
+    "estimated_total": "Totale stimato",
+    "justification_placeholder": "Perché stai effettuando questo trade?",
+    "attachment_label": "Allega immagine (Opzionale, PNG/JPG, max 2MB)",
+    "file": "File",
+    "available_balance": "Saldo disponibile",
+    "operate": "Opera",
+    "important_info": "Informazioni importanti",
+    "note_virtual": "Tutti i trade sono simulati con denaro virtuale",
+    "note_prices": "I prezzi si aggiornano per simulare il mercato.",
+    "note_close_positions": "Puoi chiudere le posizioni dalla sezione Posizioni.",
+    "note_justification": "È richiesta una giustificazione per ogni trade."
+  },
+  "chart": {
+    "clear_drawings": "Cancella disegni",
+    "period": "Periodo",
+    "candles": "Candele",
+    "line": "Linea",
+    "heikin": "Heikin Ashi",
+    "trendline": "Trendline (Sim.)",
+    "timeframe": "TF",
+    "indicators": "Indicatori",
+    "exit_fullscreen": "Esci da schermo intero",
+    "fullscreen": "Schermo intero"
+  },
+  "help": {
+    "description": "Trova informazioni di contatto e risorse utili.",
+    "teacher_contact": "Per domande sulla classe, contatta il tuo insegnante:",
+    "developer_support": "Supporto tecnico (Sviluppatore)",
+    "developer_support_desc": "Per problemi tecnici, bug o suggerimenti contatta:",
+    "faq": "FAQ (In arrivo)",
+    "faq_desc": "Stiamo lavorando a una sezione FAQ. Torna presto!"
   },
   "common": {
     "loading": "Caricamento...",

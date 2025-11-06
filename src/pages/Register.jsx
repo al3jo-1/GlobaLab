@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useTradingContext } from '@/contexts/TradingContext';
 import { Button } from '@/components/ui/button';
@@ -18,6 +19,7 @@ import { useToast } from "@/components/ui/use-toast";
 
 const Register = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { register } = useTradingContext();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -70,14 +72,14 @@ const Register = () => {
     if (newErrors.name || newErrors.email || newErrors.password || newErrors.confirmPassword) {
       if (formData.password !== formData.confirmPassword) {
         toast({
-          title: "Las contraseñas no coinciden",
-          description: "Por favor, verifica que ambas contraseñas sean iguales.",
+          title: t('common.error'),
+          description: t('register.error_password'),
           variant: "destructive",
         });
       } else {
         toast({
-          title: "Campos incompletos o inválidos",
-          description: "Por favor, completa todos los campos correctamente.",
+          title: t('common.error'),
+          description: t('register.error_email'),
           variant: "destructive",
         });
       }
@@ -125,19 +127,19 @@ const Register = () => {
                 <span className="text-primary/70">Lab</span>
               </h1>
             </div>
-            <CardDescription>
-              Crea una cuenta para comenzar a aprender trading
+          <CardDescription>
+              {t('register.title')} GlobalTradeLab
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit}>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Nombre completo</Label>
+                  <Label htmlFor="name">{t('register.name')}</Label>
                   <Input
                     id="name"
                     name="name"
-                    placeholder="Tu nombre"
+                    placeholder={t('register.name')}
                     value={formData.name}
                     onChange={handleChange}
                     className={errors.name ? "border-red-500 focus-visible:ring-red-500" : ""}
@@ -145,12 +147,12 @@ const Register = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Correo electrónico</Label>
+                  <Label htmlFor="email">{t('register.email')}</Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="tu@email.com"
+                    placeholder={t('register.email')}
                     value={formData.email}
                     onChange={handleChange}
                     className={errors.email ? "border-red-500 focus-visible:ring-red-500" : ""}
@@ -158,7 +160,7 @@ const Register = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="password">Contraseña</Label>
+                  <Label htmlFor="password">{t('register.password')}</Label>
                   <Input
                     id="password"
                     name="password"
@@ -171,7 +173,7 @@ const Register = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="confirmPassword">Confirmar contraseña</Label>
+                  <Label htmlFor="confirmPassword">{t('register.password')}</Label>
                   <Input
                     id="confirmPassword"
                     name="confirmPassword"
@@ -184,24 +186,24 @@ const Register = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="role">Rol</Label>
+                  <Label htmlFor="role">{t('register.role')}</Label>
                   <Select onValueChange={handleRoleChange} defaultValue={formData.role}>
                     <SelectTrigger id="role">
-                      <SelectValue placeholder="Selecciona tu rol" />
+                      <SelectValue placeholder={t('register.role')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="student">Estudiante</SelectItem>
-                      <SelectItem value="teacher">Docente</SelectItem>
+                      <SelectItem value="student">{t('register.student')}</SelectItem>
+                      <SelectItem value="teacher">{t('register.teacher')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 {formData.role === 'student' && (
                   <div className="space-y-2">
-                    <Label htmlFor="joinedClassCode">Código de Sala (Opcional)</Label>
+                    <Label htmlFor="joinedClassCode">{t('teacher.class_code')}</Label>
                     <Input
                       id="joinedClassCode"
                       name="joinedClassCode"
-                      placeholder="Ingresa el código de sala"
+                      placeholder={t('teacher.class_code')}
                       value={formData.joinedClassCode}
                       onChange={handleChange}
                     />
@@ -209,10 +211,10 @@ const Register = () => {
                 )}
                 {formData.role === 'teacher' && (
                   <div className="space-y-2">
-                    <Label htmlFor="leverage">Nivel de Apalancamiento</Label>
+                    <Label htmlFor="leverage">Leverage</Label>
                     <Select onValueChange={handleLeverageChange} defaultValue={formData.leverage}>
                       <SelectTrigger id="leverage">
-                        <SelectValue placeholder="Selecciona apalancamiento" />
+                        <SelectValue placeholder="Leverage" />
                       </SelectTrigger>
                       <SelectContent>
                         {leverageOptions.map(option => (
@@ -223,21 +225,21 @@ const Register = () => {
                   </div>
                 )}
                 <Button type="submit" className="w-full">
-                  Crear cuenta
+                  {t('register.button')}
                 </Button>
               </div>
             </form>
             
             <div className="mt-4 text-center text-sm">
-              <span className="text-muted-foreground">¿Ya tienes una cuenta? </span>
+              <span className="text-muted-foreground">{t('register.have_account')} </span>
               <a href="/login" className="text-primary hover:underline">
-                Inicia sesión
+                {t('register.login')}
               </a>
             </div>
           </CardContent>
           <CardFooter className="flex flex-col">
             <p className="text-xs text-center text-muted-foreground mt-4">
-              Al registrarte, aceptas nuestros términos de servicio y política de privacidad.
+              {t('login.terms_accept')}
             </p>
           </CardFooter>
         </Card>

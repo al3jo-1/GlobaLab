@@ -43,7 +43,9 @@
     "markets": "Mercados",
     "help": "Ayuda",
     "settings": "Configuración",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "learn": "Aprender",
+    "admin": "Admin"
   },
   "trading": {
     "buy": "Comprar",
@@ -60,7 +62,8 @@
     "type": "Tipo",
     "amount": "Monto",
     "date": "Fecha",
-    "status": "Estado"
+    "status": "Estado",
+    "justification": "Justificación"
   },
   "markets": {
     "title": "Mercados Financieros",
@@ -71,12 +74,13 @@
   },
   "teacher": {
     "dashboard": "Panel del Docente",
-    "class_code": "Código de clase",
+    "class_code": "Código de Sala:",
     "students": "Estudiantes",
     "performance": "Rendimiento",
     "events": "Eventos históricos",
     "create_event": "Crear evento",
-    "simulator": "Simulador de mercado"
+    "simulator": "Simulador de mercado",
+    "no_students": "Aún no hay estudiantes en tu sala. Comparte tu código de sala para que puedan unirse."
   },
   "settings": {
     "title": "Configuración",
@@ -104,6 +108,54 @@
     "view": "Ver documento",
     "accept": "Aceptar",
     "decline": "Rechazar"
+  },
+  "positions": {
+    "empty": "No tienes posiciones abiertas.",
+    "hint": "Abre una operación para comenzar a operar.",
+    "close": "Cerrar posición"
+  },
+  "history": {
+    "empty": "No hay transacciones registradas.",
+    "hint": "Tus operaciones aparecerán aquí.",
+    "latest": "Últimas {{count}} transacciones",
+    "open": "Apertura",
+    "close": "Cierre",
+    "attachment": "Adjunto"
+  },
+  "trade": {
+    "mode_amount": "Invertir por Monto",
+    "mode_quantity": "Comprar por Cantidad",
+    "estimated_total": "Costo total estimado",
+    "justification_placeholder": "¿Por qué estás realizando esta operación?",
+    "attachment_label": "Adjuntar imagen (Opcional, PNG/JPG, máx 2MB)",
+    "file": "Archivo",
+    "available_balance": "Saldo disponible",
+    "operate": "Operar",
+    "important_info": "Información importante",
+    "note_virtual": "Todas las operaciones son simuladas con dinero virtual",
+    "note_prices": "Los precios se actualizan para simular el mercado.",
+    "note_close_positions": "Puedes cerrar tus posiciones desde la sección de Posiciones.",
+    "note_justification": "La justificación es obligatoria para cada operación."
+  },
+  "chart": {
+    "clear_drawings": "Limpiar dibujos",
+    "period": "Período",
+    "candles": "Velas",
+    "line": "Línea",
+    "heikin": "Heikin Ashi",
+    "trendline": "Línea de tendencia (Sim.)",
+    "timeframe": "TF",
+    "indicators": "Indicadores",
+    "exit_fullscreen": "Salir pantalla completa",
+    "fullscreen": "Pantalla completa"
+  },
+  "help": {
+    "description": "Encuentra información de contacto y recursos útiles.",
+    "teacher_contact": "Si tienes preguntas específicas sobre la clase o el contenido, puedes contactar a tu docente:",
+    "developer_support": "Soporte Técnico (Desarrollador)",
+    "developer_support_desc": "Para problemas técnicos con la plataforma, errores o sugerencias, contacta al desarrollador:",
+    "faq": "Preguntas Frecuentes (Próximamente)",
+    "faq_desc": "Estamos trabajando en una sección de preguntas frecuentes. ¡Vuelve pronto!"
   },
   "common": {
     "loading": "Cargando...",

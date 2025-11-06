@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTradingContext } from '@/contexts/TradingContext';
 import { Button } from '@/components/ui/button';
 import { formatCurrency, formatDate, COP_TO_USD_RATE } from '@/lib/market-data';
@@ -8,14 +9,15 @@ import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
 
 const PositionsList = () => {
   const { user, positions, closePosition, getCurrentPrice, symbols } = useTradingContext();
+  const { t } = useTranslation();
   
   if (!positions || positions.length === 0) {
     return (
       <div className="glass-card rounded-lg p-4">
-        <h2 className="text-xl font-bold mb-4">Posiciones Abiertas</h2>
+        <h2 className="text-xl font-bold mb-4">{t('trading.positions')}</h2>
         <div className="text-center py-8 text-muted-foreground">
-          <p>No tienes posiciones abiertas.</p>
-          <p className="text-sm mt-2">Abre una operación para comenzar a operar.</p>
+          <p>{t('positions.empty', { defaultValue: 'No open positions.' })}</p>
+          <p className="text-sm mt-2">{t('positions.hint', { defaultValue: 'Open a trade to get started.' })}</p>
         </div>
       </div>
     );
@@ -23,7 +25,7 @@ const PositionsList = () => {
   
   return (
     <div className="glass-card rounded-lg p-4">
-      <h2 className="text-xl font-bold mb-4">Posiciones Abiertas</h2>
+      <h2 className="text-xl font-bold mb-4">{t('trading.positions')}</h2>
       <div className="space-y-4 max-h-[400px] overflow-y-auto">
         {positions.map((position) => {
           const currentSymbolInfo = symbols.find(s => s.id === position.symbol);
@@ -70,7 +72,7 @@ const PositionsList = () => {
                     )}
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    {position.type === 'BUY' ? 'Compra' : 'Venta'} • {formatDate(position.openDate)}
+                    {position.type === 'BUY' ? t('trading.buy') : t('trading.sell')} • {formatDate(position.openDate)}
                   </p>
                 </div>
                 {user?.role === 'student' ? (
@@ -96,26 +98,26 @@ const PositionsList = () => {
               
               <div className="grid grid-cols-2 gap-2 text-sm mb-3">
                 <div>
-                  <p className="text-muted-foreground">Monto Invertido (USD)</p>
+                  <p className="text-muted-foreground">{t('trading.amount')} (USD)</p>
                   <p className="font-medium">{formatCurrency(position.amount, 'USD')}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Precio de entrada ({assetCurrency})</p>
+                  <p className="text-muted-foreground">{t('trading.price')} ({assetCurrency})</p>
                   <p className="font-medium">{formatCurrency(position.entryPrice, assetCurrency)}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Precio actual ({assetCurrency})</p>
+                  <p className="text-muted-foreground">{t('trading.market_price')} ({assetCurrency})</p>
                   <p className="font-medium">{formatCurrency(currentPriceInAssetCurrency, assetCurrency)}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Valor actual (USD)</p>
+                  <p className="text-muted-foreground">{t('dashboard.total_value')}</p>
                   <p className="font-medium">{formatCurrency(position.amount + unrealizedPL_USD, 'USD')}</p>
                 </div>
               </div>
               
               {position.justification && (
                 <div className="text-sm mb-3 p-2 bg-muted/50 rounded-md">
-                  <p className="text-muted-foreground text-xs">Justificación:</p>
+                  <p className="text-muted-foreground text-xs">{t('trading.justification', { defaultValue: 'Justification' })}:</p>
                   <p className="italic">{position.justification}</p>
                    {position.attachmentName && <p className="text-xs mt-1">Adjunto: {position.attachmentName}</p>}
                 </div>
@@ -126,7 +128,7 @@ const PositionsList = () => {
                 className="w-full"
                 onClick={() => closePosition(position.id)}
               >
-                Cerrar posición
+                {t('positions.close', { defaultValue: 'Close position' })}
               </Button>
             </motion.div>
           );

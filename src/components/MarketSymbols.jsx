@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTradingContext } from '@/contexts/TradingContext';
 import { formatCurrency, formatPercentage } from '@/lib/market-data';
 import { motion } from 'framer-motion';
@@ -19,10 +20,11 @@ const SymbolIcon = ({ type }) => {
 
 const MarketSymbols = () => {
   const { symbols, setSelectedSymbol, selectedSymbol } = useTradingContext();
+  const { t } = useTranslation();
   
   return (
     <div className="glass-card rounded-lg p-4">
-      <h2 className="text-xl font-bold mb-4">Mercados</h2>
+      <h2 className="text-xl font-bold mb-4">{t('markets.title')}</h2>
       <div className="space-y-2 max-h-[400px] overflow-y-auto">
         {symbols.map((symbol) => (
           <motion.div

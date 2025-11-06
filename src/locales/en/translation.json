@@ -43,7 +43,9 @@
     "markets": "Markets",
     "help": "Help",
     "settings": "Settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "learn": "Learn",
+    "admin": "Admin"
   },
   "trading": {
     "buy": "Buy",
@@ -60,7 +62,56 @@
     "type": "Type",
     "amount": "Amount",
     "date": "Date",
-    "status": "Status"
+    "status": "Status",
+    "justification": "Justification"
+  },
+  "positions": {
+    "empty": "No open positions.",
+    "hint": "Open a trade to get started.",
+    "close": "Close position"
+  },
+  "history": {
+    "empty": "No transactions yet.",
+    "hint": "Your trades will appear here.",
+    "latest": "Latest {{count}} transactions",
+    "open": "Open",
+    "close": "Close",
+    "attachment": "Attachment"
+  },
+  "trade": {
+    "mode_amount": "Invest by Amount",
+    "mode_quantity": "Buy by Quantity",
+    "estimated_total": "Estimated total",
+    "justification_placeholder": "Why are you making this trade?",
+    "attachment_label": "Attach image (Optional, PNG/JPG, max 2MB)",
+    "file": "File",
+    "available_balance": "Available balance",
+    "operate": "Trade",
+    "important_info": "Important information",
+    "note_virtual": "All trades are simulated with virtual money",
+    "note_prices": "Prices update to simulate the market.",
+    "note_close_positions": "You can close positions from the Positions section.",
+    "note_justification": "A justification is required for each trade."
+  },
+  "chart": {
+    "clear_drawings": "Clear drawings",
+    "period": "Period",
+    "candles": "Candles",
+    "line": "Line",
+    "heikin": "Heikin Ashi",
+    "trendline": "Trendline (Sim.)",
+    "timeframe": "TF",
+    "indicators": "Indicators",
+    "exit_fullscreen": "Exit Fullscreen",
+    "fullscreen": "Fullscreen"
+  },
+  "help": {
+    "description": "Find contact information and useful resources.",
+    "teacher_contact": "If you have class-specific questions, contact your teacher:",
+    "developer_support": "Technical Support (Developer)",
+    "developer_support_desc": "For technical issues, bugs or suggestions contact:",
+    "faq": "FAQ (Coming soon)",
+    "faq_desc": "We are working on a FAQ section. Check back soon!"
   },
   "markets": {
     "title": "Financial Markets",
@@ -76,7 +127,8 @@
     "performance": "Performance",
     "events": "Historical events",
     "create_event": "Create event",
-    "simulator": "Market simulator"
+    "simulator": "Market simulator",
+    "no_students": "There are no students in your room yet. Share your class code so they can join."
   },
   "settings": {
     "title": "Settings",

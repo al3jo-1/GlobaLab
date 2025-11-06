@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Home, BarChart2, LogOut, UserCircle, Settings, BookOpen, Briefcase, ShieldCheck, Info, Copy, CheckCircle, X } from 'lucide-react';
 import { useTradingContext } from '@/contexts/TradingContext';
@@ -9,6 +10,7 @@ import { useState } from 'react';
 
 const Sidebar = ({ onLinkClick }) => {
   const { user, logout } = useTradingContext();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
@@ -33,13 +35,13 @@ const Sidebar = ({ onLinkClick }) => {
   };
 
   const navItems = [
-    { name: 'Dashboard', icon: <Home className="h-5 w-5" />, path: '/', role: ['student', 'teacher'] },
-    { name: 'Mercados', icon: <BarChart2 className="h-5 w-5" />, path: '/markets', role: ['student', 'teacher'] },
-    { name: 'Portafolio', icon: <Briefcase className="h-5 w-5" />, path: '/portfolio', role: ['student', 'teacher'] },
-    { name: 'Aprender', icon: <BookOpen className="h-5 w-5" />, path: '/learn', role: ['student'] },
-    { name: 'Administrar', icon: <ShieldCheck className="h-5 w-5" />, path: '/admin', role: ['teacher'] },
-    { name: 'Configuración', icon: <Settings className="h-5 w-5" />, path: '/settings', role: ['student', 'teacher'] },
-    { name: 'Ayuda', icon: <Info className="h-5 w-5" />, path: '/help', role: ['student', 'teacher'] },
+    { name: t('navigation.dashboard'), icon: <Home className="h-5 w-5" />, path: '/', role: ['student', 'teacher'] },
+    { name: t('navigation.markets'), icon: <BarChart2 className="h-5 w-5" />, path: '/markets', role: ['student', 'teacher'] },
+    { name: t('navigation.portfolio'), icon: <Briefcase className="h-5 w-5" />, path: '/portfolio', role: ['student', 'teacher'] },
+    { name: t('navigation.learn', { defaultValue: 'Learn' }), icon: <BookOpen className="h-5 w-5" />, path: '/learn', role: ['student'] },
+    { name: t('navigation.admin', { defaultValue: 'Admin' }), icon: <ShieldCheck className="h-5 w-5" />, path: '/admin', role: ['teacher'] },
+    { name: t('navigation.settings'), icon: <Settings className="h-5 w-5" />, path: '/settings', role: ['student', 'teacher'] },
+    { name: t('navigation.help'), icon: <Info className="h-5 w-5" />, path: '/help', role: ['student', 'teacher'] },
   ];
 
   const handleNavLinkClick = () => {
@@ -99,7 +101,7 @@ const Sidebar = ({ onLinkClick }) => {
             <p className="text-xs text-muted-foreground capitalize mb-1">{user.role}</p>
             {user.role === 'teacher' && user.classCode && (
               <div className="mt-2">
-                <p className="text-xs text-muted-foreground">Código de Sala:</p>
+                <p className="text-xs text-muted-foreground">{t('teacher.class_code')}</p>
                 <div className="flex items-center justify-center bg-background p-2 rounded-md">
                   <span className="text-sm font-mono text-primary mr-2">{user.classCode}</span>
                   <Button variant="ghost" size="icon" onClick={handleCopyCode} className="h-6 w-6">
@@ -116,7 +118,7 @@ const Sidebar = ({ onLinkClick }) => {
               className="flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 hover:bg-primary/10 hover:text-primary text-muted-foreground"
             >
               <UserCircle className="h-5 w-5" />
-              <span>Iniciar Sesión</span>
+              <span>{t('login.button')}</span>
             </NavLink>
         )}
         
@@ -127,7 +129,7 @@ const Sidebar = ({ onLinkClick }) => {
             onClick={handleLogout}
           >
             <LogOut className="h-5 w-5" />
-            <span>Cerrar sesión</span>
+            <span>{t('navigation.logout')}</span>
           </Button>
         )}
       </div>
