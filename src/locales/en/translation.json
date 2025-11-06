@@ -172,5 +172,113 @@
     "edit": "Edit",
     "save": "Save",
     "back": "Back"
+  },
+  "landing": {
+    "access": "Access",
+    "hero": {
+      "title": "Learn Trading Safely",
+      "subtitle": "Educational trading simulation platform for students and teachers",
+      "for_education": "For Education",
+      "multilingual": "Multilingual",
+      "collaborative": "Collaborative"
+    },
+    "features": {
+      "education": {
+        "title": "Practical Education",
+        "description": "Learn trading risk-free with virtual money. Perfect for students who want to understand financial markets."
+      },
+      "management": {
+        "title": "Room Management",
+        "description": "Teachers can create multiple rooms and manage their students' progress in real-time."
+      },
+      "markets": {
+        "title": "Real Markets",
+        "description": "Access simulations of stocks, forex, and cryptocurrencies with updated market data."
+      }
+    },
+    "pricing": {
+      "title": "Plans for Teachers",
+      "subtitle": "Choose the plan that best fits your needs",
+      "recommended": "Recommended",
+      "students": "students",
+      "room": "room",
+      "rooms": "rooms",
+      "get_started": "Get Started"
+    },
+    "plans": {
+      "period": "/month",
+      "starter": {
+        "name": "Starter Plan",
+        "feature1": "Up to 10 students",
+        "feature2": "1 classroom",
+        "feature3": "Access to all markets",
+        "feature4": "Basic reports"
+      },
+      "professional": {
+        "name": "Professional Plan",
+        "feature1": "Up to 15 students",
+        "feature2": "2 classrooms",
+        "feature3": "Access to all markets",
+        "feature4": "Advanced reports",
+        "feature5": "Priority support"
+      },
+      "enterprise": {
+        "name": "Enterprise Plan",
+        "feature1": "Up to 20 students",
+        "feature2": "3 classrooms",
+        "feature3": "Access to all markets",
+        "feature4": "Custom reports",
+        "feature5": "24/7 support",
+        "feature6": "Advanced simulator"
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Join GlobalTradeLab and start learning trading today",
+      "register": "Register for Free",
+      "login": "Log In"
+    },
+    "footer": {
+      "rights": "All rights reserved.",
+      "disclaimer": "Educational platform - All trading is done with virtual money."
+    }
+  },
+  "rooms": {
+    "title": "Rooms",
+    "subtitle": "Manage your classrooms",
+    "plan_info": "Active rooms: {{current}} / {{max}}",
+    "create": "Create New Room",
+    "join": "New Room Code",
+    "no_rooms": "No rooms available",
+    "create_first": "Create your first room to get started",
+    "join_first": "Join a room to get started",
+    "students": "students",
+    "student_view": "Classroom",
+    "enter": "Enter",
+    "change": "Change room",
+    "limit_reached": "Limit reached",
+    "upgrade_plan": "Your plan allows maximum {{maxRooms}} rooms. Upgrade your plan to create more.",
+    "error_teacher_only": "Only teachers can create rooms",
+    "error_student_only": "Only students can join rooms",
+    "error_name": "Enter a name for the room",
+    "error_code": "Enter a room code",
+    "created": "Room created successfully",
+    "joined": "You have joined the room successfully",
+    "deleted": "Room deleted",
+    "confirm_delete": "Are you sure you want to delete this room?",
+    "create_modal": {
+      "title": "Create New Room",
+      "description": "Enter a name for your new classroom",
+      "name_label": "Room Name",
+      "name_placeholder": "E.g.: Trading Class 2025",
+      "button": "Create Room"
+    },
+    "join_modal": {
+      "title": "Join a Room",
+      "description": "Enter the room code provided by your teacher",
+      "code_label": "Room Code",
+      "code_placeholder": "E.g.: ABC123",
+      "button": "Join"
+    }
   }
 }
