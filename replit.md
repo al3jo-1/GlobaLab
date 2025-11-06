@@ -37,13 +37,16 @@ GlobalTradeLab is a trading simulation platform for educational purposes. It all
 - Uses Vite with hot module replacement
 
 ## Recent Changes
-- 2025-11-06: Traducciones completas y código de sala visible
-  - ✅ Completadas todas las traducciones faltantes en los 8 idiomas soportados (es, en, ru, de, fr, pt, it, hi)
-  - ✅ Agregadas secciones "landing" y "rooms" a todos los archivos de traducción
-  - ✅ Código de sala ahora visible para estudiantes en el Sidebar (debajo del selector de sala)
-  - ✅ Funcionalidad de copiar al portapapeles para estudiantes
-  - ✅ Mensajes de toast completamente traducidos (eliminados textos hardcodeados en español)
-  - ✅ Ambos roles (profesor y estudiante) pueden ver y copiar el código de sala actual
+- 2025-11-06: Chatbot educativo y traducciones completas
+  - ✅ Chatbot de educación financiera integrado en HelpPage con respuestas simuladas
+  - ✅ Traducciones completas del chatbot en los 8 idiomas soportados
+  - ✅ Completadas todas las traducciones faltantes en los 8 idiomas (es, en, ru, de, fr, pt, it, hi)
+  - ✅ Agregadas secciones "common", "auth", "landing", "rooms" y "chatbot" a todos los archivos de traducción
+  - ✅ Código de sala movido arriba del botón de cerrar sesión en el Sidebar (visible para ambos roles)
+  - ✅ Funcionalidad de copiar al portapapeles del código de sala para profesores y estudiantes
+  - ✅ Todos los mensajes toast ahora usan traducciones i18next (eliminados textos hardcodeados)
+  - ✅ TradingContext y useAuthManager completamente traducidos
+  - ✅ Archivos JSON validados y corregidos (sintaxis correcta)
 
 - 2025-11-06: Sistema multi-salas y landing page implementados
   - ✅ Landing page tipo Disney+ con 3 planes de precios ($10, $19, y tier empresarial)

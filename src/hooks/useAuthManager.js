@@ -1,21 +1,21 @@
 
 import { useToast } from "@/components/ui/use-toast";
 
-export const useAuthManager = ({ allUsers, setAllUsers, setCurrentUserEmail, saveCurrentUserEmail, toast, generateClassCode }) => {
+export const useAuthManager = ({ allUsers, setAllUsers, setCurrentUserEmail, saveCurrentUserEmail, toast, generateClassCode, t }) => {
   const login = (loginData) => {
     const userExists = allUsers.find(u => u.email === loginData.email && u.password === loginData.password);
     if (userExists) {
       setCurrentUserEmail(userExists.email);
       saveCurrentUserEmail(userExists.email);
       toast({
-        title: "Inicio de sesión exitoso",
-        description: `Bienvenido de nuevo, ${userExists.name}!`,
+        title: t('auth.login_success'),
+        description: t('auth.login_success_message', { name: userExists.name }),
       });
       return true;
     } else {
       toast({
-        title: "Error de inicio de sesión",
-        description: "Correo electrónico o contraseña incorrectos.",
+        title: t('auth.login_error'),
+        description: t('auth.login_error_message'),
         variant: "destructive",
       });
       return false;
@@ -26,8 +26,8 @@ export const useAuthManager = ({ allUsers, setAllUsers, setCurrentUserEmail, sav
     setCurrentUserEmail(null);
     saveCurrentUserEmail(null);
     toast({
-      title: "Sesión cerrada",
-      description: "Has cerrado sesión correctamente",
+      title: t('auth.logout_success'),
+      description: t('auth.logout_success_message'),
     });
   };
   
@@ -35,8 +35,8 @@ export const useAuthManager = ({ allUsers, setAllUsers, setCurrentUserEmail, sav
     const userExists = allUsers.find(u => u.email === userData.email);
     if (userExists) {
       toast({
-        title: "Error de registro",
-        description: "Este correo electrónico ya está registrado.",
+        title: t('auth.register_error'),
+        description: t('auth.register_error_duplicate'),
         variant: "destructive",
       });
       return null;
@@ -60,8 +60,8 @@ export const useAuthManager = ({ allUsers, setAllUsers, setCurrentUserEmail, sav
     saveCurrentUserEmail(newUser.email);
     
     toast({
-      title: "Registro exitoso",
-      description: `Bienvenido, ${newUser.name}! Tu cuenta ha sido creada.`,
+      title: t('auth.register_success'),
+      description: t('auth.register_success_message', { name: newUser.name }),
     });
     return newUser;
   };

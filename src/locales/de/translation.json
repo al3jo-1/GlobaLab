@@ -1,6 +1,12 @@
 {
   "app_name": "GlobalTradeLab",
   "welcome": "Willkommen bei",
+  "common": {
+    "error": "Fehler",
+    "success": "Erfolg",
+    "copy": "In Zwischenablage kopiert",
+    "copy_error": "Kopieren fehlgeschlagen"
+  },
   "login": {
     "title": "Melden Sie sich bei Ihrem Konto an, um fortzufahren",
     "email": "E-Mail-Adresse",
@@ -27,6 +33,26 @@
     "error_name": "Der Name muss mindestens 2 Zeichen lang sein",
     "error_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
     "error_password": "Das Passwort muss mindestens 6 Zeichen lang sein"
+  },
+  "auth": {
+    "login_success": "Anmeldung erfolgreich",
+    "login_success_message": "Willkommen zurück, {{name}}!",
+    "login_error": "Anmeldefehler",
+    "login_error_message": "Falsche E-Mail oder Passwort.",
+    "logout_success": "Sitzung beendet",
+    "logout_success_message": "Sie haben sich erfolgreich abgemeldet",
+    "register_error": "Registrierungsfehler",
+    "register_error_duplicate": "Diese E-Mail-Adresse ist bereits registriert.",
+    "register_success": "Registrierung erfolgreich",
+    "register_success_message": "Willkommen, {{name}}! Ihr Konto wurde erstellt.",
+    "error_student_only": "Nur Studenten können Räumen beitreten",
+    "invalid_code": "Ungültiger Code",
+    "invalid_code_message": "Der Raumcode existiert nicht",
+    "already_joined": "Sie sind bereits in diesem Raum",
+    "already_joined_message": "Sie sind diesem Raum bereits beigetreten",
+    "error_teacher_only": "Nur Lehrer können Räume erstellen",
+    "limit_reached": "Limit erreicht",
+    "limit_reached_message": "Ihr Plan erlaubt maximal {{max}} Räume"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -282,5 +308,11 @@
       "code_placeholder": "Z.B.: ABC123",
       "button": "Beitreten"
     }
+  },
+  "chatbot": {
+    "title": "Finanzbildungsassistent",
+    "description": "Fragen Sie mich über Trading, Investitionen und Finanzkonzepte",
+    "welcome": "Hallo! Ich bin Ihr Assistent für Finanzbildung. Ich kann Ihnen helfen, über Trading, Investitionen und Finanzen zu lernen. Wie kann ich Ihnen helfen?",
+    "placeholder": "Geben Sie Ihre Frage zu Finanzen ein..."
   }
 }

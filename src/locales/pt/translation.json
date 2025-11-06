@@ -1,6 +1,12 @@
 {
   "app_name": "GlobalTradeLab",
   "welcome": "Bem-vindo ao",
+  "common": {
+    "error": "Erro",
+    "success": "Sucesso",
+    "copy": "Copiado para área de transferência",
+    "copy_error": "Não foi possível copiar"
+  },
   "login": {
     "title": "Entre na sua conta para continuar",
     "email": "Endereço de e-mail",
@@ -27,6 +33,26 @@
     "error_name": "O nome deve ter pelo menos 2 caracteres",
     "error_email": "Por favor, insira um endereço de e-mail válido",
     "error_password": "A senha deve ter pelo menos 6 caracteres"
+  },
+  "auth": {
+    "login_success": "Login bem-sucedido",
+    "login_success_message": "Bem-vindo de volta, {{name}}!",
+    "login_error": "Erro de login",
+    "login_error_message": "E-mail ou senha incorretos.",
+    "logout_success": "Sessão encerrada",
+    "logout_success_message": "Você saiu com sucesso",
+    "register_error": "Erro de cadastro",
+    "register_error_duplicate": "Este endereço de e-mail já está registrado.",
+    "register_success": "Cadastro bem-sucedido",
+    "register_success_message": "Bem-vindo, {{name}}! Sua conta foi criada.",
+    "error_student_only": "Apenas estudantes podem entrar em salas",
+    "invalid_code": "Código inválido",
+    "invalid_code_message": "O código da sala não existe",
+    "already_joined": "Você já está nesta sala",
+    "already_joined_message": "Você já entrou nesta sala antes",
+    "error_teacher_only": "Apenas professores podem criar salas",
+    "limit_reached": "Limite atingido",
+    "limit_reached_message": "Seu plano permite no máximo {{max}} salas"
   },
   "dashboard": {
     "title": "Painel de Controle",
@@ -282,5 +308,11 @@
       "code_placeholder": "Ex: ABC123",
       "button": "Entrar"
     }
+  },
+  "chatbot": {
+    "title": "Assistente de Educação Financeira",
+    "description": "Pergunte-me sobre trading, investimentos e conceitos financeiros",
+    "welcome": "Olá! Sou seu assistente de educação financeira. Posso ajudá-lo a aprender sobre trading, investimentos e finanças. Como posso ajudar?",
+    "placeholder": "Digite sua pergunta sobre finanças..."
   }
 }

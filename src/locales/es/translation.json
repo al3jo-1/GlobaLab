@@ -1,6 +1,12 @@
 {
   "app_name": "GlobalTradeLab",
   "welcome": "Bienvenido a",
+  "common": {
+    "error": "Error",
+    "success": "Éxito",
+    "copy": "Copiado al portapapeles",
+    "copy_error": "No se pudo copiar"
+  },
   "login": {
     "title": "Inicia sesión en tu cuenta para continuar",
     "email": "Correo electrónico",
@@ -27,6 +33,26 @@
     "error_name": "El nombre debe tener al menos 2 caracteres",
     "error_email": "Por favor ingresa un correo electrónico válido",
     "error_password": "La contraseña debe tener al menos 6 caracteres"
+  },
+  "auth": {
+    "login_success": "Inicio de sesión exitoso",
+    "login_success_message": "Bienvenido de nuevo, {{name}}!",
+    "login_error": "Error de inicio de sesión",
+    "login_error_message": "Correo electrónico o contraseña incorrectos.",
+    "logout_success": "Sesión cerrada",
+    "logout_success_message": "Has cerrado sesión correctamente",
+    "register_error": "Error de registro",
+    "register_error_duplicate": "Este correo electrónico ya está registrado.",
+    "register_success": "Registro exitoso",
+    "register_success_message": "Bienvenido, {{name}}! Tu cuenta ha sido creada.",
+    "error_student_only": "Solo los estudiantes pueden unirse a salas",
+    "invalid_code": "Código inválido",
+    "invalid_code_message": "El código de sala no existe",
+    "already_joined": "Ya estás en esta sala",
+    "already_joined_message": "Ya te has unido a esta sala anteriormente",
+    "error_teacher_only": "Solo los profesores pueden crear salas",
+    "limit_reached": "Límite alcanzado",
+    "limit_reached_message": "Tu plan permite máximo {{max}} salas"
   },
   "dashboard": {
     "title": "Panel de Control",
@@ -282,5 +308,11 @@
       "code_placeholder": "Ej: ABC123",
       "button": "Unirse"
     }
+  },
+  "chatbot": {
+    "title": "Asistente de Educación Financiera",
+    "description": "Pregúntame sobre trading, inversiones y conceptos financieros",
+    "welcome": "¡Hola! Soy tu asistente de educación financiera. Puedo ayudarte a aprender sobre trading, inversiones y finanzas. ¿En qué puedo ayudarte?",
+    "placeholder": "Escribe tu pregunta sobre finanzas..."
   }
 }

@@ -94,14 +94,17 @@ const Sidebar = ({ onLinkClick }) => {
       
       <div className="mt-auto">
         {user ? (
-          <div className="text-center mb-4 p-3 bg-secondary/30 rounded-lg">
-            <UserCircle className="h-10 w-10 mx-auto mb-2 text-primary" />
-            <p className="text-sm font-medium">{user.name}</p>
-            <p className="text-xs text-muted-foreground">{user.email}</p>
-            <p className="text-xs text-muted-foreground capitalize mb-1">{user.role}</p>
+          <>
+            <div className="text-center mb-4 p-3 bg-secondary/30 rounded-lg">
+              <UserCircle className="h-10 w-10 mx-auto mb-2 text-primary" />
+              <p className="text-sm font-medium">{user.name}</p>
+              <p className="text-xs text-muted-foreground">{user.email}</p>
+              <p className="text-xs text-muted-foreground capitalize">{user.role}</p>
+            </div>
+            
             {user.role === 'teacher' && user.classCode && (
-              <div className="mt-2">
-                <p className="text-xs text-muted-foreground">{t('teacher.class_code')}</p>
+              <div className="mb-4 p-3 bg-secondary/30 rounded-lg">
+                <p className="text-xs text-muted-foreground text-center mb-2">{t('teacher.class_code')}</p>
                 <div className="flex items-center justify-center bg-background p-2 rounded-md">
                   <span className="text-sm font-mono text-primary mr-2">{user.classCode}</span>
                   <Button variant="ghost" size="icon" onClick={handleCopyCode} className="h-6 w-6">
@@ -110,11 +113,12 @@ const Sidebar = ({ onLinkClick }) => {
                 </div>
               </div>
             )}
+            
             {user.role === 'student' && user.rooms && user.rooms.length > 0 && (() => {
               const currentRoom = user.rooms.find(r => r.id === user.selectedRoomId) || user.rooms[0];
               return currentRoom && (
-                <div className="mt-2">
-                  <p className="text-xs text-muted-foreground">{t('teacher.class_code')}</p>
+                <div className="mb-4 p-3 bg-secondary/30 rounded-lg">
+                  <p className="text-xs text-muted-foreground text-center mb-2">{t('teacher.class_code')}</p>
                   <div className="flex items-center justify-center bg-background p-2 rounded-md">
                     <span className="text-sm font-mono text-primary mr-2">{currentRoom.classCode}</span>
                     <Button variant="ghost" size="icon" onClick={() => {
@@ -133,7 +137,7 @@ const Sidebar = ({ onLinkClick }) => {
                 </div>
               );
             })()}
-          </div>
+          </>
         ) : (
            <NavLink
               to="/login"

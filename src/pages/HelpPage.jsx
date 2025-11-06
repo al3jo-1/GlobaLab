@@ -3,10 +3,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTradingContext } from '@/contexts/TradingContext';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
-import { HelpCircle, LifeBuoy, Mail, UserCheck, Copy } from 'lucide-react';
+import { HelpCircle, LifeBuoy, Mail, UserCheck, Copy, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useToast } from "@/components/ui/use-toast";
+import FinancialChatbot from '@/components/chatbot/FinancialChatbot';
 
 const HelpPage = () => {
   const { user, allUsers } = useTradingContext();
@@ -55,6 +56,17 @@ const HelpPage = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
+          
+          <div className="p-6 border border-border rounded-lg bg-background/50">
+            <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <MessageCircle className="mr-2 h-5 w-5 text-primary/80" />
+              {t('chatbot.title', { defaultValue: 'Asistente de Educación Financiera' })}
+            </h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              {t('chatbot.description', { defaultValue: 'Pregúntame sobre trading, inversiones y conceptos financieros' })}
+            </p>
+            <FinancialChatbot />
+          </div>
           
           {user?.role === 'student' && teacherEmail && (
             <div className="p-6 border border-border rounded-lg bg-background/50">

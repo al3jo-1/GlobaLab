@@ -1,5 +1,6 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useToast } from '@/components/ui/use-toast';
 import { generateMarketData, COP_TO_USD_RATE } from '@/lib/market-data';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
@@ -18,6 +19,7 @@ const generateClassCode = () => {
 
 export const TradingProvider = ({ children }) => {
   const { toast } = useToast();
+  const { t } = useTranslation();
   
   const [allUsers, setAllUsers, saveAllUsers] = useLocalStorage('allTradingUsers', []);
   const [currentUserEmail, setCurrentUserEmail, saveCurrentUserEmail] = useLocalStorage('currentTradingUserEmail', null);
@@ -89,7 +91,8 @@ export const TradingProvider = ({ children }) => {
     setCurrentUserEmail,
     saveCurrentUserEmail,
     toast, 
-    generateClassCode
+    generateClassCode,
+    t
   });
 
   const { openPosition, closePosition } = usePortfolioManager({
@@ -156,8 +159,8 @@ export const TradingProvider = ({ children }) => {
   const createRoom = (roomName) => {
     if (!currentUser || currentUser.role !== 'teacher') {
       toast({
-        title: "Error",
-        description: "Solo los profesores pueden crear salas",
+        title: t('common.error'),
+        description: t('auth.error_teacher_only'),
         variant: "destructive",
       });
       return false;
@@ -166,8 +169,8 @@ export const TradingProvider = ({ children }) => {
     const plan = getUserPlan();
     if ((currentUser.rooms || []).length >= plan.maxRooms) {
       toast({
-        title: "Límite alcanzado",
-        description: `Tu plan permite máximo ${plan.maxRooms} salas`,
+        title: t('auth.limit_reached'),
+        description: t('auth.limit_reached_message', { max: plan.maxRooms }),
         variant: "destructive",
       });
       return false;
@@ -202,8 +205,8 @@ export const TradingProvider = ({ children }) => {
   const joinRoom = (roomCode) => {
     if (!currentUser || currentUser.role !== 'student') {
       toast({
-        title: "Error",
-        description: "Solo los estudiantes pueden unirse a salas",
+        title: t('common.error'),
+        description: t('auth.error_student_only'),
         variant: "destructive",
       });
       return false;
@@ -212,8 +215,8 @@ export const TradingProvider = ({ children }) => {
     const teacher = allUsers.find(u => u.role === 'teacher' && (u.rooms || []).some(r => r.classCode === roomCode));
     if (!teacher) {
       toast({
-        title: "Código inválido",
-        description: "El código de sala no existe",
+        title: t('auth.invalid_code'),
+        description: t('auth.invalid_code_message'),
         variant: "destructive",
       });
       return false;
@@ -224,8 +227,8 @@ export const TradingProvider = ({ children }) => {
 
     if (alreadyJoined) {
       toast({
-        title: "Ya estás en esta sala",
-        description: "Ya te has unido a esta sala anteriormente",
+        title: t('auth.already_joined'),
+        description: t('auth.already_joined_message'),
         variant: "destructive",
       });
       return false;

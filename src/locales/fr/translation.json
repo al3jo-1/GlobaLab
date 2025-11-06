@@ -1,6 +1,12 @@
 {
   "app_name": "GlobalTradeLab",
   "welcome": "Bienvenue sur",
+  "common": {
+    "error": "Erreur",
+    "success": "Succès",
+    "copy": "Copié dans le presse-papiers",
+    "copy_error": "Impossible de copier"
+  },
   "login": {
     "title": "Connectez-vous à votre compte pour continuer",
     "email": "Adresse e-mail",
@@ -27,6 +33,26 @@
     "error_name": "Le nom doit contenir au moins 2 caractères",
     "error_email": "Veuillez saisir une adresse e-mail valide",
     "error_password": "Le mot de passe doit contenir au moins 6 caractères"
+  },
+  "auth": {
+    "login_success": "Connexion réussie",
+    "login_success_message": "Bon retour, {{name}}!",
+    "login_error": "Erreur de connexion",
+    "login_error_message": "E-mail ou mot de passe incorrect.",
+    "logout_success": "Session fermée",
+    "logout_success_message": "Vous vous êtes déconnecté avec succès",
+    "register_error": "Erreur d'inscription",
+    "register_error_duplicate": "Cette adresse e-mail est déjà enregistrée.",
+    "register_success": "Inscription réussie",
+    "register_success_message": "Bienvenue, {{name}}! Votre compte a été créé.",
+    "error_student_only": "Seuls les étudiants peuvent rejoindre des salles",
+    "invalid_code": "Code invalide",
+    "invalid_code_message": "Le code de salle n'existe pas",
+    "already_joined": "Vous êtes déjà dans cette salle",
+    "already_joined_message": "Vous avez déjà rejoint cette salle auparavant",
+    "error_teacher_only": "Seuls les enseignants peuvent créer des salles",
+    "limit_reached": "Limite atteinte",
+    "limit_reached_message": "Votre forfait permet un maximum de {{max}} salles"
   },
   "dashboard": {
     "title": "Tableau de Bord",
@@ -282,5 +308,11 @@
       "code_placeholder": "Ex: ABC123",
       "button": "Rejoindre"
     }
+  },
+  "chatbot": {
+    "title": "Assistant d'éducation financière",
+    "description": "Demandez-moi sur le trading, les investissements et les concepts financiers",
+    "welcome": "Bonjour! Je suis votre assistant d'éducation financière. Je peux vous aider à apprendre sur le trading, les investissements et les finances. Comment puis-je vous aider?",
+    "placeholder": "Tapez votre question sur les finances..."
   }
 }

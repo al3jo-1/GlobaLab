@@ -1,6 +1,12 @@
 {
   "app_name": "GlobalTradeLab",
   "welcome": "Benvenuto su",
+  "common": {
+    "error": "Errore",
+    "success": "Successo",
+    "copy": "Copiato negli appunti",
+    "copy_error": "Impossibile copiare"
+  },
   "login": {
     "title": "Accedi al tuo account per continuare",
     "email": "Indirizzo email",
@@ -27,6 +33,26 @@
     "error_name": "Il nome deve contenere almeno 2 caratteri",
     "error_email": "Inserisci un indirizzo email valido",
     "error_password": "La password deve contenere almeno 6 caratteri"
+  },
+  "auth": {
+    "login_success": "Accesso riuscito",
+    "login_success_message": "Bentornato, {{name}}!",
+    "login_error": "Errore di accesso",
+    "login_error_message": "Email o password errati.",
+    "logout_success": "Sessione chiusa",
+    "logout_success_message": "Hai effettuato il logout con successo",
+    "register_error": "Errore di registrazione",
+    "register_error_duplicate": "Questo indirizzo email è già registrato.",
+    "register_success": "Registrazione riuscita",
+    "register_success_message": "Benvenuto, {{name}}! Il tuo account è stato creato.",
+    "error_student_only": "Solo gli studenti possono unirsi alle stanze",
+    "invalid_code": "Codice non valido",
+    "invalid_code_message": "Il codice della stanza non esiste",
+    "already_joined": "Sei già in questa stanza",
+    "already_joined_message": "Ti sei già unito a questa stanza in precedenza",
+    "error_teacher_only": "Solo gli insegnanti possono creare stanze",
+    "limit_reached": "Limite raggiunto",
+    "limit_reached_message": "Il tuo piano consente un massimo di {{max}} stanze"
   },
   "dashboard": {
     "title": "Pannello di Controllo",
@@ -282,5 +308,11 @@
       "code_placeholder": "Es: ABC123",
       "button": "Unisciti"
     }
+  },
+  "chatbot": {
+    "title": "Assistente di educazione finanziaria",
+    "description": "Chiedimi di trading, investimenti e concetti finanziari",
+    "welcome": "Ciao! Sono il tuo assistente di educazione finanziaria. Posso aiutarti a imparare su trading, investimenti e finanze. Come posso aiutarti?",
+    "placeholder": "Digita la tua domanda sulle finanze..."
   }
 }

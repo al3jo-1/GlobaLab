@@ -1,6 +1,12 @@
 {
   "app_name": "GlobalTradeLab",
   "welcome": "में आपका स्वागत है",
+  "common": {
+    "error": "त्रुटि",
+    "success": "सफलता",
+    "copy": "क्लिपबोर्ड में कॉपी किया गया",
+    "copy_error": "कॉपी करने में असमर्थ"
+  },
   "login": {
     "title": "जारी रखने के लिए अपने खाते में साइन इन करें",
     "email": "ईमेल पता",
@@ -27,6 +33,26 @@
     "error_name": "नाम कम से कम 2 वर्णों का होना चाहिए",
     "error_email": "कृपया एक वैध ईमेल पता दर्ज करें",
     "error_password": "पासवर्ड कम से कम 6 वर्णों का होना चाहिए"
+  },
+  "auth": {
+    "login_success": "लॉगइन सफल",
+    "login_success_message": "वापस स्वागत है, {{name}}!",
+    "login_error": "लॉगइन त्रुटि",
+    "login_error_message": "गलत ईमेल या पासवर्ड।",
+    "logout_success": "सत्र बंद",
+    "logout_success_message": "आप सफलतापूर्वक लॉग आउट हो गए हैं",
+    "register_error": "पंजीकरण त्रुटि",
+    "register_error_duplicate": "यह ईमेल पता पहले से पंजीकृत है।",
+    "register_success": "पंजीकरण सफल",
+    "register_success_message": "स्वागत है, {{name}}! आपका खाता बन गया है।",
+    "error_student_only": "केवल छात्र कमरों में शामिल हो सकते हैं",
+    "invalid_code": "अमान्य कोड",
+    "invalid_code_message": "कमरा कोड मौजूद नहीं है",
+    "already_joined": "आप पहले से इस कमरे में हैं",
+    "already_joined_message": "आप पहले ही इस कमरे में शामिल हो चुके हैं",
+    "error_teacher_only": "केवल शिक्षक कमरे बना सकते हैं",
+    "limit_reached": "सीमा पहुंच गई",
+    "limit_reached_message": "आपकी योजना अधिकतम {{max}} कमरों की अनुमति देती है"
   },
   "dashboard": {
     "title": "डैशबोर्ड",
@@ -282,5 +308,11 @@
       "code_placeholder": "उदा: ABC123",
       "button": "शामिल हों"
     }
+  },
+  "chatbot": {
+    "title": "वित्तीय शिक्षा सहायक",
+    "description": "मुझसे ट्रेडिंग, निवेश और वित्तीय अवधारणाओं के बारे में पूछें",
+    "welcome": "नमस्ते! मैं आपका वित्तीय शिक्षा सहायक हूं। मैं आपको ट्रेडिंग, निवेश और वित्त के बारे में सीखने में मदद कर सकता हूं। मैं आपकी कैसे मदद कर सकता हूं?",
+    "placeholder": "वित्त के बारे में अपना प्रश्न टाइप करें..."
   }
 }

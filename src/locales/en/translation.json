@@ -1,6 +1,12 @@
 {
   "app_name": "GlobalTradeLab",
   "welcome": "Welcome to",
+  "common": {
+    "error": "Error",
+    "success": "Success",
+    "copy": "Copied to clipboard",
+    "copy_error": "Unable to copy"
+  },
   "login": {
     "title": "Sign in to your account to continue",
     "email": "Email address",
@@ -27,6 +33,26 @@
     "error_name": "Name must be at least 2 characters",
     "error_email": "Please enter a valid email address",
     "error_password": "Password must be at least 6 characters"
+  },
+  "auth": {
+    "login_success": "Login successful",
+    "login_success_message": "Welcome back, {{name}}!",
+    "login_error": "Login error",
+    "login_error_message": "Incorrect email or password.",
+    "logout_success": "Session closed",
+    "logout_success_message": "You have successfully logged out",
+    "register_error": "Registration error",
+    "register_error_duplicate": "This email address is already registered.",
+    "register_success": "Registration successful",
+    "register_success_message": "Welcome, {{name}}! Your account has been created.",
+    "error_student_only": "Only students can join rooms",
+    "invalid_code": "Invalid code",
+    "invalid_code_message": "The room code does not exist",
+    "already_joined": "You are already in this room",
+    "already_joined_message": "You have already joined this room before",
+    "error_teacher_only": "Only teachers can create rooms",
+    "limit_reached": "Limit reached",
+    "limit_reached_message": "Your plan allows a maximum of {{max}} rooms"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -282,5 +308,11 @@
       "code_placeholder": "E.g.: ABC123",
       "button": "Join"
     }
+  },
+  "chatbot": {
+    "title": "Financial Education Assistant",
+    "description": "Ask me about trading, investments and financial concepts",
+    "welcome": "Hello! I'm your financial education assistant. I can help you learn about trading, investments and finance. How can I help you?",
+    "placeholder": "Type your question about finance..."
   }
 }
