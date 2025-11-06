@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Plus, Users, LogOut, TrendingUp, Trash2, AlertCircle } from 'lucide-react';
 import { useTradingContext } from '@/contexts/TradingContext';
-import { useToast } from '@/hooks/use-toast';
+import { useToast } from '@/components/ui/use-toast';
 import LanguageSelector from '@/components/LanguageSelector';
 
 const RoomSelection = () => {
