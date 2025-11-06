@@ -37,11 +37,21 @@ GlobalTradeLab is a trading simulation platform for educational purposes. It all
 - Uses Vite with hot module replacement
 
 ## Recent Changes
+- 2025-11-06: Sistema multi-salas y landing page implementados
+  - ✅ Landing page tipo Disney+ con 3 planes de precios ($10, $19, y tier empresarial)
+  - ✅ Sistema de salas múltiples: profesores pueden crear salas según su plan, estudiantes pueden unirse con código
+  - ✅ Interfaz de selección de salas tipo Aternos con opciones de crear/unirse
+  - ✅ Estudiantes ya NO ingresan código durante registro, se unen después en /rooms
+  - ✅ Rutas actualizadas: /welcome (landing), /rooms (selección), rutas protegidas requieren sala activa
+  - ✅ Botón de cambiar salas en el Header
+  - ✅ Traducciones completas en español e inglés para todo el sistema de salas
+  - ✅ Códigos de sala únicos y no repetibles generados automáticamente
+  - ✅ Límites de salas basados en plan: Starter (1), Professional (2), Enterprise (3)
+  
 - 2025-11-05: Mejoras de calidad y correcciones
   - ✅ Corregida conversión de precios: Acciones colombianas ahora se convierten correctamente de miles de COP a USD (×1000 × tasa de cambio)
   - ✅ Validación visual mejorada: Campos de login y registro se marcan en rojo cuando hay errores
   - ✅ Manejo de errores mejorado: Logging activado en useLocalStorage para mejor debugging
-  - Todos los cambios revisados y aprobados por arquitecto
   
 - 2025-11-05: Initial setup for Replit environment
   - Configured Vite to bind to 0.0.0.0:5000
