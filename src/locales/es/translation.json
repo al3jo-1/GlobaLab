@@ -80,7 +80,9 @@
     "events": "Eventos históricos",
     "create_event": "Crear evento",
     "simulator": "Simulador de mercado",
-    "no_students": "Aún no hay estudiantes en tu sala. Comparte tu código de sala para que puedan unirse."
+    "no_students": "Aún no hay estudiantes en tu sala. Comparte tu código de sala para que puedan unirse.",
+    "code_copied": "¡Copiado!",
+    "code_copied_description": "Código de sala copiado al portapapeles."
   },
   "settings": {
     "title": "Configuración",

@@ -80,7 +80,9 @@
     "events": "Eventi storici",
     "create_event": "Crea evento",
     "simulator": "Simulatore di mercato",
-    "no_students": "Non ci sono ancora studenti nella tua classe. Condividi il codice per farli unire."
+    "no_students": "Non ci sono ancora studenti nella tua classe. Condividi il codice per farli unire.",
+    "code_copied": "Copiato!",
+    "code_copied_description": "Codice stanza copiato negli appunti."
   },
   "settings": {
     "title": "Impostazioni",

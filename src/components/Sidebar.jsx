@@ -26,8 +26,8 @@ const Sidebar = ({ onLinkClick }) => {
       navigator.clipboard.writeText(user.classCode).then(() => {
         setCopied(true);
         toast({
-          title: "¡Copiado!",
-          description: "Código de sala copiado al portapapeles.",
+          title: t('teacher.code_copied'),
+          description: t('teacher.code_copied_description'),
         });
         setTimeout(() => setCopied(false), 2000);
       });
@@ -110,6 +110,29 @@ const Sidebar = ({ onLinkClick }) => {
                 </div>
               </div>
             )}
+            {user.role === 'student' && user.rooms && user.rooms.length > 0 && (() => {
+              const currentRoom = user.rooms.find(r => r.id === user.selectedRoomId) || user.rooms[0];
+              return currentRoom && (
+                <div className="mt-2">
+                  <p className="text-xs text-muted-foreground">{t('teacher.class_code')}</p>
+                  <div className="flex items-center justify-center bg-background p-2 rounded-md">
+                    <span className="text-sm font-mono text-primary mr-2">{currentRoom.classCode}</span>
+                    <Button variant="ghost" size="icon" onClick={() => {
+                      navigator.clipboard.writeText(currentRoom.classCode).then(() => {
+                        setCopied(true);
+                        toast({
+                          title: t('teacher.code_copied'),
+                          description: t('teacher.code_copied_description'),
+                        });
+                        setTimeout(() => setCopied(false), 2000);
+                      });
+                    }} className="h-6 w-6">
+                      {copied ? <CheckCircle className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4 text-muted-foreground" />}
+                    </Button>
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         ) : (
            <NavLink

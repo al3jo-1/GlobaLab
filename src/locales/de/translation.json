@@ -80,7 +80,9 @@
     "events": "Historische Ereignisse",
     "create_event": "Ereignis erstellen",
     "simulator": "Marktsimulator",
-    "no_students": "Es gibt noch keine Studenten in Ihrem Raum. Teilen Sie Ihren Klassencode, damit sie beitreten können."
+    "no_students": "Es gibt noch keine Studenten in Ihrem Raum. Teilen Sie Ihren Klassencode, damit sie beitreten können.",
+    "code_copied": "Kopiert!",
+    "code_copied_description": "Raumcode in Zwischenablage kopiert."
   },
   "settings": {
     "title": "Einstellungen",

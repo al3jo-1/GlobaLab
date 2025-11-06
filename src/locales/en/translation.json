@@ -128,7 +128,9 @@
     "events": "Historical events",
     "create_event": "Create event",
     "simulator": "Market simulator",
-    "no_students": "There are no students in your room yet. Share your class code so they can join."
+    "no_students": "There are no students in your room yet. Share your class code so they can join.",
+    "code_copied": "Copied!",
+    "code_copied_description": "Room code copied to clipboard."
   },
   "settings": {
     "title": "Settings",
