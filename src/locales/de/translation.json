@@ -137,7 +137,7 @@
     "note_close_positions": "Positionen können im Bereich Positionen geschlossen werden.",
     "note_justification": "Für jeden Trade ist eine Begründung erforderlich."
   },
-  **"chart": {
+  "chart": {
     "clear_drawings": "Zeichnungen löschen",
     "period": "Zeitraum",
     "candles": "Kerzen",
@@ -148,7 +148,7 @@
     "indicators": "Indikatoren",
     "exit_fullscreen": "Vollbild verlassen",
     "fullscreen": "Vollbild"
-  },**
+  },
   "help": {
     "description": "Kontaktinformationen und hilfreiche Ressourcen.",
     "teacher_contact": "Bei klassenspezifischen Fragen wenden Sie sich an Ihren Lehrer:",
