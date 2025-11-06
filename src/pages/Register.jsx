@@ -28,8 +28,8 @@ const Register = () => {
     password: '',
     confirmPassword: '',
     role: 'student', 
-    joinedClassCode: '',
-    leverage: '1:1', // Default leverage
+    leverage: '1:1',
+    plan: 'starter',
   });
   const [errors, setErrors] = useState({
     name: false,
@@ -48,13 +48,17 @@ const Register = () => {
     setFormData(prev => ({ 
       ...prev, 
       role: value, 
-      joinedClassCode: value === 'student' ? prev.joinedClassCode : '',
-      leverage: value === 'teacher' ? prev.leverage : '1:1' // Reset leverage if not teacher
+      leverage: value === 'teacher' ? prev.leverage : '1:1',
+      plan: value === 'teacher' ? prev.plan : 'starter',
     }));
   };
 
   const handleLeverageChange = (value) => {
     setFormData(prev => ({ ...prev, leverage: value }));
+  };
+
+  const handlePlanChange = (value) => {
+    setFormData(prev => ({ ...prev, plan: value }));
   };
   
   const handleSubmit = (e) => {
@@ -91,19 +95,12 @@ const Register = () => {
       email: formData.email,
       password: formData.password,
       role: formData.role,
-      joinedClassCode: formData.role === 'student' ? formData.joinedClassCode : null,
       leverage: formData.role === 'teacher' ? formData.leverage : '1:1',
+      plan: formData.role === 'teacher' ? formData.plan : null,
     });
     
     if (registeredUser) {
-      if (registeredUser.role === 'teacher' && registeredUser.classCode) {
-        toast({
-          title: "¡Código de Sala Generado!",
-          description: `Tu código de sala es: ${registeredUser.classCode}. Compártelo con tus estudiantes.`,
-          duration: 10000, 
-        });
-      }
-      navigate('/');
+      navigate('/rooms');
     } else {
       setErrors({ email: true, password: true, name: false, confirmPassword: false });
     }
@@ -197,32 +194,35 @@ const Register = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                {formData.role === 'student' && (
-                  <div className="space-y-2">
-                    <Label htmlFor="joinedClassCode">{t('teacher.class_code')}</Label>
-                    <Input
-                      id="joinedClassCode"
-                      name="joinedClassCode"
-                      placeholder={t('teacher.class_code')}
-                      value={formData.joinedClassCode}
-                      onChange={handleChange}
-                    />
-                  </div>
-                )}
                 {formData.role === 'teacher' && (
-                  <div className="space-y-2">
-                    <Label htmlFor="leverage">Leverage</Label>
-                    <Select onValueChange={handleLeverageChange} defaultValue={formData.leverage}>
-                      <SelectTrigger id="leverage">
-                        <SelectValue placeholder="Leverage" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {leverageOptions.map(option => (
-                          <SelectItem key={option} value={option}>{option}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                  <>
+                    <div className="space-y-2">
+                      <Label htmlFor="plan">{t('register.plan', { defaultValue: 'Plan' })}</Label>
+                      <Select onValueChange={handlePlanChange} defaultValue={formData.plan}>
+                        <SelectTrigger id="plan">
+                          <SelectValue placeholder={t('register.plan', { defaultValue: 'Plan' })} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="starter">{t('landing.plans.starter.name', { defaultValue: 'Plan Inicial' })} - $10/mes</SelectItem>
+                          <SelectItem value="professional">{t('landing.plans.professional.name', { defaultValue: 'Plan Profesional' })} - $19/mes</SelectItem>
+                          <SelectItem value="enterprise">{t('landing.plans.enterprise.name', { defaultValue: 'Plan Empresarial' })} - $29/mes</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="leverage">Leverage</Label>
+                      <Select onValueChange={handleLeverageChange} defaultValue={formData.leverage}>
+                        <SelectTrigger id="leverage">
+                          <SelectValue placeholder="Leverage" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {leverageOptions.map(option => (
+                            <SelectItem key={option} value={option}>{option}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </>
                 )}
                 <Button type="submit" className="w-full">
                   {t('register.button')}

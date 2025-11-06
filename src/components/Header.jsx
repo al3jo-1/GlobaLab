@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTradingContext } from '@/contexts/TradingContext';
-import { Sun, Moon, Menu, Bell, Wallet } from 'lucide-react';
+import { Sun, Moon, Menu, Bell, Wallet, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -50,6 +50,18 @@ const Header = ({ isMobileMenuOpen, toggleMobileMenu }) => {
                 {formatCurrency(balance, 'USD')}
               </span>
             </div>
+          )}
+
+          {user && (
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={() => navigate('/rooms')}
+              className="text-foreground"
+              title={t('rooms.change', { defaultValue: 'Cambiar de sala' })}
+            >
+              <Users className="h-5 w-5" />
+            </Button>
           )}
 
           <Button variant="ghost" size="icon" onClick={toggleTheme} className="text-foreground">

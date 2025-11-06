@@ -172,5 +172,113 @@
     "edit": "Editar",
     "save": "Guardar",
     "back": "Volver"
+  },
+  "landing": {
+    "access": "Acceder",
+    "hero": {
+      "title": "Aprende Trading de Forma Segura",
+      "subtitle": "Plataforma educativa de simulación de trading para estudiantes y profesores",
+      "for_education": "Para Educación",
+      "multilingual": "Multilingüe",
+      "collaborative": "Colaborativo"
+    },
+    "features": {
+      "education": {
+        "title": "Educación Práctica",
+        "description": "Aprende trading sin riesgos con dinero virtual. Ideal para estudiantes que quieren entender los mercados financieros."
+      },
+      "management": {
+        "title": "Gestión de Salas",
+        "description": "Los profesores pueden crear múltiples salas y gestionar el progreso de sus estudiantes en tiempo real."
+      },
+      "markets": {
+        "title": "Mercados Reales",
+        "description": "Accede a simulaciones de acciones, forex y criptomonedas con datos de mercado actualizados."
+      }
+    },
+    "pricing": {
+      "title": "Planes para Profesores",
+      "subtitle": "Elige el plan que mejor se adapte a tus necesidades",
+      "recommended": "Recomendado",
+      "students": "estudiantes",
+      "room": "sala",
+      "rooms": "salas",
+      "get_started": "Comenzar"
+    },
+    "plans": {
+      "period": "/mes",
+      "starter": {
+        "name": "Plan Inicial",
+        "feature1": "Hasta 10 estudiantes",
+        "feature2": "1 sala de clase",
+        "feature3": "Acceso a todos los mercados",
+        "feature4": "Reportes básicos"
+      },
+      "professional": {
+        "name": "Plan Profesional",
+        "feature1": "Hasta 15 estudiantes",
+        "feature2": "2 salas de clase",
+        "feature3": "Acceso a todos los mercados",
+        "feature4": "Reportes avanzados",
+        "feature5": "Soporte prioritario"
+      },
+      "enterprise": {
+        "name": "Plan Empresarial",
+        "feature1": "Hasta 20 estudiantes",
+        "feature2": "3 salas de clase",
+        "feature3": "Acceso a todos los mercados",
+        "feature4": "Reportes personalizados",
+        "feature5": "Soporte 24/7",
+        "feature6": "Simulador avanzado"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para comenzar?",
+      "subtitle": "Únete a GlobalTradeLab y comienza a aprender trading hoy mismo",
+      "register": "Registrarse Gratis",
+      "login": "Iniciar Sesión"
+    },
+    "footer": {
+      "rights": "Todos los derechos reservados.",
+      "disclaimer": "Plataforma educativa - Todo el trading se realiza con dinero virtual."
+    }
+  },
+  "rooms": {
+    "title": "Salas",
+    "subtitle": "Gestiona tus salas de clase",
+    "plan_info": "Salas activas: {{current}} / {{max}}",
+    "create": "Crear Nueva Sala",
+    "join": "Nuevo Código de Sala",
+    "no_rooms": "No hay salas disponibles",
+    "create_first": "Crea tu primera sala para comenzar",
+    "join_first": "Únete a una sala para comenzar",
+    "students": "estudiantes",
+    "student_view": "Sala de clase",
+    "enter": "Entrar",
+    "change": "Cambiar de sala",
+    "limit_reached": "Límite alcanzado",
+    "upgrade_plan": "Tu plan permite máximo {{maxRooms}} salas. Actualiza tu plan para crear más.",
+    "error_teacher_only": "Solo los profesores pueden crear salas",
+    "error_student_only": "Solo los estudiantes pueden unirse a salas",
+    "error_name": "Ingresa un nombre para la sala",
+    "error_code": "Ingresa un código de sala",
+    "created": "Sala creada exitosamente",
+    "joined": "Te has unido a la sala exitosamente",
+    "deleted": "Sala eliminada",
+    "confirm_delete": "¿Estás seguro de eliminar esta sala?",
+    "create_modal": {
+      "title": "Crear Nueva Sala",
+      "description": "Ingresa un nombre para tu nueva sala de clase",
+      "name_label": "Nombre de la Sala",
+      "name_placeholder": "Ej: Clase de Trading 2025",
+      "button": "Crear Sala"
+    },
+    "join_modal": {
+      "title": "Unirse a una Sala",
+      "description": "Ingresa el código de la sala proporcionado por tu profesor",
+      "code_label": "Código de Sala",
+      "code_placeholder": "Ej: ABC123",
+      "button": "Unirse"
+    }
   }
 }

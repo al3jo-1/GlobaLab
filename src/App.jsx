@@ -4,6 +4,8 @@ import { Toaster } from '@/components/ui/toaster';
 import Dashboard from '@/pages/Dashboard';
 import Login from '@/pages/Login';
 import Register from '@/pages/Register';
+import LandingPage from '@/pages/LandingPage';
+import RoomSelection from '@/pages/RoomSelection';
 import SettingsPage from '@/pages/SettingsPage';
 import HelpPage from '@/pages/HelpPage'; 
 import LearnPage from '@/pages/LearnPage';
@@ -13,7 +15,7 @@ import TeacherMarkets from '@/components/teacher/TeacherMarkets';
 import TeacherPortfolio from '@/components/teacher/TeacherPortfolio';
 import MarketSimulator from '@/components/teacher/MarketSimulator';
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ children, requireRoom = false }) => {
   const { user, isLoading } = useTradingContext();
 
   if (isLoading) {
@@ -28,7 +30,11 @@ const ProtectedRoute = ({ children }) => {
   }
 
   if (!user) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/welcome" replace />;
+  }
+
+  if (requireRoom && (!user.rooms || user.rooms.length === 0 || !user.selectedRoomId)) {
+    return <Navigate to="/rooms" replace />;
   }
 
   return children;
@@ -48,7 +54,7 @@ const AuthRoute = ({ children }) => {
   }
 
   if (user) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/rooms" replace />;
   }
   return children;
 }
@@ -89,9 +95,21 @@ function AppContent() {
     <Router>
       <Routes>
         <Route 
+          path="/welcome" 
+          element={<LandingPage />} 
+        />
+        <Route 
+          path="/rooms" 
+          element={
+            <ProtectedRoute requireRoom={false}>
+              <RoomSelection />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
           path="/" 
           element={
-            <ProtectedRoute>
+            <ProtectedRoute requireRoom={true}>
               <Dashboard />
             </ProtectedRoute>
           } 
@@ -99,8 +117,7 @@ function AppContent() {
         <Route 
           path="/markets"
           element={
-            <ProtectedRoute>
-              {/* Both teachers and students see the same market overview */}
+            <ProtectedRoute requireRoom={true}>
               <Dashboard mainContent={<TeacherMarkets />} />
             </ProtectedRoute>
           }
@@ -108,7 +125,7 @@ function AppContent() {
         <Route 
           path="/portfolio"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute requireRoom={true}>
                {user?.role === 'teacher' 
                 ? <TeacherRouteContent component={TeacherPortfolio} sectionName="Portafolio (Docente)" />
                 : user?.role === 'student'
@@ -121,7 +138,7 @@ function AppContent() {
         <Route 
           path="/learn"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute requireRoom={true}>
               {user?.role === 'student' 
                 ? <StudentRouteContent component={LearnPage} sectionName="Aprender" />
                 : <Dashboard mainContent={<PlaceholderComponent sectionName="Aprender" />} /> 
@@ -132,7 +149,7 @@ function AppContent() {
         <Route 
           path="/admin"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute requireRoom={true}>
               <TeacherRouteContent component={MarketSimulator} sectionName="Simulador de Mercado" />
             </ProtectedRoute>
           }
@@ -140,8 +157,7 @@ function AppContent() {
         <Route 
           path="/settings"
           element={
-            <ProtectedRoute>
-              {/* Pass theme and toggleTheme from context to SettingsPage */}
+            <ProtectedRoute requireRoom={true}>
               <Dashboard mainContent={<SettingsPage currentTheme={theme} toggleTheme={toggleTheme} />} />
             </ProtectedRoute>
           }
@@ -149,7 +165,7 @@ function AppContent() {
         <Route 
           path="/help"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute requireRoom={true}>
               <Dashboard mainContent={<HelpPage />} />
             </ProtectedRoute>
           }

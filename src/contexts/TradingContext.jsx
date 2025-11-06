@@ -140,8 +140,188 @@ export const TradingProvider = ({ children }) => {
     }));
   }, [initialSymbols, getCurrentPrice, calculateChange]);
 
-  const studentsInClass = currentUser?.role === 'teacher' 
-    ? allUsers.filter(u => u.role === 'student' && u.joinedClassCode === currentUser.classCode) 
+  const PLAN_LIMITS = {
+    starter: { maxRooms: 1, maxStudents: 10 },
+    professional: { maxRooms: 2, maxStudents: 15 },
+    enterprise: { maxRooms: 3, maxStudents: 20 },
+  };
+
+  const getUserPlan = () => {
+    if (!currentUser || currentUser.role !== 'teacher') {
+      return { maxRooms: 999, maxStudents: 999 };
+    }
+    return PLAN_LIMITS[currentUser.plan] || PLAN_LIMITS.starter;
+  };
+
+  const createRoom = (roomName) => {
+    if (!currentUser || currentUser.role !== 'teacher') {
+      toast({
+        title: "Error",
+        description: "Solo los profesores pueden crear salas",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    const plan = getUserPlan();
+    if ((currentUser.rooms || []).length >= plan.maxRooms) {
+      toast({
+        title: "Límite alcanzado",
+        description: `Tu plan permite máximo ${plan.maxRooms} salas`,
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    const roomCode = generateClassCode();
+    const newRoom = {
+      id: `room_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
+      name: roomName,
+      classCode: roomCode,
+      createdAt: Date.now(),
+      ownerId: currentUser.id,
+      studentCount: 0,
+    };
+
+    const updatedUser = {
+      ...currentUser,
+      rooms: [...(currentUser.rooms || []), newRoom],
+      balance: 10000,
+      positions: [],
+      transactions: [],
+    };
+
+    if (!updatedUser.selectedRoomId) {
+      updatedUser.selectedRoomId = newRoom.id;
+    }
+
+    updateUserInList(updatedUser);
+    return true;
+  };
+
+  const joinRoom = (roomCode) => {
+    if (!currentUser || currentUser.role !== 'student') {
+      toast({
+        title: "Error",
+        description: "Solo los estudiantes pueden unirse a salas",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    const teacher = allUsers.find(u => u.role === 'teacher' && (u.rooms || []).some(r => r.classCode === roomCode));
+    if (!teacher) {
+      toast({
+        title: "Código inválido",
+        description: "El código de sala no existe",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    const teacherRoom = teacher.rooms.find(r => r.classCode === roomCode);
+    const alreadyJoined = (currentUser.rooms || []).some(r => r.classCode === roomCode);
+
+    if (alreadyJoined) {
+      toast({
+        title: "Ya estás en esta sala",
+        description: "Ya te has unido a esta sala anteriormente",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    const joinedRoom = {
+      id: teacherRoom.id,
+      name: teacherRoom.name,
+      classCode: teacherRoom.classCode,
+      ownerId: teacher.id,
+      joinedAt: Date.now(),
+    };
+
+    const updatedUser = {
+      ...currentUser,
+      rooms: [...(currentUser.rooms || []), joinedRoom],
+      balance: 10000,
+      positions: [],
+      transactions: [],
+    };
+
+    if (!updatedUser.selectedRoomId) {
+      updatedUser.selectedRoomId = joinedRoom.id;
+    }
+
+    updateUserInList(updatedUser);
+
+    const updatedTeacher = {
+      ...teacher,
+      rooms: teacher.rooms.map(r => 
+        r.id === teacherRoom.id 
+          ? { ...r, studentCount: (r.studentCount || 0) + 1 }
+          : r
+      ),
+    };
+    updateUserInList(updatedTeacher);
+
+    return true;
+  };
+
+  const deleteRoom = (roomId) => {
+    if (!currentUser) return false;
+
+    if (currentUser.role === 'teacher') {
+      const updatedRooms = (currentUser.rooms || []).filter(r => r.id !== roomId);
+      const updatedUser = {
+        ...currentUser,
+        rooms: updatedRooms,
+        selectedRoomId: currentUser.selectedRoomId === roomId 
+          ? (updatedRooms.length > 0 ? updatedRooms[0].id : null)
+          : currentUser.selectedRoomId,
+      };
+      updateUserInList(updatedUser);
+    } else {
+      const updatedRooms = (currentUser.rooms || []).filter(r => r.id !== roomId);
+      const updatedUser = {
+        ...currentUser,
+        rooms: updatedRooms,
+        selectedRoomId: currentUser.selectedRoomId === roomId 
+          ? (updatedRooms.length > 0 ? updatedRooms[0].id : null)
+          : currentUser.selectedRoomId,
+      };
+      updateUserInList(updatedUser);
+    }
+
+    return true;
+  };
+
+  const selectRoom = (roomId) => {
+    if (!currentUser) return false;
+
+    const roomExists = (currentUser.rooms || []).some(r => r.id === roomId);
+    if (!roomExists) {
+      toast({
+        title: "Error",
+        description: "La sala no existe",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    const updatedUser = {
+      ...currentUser,
+      selectedRoomId: roomId,
+    };
+    updateUserInList(updatedUser);
+    return true;
+  };
+
+  const currentRoom = currentUser?.rooms?.find(r => r.id === currentUser.selectedRoomId);
+  
+  const studentsInClass = currentUser?.role === 'teacher' && currentRoom
+    ? allUsers.filter(u => 
+        u.role === 'student' && 
+        (u.rooms || []).some(r => r.classCode === currentRoom.classCode)
+      ) 
     : [];
 
   const value = {
@@ -168,6 +348,12 @@ export const TradingProvider = ({ children }) => {
     theme,
     toggleTheme,
     copToUsdRate: COP_TO_USD_RATE,
+    createRoom,
+    joinRoom,
+    deleteRoom,
+    selectRoom,
+    getUserPlan,
+    currentRoom,
   };
   
   return (

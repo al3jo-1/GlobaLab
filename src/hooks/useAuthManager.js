@@ -48,25 +48,11 @@ export const useAuthManager = ({ allUsers, setAllUsers, setCurrentUserEmail, sav
       email: userData.email,
       password: userData.password, 
       role: userData.role,
-      balance: 10000, // Initial balance in USD
-      positions: [],
-      transactions: [],
-      classCode: userData.role === 'teacher' ? generateClassCode() : null,
-      joinedClassCode: userData.role === 'student' ? userData.joinedClassCode || null : null,
-      leverage: userData.role === 'teacher' ? userData.leverage : '1:1', // Store leverage
+      plan: userData.role === 'teacher' ? (userData.plan || 'starter') : null,
+      rooms: [],
+      selectedRoomId: null,
+      leverage: userData.role === 'teacher' ? (userData.leverage || '1:1') : '1:1',
     };
-
-    if (userData.role === 'student' && userData.joinedClassCode) {
-      const teacherExists = allUsers.find(u => u.role === 'teacher' && u.classCode === userData.joinedClassCode);
-      if (!teacherExists) {
-        toast({
-          title: "Código de Sala Inválido",
-          description: "El código de sala ingresado no existe. Puedes registrarte sin código.",
-          variant: "destructive",
-        });
-        newUser.joinedClassCode = null; 
-      }
-    }
     
     const updatedUsers = [...allUsers, newUser];
     setAllUsers(updatedUsers);
@@ -75,7 +61,7 @@ export const useAuthManager = ({ allUsers, setAllUsers, setCurrentUserEmail, sav
     
     toast({
       title: "Registro exitoso",
-      description: `Bienvenido, ${newUser.name}! Tu cuenta ha sido creada. ${newUser.classCode ? `Tu código de sala es: ${newUser.classCode}` : ''}`,
+      description: `Bienvenido, ${newUser.name}! Tu cuenta ha sido creada.`,
     });
     return newUser;
   };
