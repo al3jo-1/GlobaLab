@@ -172,5 +172,113 @@
     "edit": "Editar",
     "save": "Salvar",
     "back": "Voltar"
+  },
+  "landing": {
+    "access": "Acessar",
+    "hero": {
+      "title": "Aprenda trading com segurança",
+      "subtitle": "Plataforma educacional de simulação de trading para estudantes e professores",
+      "for_education": "Para educação",
+      "multilingual": "Multilíngue",
+      "collaborative": "Colaborativo"
+    },
+    "features": {
+      "education": {
+        "title": "Educação prática",
+        "description": "Aprenda trading sem riscos com dinheiro virtual. Perfeito para estudantes que querem entender os mercados financeiros."
+      },
+      "management": {
+        "title": "Gestão de salas",
+        "description": "Professores podem criar múltiplas salas e gerenciar o progresso de seus estudantes em tempo real."
+      },
+      "markets": {
+        "title": "Mercados reais",
+        "description": "Acesse simulações de ações, forex e criptomoedas com dados de mercado atualizados."
+      }
+    },
+    "pricing": {
+      "title": "Planos para professores",
+      "subtitle": "Escolha o plano que melhor se adapta às suas necessidades",
+      "recommended": "Recomendado",
+      "students": "estudantes",
+      "room": "sala",
+      "rooms": "salas",
+      "get_started": "Começar"
+    },
+    "plans": {
+      "period": "/mês",
+      "starter": {
+        "name": "Plano Inicial",
+        "feature1": "Até 10 estudantes",
+        "feature2": "1 sala de aula",
+        "feature3": "Acesso a todos os mercados",
+        "feature4": "Relatórios básicos"
+      },
+      "professional": {
+        "name": "Plano Profissional",
+        "feature1": "Até 15 estudantes",
+        "feature2": "2 salas de aula",
+        "feature3": "Acesso a todos os mercados",
+        "feature4": "Relatórios avançados",
+        "feature5": "Suporte prioritário"
+      },
+      "enterprise": {
+        "name": "Plano Empresarial",
+        "feature1": "Até 20 estudantes",
+        "feature2": "3 salas de aula",
+        "feature3": "Acesso a todos os mercados",
+        "feature4": "Relatórios personalizados",
+        "feature5": "Suporte 24/7",
+        "feature6": "Simulador avançado"
+      }
+    },
+    "cta": {
+      "title": "Pronto para começar?",
+      "subtitle": "Junte-se ao GlobalTradeLab e comece a aprender trading hoje",
+      "register": "Registrar grátis",
+      "login": "Entrar"
+    },
+    "footer": {
+      "rights": "Todos os direitos reservados.",
+      "disclaimer": "Plataforma educacional - Todo o trading é realizado com dinheiro virtual."
+    }
+  },
+  "rooms": {
+    "title": "Salas",
+    "subtitle": "Gerencie suas salas de aula",
+    "plan_info": "Salas ativas: {{current}} / {{max}}",
+    "create": "Criar nova sala",
+    "join": "Novo código de sala",
+    "no_rooms": "Nenhuma sala disponível",
+    "create_first": "Crie sua primeira sala para começar",
+    "join_first": "Entre em uma sala para começar",
+    "students": "estudantes",
+    "student_view": "Sala de aula",
+    "enter": "Entrar",
+    "change": "Mudar de sala",
+    "limit_reached": "Limite atingido",
+    "upgrade_plan": "Seu plano permite no máximo {{maxRooms}} salas. Atualize seu plano para criar mais.",
+    "error_teacher_only": "Apenas professores podem criar salas",
+    "error_student_only": "Apenas estudantes podem entrar em salas",
+    "error_name": "Digite um nome para a sala",
+    "error_code": "Digite um código de sala",
+    "created": "Sala criada com sucesso",
+    "joined": "Você entrou na sala com sucesso",
+    "deleted": "Sala excluída",
+    "confirm_delete": "Tem certeza de que deseja excluir esta sala?",
+    "create_modal": {
+      "title": "Criar nova sala",
+      "description": "Digite um nome para sua nova sala de aula",
+      "name_label": "Nome da sala",
+      "name_placeholder": "Ex: Aula de Trading 2025",
+      "button": "Criar sala"
+    },
+    "join_modal": {
+      "title": "Entrar em uma sala",
+      "description": "Digite o código da sala fornecido pelo seu professor",
+      "code_label": "Código da sala",
+      "code_placeholder": "Ex: ABC123",
+      "button": "Entrar"
+    }
   }
 }

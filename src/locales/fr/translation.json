@@ -172,5 +172,113 @@
     "edit": "Modifier",
     "save": "Enregistrer",
     "back": "Retour"
+  },
+  "landing": {
+    "access": "Accéder",
+    "hero": {
+      "title": "Apprenez le trading en toute sécurité",
+      "subtitle": "Plateforme éducative de simulation de trading pour étudiants et enseignants",
+      "for_education": "Pour l'éducation",
+      "multilingual": "Multilingue",
+      "collaborative": "Collaboratif"
+    },
+    "features": {
+      "education": {
+        "title": "Éducation pratique",
+        "description": "Apprenez le trading sans risque avec de l'argent virtuel. Parfait pour les étudiants qui veulent comprendre les marchés financiers."
+      },
+      "management": {
+        "title": "Gestion des salles",
+        "description": "Les enseignants peuvent créer plusieurs salles et gérer les progrès de leurs étudiants en temps réel."
+      },
+      "markets": {
+        "title": "Marchés réels",
+        "description": "Accédez aux simulations d'actions, de forex et de cryptomonnaies avec des données de marché actualisées."
+      }
+    },
+    "pricing": {
+      "title": "Plans pour enseignants",
+      "subtitle": "Choisissez le plan qui correspond le mieux à vos besoins",
+      "recommended": "Recommandé",
+      "students": "étudiants",
+      "room": "salle",
+      "rooms": "salles",
+      "get_started": "Commencer"
+    },
+    "plans": {
+      "period": "/mois",
+      "starter": {
+        "name": "Plan de démarrage",
+        "feature1": "Jusqu'à 10 étudiants",
+        "feature2": "1 salle de classe",
+        "feature3": "Accès à tous les marchés",
+        "feature4": "Rapports de base"
+      },
+      "professional": {
+        "name": "Plan professionnel",
+        "feature1": "Jusqu'à 15 étudiants",
+        "feature2": "2 salles de classe",
+        "feature3": "Accès à tous les marchés",
+        "feature4": "Rapports avancés",
+        "feature5": "Support prioritaire"
+      },
+      "enterprise": {
+        "name": "Plan entreprise",
+        "feature1": "Jusqu'à 20 étudiants",
+        "feature2": "3 salles de classe",
+        "feature3": "Accès à tous les marchés",
+        "feature4": "Rapports personnalisés",
+        "feature5": "Support 24/7",
+        "feature6": "Simulateur avancé"
+      }
+    },
+    "cta": {
+      "title": "Prêt à commencer?",
+      "subtitle": "Rejoignez GlobalTradeLab et commencez à apprendre le trading dès aujourd'hui",
+      "register": "S'inscrire gratuitement",
+      "login": "Se connecter"
+    },
+    "footer": {
+      "rights": "Tous droits réservés.",
+      "disclaimer": "Plateforme éducative - Tout le trading est effectué avec de l'argent virtuel."
+    }
+  },
+  "rooms": {
+    "title": "Salles",
+    "subtitle": "Gérez vos salles de classe",
+    "plan_info": "Salles actives: {{current}} / {{max}}",
+    "create": "Créer une nouvelle salle",
+    "join": "Nouveau code de salle",
+    "no_rooms": "Aucune salle disponible",
+    "create_first": "Créez votre première salle pour commencer",
+    "join_first": "Rejoignez une salle pour commencer",
+    "students": "étudiants",
+    "student_view": "Salle de classe",
+    "enter": "Entrer",
+    "change": "Changer de salle",
+    "limit_reached": "Limite atteinte",
+    "upgrade_plan": "Votre plan permet au maximum {{maxRooms}} salles. Mettez à jour votre plan pour en créer davantage.",
+    "error_teacher_only": "Seuls les enseignants peuvent créer des salles",
+    "error_student_only": "Seuls les étudiants peuvent rejoindre des salles",
+    "error_name": "Entrez un nom pour la salle",
+    "error_code": "Entrez un code de salle",
+    "created": "Salle créée avec succès",
+    "joined": "Vous avez rejoint la salle avec succès",
+    "deleted": "Salle supprimée",
+    "confirm_delete": "Êtes-vous sûr de vouloir supprimer cette salle?",
+    "create_modal": {
+      "title": "Créer une nouvelle salle",
+      "description": "Entrez un nom pour votre nouvelle salle de classe",
+      "name_label": "Nom de la salle",
+      "name_placeholder": "Ex: Cours de trading 2025",
+      "button": "Créer la salle"
+    },
+    "join_modal": {
+      "title": "Rejoindre une salle",
+      "description": "Entrez le code de salle fourni par votre enseignant",
+      "code_label": "Code de salle",
+      "code_placeholder": "Ex: ABC123",
+      "button": "Rejoindre"
+    }
   }
 }

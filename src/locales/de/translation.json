@@ -172,5 +172,113 @@
     "edit": "Bearbeiten",
     "save": "Speichern",
     "back": "Zurück"
+  },
+  "landing": {
+    "access": "Zugriff",
+    "hero": {
+      "title": "Lernen Sie Trading sicher",
+      "subtitle": "Bildungsplattform für Trading-Simulation für Studenten und Lehrer",
+      "for_education": "Für Bildung",
+      "multilingual": "Mehrsprachig",
+      "collaborative": "Kollaborativ"
+    },
+    "features": {
+      "education": {
+        "title": "Praktische Bildung",
+        "description": "Lernen Sie Trading risikofrei mit virtuellem Geld. Perfekt für Studenten, die Finanzmärkte verstehen wollen."
+      },
+      "management": {
+        "title": "Raumverwaltung",
+        "description": "Lehrer können mehrere Räume erstellen und den Fortschritt ihrer Studenten in Echtzeit verwalten."
+      },
+      "markets": {
+        "title": "Reale Märkte",
+        "description": "Zugriff auf Simulationen von Aktien, Forex und Kryptowährungen mit aktualisierten Marktdaten."
+      }
+    },
+    "pricing": {
+      "title": "Pläne für Lehrer",
+      "subtitle": "Wählen Sie den Plan, der am besten zu Ihren Bedürfnissen passt",
+      "recommended": "Empfohlen",
+      "students": "Studenten",
+      "room": "Raum",
+      "rooms": "Räume",
+      "get_started": "Loslegen"
+    },
+    "plans": {
+      "period": "/Monat",
+      "starter": {
+        "name": "Starter-Plan",
+        "feature1": "Bis zu 10 Studenten",
+        "feature2": "1 Klassenraum",
+        "feature3": "Zugriff auf alle Märkte",
+        "feature4": "Basisberichte"
+      },
+      "professional": {
+        "name": "Professioneller Plan",
+        "feature1": "Bis zu 15 Studenten",
+        "feature2": "2 Klassenräume",
+        "feature3": "Zugriff auf alle Märkte",
+        "feature4": "Erweiterte Berichte",
+        "feature5": "Prioritäts-Support"
+      },
+      "enterprise": {
+        "name": "Enterprise-Plan",
+        "feature1": "Bis zu 20 Studenten",
+        "feature2": "3 Klassenräume",
+        "feature3": "Zugriff auf alle Märkte",
+        "feature4": "Angepasste Berichte",
+        "feature5": "24/7 Support",
+        "feature6": "Erweiterter Simulator"
+      }
+    },
+    "cta": {
+      "title": "Bereit anzufangen?",
+      "subtitle": "Treten Sie GlobalTradeLab bei und beginnen Sie noch heute mit dem Lernen von Trading",
+      "register": "Kostenlos registrieren",
+      "login": "Anmelden"
+    },
+    "footer": {
+      "rights": "Alle Rechte vorbehalten.",
+      "disclaimer": "Bildungsplattform - Alle Trading-Aktivitäten werden mit virtuellem Geld durchgeführt."
+    }
+  },
+  "rooms": {
+    "title": "Räume",
+    "subtitle": "Verwalten Sie Ihre Klassenräume",
+    "plan_info": "Aktive Räume: {{current}} / {{max}}",
+    "create": "Neuen Raum erstellen",
+    "join": "Neuer Raumcode",
+    "no_rooms": "Keine Räume verfügbar",
+    "create_first": "Erstellen Sie Ihren ersten Raum, um loszulegen",
+    "join_first": "Treten Sie einem Raum bei, um loszulegen",
+    "students": "Studenten",
+    "student_view": "Klassenraum",
+    "enter": "Betreten",
+    "change": "Raum wechseln",
+    "limit_reached": "Limit erreicht",
+    "upgrade_plan": "Ihr Plan erlaubt maximal {{maxRooms}} Räume. Upgraden Sie Ihren Plan, um mehr zu erstellen.",
+    "error_teacher_only": "Nur Lehrer können Räume erstellen",
+    "error_student_only": "Nur Studenten können Räumen beitreten",
+    "error_name": "Geben Sie einen Namen für den Raum ein",
+    "error_code": "Geben Sie einen Raumcode ein",
+    "created": "Raum erfolgreich erstellt",
+    "joined": "Sie sind dem Raum erfolgreich beigetreten",
+    "deleted": "Raum gelöscht",
+    "confirm_delete": "Sind Sie sicher, dass Sie diesen Raum löschen möchten?",
+    "create_modal": {
+      "title": "Neuen Raum erstellen",
+      "description": "Geben Sie einen Namen für Ihren neuen Klassenraum ein",
+      "name_label": "Raumname",
+      "name_placeholder": "Z.B.: Trading Kurs 2025",
+      "button": "Raum erstellen"
+    },
+    "join_modal": {
+      "title": "Einem Raum beitreten",
+      "description": "Geben Sie den von Ihrem Lehrer bereitgestellten Raumcode ein",
+      "code_label": "Raumcode",
+      "code_placeholder": "Z.B.: ABC123",
+      "button": "Beitreten"
+    }
   }
 }

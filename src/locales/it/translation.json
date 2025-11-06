@@ -172,5 +172,113 @@
     "edit": "Modifica",
     "save": "Salva",
     "back": "Indietro"
+  },
+  "landing": {
+    "access": "Accedi",
+    "hero": {
+      "title": "Impara il trading in sicurezza",
+      "subtitle": "Piattaforma educativa di simulazione trading per studenti e insegnanti",
+      "for_education": "Per l'istruzione",
+      "multilingual": "Multilingue",
+      "collaborative": "Collaborativo"
+    },
+    "features": {
+      "education": {
+        "title": "Educazione pratica",
+        "description": "Impara il trading senza rischi con denaro virtuale. Perfetto per studenti che vogliono capire i mercati finanziari."
+      },
+      "management": {
+        "title": "Gestione delle stanze",
+        "description": "Gli insegnanti possono creare più stanze e gestire i progressi dei loro studenti in tempo reale."
+      },
+      "markets": {
+        "title": "Mercati reali",
+        "description": "Accedi a simulazioni di azioni, forex e criptovalute con dati di mercato aggiornati."
+      }
+    },
+    "pricing": {
+      "title": "Piani per insegnanti",
+      "subtitle": "Scegli il piano più adatto alle tue esigenze",
+      "recommended": "Raccomandato",
+      "students": "studenti",
+      "room": "stanza",
+      "rooms": "stanze",
+      "get_started": "Inizia"
+    },
+    "plans": {
+      "period": "/mese",
+      "starter": {
+        "name": "Piano Starter",
+        "feature1": "Fino a 10 studenti",
+        "feature2": "1 classe",
+        "feature3": "Accesso a tutti i mercati",
+        "feature4": "Report di base"
+      },
+      "professional": {
+        "name": "Piano Professionale",
+        "feature1": "Fino a 15 studenti",
+        "feature2": "2 classi",
+        "feature3": "Accesso a tutti i mercati",
+        "feature4": "Report avanzati",
+        "feature5": "Supporto prioritario"
+      },
+      "enterprise": {
+        "name": "Piano Enterprise",
+        "feature1": "Fino a 20 studenti",
+        "feature2": "3 classi",
+        "feature3": "Accesso a tutti i mercati",
+        "feature4": "Report personalizzati",
+        "feature5": "Supporto 24/7",
+        "feature6": "Simulatore avanzato"
+      }
+    },
+    "cta": {
+      "title": "Pronto per iniziare?",
+      "subtitle": "Unisciti a GlobalTradeLab e inizia a imparare il trading oggi",
+      "register": "Registrati gratis",
+      "login": "Accedi"
+    },
+    "footer": {
+      "rights": "Tutti i diritti riservati.",
+      "disclaimer": "Piattaforma educativa - Tutto il trading è effettuato con denaro virtuale."
+    }
+  },
+  "rooms": {
+    "title": "Stanze",
+    "subtitle": "Gestisci le tue classi",
+    "plan_info": "Stanze attive: {{current}} / {{max}}",
+    "create": "Crea nuova stanza",
+    "join": "Nuovo codice stanza",
+    "no_rooms": "Nessuna stanza disponibile",
+    "create_first": "Crea la tua prima stanza per iniziare",
+    "join_first": "Unisciti a una stanza per iniziare",
+    "students": "studenti",
+    "student_view": "Classe",
+    "enter": "Entra",
+    "change": "Cambia stanza",
+    "limit_reached": "Limite raggiunto",
+    "upgrade_plan": "Il tuo piano consente al massimo {{maxRooms}} stanze. Aggiorna il piano per crearne di più.",
+    "error_teacher_only": "Solo gli insegnanti possono creare stanze",
+    "error_student_only": "Solo gli studenti possono unirsi alle stanze",
+    "error_name": "Inserisci un nome per la stanza",
+    "error_code": "Inserisci un codice stanza",
+    "created": "Stanza creata con successo",
+    "joined": "Ti sei unito alla stanza con successo",
+    "deleted": "Stanza eliminata",
+    "confirm_delete": "Sei sicuro di voler eliminare questa stanza?",
+    "create_modal": {
+      "title": "Crea nuova stanza",
+      "description": "Inserisci un nome per la tua nuova classe",
+      "name_label": "Nome stanza",
+      "name_placeholder": "Es: Corso Trading 2025",
+      "button": "Crea stanza"
+    },
+    "join_modal": {
+      "title": "Unisciti a una stanza",
+      "description": "Inserisci il codice stanza fornito dal tuo insegnante",
+      "code_label": "Codice stanza",
+      "code_placeholder": "Es: ABC123",
+      "button": "Unisciti"
+    }
   }
 }
