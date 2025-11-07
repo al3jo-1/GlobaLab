@@ -99,9 +99,14 @@ Always remember you are educating students, so be clear, patient and educational
     console.error('OpenAI API Error:', error);
     
     // Return fallback response if API fails
-    res.status(503).json({ 
-      error: error.message,
-      fallback: true 
+    const errorMessage = error?.status === 429 
+      ? 'OpenAI quota exceeded. Using fallback mode.'
+      : error.message;
+    
+    res.json({ 
+      error: errorMessage,
+      fallback: true,
+      response: null
     });
   }
 });
