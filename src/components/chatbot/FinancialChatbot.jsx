@@ -51,8 +51,39 @@ const FinancialChatbot = () => {
     }
   };
 
-  const getResponse = (userMessage) => {
+  const getAIResponse = async (userMessage) => {
     const lang = i18n.language.startsWith('es') ? 'es' : 'en';
+    
+    try {
+      const apiUrl = window.location.hostname === 'localhost' 
+        ? 'http://localhost:3000/api/chat'
+        : `${window.location.protocol}//${window.location.hostname}:3000/api/chat`;
+      
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: userMessage,
+          language: lang,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.fallback || !data.response) {
+        return getFallbackResponse(userMessage, lang);
+      }
+
+      return data.response;
+    } catch (error) {
+      console.error('AI API Error:', error);
+      return getFallbackResponse(userMessage, lang);
+    }
+  };
+
+  const getFallbackResponse = (userMessage, lang) => {
     const message = userMessage.toLowerCase();
     const kb = financialKnowledgeBase[lang];
 
@@ -69,20 +100,31 @@ const FinancialChatbot = () => {
     }
   };
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim()) return;
 
     const userMessage = { role: 'user', content: input };
+    const currentInput = input;
     setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsTyping(true);
 
-    setTimeout(() => {
-      const response = getResponse(input);
+    try {
+      const response = await getAIResponse(currentInput);
       const assistantMessage = { role: 'assistant', content: response };
       setMessages(prev => [...prev, assistantMessage]);
+    } catch (error) {
+      const lang = i18n.language.startsWith('es') ? 'es' : 'en';
+      const errorMessage = { 
+        role: 'assistant', 
+        content: lang === 'es' 
+          ? 'Lo siento, tuve un problema al procesar tu pregunta. Por favor intenta de nuevo.'
+          : 'Sorry, I had a problem processing your question. Please try again.'
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsTyping(false);
-    }, 500);
+    }
   };
 
   const handleKeyPress = (e) => {

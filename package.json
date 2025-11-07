@@ -5,6 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "server": "node server.js",
+    "dev:all": "npm run server & npm run dev",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -26,7 +28,9 @@
     "@radix-ui/react-toast": "^1.1.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "cors": "^2.8.5",
     "date-fns": "^2.30.0",
+    "express": "^5.1.0",
     "framer-motion": "^10.16.4",
     "html2canvas": "^1.4.1",
     "i18next": "^25.6.0",
@@ -34,6 +38,7 @@
     "jspdf": "^3.0.3",
     "lightweight-charts": "^4.1.1",
     "lucide-react": "^0.285.0",
+    "openai": "^6.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^16.2.4",

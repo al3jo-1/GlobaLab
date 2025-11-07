@@ -103,7 +103,7 @@ const LandingPage = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto text-center"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent leading-tight pb-2">
             {t('landing.hero.title', { defaultValue: 'Aprende Trading de Forma Segura' })}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">

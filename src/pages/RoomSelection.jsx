@@ -94,6 +94,7 @@ const RoomSelection = () => {
         title: t('common.success'),
         description: t('rooms.joined', { defaultValue: 'Te has unido a la sala exitosamente' }),
       });
+      navigate('/');
     }
   };
 
