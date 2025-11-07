@@ -242,7 +242,7 @@ export const TradingProvider = ({ children }) => {
       joinedAt: Date.now(),
     };
 
-    const updatedUser = {
+    const updatedStudent = {
       ...currentUser,
       rooms: [...(currentUser.rooms || []), joinedRoom],
       balance: currentUser.balance || 10000,
@@ -250,8 +250,6 @@ export const TradingProvider = ({ children }) => {
       transactions: currentUser.transactions || [],
       selectedRoomId: joinedRoom.id,
     };
-
-    updateUserInList(updatedUser);
 
     const updatedTeacher = {
       ...teacher,
@@ -261,7 +259,16 @@ export const TradingProvider = ({ children }) => {
           : r
       ),
     };
-    updateUserInList(updatedTeacher);
+
+    setAllUsers(prevUsers => {
+      const newUsers = prevUsers.map(u => {
+        if (u.id === updatedStudent.id) return updatedStudent;
+        if (u.id === updatedTeacher.id) return updatedTeacher;
+        return u;
+      });
+      saveAllUsers(newUsers);
+      return newUsers;
+    });
 
     return true;
   };
