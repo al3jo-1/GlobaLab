@@ -248,11 +248,8 @@ export const TradingProvider = ({ children }) => {
       balance: 10000,
       positions: [],
       transactions: [],
+      selectedRoomId: joinedRoom.id,
     };
-
-    if (!updatedUser.selectedRoomId) {
-      updatedUser.selectedRoomId = joinedRoom.id;
-    }
 
     updateUserInList(updatedUser);
 
