@@ -212,8 +212,12 @@ export const TradingProvider = ({ children }) => {
       return false;
     }
 
+    console.log('Attempting to join room with code:', roomCode);
+    console.log('Current user:', currentUser);
+
     const teacher = allUsers.find(u => u.role === 'teacher' && (u.rooms || []).some(r => r.classCode === roomCode));
     if (!teacher) {
+      console.log('No teacher found with room code:', roomCode);
       toast({
         title: t('auth.invalid_code'),
         description: t('auth.invalid_code_message'),
@@ -222,10 +226,13 @@ export const TradingProvider = ({ children }) => {
       return false;
     }
 
+    console.log('Found teacher:', teacher.name);
+
     const teacherRoom = teacher.rooms.find(r => r.classCode === roomCode);
     const alreadyJoined = (currentUser.rooms || []).some(r => r.classCode === roomCode);
 
     if (alreadyJoined) {
+      console.log('User already joined this room');
       toast({
         title: t('auth.already_joined'),
         description: t('auth.already_joined_message'),
@@ -242,15 +249,18 @@ export const TradingProvider = ({ children }) => {
       joinedAt: Date.now(),
     };
 
+    console.log('Creating joined room:', joinedRoom);
+
     const updatedUser = {
       ...currentUser,
       rooms: [...(currentUser.rooms || []), joinedRoom],
-      balance: 10000,
-      positions: [],
-      transactions: [],
+      balance: currentUser.balance || 10000,
+      positions: currentUser.positions || [],
+      transactions: currentUser.transactions || [],
       selectedRoomId: joinedRoom.id,
     };
 
+    console.log('Updated user with new room:', updatedUser);
     updateUserInList(updatedUser);
 
     const updatedTeacher = {
@@ -261,8 +271,10 @@ export const TradingProvider = ({ children }) => {
           : r
       ),
     };
+    console.log('Updated teacher student count');
     updateUserInList(updatedTeacher);
 
+    console.log('Successfully joined room!');
     return true;
   };
 
