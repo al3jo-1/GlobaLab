@@ -41,6 +41,24 @@ GlobalTradeLab is a trading simulation platform for educational purposes. It all
 - Backend provides AI chatbot API with OpenAI integration
 
 ## Recent Changes
+- 2025-11-07: Fix crítico de unirse a salas y mejora de chatbot con OpenAI
+  - ✅ **ARREGLADO DEFINITIVAMENTE**: Bug de ingreso a salas con código
+    - Estudiantes pueden unirse correctamente usando el código de sala
+    - Se actualiza correctamente el array `rooms` del estudiante
+    - Se establece `selectedRoomId` automáticamente a la sala recién unida
+    - Se incrementa el contador de estudiantes en la sala del profesor
+    - Todos los cambios se persisten en localStorage
+    - Funcionalidad probada y verificada por el arquitecto
+  - ✅ **CHATBOT MEJORADO CON IA**: Integración de OpenAI GPT-5
+    - Backend API configurado con OpenAI (requiere API key con cuota)
+    - Sistema de fallback inteligente con respuestas educativas predefinidas
+    - Manejo robusto de errores de cuota (error 429)
+    - Chatbot siempre funcional, con o sin OpenAI activo
+    - Soporte completo para español e inglés
+    - Temas: acciones, criptos, riesgo, análisis, portafolio, estrategias
+  - ✅ Código limpiado (removidos console.logs de debug)
+  - ✅ Documentación completa en TESTING_GUIDE.md
+  
 - 2025-11-07: Correcciones críticas de bugs y mejoras UX
   - ✅ **ARREGLADO**: Bug de ingreso a salas - estudiantes ahora son redirigidos automáticamente al dashboard
     - Modificado `joinRoom` para siempre setear `selectedRoomId` a la sala recién unida
