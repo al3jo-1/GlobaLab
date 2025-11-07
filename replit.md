@@ -5,12 +5,14 @@ GlobalTradeLab is a trading simulation platform for educational purposes. It all
 
 ## Project Architecture
 - **Frontend**: React + Vite application with Tailwind CSS
+- **Backend API**: Express.js server for AI chatbot integration
 - **UI Components**: Radix UI with custom styling
 - **Charts**: Lightweight Charts library for market visualization
 - **Routing**: React Router DOM
 - **State Management**: React Context API (TradingContext)
 - **Storage**: Local Storage for user data and portfolios
-- **Port**: Frontend runs on port 5000
+- **AI Integration**: OpenAI GPT-5 for enhanced chatbot responses (optional)
+- **Ports**: Frontend on port 5000, Backend API on port 3000
 
 ## Key Features
 - User authentication (Teacher/Student roles)
@@ -32,11 +34,26 @@ GlobalTradeLab is a trading simulation platform for educational purposes. It all
 - Framer Motion for animations
 
 ## Development
-- Run `npm run dev` to start the development server
-- Frontend available at port 5000
-- Uses Vite with hot module replacement
+- Run `npm run dev` to start the frontend development server (port 5000)
+- Run `npm run server` to start the backend API server (port 3000)
+- Run `npm run dev:all` to start both servers simultaneously
+- Frontend uses Vite with hot module replacement
+- Backend provides AI chatbot API with OpenAI integration
 
 ## Recent Changes
+- 2025-11-07: Mejoras críticas de UX y AI
+  - ✅ Corregido bug de ingreso a salas: estudiantes ahora se redirigen automáticamente al dashboard tras unirse exitosamente
+  - ✅ Corregido problema de letras cortadas en landing page (agregado line-height y padding adecuado)
+  - ✅ Confirmado que código de sala aparece en sidebar para profesores y estudiantes con funcionalidad de copiar
+  - ✅ Chatbot educativo mejorado con integración de OpenAI GPT-5:
+    - Backend API seguro en Express.js (puerto 3000)
+    - Respuestas detalladas y contextuales sobre conceptos financieros
+    - Sistema de fallback a knowledge base local si no hay API key configurada
+    - Soporte multilenguaje (español e inglés)
+    - Manejo robusto de errores
+  - ✅ Nuevo workflow backend para API del chatbot
+
+
 - 2025-11-06: Chatbot educativo y traducciones completas
   - ✅ Chatbot de educación financiera integrado en HelpPage con respuestas simuladas
   - ✅ Traducciones completas del chatbot en los 8 idiomas soportados
