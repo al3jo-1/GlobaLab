@@ -4,7 +4,7 @@ import { COP_TO_USD_RATE } from '@/lib/market-data'; // Import the rate
 
 export const usePortfolioManager = ({ currentUser, updateUser, toast, marketData, symbols }) => {
 
-  const openPosition = (symbol, type, amountUSD, entryPrice, justification, attachmentName) => {
+  const openPosition = (symbol, type, amountUSD, entryPrice, justification, attachmentName, attachmentData) => {
     if (!currentUser) {
       toast({ title: "Error", description: "Usuario no encontrado.", variant: "destructive" });
       return false;
@@ -39,6 +39,7 @@ export const usePortfolioManager = ({ currentUser, updateUser, toast, marketData
       openDate: new Date().toISOString(),
       justification,
       attachmentName: attachmentName || null,
+      attachmentData: attachmentData || null,
       currency: assetCurrency, // Store the asset's currency with the position
     };
 
@@ -52,6 +53,7 @@ export const usePortfolioManager = ({ currentUser, updateUser, toast, marketData
       date: new Date().toISOString(),
       justification,
       attachmentName: attachmentName || null,
+      attachmentData: attachmentData || null,
     };
     
     const updatedUser = {
@@ -120,6 +122,7 @@ export const usePortfolioManager = ({ currentUser, updateUser, toast, marketData
       date: new Date().toISOString(),
       justification: positionToClose.justification, 
       attachmentName: positionToClose.attachmentName,
+      attachmentData: positionToClose.attachmentData,
     };
 
     const updatedUser = {

@@ -78,7 +78,19 @@ const TransactionHistory = ({ limit }) => {
                 <div className="text-xs mt-2 pt-2 border-t border-border/60">
                   <p className="flex items-center mb-0.5 text-muted-foreground"><FileText className="h-3 w-3 mr-1" /> {t('trading.justification', { defaultValue: 'Justification' })}:</p>
                   <p className="italic pl-1">{transaction.justification}</p>
-                   {transaction.attachmentName && <p className="text-xs mt-1 flex items-center pl-1"><ImageIcon className="h-3 w-3 mr-1" /> {t('history.attachment', { defaultValue: 'Attachment' })}: {transaction.attachmentName}</p>}
+                  {transaction.attachmentName && (
+                    <div className="mt-2">
+                      <p className="text-xs flex items-center pl-1 mb-1"><ImageIcon className="h-3 w-3 mr-1" /> {t('history.attachment', { defaultValue: 'Attachment' })}: {transaction.attachmentName}</p>
+                      {transaction.attachmentData && (
+                        <img 
+                          src={transaction.attachmentData} 
+                          alt={transaction.attachmentName} 
+                          className="mt-1 max-w-full h-auto rounded-md border border-border max-h-32 object-contain cursor-pointer hover:opacity-80 transition-opacity"
+                          onClick={() => window.open(transaction.attachmentData, '_blank')}
+                        />
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
             </div>

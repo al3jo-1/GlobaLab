@@ -52,7 +52,17 @@ const StudentTransactionDetails = ({ student, isOpen, onClose }) => {
                     </div>
                   )}
                   {tx.attachmentName && (
-                     <p className="text-xs mt-1 flex items-center"><ImageIcon className="h-3 w-3 mr-1 text-primary/70" /> Adjunto: {tx.attachmentName}</p>
+                    <div className="mt-2 pt-2 border-t border-border/50">
+                      <p className="text-xs flex items-center mb-1"><ImageIcon className="h-3 w-3 mr-1 text-primary/70" /> Adjunto: {tx.attachmentName}</p>
+                      {tx.attachmentData && (
+                        <img 
+                          src={tx.attachmentData} 
+                          alt={tx.attachmentName} 
+                          className="mt-1 max-w-full h-auto rounded-md border border-border max-h-48 object-contain cursor-pointer hover:opacity-80 transition-opacity"
+                          onClick={() => window.open(tx.attachmentData, '_blank')}
+                        />
+                      )}
+                    </div>
                   )}
                 </div>
               ))}

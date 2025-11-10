@@ -52,8 +52,13 @@ const TradeFormLogic = ({
         if (e.target) e.target.value = null;
         return;
       }
-      setAttachment(file);
-      setAttachmentName(file.name);
+      
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAttachment(reader.result);
+        setAttachmentName(file.name);
+      };
+      reader.readAsDataURL(file);
     } else {
       setAttachment(null);
       setAttachmentName('');
@@ -96,7 +101,8 @@ const TradeFormLogic = ({
       investmentAmountUSD, 
       currentPriceInAssetCurrency, // Pass the asset's original price
       justification,
-      attachmentName
+      attachmentName,
+      attachment
     );
 
     if (success) {
