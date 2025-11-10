@@ -93,10 +93,14 @@
   },
   "markets": {
     "title": "Mercati Finanziari",
+    "all": "Tutti",
     "stocks": "Azioni",
     "crypto": "Criptovalute",
+    "index": "Indici",
     "forex": "Forex",
-    "search": "Cerca mercato..."
+    "search": "Cerca mercato...",
+    "search_placeholder": "Cerca per nome o simbolo...",
+    "no_results": "Nessun risultato trovato"
   },
   "teacher": {
     "dashboard": "Pannello Insegnante",

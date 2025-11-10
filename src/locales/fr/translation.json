@@ -93,10 +93,14 @@
   },
   "markets": {
     "title": "Marchés Financiers",
+    "all": "Tout",
     "stocks": "Actions",
     "crypto": "Cryptomonnaie",
+    "index": "Indices",
     "forex": "Forex",
-    "search": "Rechercher un marché..."
+    "search": "Rechercher un marché...",
+    "search_placeholder": "Rechercher par nom ou symbole...",
+    "no_results": "Aucun résultat trouvé"
   },
   "teacher": {
     "dashboard": "Tableau de Bord Enseignant",

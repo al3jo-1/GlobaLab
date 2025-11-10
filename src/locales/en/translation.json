@@ -155,10 +155,14 @@
   },
   "markets": {
     "title": "Financial Markets",
+    "all": "All",
     "stocks": "Stocks",
     "crypto": "Cryptocurrency",
+    "index": "Index",
     "forex": "Forex",
-    "search": "Search market..."
+    "search": "Search market...",
+    "search_placeholder": "Search by name or symbol...",
+    "no_results": "No results found"
   },
   "teacher": {
     "dashboard": "Teacher Dashboard",
