@@ -7,6 +7,7 @@ import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { useMarketDataUpdater } from '@/hooks/useMarketDataUpdater';
 import { useAuthManager } from '@/hooks/useAuthManager';
 import { usePortfolioManager } from '@/hooks/usePortfolioManager';
+import { useChartPreferences } from '@/hooks/useChartPreferences';
 
 
 const TradingContext = createContext({});
@@ -26,15 +27,23 @@ export const TradingProvider = ({ children }) => {
   const [isLoadingAuth, setIsLoadingAuth] = useState(true);
   const [activeSimulation, setActiveSimulationState] = useLocalStorage('activeTradingSimulation', null);
   const [theme, setThemeState] = useLocalStorage('theme', 'dark');
+  const { preferences: chartPreferences, updatePreferences: updateChartPreferences, resetToDefaults: resetChartPreferences } = useChartPreferences();
 
 
   const currentUser = allUsers.find(u => u.email === currentUserEmail) || null;
   
   const initialSymbols = [
-    { id: 'BTCUSD', name: 'Bitcoin', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.03 },
-    { id: 'ETHUSD', name: 'Ethereum', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.04 },
+    { id: 'BTCUSD', name: 'Bitcoin', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.03, featured: true },
+    { id: 'ETHUSD', name: 'Ethereum', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.04, featured: true },
+    { id: 'XRPUSD', name: 'Ripple', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.05 },
+    { id: 'ADAUSD', name: 'Cardano', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.045 },
+    { id: 'SOLUSD', name: 'Solana', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.055 },
+    { id: 'DOTUSD', name: 'Polkadot', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.048 },
+    { id: 'MATICUSD', name: 'Polygon', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.052 },
+    { id: 'AVAXUSD', name: 'Avalanche', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.056 },
+    
     { id: 'ECOPETROL', name: 'Ecopetrol', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.015 },
-    { id: 'BANCOLOMBIA', name: 'Bancolombia', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.01 },
+    { id: 'BANCOLOMBIA', name: 'Bancolombia', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.01, featured: true },
     { id: 'PFBCOLOM', name: 'Bancolombia Pref.', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.011 },
     { id: 'GRUPOARGOS', name: 'Grupo Argos', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.012 },
     { id: 'GRUPOSURA', name: 'Grupo Sura', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.011 },
@@ -49,9 +58,22 @@ export const TradingProvider = ({ children }) => {
     { id: 'DAVIVIENDA', name: 'Davivienda Pref.', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.011 },
     { id: 'MINEROS', name: 'Mineros S.A.', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.022 },
     { id: 'NU', name: 'Nu Holdings', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.025 },
-    { id: 'XRPUSD', name: 'Ripple', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.05 },
-    { id: 'ADAUSD', name: 'Cardano', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.045 },
-    { id: 'SOLUSD', name: 'Solana', price: 0, change: 0, currency: 'USD', type: 'crypto', baseVolatility: 0.055 },
+    { id: 'AAPL', name: 'Apple Inc.', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.018, featured: true },
+    { id: 'GOOGL', name: 'Alphabet Inc.', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.02 },
+    { id: 'MSFT', name: 'Microsoft Corp.', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.016 },
+    { id: 'AMZN', name: 'Amazon.com Inc.', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.022 },
+    { id: 'TSLA', name: 'Tesla Inc.', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.035 },
+    { id: 'NVDA', name: 'NVIDIA Corp.', price: 0, change: 0, currency: 'USD', type: 'stock', baseVolatility: 0.028 },
+    
+    { id: 'EURUSD', name: 'Euro vs Dólar', price: 0, change: 0, currency: 'USD', type: 'forex', baseVolatility: 0.008, featured: true },
+    { id: 'GBPUSD', name: 'Libra vs Dólar', price: 0, change: 0, currency: 'USD', type: 'forex', baseVolatility: 0.009 },
+    { id: 'USDJPY', name: 'Dólar vs Yen', price: 0, change: 0, currency: 'USD', type: 'forex', baseVolatility: 0.0085 },
+    { id: 'AUDUSD', name: 'Dólar Australiano', price: 0, change: 0, currency: 'USD', type: 'forex', baseVolatility: 0.0095 },
+    
+    { id: 'SPX', name: 'S&P 500', price: 0, change: 0, currency: 'USD', type: 'index', baseVolatility: 0.012, featured: true },
+    { id: 'DJI', name: 'Dow Jones', price: 0, change: 0, currency: 'USD', type: 'index', baseVolatility: 0.011 },
+    { id: 'NDX', name: 'NASDAQ 100', price: 0, change: 0, currency: 'USD', type: 'index', baseVolatility: 0.015 },
+    { id: 'FTSE', name: 'FTSE 100', price: 0, change: 0, currency: 'USD', type: 'index', baseVolatility: 0.01 },
   ];
 
   const [marketData, setMarketData] = useState({});
@@ -354,6 +376,9 @@ export const TradingProvider = ({ children }) => {
     setActiveSimulation,
     theme,
     toggleTheme,
+    chartPreferences,
+    updateChartPreferences,
+    resetChartPreferences,
     copToUsdRate: COP_TO_USD_RATE,
     createRoom,
     joinRoom,

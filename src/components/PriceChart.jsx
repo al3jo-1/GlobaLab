@@ -27,7 +27,7 @@ const PriceChart = () => {
   const signalSeriesRef = useRef(null);
   const histogramSeriesRef = useRef(null);
 
-  const { marketData, selectedSymbol, initialSymbols } = useTradingContext();
+  const { marketData, selectedSymbol, initialSymbols, chartPreferences } = useTradingContext();
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [chartType, setChartType] = useState('candlestick'); 
   const [activeTool, setActiveTool] = useState(null);
@@ -187,7 +187,7 @@ const PriceChart = () => {
         try { chartRef.current.removeSeries(seriesRef.current); } catch (e) {}
         seriesRef.current = null;
     }
-    const seriesOpt = getSeriesOptions(chartType);
+    const seriesOpt = getSeriesOptions(chartType, chartPreferences);
     seriesRef.current = chartType === 'line' ? chartRef.current.addLineSeries(seriesOpt) : chartRef.current.addCandlestickSeries(seriesOpt);
     
     const dataToSet = formatPriceDataForChart(aggregatedData, chartType);

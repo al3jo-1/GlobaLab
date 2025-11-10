@@ -51,7 +51,16 @@ export const getChartOptions = (theme, isFullScreen, chartContainerRef, isMainCh
   },
 });
 
-export const getSeriesOptions = (type) => {
+export const getSeriesOptions = (type, chartPreferences = null) => {
+  const preferences = chartPreferences || {
+    upColor: '#22c55e',
+    downColor: '#ef4444',
+    wickUpColor: '#22c55e',
+    wickDownColor: '#ef4444',
+    borderUpColor: '#22c55e',
+    borderDownColor: '#ef4444',
+  };
+
   switch (type) {
     case 'line':
       return {
@@ -60,24 +69,24 @@ export const getSeriesOptions = (type) => {
       };
     case 'heikinashi':
       return {
-        upColor: '#22c55e',
-        downColor: '#ef4444',
+        upColor: preferences.upColor,
+        downColor: preferences.downColor,
         borderVisible: true,
         wickVisible: true,
-        borderDownColor: '#ef4444',
-        borderUpColor: '#22c55e',
-        wickDownColor: '#ef4444',
-        wickUpColor: '#22c55e',
+        borderDownColor: preferences.borderDownColor || preferences.downColor,
+        borderUpColor: preferences.borderUpColor || preferences.upColor,
+        wickDownColor: preferences.wickDownColor,
+        wickUpColor: preferences.wickUpColor,
       };
     case 'candlestick':
     default:
       return {
-        upColor: '#22c55e',
-        downColor: '#ef4444',
-        borderDownColor: '#ef4444',
-        borderUpColor: '#22c55e',
-        wickDownColor: '#ef4444',
-        wickUpColor: '#22c55e',
+        upColor: preferences.upColor,
+        downColor: preferences.downColor,
+        borderDownColor: preferences.borderDownColor || preferences.downColor,
+        borderUpColor: preferences.borderUpColor || preferences.upColor,
+        wickDownColor: preferences.wickDownColor,
+        wickUpColor: preferences.wickUpColor,
       };
   }
 };

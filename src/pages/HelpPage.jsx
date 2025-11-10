@@ -10,16 +10,18 @@ import { useToast } from "@/components/ui/use-toast";
 import FinancialChatbot from '@/components/chatbot/FinancialChatbot';
 
 const HelpPage = () => {
-  const { user, allUsers } = useTradingContext();
+  const { user, allUsers, currentRoom } = useTradingContext();
   const { t } = useTranslation();
   const { toast } = useToast();
   const developerEmail = "Master@globaltradelab.online";
   let teacherEmail = null;
+  let teacherName = null;
 
-  if (user?.role === 'student' && user.joinedClassCode) {
-    const teacher = allUsers.find(u => u.role === 'teacher' && u.classCode === user.joinedClassCode);
+  if (user?.role === 'student' && currentRoom && currentRoom.ownerId) {
+    const teacher = allUsers.find(u => u.id === currentRoom.ownerId);
     if (teacher) {
       teacherEmail = teacher.email;
+      teacherName = teacher.name;
     }
   }
 
@@ -72,11 +74,17 @@ const HelpPage = () => {
             <div className="p-6 border border-border rounded-lg bg-background/50">
               <h3 className="text-lg font-semibold mb-2 flex items-center">
                 <UserCheck className="mr-2 h-5 w-5 text-primary/80" />
-                {t('teacher.dashboard')}
+                {t('help.teacher_title', { defaultValue: 'Tu Docente' })}
               </h3>
               <p className="text-sm text-muted-foreground mb-3">
-                {t('help.teacher_contact', { defaultValue: 'If you have class-specific questions, contact your teacher:' })}
+                {t('help.teacher_contact', { defaultValue: 'Si tienes preguntas sobre la clase, contacta a tu docente:' })}
               </p>
+              {teacherName && (
+                <div className="flex items-center justify-between p-3 bg-secondary/30 rounded-md mb-2">
+                  <span className="text-sm text-muted-foreground">Nombre:</span>
+                  <span className="text-sm font-medium">{teacherName}</span>
+                </div>
+              )}
               <div className="flex items-center justify-between p-3 bg-secondary/50 rounded-md">
                 <span className="text-sm font-medium">{teacherEmail}</span>
                 <Button variant="ghost" size="icon" onClick={() => copyToClipboard(teacherEmail, "Correo del docente")}>
