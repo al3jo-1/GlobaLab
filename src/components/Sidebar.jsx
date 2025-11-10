@@ -104,7 +104,7 @@ const Sidebar = ({ onLinkClick }) => {
               <p className="text-xs text-muted-foreground capitalize">{user.role}</p>
             </div>
             
-            {currentRoom && currentRoom.classCode && (
+            {user?.role === 'teacher' && currentRoom && currentRoom.classCode && (
               <div className="mb-4 p-3 bg-secondary/30 rounded-lg">
                 <p className="text-xs text-muted-foreground text-center mb-2">
                   {t('teacher.class_code')} {currentRoom.name && `- ${currentRoom.name}`}
