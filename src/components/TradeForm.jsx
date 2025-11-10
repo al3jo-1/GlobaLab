@@ -27,7 +27,9 @@ const TradeForm = () => {
     quantity, setQuantity,
     tradeType, setTradeType,
     justification, setJustification,
-    attachmentName, setAttachmentName, // Ensure setAttachmentName is passed
+    attachmentName, setAttachmentName,
+    automationRules,
+    updateAutomationRule,
     handleFileChange,
     handleSubmit,
     totalCostUSD,
@@ -78,6 +80,8 @@ const TradeForm = () => {
       totalCostUSD={totalCostUSD}
       userBalance={user?.balance || 0}
       isStock={currentSymbolInfo?.type === 'stock'}
+      automationRules={automationRules}
+      updateAutomationRule={updateAutomationRule}
     />
   );
 };

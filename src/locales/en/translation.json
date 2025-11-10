@@ -117,7 +117,21 @@
     "note_virtual": "All trades are simulated with virtual money",
     "note_prices": "Prices update to simulate the market.",
     "note_close_positions": "You can close positions from the Positions section.",
-    "note_justification": "A justification is required for each trade."
+    "note_justification": "A justification is required for each trade.",
+    "automation_optional": "Automation (Optional)",
+    "take_profit": "Take Profit",
+    "stop_loss": "Stop Loss",
+    "buy_limit": "Buy Limit",
+    "sell_limit": "Sell Limit",
+    "tp_hint_buy": "> current price",
+    "tp_hint_sell": "< current price",
+    "sl_hint_buy": "< current price",
+    "sl_hint_sell": "> current price",
+    "bl_hint": "Execute when price drops",
+    "sll_hint": "Execute when price rises",
+    "only_for_buy": "Only for BUY",
+    "only_for_sell": "Only for SELL",
+    "not_applicable": "N/A"
   },
   "chart": {
     "clear_drawings": "Clear drawings",

@@ -163,7 +163,21 @@
     "note_virtual": "सभी ट्रेड वर्चुअल धन से सिम्युलेटेड हैं",
     "note_prices": "मार्केट सिमुलेशन के लिए कीमतें अपडेट होती हैं।",
     "note_close_positions": "आप पोजीशन सेक्शन से पोजीशन बंद कर सकते हैं।",
-    "note_justification": "प्रत्येक ट्रेड के लिए औचित्य आवश्यक है।"
+    "note_justification": "प्रत्येक ट्रेड के लिए औचित्य आवश्यक है।",
+    "automation_optional": "स्वचालन (वैकल्पिक)",
+    "take_profit": "टेक प्रॉफिट",
+    "stop_loss": "स्टॉप लॉस",
+    "buy_limit": "Buy Limit",
+    "sell_limit": "Sell Limit",
+    "tp_hint_buy": "> वर्तमान कीमत",
+    "tp_hint_sell": "< वर्तमान कीमत",
+    "sl_hint_buy": "< वर्तमान कीमत",
+    "sl_hint_sell": "> वर्तमान कीमत",
+    "bl_hint": "कीमत गिरने पर निष्पादित करें",
+    "sll_hint": "कीमत बढ़ने पर निष्पादित करें",
+    "only_for_buy": "केवल खरीदारी के लिए",
+    "only_for_sell": "केवल बिक्री के लिए",
+    "not_applicable": "लागू नहीं"
   },
   "chart": {
     "clear_drawings": "ड्रॉइंग हटाएं",

@@ -25,6 +25,8 @@ const TradeFormUI = ({
   totalCostUSD, // This is the calculated cost in USD
   userBalance,
   isStock,
+  automationRules,
+  updateAutomationRule,
 }) => {
   const { t } = useTranslation();
 
@@ -77,6 +79,91 @@ const TradeFormUI = ({
           </p>
         )}
 
+        <div className="border-t border-muted-foreground/20 pt-3 mt-3 space-y-2">
+          <Label className="text-sm font-semibold">{t('trade.automation_optional', { defaultValue: 'Automation (Optional)' })}</Label>
+          
+          <div className="grid grid-cols-2 gap-2">
+            <div className="space-y-1">
+              <Label htmlFor={`${type}-takeProfit`} className="text-xs">{t('trade.take_profit', { defaultValue: 'Take Profit' })}</Label>
+              <Input
+                id={`${type}-takeProfit`}
+                type="number"
+                placeholder={assetCurrency}
+                value={automationRules.takeProfit}
+                onChange={(e) => updateAutomationRule('takeProfit', e.target.value)}
+                min="0.000001"
+                step="any"
+                className="h-8 text-xs"
+              />
+              <p className="text-[10px] text-muted-foreground">
+                {type === 'BUY' 
+                  ? t('trade.tp_hint_buy', { defaultValue: '> current price' })
+                  : t('trade.tp_hint_sell', { defaultValue: '< current price' })}
+              </p>
+            </div>
+
+            <div className="space-y-1">
+              <Label htmlFor={`${type}-stopLoss`} className="text-xs">{t('trade.stop_loss', { defaultValue: 'Stop Loss' })}</Label>
+              <Input
+                id={`${type}-stopLoss`}
+                type="number"
+                placeholder={assetCurrency}
+                value={automationRules.stopLoss}
+                onChange={(e) => updateAutomationRule('stopLoss', e.target.value)}
+                min="0.000001"
+                step="any"
+                className="h-8 text-xs"
+              />
+              <p className="text-[10px] text-muted-foreground">
+                {type === 'BUY' 
+                  ? t('trade.sl_hint_buy', { defaultValue: '< current price' })
+                  : t('trade.sl_hint_sell', { defaultValue: '> current price' })}
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2">
+            <div className="space-y-1">
+              <Label htmlFor={`${type}-buyLimit`} className="text-xs">{t('trade.buy_limit', { defaultValue: 'Buy Limit' })}</Label>
+              <Input
+                id={`${type}-buyLimit`}
+                type="number"
+                placeholder={type === 'BUY' ? assetCurrency : t('trade.not_applicable', { defaultValue: 'N/A' })}
+                value={automationRules.buyLimit}
+                onChange={(e) => updateAutomationRule('buyLimit', e.target.value)}
+                min="0.000001"
+                step="any"
+                className="h-8 text-xs"
+                disabled={type === 'SELL'}
+              />
+              <p className="text-[10px] text-muted-foreground">
+                {type === 'BUY' 
+                  ? t('trade.bl_hint', { defaultValue: 'Execute when price drops' })
+                  : t('trade.only_for_buy', { defaultValue: 'Only for BUY' })}
+              </p>
+            </div>
+
+            <div className="space-y-1">
+              <Label htmlFor={`${type}-sellLimit`} className="text-xs">{t('trade.sell_limit', { defaultValue: 'Sell Limit' })}</Label>
+              <Input
+                id={`${type}-sellLimit`}
+                type="number"
+                placeholder={type === 'SELL' ? assetCurrency : t('trade.not_applicable', { defaultValue: 'N/A' })}
+                value={automationRules.sellLimit}
+                onChange={(e) => updateAutomationRule('sellLimit', e.target.value)}
+                min="0.000001"
+                step="any"
+                className="h-8 text-xs"
+                disabled={type === 'BUY'}
+              />
+              <p className="text-[10px] text-muted-foreground">
+                {type === 'SELL' 
+                  ? t('trade.sll_hint', { defaultValue: 'Execute when price rises' })
+                  : t('trade.only_for_sell', { defaultValue: 'Only for SELL' })}
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div className="space-y-1">
           <Label htmlFor={`${type}-justification`}>{t('trading.justification', { defaultValue: 'Justification' })}</Label>

@@ -163,7 +163,21 @@
     "note_virtual": "Все сделки симулируются с использованием виртуальных средств",
     "note_prices": "Цены обновляются для имитации рынка.",
     "note_close_positions": "Вы можете закрывать позиции в разделе Позиции.",
-    "note_justification": "Для каждой сделки требуется обоснование."
+    "note_justification": "Для каждой сделки требуется обоснование.",
+    "automation_optional": "Автоматизация (Опционально)",
+    "take_profit": "Тейк-профит",
+    "stop_loss": "Стоп-лосс",
+    "buy_limit": "Buy Limit",
+    "sell_limit": "Sell Limit",
+    "tp_hint_buy": "> текущая цена",
+    "tp_hint_sell": "< текущая цена",
+    "sl_hint_buy": "< текущая цена",
+    "sl_hint_sell": "> текущая цена",
+    "bl_hint": "Выполнить при падении цены",
+    "sll_hint": "Выполнить при росте цены",
+    "only_for_buy": "Только для ПОКУПКИ",
+    "only_for_sell": "Только для ПРОДАЖИ",
+    "not_applicable": "Н/Д"
   },
   "chart": {
     "clear_drawings": "Удалить рисования",
