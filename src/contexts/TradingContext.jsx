@@ -8,6 +8,7 @@ import { useMarketDataUpdater } from '@/hooks/useMarketDataUpdater';
 import { useAuthManager } from '@/hooks/useAuthManager';
 import { usePortfolioManager } from '@/hooks/usePortfolioManager';
 import { useChartPreferences } from '@/hooks/useChartPreferences';
+import { useAutomationEngine } from '@/hooks/useAutomationEngine';
 
 
 const TradingContext = createContext({});
@@ -136,6 +137,13 @@ export const TradingProvider = ({ children }) => {
   }, []);
 
   useMarketDataUpdater(setMarketData, initialSymbols, activeSimulation);
+  
+  useAutomationEngine(
+    currentUser?.positions || [],
+    marketData,
+    closePosition,
+    toast
+  );
   
   useEffect(() => {
     if (currentUserEmail && !allUsers.find(u => u.email === currentUserEmail)) {
