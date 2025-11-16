@@ -4,77 +4,77 @@
 
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%; /* Dark Default */
-    --foreground: 210 40% 98%; /* Dark Default */
+    --background: 220 25% 7%; /* Deep navy background for trading platform */
+    --foreground: 210 40% 98%; /* Bright white text */
     
-    --card: 222.2 84% 6.9%; /* Dark Default */
-    --card-foreground: 210 40% 98%; /* Dark Default */
+    --card: 220 23% 10%; /* Slightly lighter cards */
+    --card-foreground: 210 40% 98%; 
     
-    --popover: 222.2 84% 4.9%; /* Dark Default */
-    --popover-foreground: 210 40% 98%; /* Dark Default */
+    --popover: 220 25% 9%; 
+    --popover-foreground: 210 40% 98%;
     
-    --primary: 217.2 91.2% 59.8%; /* Dark Default */
-    --primary-foreground: 222.2 47.4% 11.2%; /* Dark Default */
+    --primary: 199 89% 48%; /* Professional blue - trading platforms */
+    --primary-foreground: 0 0% 100%; /* Pure white */
     
-    --secondary: 217.2 32.6% 17.5%; /* Dark Default */
-    --secondary-foreground: 210 40% 98%; /* Dark Default */
+    --secondary: 220 20% 15%; /* Muted dark blue-gray */
+    --secondary-foreground: 210 40% 98%;
     
-    --muted: 217.2 32.6% 17.5%; /* Dark Default */
-    --muted-foreground: 215 20.2% 65.1%; /* Dark Default */
+    --muted: 220 17% 18%; /* Subtle background elements */
+    --muted-foreground: 215 15% 70%; /* Softer text */
     
-    --accent: 217.2 32.6% 17.5%; /* Dark Default */
-    --accent-foreground: 210 40% 98%; /* Dark Default */
+    --accent: 199 89% 48%; /* Match primary for consistency */
+    --accent-foreground: 0 0% 100%;
     
-    --destructive: 0 72.2% 50.6%; /* Adjusted Red for better visibility */
-    --destructive-foreground: 210 40% 98%; /* Dark Default */
+    --destructive: 0 84% 60%; /* Vibrant red for sell/loss */
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 217.2 32.6% 17.5%; /* Dark Default */
-    --input: 217.2 32.6% 17.5%; /* Dark Default */
-    --ring: 224.3 76.3% 48%; /* Dark Default */
+    --border: 220 20% 18%; /* Subtle borders */
+    --input: 220 20% 15%; /* Input background */
+    --ring: 199 89% 48%; /* Focus ring matches primary */
     
     --radius: 0.5rem;
 
-    --success: 142.1 70.2% 40.3%; /* Adjusted Green for better visibility */
-    --success-foreground: 210 40% 98%;
+    --success: 142 76% 36%; /* Green for buy/profit - financial markets */
+    --success-foreground: 0 0% 100%;
     
-    --warning: 47.9 95.8% 53.1%; /* Dark Default */
-    --warning-foreground: 26 83.3% 14.1%; /* Dark Default */
+    --warning: 38 92% 50%; /* Gold/amber for warnings */
+    --warning-foreground: 0 0% 100%;
   }
 
   .light {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 98%; /* Clean white background */
+    --foreground: 220 25% 12%; /* Deep text */
     
-    --card: 0 0% 96.1%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* Pure white cards */
+    --card-foreground: 220 25% 12%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 25% 12%;
     
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 199 89% 48%; /* Professional blue */
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: 0 0% 94.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 15% 92%; /* Light gray */
+    --secondary-foreground: 220 25% 15%;
     
-    --muted: 0 0% 94.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 94%; /* Very light gray */
+    --muted-foreground: 220 15% 40%; /* Muted text */
     
-    --accent: 0 0% 94.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
     
-    --destructive: 0 72.2% 50.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%; /* Red for sell/loss */
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 15% 88%; /* Subtle borders */
+    --input: 220 15% 94%; /* Light input background */
+    --ring: 199 89% 48%;
 
-    --success: 142.1 70.2% 40.3%;
-    --success-foreground: 0 0% 98%;
+    --success: 142 76% 36%; /* Green for buy/profit */
+    --success-foreground: 0 0% 100%;
     
-    --warning: 38 91.6% 50.2%;
-    --warning-foreground: 48 95.8% 20%;
+    --warning: 38 92% 50%; /* Gold/amber */
+    --warning-foreground: 0 0% 100%;
   }
 }
 

@@ -266,6 +266,22 @@ export const TradingProvider = ({ children }) => {
     }
 
     const teacherRoom = teacher.rooms.find(r => r.classCode === roomCode);
+    const teacherPlan = PLAN_LIMITS[teacher.plan] || PLAN_LIMITS.starter;
+    const currentStudentCount = teacherRoom.studentCount || 0;
+
+    if (currentStudentCount >= teacherPlan.maxStudents) {
+      toast({
+        title: t('auth.room_full', { defaultValue: 'Sala llena' }),
+        description: t('auth.room_full_message', { 
+          defaultValue: `Esta sala ha alcanzado el límite de ${teacherPlan.maxStudents} estudiantes del plan ${teacher.plan || 'starter'}. El profesor debe actualizar su plan.`,
+          maxStudents: teacherPlan.maxStudents,
+          plan: teacher.plan || 'starter'
+        }),
+        variant: "destructive",
+      });
+      return false;
+    }
+
     const alreadyJoined = (currentUser.rooms || []).some(r => r.classCode === roomCode);
 
     if (alreadyJoined) {
