@@ -5,18 +5,35 @@ import Dashboard from '@/pages/Dashboard';
 import Login from '@/pages/Login';
 import Register from '@/pages/Register';
 import LandingPage from '@/pages/LandingPage';
+import GlobalLabHub from '@/pages/GlobalLabHub';
 import RoomSelection from '@/pages/RoomSelection';
 import SettingsPage from '@/pages/SettingsPage';
 import HelpPage from '@/pages/HelpPage'; 
 import LearnPage from '@/pages/LearnPage';
 import StudentPortfolioPage from '@/pages/StudentPortfolioPage';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import { TradingProvider, useTradingContext } from '@/contexts/TradingContext';
+import { AccountingProvider, useAccountingContext } from '@/contexts/AccountingContext';
+import { BusinessProvider, useBusinessContext } from '@/contexts/BusinessContext';
 import TeacherMarkets from '@/components/teacher/TeacherMarkets';
 import TeacherPortfolio from '@/components/teacher/TeacherPortfolio';
 import MarketSimulator from '@/components/teacher/MarketSimulator';
 import ExperimentalMarket from '@/components/teacher/ExperimentalMarket';
 import NotificationPanel from '@/components/NotificationPanel';
 import PriceAlarms from '@/components/PriceAlarms';
+import AccountingRooms from '@/pages/accounting/AccountingRooms';
+import AccountingDashboard from '@/pages/accounting/AccountingDashboard';
+import FinancialStatements from '@/pages/accounting/FinancialStatements';
+import RatioCalculator from '@/pages/accounting/RatioCalculator';
+import TeacherDashboard from '@/pages/accounting/TeacherDashboard';
+import CaseManager from '@/pages/accounting/CaseManager';
+import BusinessRooms from '@/pages/business/BusinessRooms';
+import BusinessDashboard from '@/pages/business/BusinessDashboard';
+import CompanyBuilder from '@/pages/business/CompanyBuilder';
+import WorkforceManager from '@/pages/business/WorkforceManager';
+import LoanSimulator from '@/pages/business/LoanSimulator';
+import DecisionCenter from '@/pages/business/DecisionCenter';
+import BusinessTeacherDashboard from '@/pages/business/TeacherDashboard';
 
 const ProtectedRoute = ({ children, requireRoom = false }) => {
   const { user, isLoading } = useTradingContext();
@@ -33,11 +50,11 @@ const ProtectedRoute = ({ children, requireRoom = false }) => {
   }
 
   if (!user) {
-    return <Navigate to="/welcome" replace />;
+    return <Navigate to="/" replace />;
   }
 
   if (requireRoom && (!user.rooms || user.rooms.length === 0 || !user.selectedRoomId)) {
-    return <Navigate to="/rooms" replace />;
+    return <Navigate to="/trading/rooms" replace />;
   }
 
   return children;
@@ -57,7 +74,7 @@ const AuthRoute = ({ children }) => {
   }
 
   if (user) {
-    return <Navigate to="/rooms" replace />;
+    return <Navigate to="/trading/rooms" replace />;
   }
   return children;
 }
@@ -88,6 +105,75 @@ const StudentRouteContent = ({ component: Component, sectionName }) => {
   return <Dashboard mainContent={<Component />} />;
 };
 
+const AccountingProtectedRoute = ({ children, requireRoom = false }) => {
+  const { user, isLoading } = useAccountingContext();
+
+  if (isLoading) {
+    return (
+      <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900 text-white">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-2">Cargando AccountingLab...</h2>
+          <p className="text-slate-300">Preparando la plataforma de contabilidad.</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/accounting" replace />;
+  }
+
+  if (requireRoom && (!user.rooms || user.rooms.length === 0 || !user.selectedRoomId)) {
+    return <Navigate to="/accounting/rooms" replace />;
+  }
+
+  return children;
+};
+
+const AccountingAuthRoute = ({ children }) => {
+  const { user, isLoading } = useAccountingContext();
+
+  if (isLoading) {
+    return (
+      <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900 text-white">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-2">Cargando...</h2>
+        </div>
+      </div>
+    );
+  }
+
+  if (user) {
+    return <Navigate to="/accounting/rooms" replace />;
+  }
+  return children;
+};
+
+const BusinessProtectedRoute = ({ children, requireRoom = false }) => {
+  const { user, isLoading } = useBusinessContext();
+
+  if (isLoading) {
+    return (
+      <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900 text-white">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-2">Cargando BusinessLab...</h2>
+          <p className="text-slate-300">Preparando la plataforma de gestión empresarial.</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/business" replace />;
+  }
+
+  if (requireRoom && (!user.rooms || user.rooms.length === 0 || !user.selectedRoomId)) {
+    return <Navigate to="/business" replace />;
+  }
+
+  return children;
+};
+
 
 function AppContent() {
   const { user, theme, toggleTheme } = useTradingContext(); // Get theme and toggleTheme from context
@@ -97,12 +183,41 @@ function AppContent() {
   return (
     <Router>
       <Routes>
+        {/* Main GlobalLab Hub */}
+        <Route 
+          path="/" 
+          element={<GlobalLabHub />} 
+        />
+
+        {/* Legacy redirect */}
         <Route 
           path="/welcome" 
+          element={<Navigate to="/trading" replace />} 
+        />
+
+        {/* Trading Lab Routes */}
+        <Route 
+          path="/trading" 
           element={<LandingPage />} 
         />
         <Route 
-          path="/rooms" 
+          path="/trading/login" 
+          element={
+            <AuthRoute>
+              <Login />
+            </AuthRoute>
+          } 
+        />
+        <Route 
+          path="/trading/register" 
+          element={
+            <AuthRoute>
+              <Register />
+            </AuthRoute>
+          } 
+        />
+        <Route 
+          path="/trading/rooms" 
           element={
             <ProtectedRoute requireRoom={false}>
               <RoomSelection />
@@ -110,7 +225,7 @@ function AppContent() {
           } 
         />
         <Route 
-          path="/" 
+          path="/trading/dashboard" 
           element={
             <ProtectedRoute requireRoom={true}>
               <Dashboard />
@@ -118,7 +233,7 @@ function AppContent() {
           } 
         />
         <Route 
-          path="/markets"
+          path="/trading/markets"
           element={
             <ProtectedRoute requireRoom={true}>
               <Dashboard mainContent={<TeacherMarkets />} />
@@ -126,7 +241,7 @@ function AppContent() {
           }
         />
         <Route 
-          path="/portfolio"
+          path="/trading/portfolio"
           element={
             <ProtectedRoute requireRoom={true}>
                {user?.role === 'teacher' 
@@ -139,7 +254,7 @@ function AppContent() {
           }
         />
         <Route 
-          path="/learn"
+          path="/trading/learn"
           element={
             <ProtectedRoute requireRoom={true}>
               {user?.role === 'student' 
@@ -150,7 +265,7 @@ function AppContent() {
           }
         />
         <Route 
-          path="/admin"
+          path="/trading/admin"
           element={
             <ProtectedRoute requireRoom={true}>
               <TeacherRouteContent component={MarketSimulator} sectionName="Simulador de Mercado" />
@@ -158,7 +273,7 @@ function AppContent() {
           }
         />
         <Route 
-          path="/experimental"
+          path="/trading/experimental"
           element={
             <ProtectedRoute requireRoom={true}>
               <TeacherRouteContent component={ExperimentalMarket} sectionName="Aula Experimental" />
@@ -166,7 +281,7 @@ function AppContent() {
           }
         />
         <Route 
-          path="/notifications"
+          path="/trading/notifications"
           element={
             <ProtectedRoute requireRoom={true}>
               <Dashboard mainContent={<NotificationPanel />} />
@@ -174,7 +289,7 @@ function AppContent() {
           }
         />
         <Route 
-          path="/alarms"
+          path="/trading/alarms"
           element={
             <ProtectedRoute requireRoom={true}>
               <Dashboard mainContent={<PriceAlarms />} />
@@ -182,7 +297,7 @@ function AppContent() {
           }
         />
         <Route 
-          path="/settings"
+          path="/trading/settings"
           element={
             <ProtectedRoute requireRoom={true}>
               <Dashboard mainContent={<SettingsPage currentTheme={theme} toggleTheme={toggleTheme} />} />
@@ -190,28 +305,126 @@ function AppContent() {
           }
         />
         <Route 
-          path="/help"
+          path="/trading/help"
           element={
             <ProtectedRoute requireRoom={true}>
               <Dashboard mainContent={<HelpPage />} />
             </ProtectedRoute>
           }
         />
+
+        {/* Accounting Lab Routes */}
         <Route 
-          path="/login" 
+          path="/accounting" 
+          element={<AccountingRooms />} 
+        />
+        <Route 
+          path="/accounting/rooms" 
           element={
-            <AuthRoute>
-              <Login />
-            </AuthRoute>
+            <AccountingProtectedRoute requireRoom={false}>
+              <AccountingRooms />
+            </AccountingProtectedRoute>
           } 
         />
         <Route 
-          path="/register" 
+          path="/accounting/dashboard" 
           element={
-            <AuthRoute>
-              <Register />
-            </AuthRoute>
+            <AccountingProtectedRoute requireRoom={true}>
+              <AccountingDashboard />
+            </AccountingProtectedRoute>
           } 
+        />
+        <Route 
+          path="/accounting/statements" 
+          element={
+            <AccountingProtectedRoute requireRoom={true}>
+              <FinancialStatements />
+            </AccountingProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/accounting/ratios" 
+          element={
+            <AccountingProtectedRoute requireRoom={true}>
+              <RatioCalculator />
+            </AccountingProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/accounting/teacher" 
+          element={
+            <AccountingProtectedRoute requireRoom={true}>
+              <TeacherDashboard />
+            </AccountingProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/accounting/cases" 
+          element={
+            <AccountingProtectedRoute requireRoom={true}>
+              <CaseManager />
+            </AccountingProtectedRoute>
+          } 
+        />
+
+        {/* Business Lab Routes */}
+        <Route 
+          path="/business" 
+          element={<BusinessRooms />} 
+        />
+        <Route 
+          path="/business/dashboard" 
+          element={
+            <BusinessProtectedRoute requireRoom={true}>
+              <BusinessDashboard />
+            </BusinessProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/business/company" 
+          element={
+            <BusinessProtectedRoute requireRoom={true}>
+              <CompanyBuilder />
+            </BusinessProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/business/workforce" 
+          element={
+            <BusinessProtectedRoute requireRoom={true}>
+              <WorkforceManager />
+            </BusinessProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/business/loans" 
+          element={
+            <BusinessProtectedRoute requireRoom={true}>
+              <LoanSimulator />
+            </BusinessProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/business/decisions" 
+          element={
+            <BusinessProtectedRoute requireRoom={true}>
+              <DecisionCenter />
+            </BusinessProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/business/teacher" 
+          element={
+            <BusinessProtectedRoute requireRoom={true}>
+              <BusinessTeacherDashboard />
+            </BusinessProtectedRoute>
+          } 
+        />
+
+        {/* Legal */}
+        <Route 
+          path="/privacy" 
+          element={<PrivacyPolicy />} 
         />
       </Routes>
       <Toaster />
@@ -222,7 +435,11 @@ function AppContent() {
 function App() {
   return (
     <TradingProvider>
-      <AppContent />
+      <AccountingProvider>
+        <BusinessProvider>
+          <AppContent />
+        </BusinessProvider>
+      </AccountingProvider>
     </TradingProvider>
   );
 }

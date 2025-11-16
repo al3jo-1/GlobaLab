@@ -20,7 +20,7 @@ const Sidebar = ({ onLinkClick }) => {
   const handleLogout = () => {
     logout();
     if (onLinkClick) onLinkClick();
-    navigate('/login');
+    navigate('/trading/login');
   };
 
   const handleCopyCode = (roomCode) => {
@@ -37,16 +37,16 @@ const Sidebar = ({ onLinkClick }) => {
   };
 
   const navItems = [
-    { name: t('navigation.dashboard'), icon: <Home className="h-5 w-5" />, path: '/', role: ['student', 'teacher'] },
-    { name: t('navigation.markets'), icon: <BarChart2 className="h-5 w-5" />, path: '/markets', role: ['student', 'teacher'] },
-    { name: t('navigation.portfolio'), icon: <Briefcase className="h-5 w-5" />, path: '/portfolio', role: ['student', 'teacher'] },
-    { name: t('navigation.learn', { defaultValue: 'Learn' }), icon: <BookOpen className="h-5 w-5" />, path: '/learn', role: ['student'] },
-    { name: t('navigation.admin', { defaultValue: 'Admin' }), icon: <ShieldCheck className="h-5 w-5" />, path: '/admin', role: ['teacher'] },
-    { name: t('navigation.experimental', { defaultValue: 'Experimental' }), icon: <FlaskConical className="h-5 w-5" />, path: '/experimental', role: ['teacher'] },
-    { name: t('navigation.notifications', { defaultValue: 'Notifications' }), icon: <Bell className="h-5 w-5" />, path: '/notifications', role: ['teacher', 'student'] },
-    { name: t('navigation.alarms', { defaultValue: 'Alarms' }), icon: <BellRing className="h-5 w-5" />, path: '/alarms', role: ['teacher', 'student'] },
-    { name: t('navigation.settings'), icon: <Settings className="h-5 w-5" />, path: '/settings', role: ['student', 'teacher'] },
-    { name: t('navigation.help'), icon: <Info className="h-5 w-5" />, path: '/help', role: ['student', 'teacher'] },
+    { name: t('navigation.dashboard'), icon: <Home className="h-5 w-5" />, path: '/trading/dashboard', role: ['student', 'teacher'] },
+    { name: t('navigation.markets'), icon: <BarChart2 className="h-5 w-5" />, path: '/trading/markets', role: ['student', 'teacher'] },
+    { name: t('navigation.portfolio'), icon: <Briefcase className="h-5 w-5" />, path: '/trading/portfolio', role: ['student', 'teacher'] },
+    { name: t('navigation.learn', { defaultValue: 'Learn' }), icon: <BookOpen className="h-5 w-5" />, path: '/trading/learn', role: ['student'] },
+    { name: t('navigation.admin', { defaultValue: 'Admin' }), icon: <ShieldCheck className="h-5 w-5" />, path: '/trading/admin', role: ['teacher'] },
+    { name: t('navigation.experimental', { defaultValue: 'Experimental' }), icon: <FlaskConical className="h-5 w-5" />, path: '/trading/experimental', role: ['teacher'] },
+    { name: t('navigation.notifications', { defaultValue: 'Notifications' }), icon: <Bell className="h-5 w-5" />, path: '/trading/notifications', role: ['teacher', 'student'] },
+    { name: t('navigation.alarms', { defaultValue: 'Alarms' }), icon: <BellRing className="h-5 w-5" />, path: '/trading/alarms', role: ['teacher', 'student'] },
+    { name: t('navigation.settings'), icon: <Settings className="h-5 w-5" />, path: '/trading/settings', role: ['student', 'teacher'] },
+    { name: t('navigation.help'), icon: <Info className="h-5 w-5" />, path: '/trading/help', role: ['student', 'teacher'] },
   ];
 
   const handleNavLinkClick = () => {
@@ -64,7 +64,7 @@ const Sidebar = ({ onLinkClick }) => {
     >
       <div>
         <div className="mb-10 flex items-center justify-between">
-          <NavLink to="/" className="inline-block" onClick={handleNavLinkClick}>
+          <NavLink to="/trading/dashboard" className="inline-block" onClick={handleNavLinkClick}>
             <div className="flex items-center justify-center">
               <h1 className="text-xl font-bold">
                 <span className="text-primary">GlobalTrade</span>
@@ -123,7 +123,7 @@ const Sidebar = ({ onLinkClick }) => {
           </>
         ) : (
            <NavLink
-              to="/login"
+              to="/trading/login"
               onClick={handleNavLinkClick}
               className="flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 hover:bg-primary/10 hover:text-primary text-muted-foreground"
             >

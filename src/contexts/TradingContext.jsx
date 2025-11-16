@@ -24,11 +24,11 @@ export const TradingProvider = ({ children }) => {
   const { toast } = useToast();
   const { t } = useTranslation();
   
-  const [allUsers, setAllUsers, saveAllUsers] = useLocalStorage('allTradingUsers', []);
-  const [currentUserEmail, setCurrentUserEmail, saveCurrentUserEmail] = useLocalStorage('currentTradingUserEmail', null);
+  const [allUsers, setAllUsers, saveAllUsers] = useLocalStorage('trading_allUsers', []);
+  const [currentUserEmail, setCurrentUserEmail, saveCurrentUserEmail] = useLocalStorage('trading_currentUserEmail', null);
   const [isLoadingAuth, setIsLoadingAuth] = useState(true);
-  const [activeSimulation, setActiveSimulationState] = useLocalStorage('activeTradingSimulation', null);
-  const [theme, setThemeState] = useLocalStorage('theme', 'dark');
+  const [activeSimulation, setActiveSimulationState] = useLocalStorage('trading_activeSimulation', null);
+  const [theme, setThemeState] = useLocalStorage('trading_theme', 'dark');
   const { preferences: chartPreferences, updatePreferences: updateChartPreferences, resetToDefaults: resetChartPreferences } = useChartPreferences();
 
 

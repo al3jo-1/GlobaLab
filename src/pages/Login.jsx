@@ -61,7 +61,7 @@ const Login = () => {
         variant: "destructive",
       });
     } else {
-      navigate('/');
+      navigate('/trading/dashboard');
     }
   };
   

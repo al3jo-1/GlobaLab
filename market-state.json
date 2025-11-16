@@ -1,0 +1,45 @@
+{
+  "lastUpdate": 1763320899483,
+  "symbols": {
+    "BTCUSD": {
+      "lastClose": 45000.5,
+      "lastUpdate": 1763317619941
+    },
+    "ETHUSD": {
+      "lastClose": 2800.75,
+      "lastUpdate": 1763317620941
+    },
+    "XRPUSD": {
+      "lastClose": 0.55,
+      "lastUpdate": 1763317621942
+    },
+    "ADAUSD": {
+      "lastClose": 0.45,
+      "lastUpdate": 1763317622943
+    },
+    "SOLUSD": {
+      "lastClose": 105.5,
+      "lastUpdate": 1763317623945
+    },
+    "ECOPETROL": {
+      "lastClose": 2500,
+      "lastUpdate": 1763317624946
+    },
+    "BANCOLOMBIA": {
+      "lastClose": 35000,
+      "lastUpdate": 1763317625946
+    },
+    "AAPL": {
+      "lastClose": 178.25,
+      "lastUpdate": 1763317626947
+    },
+    "EURUSD": {
+      "lastClose": 1.09,
+      "lastUpdate": 1763317627947
+    },
+    "SPX": {
+      "lastClose": 4500,
+      "lastUpdate": 1763317628949
+    }
+  }
+}

@@ -7,6 +7,42 @@
     "copy": "Copied to clipboard",
     "copy_error": "Unable to copy"
   },
+  "globallab": {
+    "hero": {
+      "title": "Business Simulation Platform",
+      "subtitle": "Learn trading, accounting, and business management in a safe and educational environment"
+    },
+    "trading": {
+      "title": "Trading Lab",
+      "description": "Educational trading simulation"
+    },
+    "accounting": {
+      "title": "Accounting Lab",
+      "description": "Financial statement analysis"
+    },
+    "business": {
+      "title": "Business Lab",
+      "description": "Simulated business management"
+    },
+    "access_button": "Access",
+    "footer": {
+      "rights": "Educational Simulation Platform"
+    }
+  },
+  "coming_soon": {
+    "message": "Coming Soon",
+    "back_button": "Back to GlobalLab",
+    "accounting": {
+      "title": "Accounting Lab",
+      "subtitle": "Financial Statement Analysis",
+      "description": "We are developing a complete learning experience in accounting and financial analysis. Soon you'll be able to analyze balance sheets, income statements, and cash flow statements in a simulated environment."
+    },
+    "business": {
+      "title": "Business Lab",
+      "subtitle": "Simulated Business Management",
+      "description": "We are creating a complete business simulation platform. Soon you'll be able to manage virtual companies, make strategic decisions, and learn about business administration in a practical way."
+    }
+  },
   "login": {
     "title": "Sign in to your account to continue",
     "email": "Email address",
@@ -148,10 +184,103 @@
   "help": {
     "description": "Find contact information and useful resources.",
     "teacher_contact": "If you have class-specific questions, contact your teacher:",
+    "teacher_title": "Your Teacher",
     "developer_support": "Technical Support (Developer)",
     "developer_support_desc": "For technical issues, bugs or suggestions contact:",
-    "faq": "FAQ (Coming soon)",
-    "faq_desc": "We are working on a FAQ section. Check back soon!"
+    "faq_title": "Frequently Asked Questions",
+    "faq_description": "Find quick answers to the most common questions about GlobalTradeLab",
+    "faqs": {
+      "getting_started": {
+        "category": "Getting Started",
+        "q1": {
+          "question": "How do I register on GlobalTradeLab?",
+          "answer": "To register, click 'Sign Up' on the homepage, complete the form with your name, email and password, select your role (Student or Teacher), and click 'Sign Up'. You'll receive immediate access to the platform."
+        },
+        "q2": {
+          "question": "How do I join a classroom?",
+          "answer": "As a student, after logging in, go to the 'Rooms' section, click 'New Room Code', enter the 6-character code provided by your teacher and click 'Join'. You'll be automatically added to the room."
+        },
+        "q3": {
+          "question": "How do I make my first trade?",
+          "answer": "Go to the Dashboard, select an asset from the market, choose whether you want to Buy or Sell, enter the quantity or amount you want to invest, write a justification for your trade (mandatory), and click 'Trade'. Your trade will execute immediately."
+        }
+      },
+      "trading_basics": {
+        "category": "Trading Basics",
+        "q1": {
+          "question": "How do I open a position?",
+          "answer": "To open a position, select the asset on the Dashboard, choose 'Buy' or 'Sell', decide whether to invest by number of shares or total amount, enter the desired value, write your justification and confirm the trade. You can see your open positions in the 'Positions' section."
+        },
+        "q2": {
+          "question": "How do I close a position?",
+          "answer": "Go to the 'Positions' section on the Dashboard, find the position you want to close and click the 'Close position' button. The trade will close at the current market price and you'll see your profit or loss reflected immediately."
+        },
+        "q3": {
+          "question": "What are automation orders (Take Profit, Stop Loss)?",
+          "answer": "Take Profit automatically closes your position when it reaches a target price to secure profits. Stop Loss closes your position when the price falls to a specific level to limit losses. These tools help you manage risk without constant monitoring."
+        }
+      },
+      "platform_features": {
+        "category": "Platform Features",
+        "q1": {
+          "question": "How do I set up price alarms?",
+          "answer": "In the 'Settings' section or from the price chart, you can configure alarms that will notify you when an asset reaches a specific price. This helps you stay aware of trading opportunities without constantly watching the market."
+        },
+        "q2": {
+          "question": "What is experimental mode?",
+          "answer": "Experimental mode is a feature for teachers that allows simulating historical market events (like financial crises or bubbles) so students can experience different scenarios and learn to handle extreme market situations."
+        },
+        "q3": {
+          "question": "How do notifications work?",
+          "answer": "Notifications alert you about important events: order execution, price alarms reached, teacher messages, and platform updates. You can configure your notification preferences in the Settings section."
+        }
+      },
+      "account_management": {
+        "category": "Account Management",
+        "q1": {
+          "question": "How do I change the platform language?",
+          "answer": "Go to 'Settings', find the 'Language' section and select your preferred language from the available list (English, Español, Português, Русский, हिन्दी, Deutsch, Français, Italiano). The interface will change immediately."
+        },
+        "q2": {
+          "question": "How do I switch between light and dark theme?",
+          "answer": "In the 'Settings' section, you'll find the 'Theme' option where you can toggle between light mode and dark mode according to your preference. The change applies instantly across the entire platform."
+        },
+        "q3": {
+          "question": "Where can I view my trading history?",
+          "answer": "You can view your complete transaction history in the 'History' section of the Dashboard. Here you'll see all your past trades with details like date, symbol, type, quantity, price and justification."
+        }
+      },
+      "teachers": {
+        "category": "Questions for Teachers",
+        "q1": {
+          "question": "How do I create a classroom?",
+          "answer": "As a teacher, go to the 'Rooms' section, click 'Create New Room', enter a descriptive name for your class and confirm. You'll receive a unique 6-character code that your students will use to join."
+        },
+        "q2": {
+          "question": "How many students can I have per room?",
+          "answer": "The student limit depends on your plan: Starter Plan (10 students), Professional Plan (15 students), Enterprise Plan (20 students). You can also create multiple rooms according to your plan."
+        },
+        "q3": {
+          "question": "How do I monitor my students' performance?",
+          "answer": "In your Teacher Dashboard, you can view each student's portfolio, their open positions, transaction history, profit/loss and trade justifications. This allows you to provide personalized feedback and assess their learning."
+        }
+      },
+      "troubleshooting": {
+        "category": "Troubleshooting",
+        "q1": {
+          "question": "I don't see market prices, what should I do?",
+          "answer": "First, check your internet connection. If the problem persists, try refreshing the page (F5). If it continues, it may be a temporary data server issue. Contact technical support if the problem persists for more than 10 minutes."
+        },
+        "q2": {
+          "question": "I can't join a room, why?",
+          "answer": "Verify that: 1) You're registered as a Student (not Teacher), 2) The room code is correct (6 characters), 3) You're not already in that room, 4) The room exists and is active. If everything is correct and the error persists, contact your teacher or technical support."
+        },
+        "q3": {
+          "question": "What if I lost all my data?",
+          "answer": "GlobalTradeLab stores data locally in your browser. If you cleared your cache or switched browsers, your local data will be lost. To avoid this, always use the same browser and device. Contact technical support if you need to recover backup data."
+        }
+      }
+    }
   },
   "markets": {
     "title": "Financial Markets",
@@ -332,5 +461,419 @@
     "description": "Ask me about trading, investments and financial concepts",
     "welcome": "Hello! I'm your financial education assistant. I can help you learn about trading, investments and finance. How can I help you?",
     "placeholder": "Type your question about finance..."
+  },
+  "privacy": {
+    "hero": {
+      "title": "Privacy Policy",
+      "subtitle": "Your privacy is important to us. Learn how we protect your data.",
+      "last_updated": "Last updated",
+      "date": "November 16, 2025"
+    },
+    "introduction": {
+      "title": "Introduction",
+      "content": "At GlobalTradeLab, we are committed to protecting your privacy and the security of your personal data. This privacy policy explains what information we collect, how we use it, and your rights regarding your personal data."
+    },
+    "collection": {
+      "title": "Information We Collect",
+      "account": {
+        "title": "Account Data",
+        "content": "We collect basic information when you register, including your name, email address, and account type (student or teacher). This information is stored locally in your browser."
+      },
+      "usage": {
+        "title": "Platform Usage Data",
+        "content": "We record your simulated trading activities, including open positions, transaction history, portfolio balance, and platform settings. All this information is educational and stored locally."
+      },
+      "technical": {
+        "title": "Technical Data",
+        "content": "We use browser localStorage to store preferences such as language, theme (dark/light), and chart settings. We do not collect additional personally identifiable information."
+      }
+    },
+    "usage": {
+      "title": "How We Use Your Information",
+      "education": {
+        "title": "Educational Purposes",
+        "content": "Your information is used exclusively for educational purposes: enabling trading simulation, tracking your progress, and facilitating interaction between teachers and students in the learning environment."
+      },
+      "improvement": {
+        "title": "Service Improvement",
+        "content": "We analyze aggregated and anonymous usage patterns to improve user experience, optimize functionalities, and develop new educational features."
+      },
+      "communication": {
+        "title": "Communication",
+        "content": "We may use your email address to send important platform notifications, security updates, or information relevant to your educational experience."
+      }
+    },
+    "sharing": {
+      "title": "Sharing Information",
+      "content": "GlobalTradeLab is an educational platform that does NOT share, sell, or rent your personal information to third parties. Your data remains private and is only accessible to you and, in the case of students, to your teachers within the virtual classroom context. Teachers can view their students' trading performance and activity solely for educational purposes."
+    },
+    "security": {
+      "title": "Data Security",
+      "content": "We implement technical and organizational security measures to protect your data. Since all information is stored locally in your browser using localStorage, you have full control over your data. We recommend using strong passwords and keeping your browser updated. We do not store sensitive information on external servers."
+    },
+    "cookies": {
+      "title": "Cookies and Similar Technologies",
+      "localStorage": {
+        "title": "LocalStorage",
+        "content": "We use browser localStorage to store your session, user preferences, portfolio data, and settings. This information remains on your device and can be deleted at any time from your browser settings."
+      },
+      "sessionStorage": {
+        "title": "SessionStorage",
+        "content": "We use sessionStorage to maintain temporary information during your active session. This information is automatically deleted when you close the browser."
+      },
+      "essential": {
+        "title": "Essential Cookies",
+        "content": "We only use essential technical cookies necessary for the basic functioning of the platform (authentication, language preferences). We do not use advertising or third-party tracking cookies."
+      }
+    },
+    "rights": {
+      "title": "User Rights",
+      "content": "You have the right to: (1) Access your personal data stored on the platform, (2) Rectify incorrect or incomplete information, (3) Delete your account and all associated data at any time, (4) Export your trading data for personal analysis, (5) Object to the processing of your data for certain purposes, (6) Withdraw your consent at any time. To exercise these rights, you can manage your information from the Settings section or contact us directly."
+    },
+    "changes": {
+      "title": "Changes to this Policy",
+      "content": "We may update this privacy policy periodically to reflect changes in our practices or for legal reasons. We will notify you of significant changes through the platform or by email. The date of the last update is indicated at the end of this document."
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "If you have questions about this privacy policy, the handling of your personal data, or wish to exercise your rights, you can contact us through: Email: support@globaltradelab.com. We are committed to responding to your inquiries within 48 business hours."
+    },
+    "cta": {
+      "title": "Have questions?",
+      "subtitle": "We're here to help you with any questions about your privacy and security.",
+      "contact": "Contact Us",
+      "close": "Close"
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  },
+  "accounting": {
+    "welcome": "Welcome",
+    "manage_rooms": "Manage your accounting rooms",
+    "select_room": "Select or join a room",
+    "create_room": "Create New Room",
+    "create_new_room": "Create New Room",
+    "room_name": "Room Name",
+    "room_name_placeholder": "e.g., Accounting 101",
+    "join_room": "Join a Room",
+    "room_code": "Room Code",
+    "code": "Code",
+    "students": "students",
+    "enter_room": "Enter Room",
+    "no_rooms_teacher": "You haven't created any rooms. Create your first room to get started.",
+    "no_rooms_student": "You're not in any room. Join a room using the code provided by your teacher.",
+    "delete_room_warning": "This action cannot be undone. The room will be permanently deleted.",
+    "teacher_dashboard": "Teacher Dashboard",
+    "student_dashboard": "Student Dashboard",
+    "assigned_cases": "Assigned Cases",
+    "pending_cases": "Pending Cases",
+    "completed_analyses": "Completed Analyses",
+    "financial_statements": "Financial Statements",
+    "view_statements": "View and analyze financial statements",
+    "ratio_calculator": "Ratio Calculator",
+    "calculate_ratios": "Calculate financial ratios",
+    "my_analyses": "My Analyses",
+    "view_history": "View analysis history",
+    "case_manager": "Case Manager",
+    "assign_cases": "Create and assign cases",
+    "student_progress": "Student Progress",
+    "monitor_students": "Monitor analyses",
+    "recent_cases": "Recent Cases",
+    "analyze_case": "Analyze Case",
+    "select_case": "Select Case",
+    "choose_case_to_analyze": "Choose a case to analyze its financial statements",
+    "no_assigned_cases": "You have no assigned cases. Contact your teacher.",
+    "balance_sheet": "Balance Sheet",
+    "income_statement": "Income Statement",
+    "cash_flow": "Cash Flow",
+    "cash_flow_statement": "Cash Flow Statement",
+    "assets": "Assets",
+    "current_assets": "Current Assets",
+    "non_current_assets": "Non-Current Assets",
+    "cash": "Cash",
+    "accounts_receivable": "Accounts Receivable",
+    "inventory": "Inventory",
+    "prepaid_expenses": "Prepaid Expenses",
+    "ppe": "Property, Plant & Equipment",
+    "intangibles": "Intangibles",
+    "long_term_investments": "Long-term Investments",
+    "total_current": "Total Current",
+    "total_non_current": "Total Non-Current",
+    "total_assets": "TOTAL ASSETS",
+    "liabilities_equity": "Liabilities & Equity",
+    "current_liabilities": "Current Liabilities",
+    "non_current_liabilities": "Non-Current Liabilities",
+    "accounts_payable": "Accounts Payable",
+    "short_term_debt": "Short-term Debt",
+    "accrued_expenses": "Accrued Expenses",
+    "long_term_debt": "Long-term Debt",
+    "deferred_tax": "Deferred Tax",
+    "total_liabilities": "Total Liabilities",
+    "equity": "Equity",
+    "common_stock": "Common Stock",
+    "retained_earnings": "Retained Earnings",
+    "total_equity": "Total Equity",
+    "total_liabilities_equity": "TOTAL LIABILITIES + EQUITY",
+    "revenue": "Revenue",
+    "cogs": "Cost of Goods Sold",
+    "gross_profit": "Gross Profit",
+    "operating_expenses": "Operating Expenses",
+    "selling_expenses": "Selling Expenses",
+    "administrative_expenses": "Administrative Expenses",
+    "rd_expenses": "Research & Development",
+    "operating_income": "Operating Income",
+    "other_income": "Other Income",
+    "ebit": "EBIT",
+    "interest_expense": "Interest Expense",
+    "ebt": "EBT (Earnings Before Tax)",
+    "tax_expense": "Income Tax",
+    "net_income": "NET INCOME",
+    "operating_activities": "Operating Activities",
+    "depreciation": "Depreciation & Amortization",
+    "change_ar": "Change in Accounts Receivable",
+    "change_inventory": "Change in Inventory",
+    "change_ap": "Change in Accounts Payable",
+    "net_operating_cash": "Net Operating Cash",
+    "investing_activities": "Investing Activities",
+    "purchase_ppe": "Purchase of PPE",
+    "purchase_investments": "Purchase of Investments",
+    "net_investing_cash": "Net Investing Cash",
+    "financing_activities": "Financing Activities",
+    "proceeds_debt": "Proceeds from Debt",
+    "dividends_paid": "Dividends Paid",
+    "net_financing_cash": "Net Financing Cash",
+    "net_change_cash": "NET CHANGE IN CASH",
+    "liquidity": "Liquidity",
+    "profitability": "Profitability",
+    "leverage": "Leverage",
+    "efficiency": "Efficiency",
+    "current_ratio": "Current Ratio",
+    "current_ratio_desc": "Current assets / Current liabilities",
+    "quick_ratio": "Quick Ratio",
+    "quick_ratio_desc": "Quick assets / Current liabilities",
+    "cash_ratio": "Cash Ratio",
+    "cash_ratio_desc": "Cash / Current liabilities",
+    "gross_margin": "Gross Margin",
+    "gross_margin_desc": "Gross profit / Revenue",
+    "operating_margin": "Operating Margin",
+    "operating_margin_desc": "EBIT / Revenue",
+    "net_margin": "Net Margin",
+    "net_margin_desc": "Net income / Revenue",
+    "roa_desc": "Net income / Total assets",
+    "roe_desc": "Net income / Equity",
+    "debt_to_equity": "Debt to Equity",
+    "debt_to_equity_desc": "Liabilities / Equity",
+    "debt_to_assets": "Debt to Assets",
+    "debt_to_assets_desc": "Liabilities / Assets",
+    "equity_multiplier": "Equity Multiplier",
+    "equity_multiplier_desc": "Assets / Equity",
+    "interest_coverage": "Interest Coverage",
+    "interest_coverage_desc": "EBIT / Interest",
+    "asset_turnover": "Asset Turnover",
+    "asset_turnover_desc": "Sales / Total assets",
+    "inventory_turnover": "Inventory Turnover",
+    "inventory_turnover_desc": "COGS / Inventory",
+    "receivables_turnover": "Receivables Turnover",
+    "receivables_turnover_desc": "Sales / Accounts receivable",
+    "liquidity_chart": "Liquidity Chart",
+    "profitability_chart": "Profitability Chart",
+    "leverage_chart": "Leverage Chart",
+    "efficiency_chart": "Efficiency Chart",
+    "ratio": "Ratio",
+    "percentage": "Percentage",
+    "times": "Times",
+    "financial_analysis": "Financial Analysis",
+    "complete_analysis": "Complete your analysis",
+    "liquidity_analysis": "Liquidity Analysis",
+    "liquidity_placeholder": "Analyze liquidity ratios, short-term payment capacity...",
+    "profitability_analysis": "Profitability Analysis",
+    "profitability_placeholder": "Evaluate margins, ROE, ROA, and efficiency in generating profits...",
+    "leverage_analysis": "Leverage Analysis",
+    "leverage_placeholder": "Examine debt levels, capital structure, and financial risk...",
+    "efficiency_analysis": "Efficiency Analysis",
+    "efficiency_placeholder": "Analyze asset turnover, inventory, and receivables...",
+    "overall_conclusion": "Overall Conclusion",
+    "conclusion_placeholder": "Summarize the company's overall financial situation...",
+    "recommendations": "Recommendations",
+    "recommendations_placeholder": "Provide strategic and improvement recommendations...",
+    "save_analysis": "Save Analysis",
+    "pending": "Pending",
+    "in_progress": "In Progress",
+    "completed": "Completed",
+    "active": "Active",
+    "inactive": "Inactive",
+    "students_enrolled": "students enrolled",
+    "manage_cases": "Manage Cases",
+    "total_students": "Total Students",
+    "analyses_submitted": "Analyses Submitted",
+    "pending_work": "Pending Work",
+    "student_list": "Student List",
+    "monitor_progress_desc": "Monitor your students' progress",
+    "student_name": "Name",
+    "email": "Email",
+    "assigned": "Assigned",
+    "pending": "Pending",
+    "status": "Status",
+    "actions": "Actions",
+    "assign_case": "Assign",
+    "no_students": "No students in this room yet",
+    "share_code": "Share the room code",
+    "assign_cases_to_students": "Assign Cases to Students",
+    "select_case_and_students": "Select a case and the students you want to assign it to",
+    "available_cases": "Available Cases",
+    "select_case_to_assign": "Select a case to assign",
+    "select_students": "Select Students",
+    "selected": "selected",
+    "select_all": "Select All",
+    "selected_case": "Selected Case",
+    "case_assigned": "Case Assigned",
+    "case_assigned_message": "The case has been assigned to {{count}} students",
+    "analysis_saved": "Analysis Saved",
+    "analysis_saved_message": "Your analysis has been saved successfully",
+    "financial_ratios_analysis": "Financial Ratios Analysis"
+  },
+  "business": {
+    "welcome": "Welcome to Business Lab",
+    "subtitle": "Business Management Simulator",
+    "description": "Learn to manage companies in a safe and simulated environment",
+    "get_started": "Get Started",
+    "enter_code": "Enter with Code",
+    "room_code": "Room Code",
+    "join_room": "Join Room",
+    "create_room": "Create New Room",
+    "room_name": "Room Name",
+    "create": "Create",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "rooms_available": "Available Rooms",
+    "no_rooms": "You don't have any rooms available yet",
+    "create_first_room": "Create your first room to get started",
+    "students": "students",
+    "created": "Created",
+    "room_created": "Room Created",
+    "room_created_message": "Your room has been created successfully",
+    "joined_room": "You have joined the room",
+    "company_created": "Company Created",
+    "company_created_message": "Your company has been created successfully",
+    "dashboard": "Dashboard",
+    "my_company": "My Company",
+    "company_builder": "Company Builder",
+    "workforce": "Workforce",
+    "loans": "Loans",
+    "decisions": "Decisions",
+    "teacher_dashboard": "Teacher Dashboard",
+    "create_company": "Create Company",
+    "company_name": "Company Name",
+    "company_type": "Company Type",
+    "industry": "Industry",
+    "initial_capital": "Initial Capital",
+    "select_type": "Select a type",
+    "select_industry": "Select an industry",
+    "company_details": "Company Details",
+    "founded": "Founded",
+    "cash_position": "Cash Position",
+    "company_kpis": "Company KPIs",
+    "total_revenue": "Total Revenue",
+    "total_expenses": "Total Expenses",
+    "net_profit": "Net Profit",
+    "profit_margin": "Profit Margin",
+    "total_employees": "Total Employees",
+    "total_debt": "Total Debt",
+    "cash": "Cash",
+    "monthly_revenue": "Monthly Revenue",
+    "monthly_expenses": "Monthly Expenses",
+    "employee_count": "Employee Count",
+    "avg_salary": "Average Salary",
+    "quick_stats": "Quick Stats",
+    "active_loans": "Active Loans",
+    "decisions_made": "Decisions Made",
+    "financial_overview": "Financial Overview",
+    "profit_loss": "Profit & Loss",
+    "revenue": "Revenue",
+    "expenses": "Expenses",
+    "profit": "Profit",
+    "workforce_manager": "Workforce Manager",
+    "workforce_overview": "Workforce Overview",
+    "add_employee": "Add Employee",
+    "employee_name": "Employee Name",
+    "position": "Position",
+    "department": "Department",
+    "salary": "Salary",
+    "hire_date": "Hire Date",
+    "employee_list": "Employee List",
+    "no_employees": "No employees yet",
+    "hire_first_employee": "Hire your first employee",
+    "employee_added": "Employee Added",
+    "employee_added_message": "The employee has been added successfully",
+    "employee_deleted": "Employee Deleted",
+    "confirm_delete_employee": "Are you sure you want to delete this employee?",
+    "total_payroll": "Total Payroll",
+    "payroll_cost": "Payroll Cost",
+    "monthly_payroll": "Monthly Payroll",
+    "organization_chart": "Organization Chart",
+    "by_department": "By Department",
+    "loan_simulator": "Loan Simulator",
+    "request_loan": "Request Loan",
+    "loan_amount": "Loan Amount",
+    "interest_rate": "Interest Rate",
+    "loan_term": "Term (months)",
+    "monthly_payment": "Monthly Payment",
+    "total_interest": "Total Interest",
+    "total_payment": "Total Payment",
+    "calculate": "Calculate",
+    "request": "Request",
+    "amortization_schedule": "Amortization Schedule",
+    "payment": "Payment",
+    "principal": "Principal",
+    "interest": "Interest",
+    "balance": "Balance",
+    "month": "Month",
+    "my_loans": "My Loans",
+    "no_loans": "You don't have any active loans",
+    "loan_requested": "Loan Requested",
+    "loan_requested_message": "Your loan has been approved",
+    "loan_details": "Loan Details",
+    "remaining_balance": "Remaining Balance",
+    "payments_made": "Payments Made",
+    "requested_at": "Requested on",
+    "make_payment": "Make Payment",
+    "view_schedule": "View Schedule",
+    "decision_center": "Decision Center",
+    "available_scenarios": "Available Scenarios",
+    "scenarios_description": "Make strategic decisions that will impact your company's future",
+    "view_options": "View Options",
+    "your_options": "Your Options",
+    "decision_made": "Decision made",
+    "no_scenarios": "No scenarios available at this time",
+    "create_scenario": "Create Scenario",
+    "scenario_description": "Create a decision scenario for your students",
+    "title": "Title",
+    "category": "Category",
+    "difficulty": "Difficulty",
+    "description": "Description",
+    "context": "Context",
+    "market_conditions": "Market Conditions",
+    "market_description": "Adjust the simulated market parameters",
+    "interest_rate_label": "Interest Rate",
+    "economic_growth": "Economic Growth",
+    "inflation_rate": "Inflation Rate",
+    "market_demand": "Market Demand",
+    "performance_ranking": "Performance Ranking",
+    "ranking_description": "Sorted by net profit",
+    "company_comparison": "Company Comparison",
+    "detailed_overview": "Detailed Overview",
+    "student": "Student",
+    "company": "Company",
+    "debt": "Debt",
+    "total_students_label": "Total Students",
+    "companies_created": "Companies Created",
+    "scenarios": "Scenarios",
+    "avg_performance": "Avg Performance",
+    "no_data": "No data available yet",
+    "no_companies": "Students haven't created companies yet"
   }
 }

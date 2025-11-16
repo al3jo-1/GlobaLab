@@ -7,6 +7,42 @@
     "copy": "Copiado al portapapeles",
     "copy_error": "No se pudo copiar"
   },
+  "globallab": {
+    "hero": {
+      "title": "Plataforma de Simulación Empresarial",
+      "subtitle": "Aprende trading, contabilidad y gestión empresarial en un entorno seguro y educativo"
+    },
+    "trading": {
+      "title": "Trading Lab",
+      "description": "Simulación de trading educativo"
+    },
+    "accounting": {
+      "title": "Accounting Lab",
+      "description": "Análisis de estados financieros"
+    },
+    "business": {
+      "title": "Business Lab",
+      "description": "Gestión empresarial simulada"
+    },
+    "access_button": "Acceder",
+    "footer": {
+      "rights": "Plataforma Educativa de Simulación"
+    }
+  },
+  "coming_soon": {
+    "message": "Próximamente",
+    "back_button": "Volver a GlobalLab",
+    "accounting": {
+      "title": "Accounting Lab",
+      "subtitle": "Análisis de Estados Financieros",
+      "description": "Estamos desarrollando una experiencia completa de aprendizaje en contabilidad y análisis financiero. Pronto podrás analizar balances, estados de resultados y flujos de efectivo en un entorno simulado."
+    },
+    "business": {
+      "title": "Business Lab",
+      "subtitle": "Gestión Empresarial Simulada",
+      "description": "Estamos creando una plataforma completa de simulación empresarial. Pronto podrás gestionar empresas virtuales, tomar decisiones estratégicas y aprender sobre administración de negocios de forma práctica."
+    }
+  },
   "login": {
     "title": "Inicia sesión en tu cuenta para continuar",
     "email": "Correo electrónico",
@@ -198,10 +234,103 @@
   "help": {
     "description": "Encuentra información de contacto y recursos útiles.",
     "teacher_contact": "Si tienes preguntas específicas sobre la clase o el contenido, puedes contactar a tu docente:",
+    "teacher_title": "Tu Docente",
     "developer_support": "Soporte Técnico (Desarrollador)",
     "developer_support_desc": "Para problemas técnicos con la plataforma, errores o sugerencias, contacta al desarrollador:",
-    "faq": "Preguntas Frecuentes (Próximamente)",
-    "faq_desc": "Estamos trabajando en una sección de preguntas frecuentes. ¡Vuelve pronto!"
+    "faq_title": "Preguntas Frecuentes",
+    "faq_description": "Encuentra respuestas rápidas a las preguntas más comunes sobre GlobalTradeLab",
+    "faqs": {
+      "getting_started": {
+        "category": "Cómo Empezar",
+        "q1": {
+          "question": "¿Cómo me registro en GlobalTradeLab?",
+          "answer": "Para registrarte, haz clic en 'Registrarse' en la página principal, completa el formulario con tu nombre, correo electrónico y contraseña, selecciona tu rol (Estudiante o Docente), y haz clic en 'Registrarse'. Recibirás acceso inmediato a la plataforma."
+        },
+        "q2": {
+          "question": "¿Cómo me uno a una sala de clase?",
+          "answer": "Como estudiante, después de iniciar sesión, ve a la sección 'Salas', haz clic en 'Nuevo Código de Sala', ingresa el código de 6 caracteres que te proporcionó tu profesor y haz clic en 'Unirse'. Serás agregado automáticamente a la sala."
+        },
+        "q3": {
+          "question": "¿Cómo hago mi primera operación?",
+          "answer": "Ve al Panel de Control, selecciona un activo del mercado, elige si quieres Comprar o Vender, ingresa la cantidad o monto que deseas invertir, escribe una justificación de tu operación (obligatorio), y haz clic en 'Operar'. Tu operación se ejecutará de inmediato."
+        }
+      },
+      "trading_basics": {
+        "category": "Trading Básico",
+        "q1": {
+          "question": "¿Cómo abro una posición?",
+          "answer": "Para abrir una posición, selecciona el activo en el Panel, elige 'Comprar' o 'Vender', decide si invertir por cantidad de acciones o por monto total, ingresa el valor deseado, escribe tu justificación y confirma la operación. Puedes ver tus posiciones abiertas en la sección 'Posiciones'."
+        },
+        "q2": {
+          "question": "¿Cómo cierro una posición?",
+          "answer": "Ve a la sección 'Posiciones' en el Panel de Control, encuentra la posición que deseas cerrar y haz clic en el botón 'Cerrar posición'. La operación se cerrará al precio actual del mercado y verás tu ganancia o pérdida reflejada inmediatamente."
+        },
+        "q3": {
+          "question": "¿Qué son las órdenes de automatización (Take Profit, Stop Loss)?",
+          "answer": "Take Profit cierra automáticamente tu posición cuando alcanza un precio objetivo para asegurar ganancias. Stop Loss cierra tu posición cuando el precio cae a un nivel específico para limitar pérdidas. Estas herramientas te ayudan a gestionar el riesgo sin monitorear constantemente."
+        }
+      },
+      "platform_features": {
+        "category": "Características de la Plataforma",
+        "q1": {
+          "question": "¿Cómo configuro alarmas de precio?",
+          "answer": "En la sección de 'Configuración' o desde el gráfico de precios, puedes configurar alarmas que te notificarán cuando un activo alcance un precio específico. Esto te ayuda a estar al tanto de oportunidades de trading sin vigilar constantemente el mercado."
+        },
+        "q2": {
+          "question": "¿Qué es el modo experimental?",
+          "answer": "El modo experimental es una característica para profesores que permite simular eventos históricos del mercado (como crisis financieras o burbujas) para que los estudiantes experimenten diferentes escenarios y aprendan a manejar situaciones de mercado extremas."
+        },
+        "q3": {
+          "question": "¿Cómo funcionan las notificaciones?",
+          "answer": "Las notificaciones te alertan sobre eventos importantes: ejecución de órdenes, alarmas de precio alcanzadas, mensajes del profesor, y actualizaciones de la plataforma. Puedes configurar tus preferencias de notificaciones en la sección de Configuración."
+        }
+      },
+      "account_management": {
+        "category": "Gestión de Cuenta",
+        "q1": {
+          "question": "¿Cómo cambio el idioma de la plataforma?",
+          "answer": "Ve a 'Configuración', busca la sección de 'Idioma' y selecciona tu idioma preferido de la lista disponible (Español, English, Português, Русский, हिन्दी, Deutsch, Français, Italiano). La interfaz cambiará inmediatamente."
+        },
+        "q2": {
+          "question": "¿Cómo cambio entre tema claro y oscuro?",
+          "answer": "En la sección 'Configuración', encontrarás la opción 'Tema' donde puedes alternar entre modo claro y modo oscuro según tu preferencia. El cambio se aplica instantáneamente en toda la plataforma."
+        },
+        "q3": {
+          "question": "¿Dónde puedo ver mi historial de operaciones?",
+          "answer": "Puedes ver tu historial completo de transacciones en la sección 'Historial' del Panel de Control. Aquí verás todas tus operaciones pasadas con detalles como fecha, símbolo, tipo, cantidad, precio y justificación."
+        }
+      },
+      "teachers": {
+        "category": "Preguntas para Profesores",
+        "q1": {
+          "question": "¿Cómo creo una sala de clase?",
+          "answer": "Como docente, ve a la sección 'Salas', haz clic en 'Crear Nueva Sala', ingresa un nombre descriptivo para tu clase y confirma. Recibirás un código único de 6 caracteres que tus estudiantes usarán para unirse."
+        },
+        "q2": {
+          "question": "¿Cuántos estudiantes puedo tener por sala?",
+          "answer": "El límite de estudiantes depende de tu plan: Plan Inicial (10 estudiantes), Plan Profesional (15 estudiantes), Plan Empresarial (20 estudiantes). También puedes crear múltiples salas según tu plan."
+        },
+        "q3": {
+          "question": "¿Cómo monitoreo el desempeño de mis alumnos?",
+          "answer": "En tu Panel de Docente, puedes ver el portafolio de cada estudiante, sus posiciones abiertas, historial de transacciones, ganancias/pérdidas y justificaciones de sus operaciones. Esto te permite dar retroalimentación personalizada y evaluar su aprendizaje."
+        }
+      },
+      "troubleshooting": {
+        "category": "Problemas Técnicos",
+        "q1": {
+          "question": "No veo los precios del mercado, ¿qué hago?",
+          "answer": "Primero, verifica tu conexión a internet. Si persiste el problema, intenta refrescar la página (F5). Si el problema continúa, puede ser un problema temporal del servidor de datos. Contacta al soporte técnico si el problema persiste por más de 10 minutos."
+        },
+        "q2": {
+          "question": "No puedo unirme a una sala, ¿por qué?",
+          "answer": "Verifica que: 1) Estás registrado como Estudiante (no Docente), 2) El código de sala es correcto (6 caracteres), 3) No estás ya en esa sala, 4) La sala existe y está activa. Si todo es correcto y persiste el error, contacta a tu profesor o soporte técnico."
+        },
+        "q3": {
+          "question": "¿Qué hago si perdí todos mis datos?",
+          "answer": "GlobalTradeLab almacena datos localmente en tu navegador. Si borraste la caché o cambiaste de navegador, tus datos locales se perderán. Para evitar esto, usa siempre el mismo navegador y dispositivo. Contacta a soporte técnico si necesitas recuperar datos de respaldo."
+        }
+      }
+    }
   },
   "common": {
     "loading": "Cargando...",
@@ -332,5 +461,419 @@
     "description": "Pregúntame sobre trading, inversiones y conceptos financieros",
     "welcome": "¡Hola! Soy tu asistente de educación financiera. Puedo ayudarte a aprender sobre trading, inversiones y finanzas. ¿En qué puedo ayudarte?",
     "placeholder": "Escribe tu pregunta sobre finanzas..."
+  },
+  "privacy": {
+    "hero": {
+      "title": "Política de Privacidad",
+      "subtitle": "Tu privacidad es importante para nosotros. Conoce cómo protegemos tus datos.",
+      "last_updated": "Última actualización",
+      "date": "16 de Noviembre de 2025"
+    },
+    "introduction": {
+      "title": "Introducción",
+      "content": "En GlobalTradeLab, nos comprometemos a proteger tu privacidad y la seguridad de tus datos personales. Esta política de privacidad explica qué información recopilamos, cómo la usamos y tus derechos con respecto a tus datos personales."
+    },
+    "collection": {
+      "title": "Información que Recopilamos",
+      "account": {
+        "title": "Datos de Cuenta",
+        "content": "Recopilamos información básica cuando te registras, incluyendo tu nombre, correo electrónico y tipo de cuenta (estudiante o docente). Esta información se almacena localmente en tu navegador."
+      },
+      "usage": {
+        "title": "Datos de Uso de la Plataforma",
+        "content": "Registramos tus actividades de trading simulado, incluyendo posiciones abiertas, historial de transacciones, saldo de portafolio y configuraciones de la plataforma. Toda esta información es educativa y se almacena localmente."
+      },
+      "technical": {
+        "title": "Datos Técnicos",
+        "content": "Utilizamos localStorage del navegador para almacenar preferencias como idioma, tema (oscuro/claro), y configuraciones de gráficos. No recopilamos información de identificación personal adicional."
+      }
+    },
+    "usage": {
+      "title": "Cómo Usamos tu Información",
+      "education": {
+        "title": "Propósitos Educativos",
+        "content": "Tu información se utiliza exclusivamente para fines educativos: permitir la simulación de trading, seguimiento de tu progreso, y facilitar la interacción entre docentes y estudiantes en el entorno de aprendizaje."
+      },
+      "improvement": {
+        "title": "Mejora de Servicios",
+        "content": "Analizamos patrones de uso agregados y anónimos para mejorar la experiencia del usuario, optimizar funcionalidades y desarrollar nuevas características educativas."
+      },
+      "communication": {
+        "title": "Comunicación",
+        "content": "Podemos usar tu correo electrónico para enviarte notificaciones importantes sobre la plataforma, actualizaciones de seguridad, o información relevante para tu experiencia educativa."
+      }
+    },
+    "sharing": {
+      "title": "Compartir Información",
+      "content": "GlobalTradeLab es una plataforma educativa que NO comparte, vende ni alquila tu información personal a terceros. Tus datos permanecen privados y solo son accesibles para ti y, en el caso de estudiantes, para tus docentes dentro del contexto de la sala de clase virtual. Los docentes pueden ver el rendimiento y actividad de trading de sus estudiantes únicamente con fines educativos."
+    },
+    "security": {
+      "title": "Seguridad de Datos",
+      "content": "Implementamos medidas de seguridad técnicas y organizativas para proteger tus datos. Dado que toda la información se almacena localmente en tu navegador usando localStorage, tienes control total sobre tus datos. Te recomendamos usar contraseñas seguras y mantener tu navegador actualizado. No almacenamos información sensible en servidores externos."
+    },
+    "cookies": {
+      "title": "Cookies y Tecnologías Similares",
+      "localStorage": {
+        "title": "LocalStorage",
+        "content": "Utilizamos localStorage del navegador para almacenar tu sesión, preferencias de usuario, datos de portafolio y configuraciones. Esta información permanece en tu dispositivo y puede ser eliminada en cualquier momento desde la configuración de tu navegador."
+      },
+      "sessionStorage": {
+        "title": "SessionStorage",
+        "content": "Usamos sessionStorage para mantener información temporal durante tu sesión activa. Esta información se elimina automáticamente cuando cierras el navegador."
+      },
+      "essential": {
+        "title": "Cookies Esenciales",
+        "content": "Solo utilizamos cookies técnicas esenciales necesarias para el funcionamiento básico de la plataforma (autenticación, preferencias de idioma). No usamos cookies de publicidad o seguimiento de terceros."
+      }
+    },
+    "rights": {
+      "title": "Derechos del Usuario",
+      "content": "Tienes derecho a: (1) Acceder a tus datos personales almacenados en la plataforma, (2) Rectificar información incorrecta o incompleta, (3) Eliminar tu cuenta y todos los datos asociados en cualquier momento, (4) Exportar tus datos de trading para análisis personal, (5) Oponerte al procesamiento de tus datos para ciertos propósitos, (6) Retirar tu consentimiento en cualquier momento. Para ejercer estos derechos, puedes gestionar tu información desde la sección de Configuración o contactarnos directamente."
+    },
+    "changes": {
+      "title": "Cambios a esta Política",
+      "content": "Podemos actualizar esta política de privacidad periódicamente para reflejar cambios en nuestras prácticas o por razones legales. Te notificaremos sobre cambios significativos a través de la plataforma o por correo electrónico. La fecha de la última actualización se indica al final de este documento."
+    },
+    "contact": {
+      "title": "Contacto",
+      "content": "Si tienes preguntas sobre esta política de privacidad, el manejo de tus datos personales, o deseas ejercer tus derechos, puedes contactarnos a través de: Email: support@globaltradelab.com. Nos comprometemos a responder tus consultas en un plazo de 48 horas hábiles."
+    },
+    "cta": {
+      "title": "¿Tienes preguntas?",
+      "subtitle": "Estamos aquí para ayudarte con cualquier duda sobre tu privacidad y seguridad.",
+      "contact": "Contáctanos",
+      "close": "Cerrar"
+    },
+    "footer": {
+      "rights": "Todos los derechos reservados."
+    }
+  },
+  "accounting": {
+    "welcome": "Bienvenido",
+    "manage_rooms": "Gestiona tus salas de contabilidad",
+    "select_room": "Selecciona o únete a una sala",
+    "create_room": "Crear Nueva Sala",
+    "create_new_room": "Crear Nueva Sala",
+    "room_name": "Nombre de la Sala",
+    "room_name_placeholder": "Ej: Contabilidad 101",
+    "join_room": "Unirse a una Sala",
+    "room_code": "Código de la Sala",
+    "code": "Código",
+    "students": "estudiantes",
+    "enter_room": "Entrar a la Sala",
+    "no_rooms_teacher": "No tienes salas creadas. Crea tu primera sala para comenzar.",
+    "no_rooms_student": "No estás en ninguna sala. Únete a una sala usando el código proporcionado por tu profesor.",
+    "delete_room_warning": "Esta acción no se puede deshacer. Se eliminará la sala permanentemente.",
+    "teacher_dashboard": "Panel de Profesor",
+    "student_dashboard": "Panel de Estudiante",
+    "assigned_cases": "Casos Asignados",
+    "pending_cases": "Casos Pendientes",
+    "completed_analyses": "Análisis Completados",
+    "financial_statements": "Estados Financieros",
+    "view_statements": "Ver y analizar estados financieros",
+    "ratio_calculator": "Calculadora de Ratios",
+    "calculate_ratios": "Calcular ratios financieros",
+    "my_analyses": "Mis Análisis",
+    "view_history": "Ver historial de análisis",
+    "case_manager": "Gestor de Casos",
+    "assign_cases": "Crear y asignar casos",
+    "student_progress": "Progreso de Estudiantes",
+    "monitor_students": "Monitorear análisis",
+    "recent_cases": "Casos Recientes",
+    "analyze_case": "Analizar Caso",
+    "select_case": "Seleccionar Caso",
+    "choose_case_to_analyze": "Elige un caso para analizar sus estados financieros",
+    "no_assigned_cases": "No tienes casos asignados. Contacta a tu profesor.",
+    "balance_sheet": "Balance",
+    "income_statement": "Resultados",
+    "cash_flow": "Flujo de Efectivo",
+    "cash_flow_statement": "Estado de Flujo de Efectivo",
+    "assets": "Activos",
+    "current_assets": "Activos Corrientes",
+    "non_current_assets": "Activos No Corrientes",
+    "cash": "Efectivo",
+    "accounts_receivable": "Cuentas por Cobrar",
+    "inventory": "Inventario",
+    "prepaid_expenses": "Gastos Prepagados",
+    "ppe": "Prop., Planta y Equipo",
+    "intangibles": "Intangibles",
+    "long_term_investments": "Inversiones LP",
+    "total_current": "Total Corriente",
+    "total_non_current": "Total No Corriente",
+    "total_assets": "TOTAL ACTIVOS",
+    "liabilities_equity": "Pasivos y Patrimonio",
+    "current_liabilities": "Pasivos Corrientes",
+    "non_current_liabilities": "Pasivos No Corrientes",
+    "accounts_payable": "Cuentas por Pagar",
+    "short_term_debt": "Deuda CP",
+    "accrued_expenses": "Gastos Acumulados",
+    "long_term_debt": "Deuda LP",
+    "deferred_tax": "Impuestos Diferidos",
+    "total_liabilities": "Total Pasivos",
+    "equity": "Patrimonio",
+    "common_stock": "Capital Social",
+    "retained_earnings": "Utilidades Retenidas",
+    "total_equity": "Total Patrimonio",
+    "total_liabilities_equity": "TOTAL PASIVOS + PATRIMONIO",
+    "revenue": "Ingresos",
+    "cogs": "Costo de Ventas",
+    "gross_profit": "Utilidad Bruta",
+    "operating_expenses": "Gastos Operacionales",
+    "selling_expenses": "Gastos de Ventas",
+    "administrative_expenses": "Gastos Administrativos",
+    "rd_expenses": "Investigación y Desarrollo",
+    "operating_income": "Utilidad Operacional",
+    "other_income": "Otros Ingresos",
+    "ebit": "EBIT",
+    "interest_expense": "Gastos Financieros",
+    "ebt": "EBT (Utilidad antes de Impuestos)",
+    "tax_expense": "Impuesto de Renta",
+    "net_income": "UTILIDAD NETA",
+    "operating_activities": "Actividades de Operación",
+    "depreciation": "Depreciación y Amortización",
+    "change_ar": "Cambio en Cuentas por Cobrar",
+    "change_inventory": "Cambio en Inventario",
+    "change_ap": "Cambio en Cuentas por Pagar",
+    "net_operating_cash": "Efectivo Neto de Operación",
+    "investing_activities": "Actividades de Inversión",
+    "purchase_ppe": "Compra de PPE",
+    "purchase_investments": "Compra de Inversiones",
+    "net_investing_cash": "Efectivo Neto de Inversión",
+    "financing_activities": "Actividades de Financiamiento",
+    "proceeds_debt": "Emisión de Deuda",
+    "dividends_paid": "Dividendos Pagados",
+    "net_financing_cash": "Efectivo Neto de Financiamiento",
+    "net_change_cash": "CAMBIO NETO EN EFECTIVO",
+    "liquidity": "Liquidez",
+    "profitability": "Rentabilidad",
+    "leverage": "Endeudamiento",
+    "efficiency": "Eficiencia",
+    "current_ratio": "Razón Corriente",
+    "current_ratio_desc": "Activos corrientes / Pasivos corrientes",
+    "quick_ratio": "Prueba Ácida",
+    "quick_ratio_desc": "Activos líquidos / Pasivos corrientes",
+    "cash_ratio": "Razón de Efectivo",
+    "cash_ratio_desc": "Efectivo / Pasivos corrientes",
+    "gross_margin": "Margen Bruto",
+    "gross_margin_desc": "Utilidad bruta / Ingresos",
+    "operating_margin": "Margen Operacional",
+    "operating_margin_desc": "EBIT / Ingresos",
+    "net_margin": "Margen Neto",
+    "net_margin_desc": "Utilidad neta / Ingresos",
+    "roa_desc": "Utilidad / Activos totales",
+    "roe_desc": "Utilidad / Patrimonio",
+    "debt_to_equity": "Deuda / Patrimonio",
+    "debt_to_equity_desc": "Pasivos / Patrimonio",
+    "debt_to_assets": "Deuda / Activos",
+    "debt_to_assets_desc": "Pasivos / Activos",
+    "equity_multiplier": "Multiplicador",
+    "equity_multiplier_desc": "Activos / Patrimonio",
+    "interest_coverage": "Cobertura Int.",
+    "interest_coverage_desc": "EBIT / Intereses",
+    "asset_turnover": "Rotación de Activos",
+    "asset_turnover_desc": "Ventas / Activos totales",
+    "inventory_turnover": "Rotación de Inventario",
+    "inventory_turnover_desc": "Costo ventas / Inventario",
+    "receivables_turnover": "Rotación CxC",
+    "receivables_turnover_desc": "Ventas / Cuentas por cobrar",
+    "liquidity_chart": "Gráfico de Liquidez",
+    "profitability_chart": "Gráfico de Rentabilidad",
+    "leverage_chart": "Gráfico de Endeudamiento",
+    "efficiency_chart": "Gráfico de Eficiencia",
+    "ratio": "Ratio",
+    "percentage": "Porcentaje",
+    "times": "Veces",
+    "financial_analysis": "Análisis Financiero",
+    "complete_analysis": "Completa tu análisis",
+    "liquidity_analysis": "Análisis de Liquidez",
+    "liquidity_placeholder": "Analiza los ratios de liquidez, capacidad de pago a corto plazo...",
+    "profitability_analysis": "Análisis de Rentabilidad",
+    "profitability_placeholder": "Evalúa los márgenes, ROE, ROA y la eficiencia en generar utilidades...",
+    "leverage_analysis": "Análisis de Endeudamiento",
+    "leverage_placeholder": "Examina el nivel de deuda, estructura de capital y riesgo financiero...",
+    "efficiency_analysis": "Análisis de Eficiencia",
+    "efficiency_placeholder": "Analiza la rotación de activos, inventario y cuentas por cobrar...",
+    "overall_conclusion": "Conclusión General",
+    "conclusion_placeholder": "Resume la situación financiera general de la empresa...",
+    "recommendations": "Recomendaciones",
+    "recommendations_placeholder": "Proporciona recomendaciones estratégicas y de mejora...",
+    "save_analysis": "Guardar Análisis",
+    "pending": "Pendiente",
+    "in_progress": "En Progreso",
+    "completed": "Completado",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "students_enrolled": "estudiantes inscritos",
+    "manage_cases": "Gestionar Casos",
+    "total_students": "Total Estudiantes",
+    "analyses_submitted": "Análisis Enviados",
+    "pending_work": "Trabajos Pendientes",
+    "student_list": "Lista de Estudiantes",
+    "monitor_progress_desc": "Monitorea el progreso de tus estudiantes",
+    "student_name": "Nombre",
+    "email": "Email",
+    "assigned": "Asignados",
+    "pending": "Pendientes",
+    "status": "Estado",
+    "actions": "Acciones",
+    "assign_case": "Asignar",
+    "no_students": "No hay estudiantes en esta sala todavía",
+    "share_code": "Comparte el código de sala",
+    "assign_cases_to_students": "Asignar Casos a Estudiantes",
+    "select_case_and_students": "Selecciona un caso y los estudiantes a los que deseas asignarlo",
+    "available_cases": "Casos Disponibles",
+    "select_case_to_assign": "Selecciona un caso para asignar",
+    "select_students": "Seleccionar Estudiantes",
+    "selected": "seleccionados",
+    "select_all": "Seleccionar Todos",
+    "selected_case": "Caso Seleccionado",
+    "case_assigned": "Caso Asignado",
+    "case_assigned_message": "El caso ha sido asignado a {{count}} estudiantes",
+    "analysis_saved": "Análisis Guardado",
+    "analysis_saved_message": "Tu análisis ha sido guardado exitosamente",
+    "financial_ratios_analysis": "Análisis de Ratios Financieros"
+  },
+  "business": {
+    "welcome": "Bienvenido a Business Lab",
+    "subtitle": "Simulador de Gestión Empresarial",
+    "description": "Aprende a gestionar empresas en un entorno seguro y simulado",
+    "get_started": "Comenzar",
+    "enter_code": "Ingresar con Código",
+    "room_code": "Código de Sala",
+    "join_room": "Unirse a Sala",
+    "create_room": "Crear Nueva Sala",
+    "room_name": "Nombre de la Sala",
+    "create": "Crear",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "back": "Volver",
+    "rooms_available": "Salas Disponibles",
+    "no_rooms": "No tienes salas disponibles todavía",
+    "create_first_room": "Crea tu primera sala para comenzar",
+    "students": "estudiantes",
+    "created": "Creado",
+    "room_created": "Sala Creada",
+    "room_created_message": "Tu sala ha sido creada exitosamente",
+    "joined_room": "Te has unido a la sala",
+    "company_created": "Empresa Creada",
+    "company_created_message": "Tu empresa ha sido creada exitosamente",
+    "dashboard": "Panel Principal",
+    "my_company": "Mi Empresa",
+    "company_builder": "Constructor de Empresa",
+    "workforce": "Personal",
+    "loans": "Préstamos",
+    "decisions": "Decisiones",
+    "teacher_dashboard": "Panel Docente",
+    "create_company": "Crear Empresa",
+    "company_name": "Nombre de la Empresa",
+    "company_type": "Tipo de Empresa",
+    "industry": "Industria",
+    "initial_capital": "Capital Inicial",
+    "select_type": "Selecciona un tipo",
+    "select_industry": "Selecciona una industria",
+    "company_details": "Detalles de la Empresa",
+    "founded": "Fundada",
+    "cash_position": "Posición de Efectivo",
+    "company_kpis": "KPIs de la Empresa",
+    "total_revenue": "Ingresos Totales",
+    "total_expenses": "Gastos Totales",
+    "net_profit": "Utilidad Neta",
+    "profit_margin": "Margen de Utilidad",
+    "total_employees": "Total de Empleados",
+    "total_debt": "Deuda Total",
+    "cash": "Efectivo",
+    "monthly_revenue": "Ingresos Mensuales",
+    "monthly_expenses": "Gastos Mensuales",
+    "employee_count": "Número de Empleados",
+    "avg_salary": "Salario Promedio",
+    "quick_stats": "Estadísticas Rápidas",
+    "active_loans": "Préstamos Activos",
+    "decisions_made": "Decisiones Tomadas",
+    "financial_overview": "Resumen Financiero",
+    "profit_loss": "Pérdidas y Ganancias",
+    "revenue": "Ingresos",
+    "expenses": "Gastos",
+    "profit": "Utilidad",
+    "workforce_manager": "Gestor de Personal",
+    "workforce_overview": "Resumen de Personal",
+    "add_employee": "Agregar Empleado",
+    "employee_name": "Nombre del Empleado",
+    "position": "Cargo",
+    "department": "Departamento",
+    "salary": "Salario",
+    "hire_date": "Fecha de Contratación",
+    "employee_list": "Lista de Empleados",
+    "no_employees": "No hay empleados todavía",
+    "hire_first_employee": "Contrata a tu primer empleado",
+    "employee_added": "Empleado Agregado",
+    "employee_added_message": "El empleado ha sido agregado exitosamente",
+    "employee_deleted": "Empleado Eliminado",
+    "confirm_delete_employee": "¿Estás seguro de que deseas eliminar a este empleado?",
+    "total_payroll": "Nómina Total",
+    "payroll_cost": "Costo de Nómina",
+    "monthly_payroll": "Nómina Mensual",
+    "organization_chart": "Organigrama",
+    "by_department": "Por Departamento",
+    "loan_simulator": "Simulador de Préstamos",
+    "request_loan": "Solicitar Préstamo",
+    "loan_amount": "Monto del Préstamo",
+    "interest_rate": "Tasa de Interés",
+    "loan_term": "Plazo (meses)",
+    "monthly_payment": "Pago Mensual",
+    "total_interest": "Interés Total",
+    "total_payment": "Pago Total",
+    "calculate": "Calcular",
+    "request": "Solicitar",
+    "amortization_schedule": "Tabla de Amortización",
+    "payment": "Pago",
+    "principal": "Principal",
+    "interest": "Interés",
+    "balance": "Saldo",
+    "month": "Mes",
+    "my_loans": "Mis Préstamos",
+    "no_loans": "No tienes préstamos activos",
+    "loan_requested": "Préstamo Solicitado",
+    "loan_requested_message": "Tu préstamo ha sido aprobado",
+    "loan_details": "Detalles del Préstamo",
+    "remaining_balance": "Saldo Restante",
+    "payments_made": "Pagos Realizados",
+    "requested_at": "Solicitado el",
+    "make_payment": "Realizar Pago",
+    "view_schedule": "Ver Tabla",
+    "decision_center": "Centro de Decisiones",
+    "available_scenarios": "Escenarios Disponibles",
+    "scenarios_description": "Toma decisiones estratégicas que impactarán el futuro de tu empresa",
+    "view_options": "Ver Opciones",
+    "your_options": "Tus Opciones",
+    "decision_made": "Decisión tomada",
+    "no_scenarios": "No hay escenarios disponibles en este momento",
+    "create_scenario": "Crear Escenario",
+    "scenario_description": "Crea un escenario de decisión para tus estudiantes",
+    "title": "Título",
+    "category": "Categoría",
+    "difficulty": "Dificultad",
+    "description": "Descripción",
+    "context": "Contexto",
+    "market_conditions": "Condiciones de Mercado",
+    "market_description": "Ajusta los parámetros del mercado simulado",
+    "interest_rate_label": "Tasa de Interés",
+    "economic_growth": "Crecimiento Económico",
+    "inflation_rate": "Tasa de Inflación",
+    "market_demand": "Demanda de Mercado",
+    "performance_ranking": "Ranking de Rendimiento",
+    "ranking_description": "Ordenado por utilidad neta",
+    "company_comparison": "Comparación de Empresas",
+    "detailed_overview": "Vista Detallada",
+    "student": "Estudiante",
+    "company": "Empresa",
+    "debt": "Deuda",
+    "total_students_label": "Total Estudiantes",
+    "companies_created": "Empresas Creadas",
+    "scenarios": "Escenarios",
+    "avg_performance": "Rendimiento Prom.",
+    "no_data": "No hay datos disponibles aún",
+    "no_companies": "Los estudiantes aún no han creado empresas"
   }
 }

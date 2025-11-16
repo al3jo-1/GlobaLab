@@ -88,7 +88,7 @@ const LandingPage = () => {
           </div>
           <div className="flex items-center space-x-4">
             <LanguageSelector />
-            <Button onClick={() => navigate('/login')} variant="default">
+            <Button onClick={() => navigate('/trading/login')} variant="default">
               {t('landing.access', { defaultValue: 'Acceder' })}
             </Button>
           </div>
@@ -249,7 +249,7 @@ const LandingPage = () => {
                     <Button 
                       className="w-full" 
                       variant={plan.highlight ? 'default' : 'outline'}
-                      onClick={() => navigate('/register')}
+                      onClick={() => navigate('/trading/register')}
                     >
                       {t('landing.pricing.get_started', { defaultValue: 'Comenzar' })}
                     </Button>
@@ -276,10 +276,10 @@ const LandingPage = () => {
             {t('landing.cta.subtitle', { defaultValue: 'Únete a GlobalTradeLab y comienza a aprender trading hoy mismo' })}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={() => navigate('/register')}>
+            <Button size="lg" onClick={() => navigate('/trading/register')}>
               {t('landing.cta.register', { defaultValue: 'Registrarse Gratis' })}
             </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate('/login')}>
+            <Button size="lg" variant="outline" onClick={() => navigate('/trading/login')}>
               {t('landing.cta.login', { defaultValue: 'Iniciar Sesión' })}
             </Button>
           </div>
@@ -293,6 +293,16 @@ const LandingPage = () => {
           <p className="mt-2 text-sm">
             {t('landing.footer.disclaimer', { defaultValue: 'Plataforma educativa - Todo el trading se realiza con dinero virtual.' })}
           </p>
+          <div className="mt-4 flex justify-center gap-6 text-sm">
+            <a 
+              href="/privacy" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors underline"
+            >
+              {t('legal.privacy', { defaultValue: 'Política de Privacidad' })}
+            </a>
+          </div>
         </div>
       </footer>
     </div>

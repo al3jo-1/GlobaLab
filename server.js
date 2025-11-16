@@ -3,6 +3,7 @@ import { createServer } from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
 import OpenAI from 'openai';
+import { promises as fs } from 'fs';
 
 const app = express();
 const httpServer = createServer(app);
@@ -26,6 +27,99 @@ if (process.env.OPENAI_API_KEY) {
   openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
   });
+}
+
+const MARKET_STATE_FILE = 'market-state.json';
+const marketState = {
+  lastUpdate: Date.now(),
+  symbols: {}
+};
+
+const FINNHUB_API_KEY = process.env.FINNHUB_API_KEY || null;
+
+const FALLBACK_PRICES = {
+  'AAPL': 178.25,
+  'BTCUSD': 45000.50,
+  'ETHUSD': 2800.75,
+  'ECOPETROL': 2500,
+  'BANCOLOMBIA': 35000,
+  'XRPUSD': 0.55,
+  'ADAUSD': 0.45,
+  'SOLUSD': 105.50,
+  'EURUSD': 1.09,
+  'SPX': 4500
+};
+
+async function loadMarketState() {
+  try {
+    const data = await fs.readFile(MARKET_STATE_FILE, 'utf-8');
+    const loaded = JSON.parse(data);
+    marketState.lastUpdate = loaded.lastUpdate;
+    marketState.symbols = loaded.symbols || {};
+    console.log(`Market state loaded from ${MARKET_STATE_FILE}`);
+    console.log(`Loaded prices for ${Object.keys(marketState.symbols).length} symbols`);
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      console.log('No existing market state file, will create on first save');
+    } else {
+      console.error('Error loading market state:', error);
+    }
+  }
+}
+
+async function saveMarketState() {
+  try {
+    marketState.lastUpdate = Date.now();
+    await fs.writeFile(MARKET_STATE_FILE, JSON.stringify(marketState, null, 2));
+    console.log(`Market state saved: ${Object.keys(marketState.symbols).length} symbols`);
+  } catch (error) {
+    console.error('Error saving market state:', error);
+  }
+}
+
+function updateMarketStatePrice(symbol, price) {
+  marketState.symbols[symbol] = {
+    lastClose: price,
+    lastUpdate: Date.now()
+  };
+}
+
+async function fetchInitialPrice(symbol) {
+  if (['ECOPETROL', 'BANCOLOMBIA', 'XRPUSD', 'ADAUSD', 'SOLUSD', 'EURUSD', 'SPX'].includes(symbol)) {
+    return FALLBACK_PRICES[symbol] || 100;
+  }
+
+  const finnhubSymbolMap = {
+    'AAPL': 'AAPL',
+    'BTCUSD': 'BINANCE:BTCUSDT',
+    'ETHUSD': 'BINANCE:ETHUSDT'
+  };
+
+  const finnhubSymbol = finnhubSymbolMap[symbol];
+  
+  if (!finnhubSymbol || !FINNHUB_API_KEY) {
+    return FALLBACK_PRICES[symbol] || 100;
+  }
+
+  try {
+    const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${finnhubSymbol}&token=${FINNHUB_API_KEY}`);
+    const data = await response.json();
+    
+    if (data && data.c && data.c > 0) {
+      console.log(`Fetched price for ${symbol}: ${data.c}`);
+      return data.c;
+    } else {
+      console.log(`No valid price for ${symbol}, using fallback`);
+      return FALLBACK_PRICES[symbol] || 100;
+    }
+  } catch (error) {
+    console.error(`Error fetching price for ${symbol}:`, error);
+    return FALLBACK_PRICES[symbol] || 100;
+  }
+}
+
+function getPersistedPrice(symbolId) {
+  return marketState.symbols[symbolId]?.lastClose || FALLBACK_PRICES[symbolId] || 100;
 }
 
 const SYSTEM_PROMPT = `Eres un experto asistente de educación financiera y trading. Tu objetivo es enseñar conceptos de finanzas, inversión y trading de manera clara y educativa. 
@@ -129,6 +223,14 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+app.get('/api/market-state', (req, res) => {
+  res.json({
+    ...marketState,
+    finnhubEnabled: !!FINNHUB_API_KEY,
+    symbolCount: Object.keys(marketState.symbols).length
+  });
+});
+
 const roomsState = new Map();
 
 const SIMULATION_EFFECTS = {
@@ -155,7 +257,7 @@ function getRoomState(roomCode) {
 }
 
 function generateCandleUpdate(symbol, lastCandle, baseVolatility, simulationParams) {
-  const lastClose = lastCandle?.close || 100;
+  const lastClose = lastCandle?.close || getPersistedPrice(symbol.id);
   let currentVolatility = baseVolatility;
   let trend = 0;
 
@@ -175,6 +277,8 @@ function generateCandleUpdate(symbol, lastCandle, baseVolatility, simulationPara
   close = Math.max(0.0001, close);
   high = Math.max(0.0001, high);
   low = Math.max(0.0001, low);
+
+  updateMarketStatePrice(symbol.id, close);
 
   return { time: newTime, open, high, low, close, value: close };
 }
@@ -465,6 +569,25 @@ const SYMBOLS = [
   { id: 'SPX', name: 'S&P 500', baseVolatility: 0.012, type: 'index' },
 ];
 
+async function initializePrices() {
+  console.log('Initializing prices...');
+  console.log(`Finnhub enabled: ${!!FINNHUB_API_KEY}`);
+  
+  for (const symbol of SYMBOLS) {
+    if (marketState.symbols[symbol.id]) {
+      console.log(`Using persisted price for ${symbol.id}: ${marketState.symbols[symbol.id].lastClose}`);
+      continue;
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    const price = await fetchInitialPrice(symbol.id);
+    updateMarketStatePrice(symbol.id, price);
+  }
+
+  await saveMarketState();
+  console.log('Price initialization complete');
+}
+
 setInterval(() => {
   roomsState.forEach((roomState, roomCode) => {
     if (roomState.connectedUsers.size > 0) {
@@ -477,8 +600,19 @@ setInterval(() => {
   });
 }, 5000);
 
-httpServer.listen(PORT, '0.0.0.0', () => {
-  console.log(`API server running on port ${PORT}`);
-  console.log(`AI enabled: ${!!process.env.OPENAI_API_KEY}`);
-  console.log(`WebSocket server ready`);
-});
+setInterval(async () => {
+  await saveMarketState();
+}, 30000);
+
+(async () => {
+  await loadMarketState();
+  await initializePrices();
+  
+  httpServer.listen(PORT, '0.0.0.0', () => {
+    console.log(`API server running on port ${PORT}`);
+    console.log(`AI enabled: ${!!process.env.OPENAI_API_KEY}`);
+    console.log(`Finnhub enabled: ${!!FINNHUB_API_KEY}`);
+    console.log(`WebSocket server ready`);
+    console.log(`Market state: ${Object.keys(marketState.symbols).length} symbols loaded`);
+  });
+})();

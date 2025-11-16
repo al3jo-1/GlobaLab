@@ -100,7 +100,7 @@ const Register = () => {
     });
     
     if (registeredUser) {
-      navigate('/rooms');
+      navigate('/trading/rooms');
     } else {
       setErrors({ email: true, password: true, name: false, confirmPassword: false });
     }
