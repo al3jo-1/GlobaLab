@@ -5,24 +5,31 @@ GlobalTradeLab is a trading simulation platform for educational purposes. It all
 
 ## Project Architecture
 - **Frontend**: React + Vite application with Tailwind CSS
-- **Backend API**: Express.js server for AI chatbot integration
+- **Backend API**: Express.js server with Socket.IO for real-time WebSocket communication
+- **Real-time Sync**: Socket.IO with room-based architecture for synchronized market data
+- **Market Data Authority**: Server-side price generation with 5-second update loop
 - **UI Components**: Radix UI with custom styling
 - **Charts**: Lightweight Charts library for market visualization
 - **Routing**: React Router DOM
-- **State Management**: React Context API (TradingContext)
-- **Storage**: Local Storage for user data and portfolios
+- **State Management**: React Context API (TradingContext) + Socket.IO for real-time state
+- **Storage**: Local Storage for user data and portfolios + In-memory server state for rooms
 - **AI Integration**: OpenAI GPT-5 for enhanced chatbot responses (optional)
-- **Ports**: Frontend on port 5000, Backend API on port 3000
+- **Ports**: Frontend on port 5000, Backend API/WebSocket on port 3000
 
 ## Key Features
 - User authentication (Teacher/Student roles)
 - Market simulation with multiple symbols (stocks and crypto)
-- Real-time price updates
+- **Real-time synchronized market data** via WebSocket (Socket.IO)
+- **Experimental Market**: Teacher-controlled manual price overrides with disclaimer
 - Portfolio management
-- Trade execution (buy/sell)
+- Trade execution (Market orders + Pending orders)
+- **Pending Orders**: Buy Limit, Sell Limit, Take Profit, Stop Loss
+- **Price Alarms**: TradingView-style price alerts on charts
+- **Real-time Notifications**: Teachers receive instant notifications of student trades
 - Transaction history
 - Teacher controls for market simulation
 - Student portfolio monitoring
+- Multi-room support with unique class codes
 
 ## Technology Stack
 - React 18.2.0
@@ -41,6 +48,55 @@ GlobalTradeLab is a trading simulation platform for educational purposes. It all
 - Backend provides AI chatbot API with OpenAI integration
 
 ## Recent Changes
+- 2025-11-16: Implementación completa de sincronización en tiempo real con Socket.IO
+  - ✅ **INFRAESTRUCTURA WEBSOCKET**: Socket.IO configurado en servidor y cliente
+    - Server-side market data authority: precios generados en servidor cada 5 segundos
+    - Room-based architecture: estado en memoria por sala (precios, órdenes, alarmas, notificaciones)
+    - Event handlers completos: join_room, leave_room, price_override, pending_order, price_alarm, notify_student_trade
+    - Sincronización automática de estado cuando clientes se conectan
+  - ✅ **PANEL MERCADO EXPERIMENTAL**: Control manual de precios para docentes
+    - Switch para activar/desactivar modo experimental
+    - AlertDialog con disclaimer de responsabilidad
+    - Controles deslizantes para ajustar precio de cualquier símbolo
+    - Overrides persisten hasta que docente los desactive
+    - UI responsive con tabs por tipo de activo (Crypto, Acciones, Forex, Índices)
+  - ✅ **PENDING ORDERS (Órdenes Pendientes)**: Sistema completo de órdenes límite
+    - Buy Limit: Compra automática cuando precio baja a nivel objetivo
+    - Sell Limit: Venta automática cuando precio sube a nivel objetivo
+    - Take Profit: Cierre automático de posición al alcanzar ganancia objetivo
+    - Stop Loss: Cierre automático de posición para limitar pérdidas
+    - Verificación cada 5 segundos en servidor
+    - Notificaciones en tiempo real cuando se ejecutan
+    - Persistencia en localStorage para resiliencia
+  - ✅ **ALARMAS DE PRECIOS**: Alertas estilo TradingView en gráficos
+    - Configuración de alarmas por símbolo con precio objetivo
+    - Notificaciones push cuando precio alcanza objetivo
+    - Gestión completa: crear, editar, eliminar alarmas
+    - Verificación en servidor cada 5 segundos
+    - UI integrada en componente de gráfico
+  - ✅ **SISTEMA DE NOTIFICACIONES EN TIEMPO REAL**
+    - Docentes reciben notificaciones instantáneas de operaciones de estudiantes
+    - Panel dedicado con lista de notificaciones y estado leído/no leído
+    - Socket.IO broadcast a sala cuando estudiante ejecuta trade
+    - Persistencia en servidor y localStorage
+    - Badge con contador de notificaciones no leídas
+  - ✅ **NUEVOS COMPONENTES Y HOOKS**
+    - `useSocketManager.js`: Hook personalizado para gestión de Socket.IO
+    - `ExperimentalMarket.jsx`: Panel de control de precios experimentales
+    - `NotificationPanel.jsx`: Panel de notificaciones en tiempo real
+    - `PriceAlarms.jsx`: Gestor de alarmas de precios
+    - `alert-dialog.jsx`: Componente UI de Radix para disclaimers
+  - ✅ **ACTUALIZACIONES DE NAVEGACIÓN**
+    - Nuevas rutas: `/experimental-market`, `/notifications`, `/price-alarms`, `/terms`
+    - Sidebar actualizado con navegación a nuevas secciones
+    - Documento HTML de términos de uso servido estáticamente
+  - ✅ **INTEGRACIÓN COMPLETA**
+    - TradingContext refactorizado para usar Socket.IO
+    - usePortfolioManager integrado con notifyStudentTrade
+    - useMarketDataUpdater deprecado (reemplazado por servidor)
+    - Todos los workflows corriendo sin errores
+    - Sistema probado y funcional
+
 - 2025-11-07: Fix crítico de unirse a salas y mejora de chatbot con OpenAI
   - ✅ **ARREGLADO DEFINITIVAMENTE**: Bug de ingreso a salas con código
     - Estudiantes pueden unirse correctamente usando el código de sala
