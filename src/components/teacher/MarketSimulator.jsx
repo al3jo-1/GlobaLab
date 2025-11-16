@@ -21,7 +21,7 @@ const SIMULATION_EFFECTS_DURATIONS = {
 };
 
 const MarketSimulator = () => {
-  const { activeSimulation, setActiveSimulation } = useTradingContext();
+  const { activeSimulation, setActiveSimulation, stopSimulation, socketConnected } = useTradingContext();
   const { toast } = useToast();
 
   const handleStartSimulation = (eventId) => {
@@ -34,21 +34,30 @@ const MarketSimulator = () => {
       return;
     }
     const duration = SIMULATION_EFFECTS_DURATIONS[eventId];
-    setActiveSimulation({ type: eventId, startTime: Date.now(), endTime: Date.now() + duration });
-    const eventDetails = SIMULATION_EVENTS.find(e => e.id === eventId);
-    toast({
-      title: "Simulación Iniciada",
-      description: `Se ha iniciado la simulación: ${eventDetails?.name}. Duración: ${eventDetails?.durationText}.`,
-    });
+    
+    if (socketConnected && setActiveSimulation) {
+      setActiveSimulation(eventId, duration);
+    } else {
+      setActiveSimulation({ type: eventId, startTime: Date.now(), endTime: Date.now() + duration });
+      const eventDetails = SIMULATION_EVENTS.find(e => e.id === eventId);
+      toast({
+        title: "Simulación Iniciada",
+        description: `Se ha iniciado la simulación: ${eventDetails?.name}. Duración: ${eventDetails?.durationText}.`,
+      });
+    }
   };
 
   const handleStopSimulation = () => {
-    setActiveSimulation(null);
-    toast({
-      title: "Simulación Detenida",
-      description: "La simulación de mercado ha sido detenida manualmente.",
-      variant: "default",
-    });
+    if (socketConnected && stopSimulation) {
+      stopSimulation();
+    } else {
+      setActiveSimulation(null);
+      toast({
+        title: "Simulación Detenida",
+        description: "La simulación de mercado ha sido detenida manualmente.",
+        variant: "default",
+      });
+    }
   };
   
   React.useEffect(() => {

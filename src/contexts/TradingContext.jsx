@@ -9,6 +9,7 @@ import { useAuthManager } from '@/hooks/useAuthManager';
 import { usePortfolioManager } from '@/hooks/usePortfolioManager';
 import { useChartPreferences } from '@/hooks/useChartPreferences';
 import { useAutomationEngine } from '@/hooks/useAutomationEngine';
+import { useSocketManager } from '@/hooks/useSocketManager';
 
 
 const TradingContext = createContext({});
@@ -118,13 +119,25 @@ export const TradingProvider = ({ children }) => {
     t
   });
 
+  const currentRoom = currentUser?.rooms?.find(r => r.id === currentUser.selectedRoomId);
+
+  const socketManager = useSocketManager({
+    currentUser,
+    currentRoom,
+    setMarketData,
+    setActiveSimulation,
+    toast,
+  });
+
   const { openPosition, closePosition } = usePortfolioManager({
     currentUser, 
     updateUser: updateUserInList,
     toast, 
     marketData, 
     symbols: initialSymbols,
-    copToUsdRate: COP_TO_USD_RATE
+    copToUsdRate: COP_TO_USD_RATE,
+    notifyStudentTrade: socketManager.notifyStudentTrade,
+    currentRoom,
   });
 
   useEffect(() => {
@@ -136,7 +149,7 @@ export const TradingProvider = ({ children }) => {
     setIsLoadingMarket(false);
   }, []);
 
-  useMarketDataUpdater(setMarketData, initialSymbols, activeSimulation);
+  useMarketDataUpdater(setMarketData, initialSymbols, activeSimulation, !socketManager.isConnected);
   
   useAutomationEngine(
     currentUser?.positions || [],
@@ -352,8 +365,6 @@ export const TradingProvider = ({ children }) => {
     return true;
   };
 
-  const currentRoom = currentUser?.rooms?.find(r => r.id === currentUser.selectedRoomId);
-  
   const studentsInClass = currentUser?.role === 'teacher' && currentRoom
     ? allUsers.filter(u => 
         u.role === 'student' && 
@@ -381,7 +392,8 @@ export const TradingProvider = ({ children }) => {
     getCurrentPrice,
     setSelectedSymbol,
     activeSimulation,
-    setActiveSimulation,
+    setActiveSimulation: socketManager.isConnected ? socketManager.startSimulation : setActiveSimulation,
+    stopSimulation: socketManager.stopSimulation,
     theme,
     toggleTheme,
     chartPreferences,
@@ -394,6 +406,18 @@ export const TradingProvider = ({ children }) => {
     selectRoom,
     getUserPlan,
     currentRoom,
+    socketConnected: socketManager.isConnected,
+    experimentalMode: socketManager.experimentalMode,
+    toggleExperimentalMode: socketManager.toggleExperimentalMode,
+    overridePrice: socketManager.overridePrice,
+    pendingOrders: socketManager.pendingOrders,
+    createPendingOrder: socketManager.createPendingOrder,
+    cancelPendingOrder: socketManager.cancelPendingOrder,
+    notifications: socketManager.notifications,
+    markNotificationRead: socketManager.markNotificationRead,
+    priceAlarms: socketManager.priceAlarms,
+    createPriceAlarm: socketManager.createPriceAlarm,
+    deletePriceAlarm: socketManager.deletePriceAlarm,
   };
   
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Home, BarChart2, LogOut, UserCircle, Settings, BookOpen, Briefcase, ShieldCheck, Info, Copy, CheckCircle, X } from 'lucide-react';
+import { Home, BarChart2, LogOut, UserCircle, Settings, BookOpen, Briefcase, ShieldCheck, Info, Copy, CheckCircle, X, FlaskConical, Bell, BellRing } from 'lucide-react';
 import { useTradingContext } from '@/contexts/TradingContext';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
@@ -42,6 +42,9 @@ const Sidebar = ({ onLinkClick }) => {
     { name: t('navigation.portfolio'), icon: <Briefcase className="h-5 w-5" />, path: '/portfolio', role: ['student', 'teacher'] },
     { name: t('navigation.learn', { defaultValue: 'Learn' }), icon: <BookOpen className="h-5 w-5" />, path: '/learn', role: ['student'] },
     { name: t('navigation.admin', { defaultValue: 'Admin' }), icon: <ShieldCheck className="h-5 w-5" />, path: '/admin', role: ['teacher'] },
+    { name: t('navigation.experimental', { defaultValue: 'Experimental' }), icon: <FlaskConical className="h-5 w-5" />, path: '/experimental', role: ['teacher'] },
+    { name: t('navigation.notifications', { defaultValue: 'Notifications' }), icon: <Bell className="h-5 w-5" />, path: '/notifications', role: ['teacher', 'student'] },
+    { name: t('navigation.alarms', { defaultValue: 'Alarms' }), icon: <BellRing className="h-5 w-5" />, path: '/alarms', role: ['teacher', 'student'] },
     { name: t('navigation.settings'), icon: <Settings className="h-5 w-5" />, path: '/settings', role: ['student', 'teacher'] },
     { name: t('navigation.help'), icon: <Info className="h-5 w-5" />, path: '/help', role: ['student', 'teacher'] },
   ];

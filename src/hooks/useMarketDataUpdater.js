@@ -8,8 +8,10 @@ const SIMULATION_EFFECTS = {
 };
 
 
-export const useMarketDataUpdater = (setMarketData, symbols, activeSimulation) => {
+export const useMarketDataUpdater = (setMarketData, symbols, activeSimulation, shouldUpdate = true) => {
   useEffect(() => {
+    if (!shouldUpdate) return;
+    
     const interval = setInterval(() => {
       setMarketData(prevData => {
         const newData = { ...prevData };
@@ -73,5 +75,5 @@ export const useMarketDataUpdater = (setMarketData, symbols, activeSimulation) =
     }, 5000); // Update interval remains 5 seconds
     
     return () => clearInterval(interval);
-  }, [setMarketData, symbols, activeSimulation]);
+  }, [setMarketData, symbols, activeSimulation, shouldUpdate]);
 };

@@ -2,7 +2,7 @@
 import { useToast } from "@/components/ui/use-toast";
 import { COP_TO_USD_RATE } from '@/lib/market-data'; // Import the rate
 
-export const usePortfolioManager = ({ currentUser, updateUser, toast, marketData, symbols }) => {
+export const usePortfolioManager = ({ currentUser, updateUser, toast, marketData, symbols, notifyStudentTrade, currentRoom }) => {
 
   const openPosition = (symbol, type, amountUSD, entryPrice, justification, attachmentName, attachmentData, automation = null) => {
     if (!currentUser) {
@@ -66,6 +66,19 @@ export const usePortfolioManager = ({ currentUser, updateUser, toast, marketData
     
     updateUser(updatedUser);
     toast({ title: "Operación Exitosa", description: `${type === 'BUY' ? 'Compra' : 'Venta'} de ${symbol} abierta por ${amountUSD.toFixed(2)} USD.`, variant: "default" });
+    
+    if (currentUser.role === 'student' && currentRoom && notifyStudentTrade) {
+      const teacherId = currentRoom.ownerId;
+      notifyStudentTrade({
+        studentName: currentUser.name,
+        type: 'open',
+        positionType: type,
+        symbol,
+        amount: amountUSD,
+        price: entryPrice,
+      }, teacherId);
+    }
+    
     return true;
   };
 
@@ -139,6 +152,19 @@ export const usePortfolioManager = ({ currentUser, updateUser, toast, marketData
       description: `Posición en ${positionToClose.symbol} cerrada. P/L: ${profitOrLossUSD.toFixed(2)} USD.`,
       variant: profitOrLossUSD >=0 ? "default" : "destructive",
     });
+    
+    if (currentUser.role === 'student' && currentRoom && notifyStudentTrade) {
+      const teacherId = currentRoom.ownerId;
+      notifyStudentTrade({
+        studentName: currentUser.name,
+        type: 'close',
+        positionType: positionToClose.type,
+        symbol: positionToClose.symbol,
+        amount: positionToClose.amount,
+        profitOrLoss: profitOrLossUSD,
+      }, teacherId);
+    }
+    
     return true;
   };
 

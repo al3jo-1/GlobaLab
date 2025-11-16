@@ -14,6 +14,9 @@ import { TradingProvider, useTradingContext } from '@/contexts/TradingContext';
 import TeacherMarkets from '@/components/teacher/TeacherMarkets';
 import TeacherPortfolio from '@/components/teacher/TeacherPortfolio';
 import MarketSimulator from '@/components/teacher/MarketSimulator';
+import ExperimentalMarket from '@/components/teacher/ExperimentalMarket';
+import NotificationPanel from '@/components/NotificationPanel';
+import PriceAlarms from '@/components/PriceAlarms';
 
 const ProtectedRoute = ({ children, requireRoom = false }) => {
   const { user, isLoading } = useTradingContext();
@@ -151,6 +154,30 @@ function AppContent() {
           element={
             <ProtectedRoute requireRoom={true}>
               <TeacherRouteContent component={MarketSimulator} sectionName="Simulador de Mercado" />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/experimental"
+          element={
+            <ProtectedRoute requireRoom={true}>
+              <TeacherRouteContent component={ExperimentalMarket} sectionName="Aula Experimental" />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/notifications"
+          element={
+            <ProtectedRoute requireRoom={true}>
+              <Dashboard mainContent={<NotificationPanel />} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/alarms"
+          element={
+            <ProtectedRoute requireRoom={true}>
+              <Dashboard mainContent={<PriceAlarms />} />
             </ProtectedRoute>
           }
         />
