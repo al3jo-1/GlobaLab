@@ -48,6 +48,32 @@ GlobalTradeLab is a trading simulation platform for educational purposes. It all
 - Backend provides AI chatbot API with OpenAI integration
 
 ## Recent Changes
+- 2025-11-16: Mejoras de calidad, documentación de Supabase y paleta profesional
+  - ✅ **VALIDACIÓN DE LÍMITES DE ESTUDIANTES**: Implementada correctamente en joinRoom
+    - Verifica límites según plan: starter (10), professional (50), enterprise (ilimitados)
+    - Incrementa studentCount en sala del profesor al unirse estudiante
+    - Muestra toast de error cuando sala está llena con información del plan
+    - Previene múltiples uniones a la misma sala
+  - ✅ **CENTRO DE APRENDIZAJE ACTUALIZADO**: 18 imágenes personalizadas reemplazadas
+    - Nuevas imágenes educativas locales en /public/images/learn/
+    - Contenido visual sobre trading, estrategias, riesgo, psicología y análisis técnico
+    - Una imagen duplicada (#15) como placeholder temporal
+  - ✅ **GUÍA COMPLETA DE SUPABASE**: Documentación paso a paso creada
+    - SUPABASE_SETUP_GUIDE.md con instrucciones detalladas
+    - Schema SQL para migración de localStorage a Supabase
+    - Configuración de Row Level Security (RLS) para seguridad
+    - Pasos de integración con código de ejemplo
+  - ✅ **COMPONENTE DE ESTADO DE CONEXIÓN**: ConnectionStatus.jsx creado
+    - Alerta amarilla cuando servidor WebSocket no disponible
+    - Informa al usuario sobre funciones limitadas (alarmas, modo experimental)
+    - Se oculta automáticamente cuando hay conexión
+  - ✅ **PALETA DE COLORES PROFESIONAL**: Esquema navy/blue actualizado
+    - Fondo azul marino profundo (navy) para modo oscuro
+    - Azul profesional (#0891b2) como color primario - típico de plataformas financieras
+    - Verde (#22c55e) para compra/ganancia, rojo (#f43f5e) para venta/pérdida
+    - Grises sutiles para bordes y elementos secundarios
+    - Modo claro con fondo blanco limpio y contraste apropiado
+  
 - 2025-11-16: Implementación completa de sincronización en tiempo real con Socket.IO
   - ✅ **INFRAESTRUCTURA WEBSOCKET**: Socket.IO configurado en servidor y cliente
     - Server-side market data authority: precios generados en servidor cada 5 segundos
