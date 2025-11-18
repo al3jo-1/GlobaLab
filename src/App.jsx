@@ -21,12 +21,14 @@ import MarketSimulator from '@/components/teacher/MarketSimulator';
 import ExperimentalMarket from '@/components/teacher/ExperimentalMarket';
 import NotificationPanel from '@/components/NotificationPanel';
 import PriceAlarms from '@/components/PriceAlarms';
+import AccountingComingSoon from '@/pages/AccountingComingSoon';
 import AccountingRooms from '@/pages/accounting/AccountingRooms';
 import AccountingDashboard from '@/pages/accounting/AccountingDashboard';
 import FinancialStatements from '@/pages/accounting/FinancialStatements';
 import RatioCalculator from '@/pages/accounting/RatioCalculator';
 import TeacherDashboard from '@/pages/accounting/TeacherDashboard';
 import CaseManager from '@/pages/accounting/CaseManager';
+import BusinessComingSoon from '@/pages/BusinessComingSoon';
 import BusinessRooms from '@/pages/business/BusinessRooms';
 import BusinessDashboard from '@/pages/business/BusinessDashboard';
 import CompanyBuilder from '@/pages/business/CompanyBuilder';
@@ -316,7 +318,7 @@ function AppContent() {
         {/* Accounting Lab Routes */}
         <Route 
           path="/accounting" 
-          element={<AccountingRooms />} 
+          element={<AccountingComingSoon />} 
         />
         <Route 
           path="/accounting/rooms" 
@@ -370,7 +372,7 @@ function AppContent() {
         {/* Business Lab Routes */}
         <Route 
           path="/business" 
-          element={<BusinessRooms />} 
+          element={<BusinessComingSoon />} 
         />
         <Route 
           path="/business/dashboard" 

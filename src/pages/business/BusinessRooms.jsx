@@ -60,6 +60,12 @@ const BusinessRooms = () => {
     deleteRoom(roomId);
   };
 
+  React.useEffect(() => {
+    if (!user) {
+      navigate('/business');
+    }
+  }, [user, navigate]);
+
   if (!user) {
     return null;
   }
@@ -82,7 +88,7 @@ const BusinessRooms = () => {
                 <Building2 className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-2xl font-bold">
-                <span className="text-white">Business</span>
+                <span className="text-white">GlobalBusiness</span>
                 <span className="text-violet-400">Lab</span>
               </h1>
             </div>

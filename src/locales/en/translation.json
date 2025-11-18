@@ -13,15 +13,15 @@
       "subtitle": "Learn trading, accounting, and business management in a safe and educational environment"
     },
     "trading": {
-      "title": "Trading Lab",
+      "title": "GlobalTradeLab",
       "description": "Educational trading simulation"
     },
     "accounting": {
-      "title": "Accounting Lab",
+      "title": "GlobalAccounting Lab",
       "description": "Financial statement analysis"
     },
     "business": {
-      "title": "Business Lab",
+      "title": "GlobalBusiness Lab",
       "description": "Simulated business management"
     },
     "access_button": "Access",
@@ -33,12 +33,12 @@
     "message": "Coming Soon",
     "back_button": "Back to GlobalLab",
     "accounting": {
-      "title": "Accounting Lab",
+      "title": "GlobalAccounting Lab",
       "subtitle": "Financial Statement Analysis",
       "description": "We are developing a complete learning experience in accounting and financial analysis. Soon you'll be able to analyze balance sheets, income statements, and cash flow statements in a simulated environment."
     },
     "business": {
-      "title": "Business Lab",
+      "title": "GlobalBusiness Lab",
       "subtitle": "Simulated Business Management",
       "description": "We are creating a complete business simulation platform. Soon you'll be able to manage virtual companies, make strategic decisions, and learn about business administration in a practical way."
     }

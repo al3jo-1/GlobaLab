@@ -60,8 +60,13 @@ const AccountingRooms = () => {
     deleteRoom(roomId);
   };
 
+  React.useEffect(() => {
+    if (!user) {
+      navigate('/accounting');
+    }
+  }, [user, navigate]);
+
   if (!user) {
-    navigate('/accounting');
     return null;
   }
 
@@ -83,7 +88,7 @@ const AccountingRooms = () => {
                 <Calculator className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-2xl font-bold">
-                <span className="text-white">Accounting</span>
+                <span className="text-white">GlobalAccounting</span>
                 <span className="text-emerald-400">Lab</span>
               </h1>
             </div>

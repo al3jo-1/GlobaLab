@@ -13,15 +13,15 @@
       "subtitle": "Aprende trading, contabilidad y gestión empresarial en un entorno seguro y educativo"
     },
     "trading": {
-      "title": "Trading Lab",
+      "title": "GlobalTradeLab",
       "description": "Simulación de trading educativo"
     },
     "accounting": {
-      "title": "Accounting Lab",
+      "title": "GlobalAccounting Lab",
       "description": "Análisis de estados financieros"
     },
     "business": {
-      "title": "Business Lab",
+      "title": "GlobalBusiness Lab",
       "description": "Gestión empresarial simulada"
     },
     "access_button": "Acceder",
@@ -33,12 +33,12 @@
     "message": "Próximamente",
     "back_button": "Volver a GlobalLab",
     "accounting": {
-      "title": "Accounting Lab",
+      "title": "GlobalAccounting Lab",
       "subtitle": "Análisis de Estados Financieros",
       "description": "Estamos desarrollando una experiencia completa de aprendizaje en contabilidad y análisis financiero. Pronto podrás analizar balances, estados de resultados y flujos de efectivo en un entorno simulado."
     },
     "business": {
-      "title": "Business Lab",
+      "title": "GlobalBusiness Lab",
       "subtitle": "Gestión Empresarial Simulada",
       "description": "Estamos creando una plataforma completa de simulación empresarial. Pronto podrás gestionar empresas virtuales, tomar decisiones estratégicas y aprender sobre administración de negocios de forma práctica."
     }
