@@ -29,6 +29,46 @@
       "rights": "Plataforma Educativa de Simulación"
     }
   },
+  "accounting": {
+    "landing": {
+      "hero": {
+        "title": "Domina la Contabilidad y Análisis Financiero",
+        "subtitle": "Plataforma educativa para aprender gestión fiscal, estados financieros y análisis contable"
+      },
+      "features": {
+        "statements": {
+          "title": "Estados Financieros",
+          "description": "Analiza balances, estados de resultados y flujos de efectivo en empresas simuladas."
+        },
+        "analysis": {
+          "title": "Análisis Fiscal",
+          "description": "Calcula impuestos, detecta errores y aprende gestión fiscal práctica."
+        },
+        "payroll": {
+          "title": "Gestión de Nómina",
+          "description": "Practica cálculos de nómina, deducciones y gestión de recursos humanos."
+        }
+      },
+      "plans": {
+        "starter": {
+          "feature3": "Estados financieros básicos"
+        },
+        "professional": {
+          "feature3": "Análisis completo de estados financieros"
+        },
+        "enterprise": {
+          "feature3": "Casos personalizados de análisis fiscal",
+          "feature6": "Simulador fiscal avanzado"
+        }
+      },
+      "cta": {
+        "subtitle": "Únete a GlobalAccounting Lab y domina la contabilidad hoy mismo"
+      },
+      "footer": {
+        "disclaimer": "Plataforma educativa - Todos los datos son simulados para fines educativos."
+      }
+    }
+  },
   "coming_soon": {
     "message": "Próximamente",
     "back_button": "Volver a GlobalLab",
@@ -399,7 +439,7 @@
       },
       "enterprise": {
         "name": "Plan Empresarial",
-        "feature1": "Hasta 20 estudiantes",
+        "feature1": "Hasta 30 estudiantes",
         "feature2": "3 salas de clase",
         "feature3": "Acceso a todos los mercados",
         "feature4": "Reportes personalizados",

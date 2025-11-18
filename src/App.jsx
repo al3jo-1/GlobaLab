@@ -22,6 +22,9 @@ import ExperimentalMarket from '@/components/teacher/ExperimentalMarket';
 import NotificationPanel from '@/components/NotificationPanel';
 import PriceAlarms from '@/components/PriceAlarms';
 import AccountingComingSoon from '@/pages/AccountingComingSoon';
+import AccountingLandingPage from '@/pages/AccountingLandingPage';
+import AccountingLogin from '@/pages/AccountingLogin';
+import AccountingRegister from '@/pages/AccountingRegister';
 import AccountingRooms from '@/pages/accounting/AccountingRooms';
 import AccountingDashboard from '@/pages/accounting/AccountingDashboard';
 import FinancialStatements from '@/pages/accounting/FinancialStatements';
@@ -318,7 +321,23 @@ function AppContent() {
         {/* Accounting Lab Routes */}
         <Route 
           path="/accounting" 
-          element={<AccountingComingSoon />} 
+          element={<AccountingLandingPage />} 
+        />
+        <Route 
+          path="/accounting/login" 
+          element={
+            <AccountingAuthRoute>
+              <AccountingLogin />
+            </AccountingAuthRoute>
+          } 
+        />
+        <Route 
+          path="/accounting/register" 
+          element={
+            <AccountingAuthRoute>
+              <AccountingRegister />
+            </AccountingAuthRoute>
+          } 
         />
         <Route 
           path="/accounting/rooms" 

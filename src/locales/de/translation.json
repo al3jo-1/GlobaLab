@@ -7,6 +7,82 @@
     "copy": "In Zwischenablage kopiert",
     "copy_error": "Kopieren fehlgeschlagen"
   },
+  "globallab": {
+    "hero": {
+      "title": "Unternehmenssimulationsplattform",
+      "subtitle": "Lernen Sie Trading, Buchhaltung und Unternehmensführung in einer sicheren und lehrreichen Umgebung"
+    },
+    "trading": {
+      "title": "GlobalTradeLab",
+      "description": "Pädagogische Trading-Simulation"
+    },
+    "accounting": {
+      "title": "GlobalAccounting Lab",
+      "description": "Finanzanalyse"
+    },
+    "business": {
+      "title": "GlobalBusiness Lab",
+      "description": "Simulierte Unternehmensführung"
+    },
+    "access_button": "Zugriff",
+    "footer": {
+      "rights": "Pädagogische Simulationsplattform"
+    }
+  },
+  "accounting": {
+    "landing": {
+      "hero": {
+        "title": "Beherrschen Sie Buchhaltung und Finanzanalyse",
+        "subtitle": "Bildungsplattform zum Lernen von Steuerverwaltung, Finanzberichten und Buchhaltungsanalyse"
+      },
+      "features": {
+        "statements": {
+          "title": "Finanzberichte",
+          "description": "Analysieren Sie Bilanzen, Gewinn- und Verlustrechnungen und Cashflows in simulierten Unternehmen."
+        },
+        "analysis": {
+          "title": "Steueranalyse",
+          "description": "Berechnen Sie Steuern, erkennen Sie Fehler und lernen Sie praktische Steuerverwaltung."
+        },
+        "payroll": {
+          "title": "Lohnverwaltung",
+          "description": "Üben Sie Lohnabrechnungen, Abzüge und Personalverwaltung."
+        }
+      },
+      "plans": {
+        "starter": {
+          "feature3": "Grundlegende Finanzberichte"
+        },
+        "professional": {
+          "feature3": "Vollständige Analyse der Finanzberichte"
+        },
+        "enterprise": {
+          "feature3": "Maßgeschneiderte Steueranalysefälle",
+          "feature6": "Fortgeschrittener Steuersimulator"
+        }
+      },
+      "cta": {
+        "subtitle": "Treten Sie GlobalAccounting Lab bei und meistern Sie die Buchhaltung heute"
+      },
+      "footer": {
+        "disclaimer": "Bildungsplattform - Alle Daten sind für Bildungszwecke simuliert."
+      }
+    }
+  },
+  "coming_soon": {
+    "message": "Demnächst",
+    "back_button": "Zurück zu GlobalLab",
+    "accounting": {
+      "title": "GlobalAccounting Lab",
+      "subtitle": "Finanzanalyse",
+      "description": "Wir entwickeln eine umfassende Lernerfahrung in Buchhaltung und Finanzanalyse. Bald können Sie Bilanzen, Gewinn- und Verlustrechnungen und Cashflow-Statements in einer simulierten Umgebung analysieren."
+    },
+    "business": {
+      "title": "GlobalBusiness Lab",
+      "subtitle": "Simulierte Unternehmensführung",
+      "description": "Wir erstellen eine vollständige Unternehmenssimulationsplattform. Bald können Sie virtuelle Unternehmen verwalten, strategische Entscheidungen treffen und praktisch über Unternehmensführung lernen."
+    }
+  },
   "login": {
     "title": "Melden Sie sich bei Ihrem Konto an, um fortzufahren",
     "email": "E-Mail-Adresse",
@@ -270,7 +346,7 @@
       },
       "enterprise": {
         "name": "Enterprise-Plan",
-        "feature1": "Bis zu 20 Studenten",
+        "feature1": "Bis zu 30 Studenten",
         "feature2": "3 Klassenräume",
         "feature3": "Zugriff auf alle Märkte",
         "feature4": "Angepasste Berichte",

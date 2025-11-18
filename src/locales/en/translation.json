@@ -29,6 +29,46 @@
       "rights": "Educational Simulation Platform"
     }
   },
+  "accounting": {
+    "landing": {
+      "hero": {
+        "title": "Master Accounting and Financial Analysis",
+        "subtitle": "Educational platform to learn fiscal management, financial statements, and accounting analysis"
+      },
+      "features": {
+        "statements": {
+          "title": "Financial Statements",
+          "description": "Analyze balance sheets, income statements, and cash flows in simulated companies."
+        },
+        "analysis": {
+          "title": "Fiscal Analysis",
+          "description": "Calculate taxes, detect errors, and learn practical fiscal management."
+        },
+        "payroll": {
+          "title": "Payroll Management",
+          "description": "Practice payroll calculations, deductions, and human resources management."
+        }
+      },
+      "plans": {
+        "starter": {
+          "feature3": "Basic financial statements"
+        },
+        "professional": {
+          "feature3": "Complete financial statement analysis"
+        },
+        "enterprise": {
+          "feature3": "Customized fiscal analysis cases",
+          "feature6": "Advanced fiscal simulator"
+        }
+      },
+      "cta": {
+        "subtitle": "Join GlobalAccounting Lab and master accounting today"
+      },
+      "footer": {
+        "disclaimer": "Educational platform - All data is simulated for educational purposes."
+      }
+    }
+  },
   "coming_soon": {
     "message": "Coming Soon",
     "back_button": "Back to GlobalLab",
@@ -399,7 +439,7 @@
       },
       "enterprise": {
         "name": "Enterprise Plan",
-        "feature1": "Up to 20 students",
+        "feature1": "Up to 30 students",
         "feature2": "3 classrooms",
         "feature3": "Access to all markets",
         "feature4": "Custom reports",

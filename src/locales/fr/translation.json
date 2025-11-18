@@ -7,6 +7,82 @@
     "copy": "Copié dans le presse-papiers",
     "copy_error": "Impossible de copier"
   },
+  "globallab": {
+    "hero": {
+      "title": "Plateforme de Simulation d'Entreprise",
+      "subtitle": "Apprenez le trading, la comptabilité et la gestion d'entreprise dans un environnement sûr et éducatif"
+    },
+    "trading": {
+      "title": "GlobalTradeLab",
+      "description": "Simulation de trading éducative"
+    },
+    "accounting": {
+      "title": "GlobalAccounting Lab",
+      "description": "Analyse des états financiers"
+    },
+    "business": {
+      "title": "GlobalBusiness Lab",
+      "description": "Gestion d'entreprise simulée"
+    },
+    "access_button": "Accéder",
+    "footer": {
+      "rights": "Plateforme de Simulation Éducative"
+    }
+  },
+  "accounting": {
+    "landing": {
+      "hero": {
+        "title": "Maîtrisez la Comptabilité et l'Analyse Financière",
+        "subtitle": "Plateforme éducative pour apprendre la gestion fiscale, les états financiers et l'analyse comptable"
+      },
+      "features": {
+        "statements": {
+          "title": "États Financiers",
+          "description": "Analysez les bilans, les comptes de résultats et les flux de trésorerie dans des entreprises simulées."
+        },
+        "analysis": {
+          "title": "Analyse Fiscale",
+          "description": "Calculez les impôts, détectez les erreurs et apprenez la gestion fiscale pratique."
+        },
+        "payroll": {
+          "title": "Gestion de la Paie",
+          "description": "Pratiquez les calculs de paie, les déductions et la gestion des ressources humaines."
+        }
+      },
+      "plans": {
+        "starter": {
+          "feature3": "États financiers de base"
+        },
+        "professional": {
+          "feature3": "Analyse complète des états financiers"
+        },
+        "enterprise": {
+          "feature3": "Cas d'analyse fiscale personnalisés",
+          "feature6": "Simulateur fiscal avancé"
+        }
+      },
+      "cta": {
+        "subtitle": "Rejoignez GlobalAccounting Lab et maîtrisez la comptabilité aujourd'hui"
+      },
+      "footer": {
+        "disclaimer": "Plateforme éducative - Toutes les données sont simulées à des fins éducatives."
+      }
+    }
+  },
+  "coming_soon": {
+    "message": "Prochainement",
+    "back_button": "Retour à GlobalLab",
+    "accounting": {
+      "title": "GlobalAccounting Lab",
+      "subtitle": "Analyse des États Financiers",
+      "description": "Nous développons une expérience d'apprentissage complète en comptabilité et analyse financière. Bientôt, vous pourrez analyser les bilans, les comptes de résultats et les tableaux de flux de trésorerie dans un environnement simulé."
+    },
+    "business": {
+      "title": "GlobalBusiness Lab",
+      "subtitle": "Gestion d'Entreprise Simulée",
+      "description": "Nous créons une plateforme complète de simulation d'entreprise. Bientôt, vous pourrez gérer des entreprises virtuelles, prendre des décisions stratégiques et apprendre la gestion d'entreprise de manière pratique."
+    }
+  },
   "login": {
     "title": "Connectez-vous à votre compte pour continuer",
     "email": "Adresse e-mail",
@@ -270,7 +346,7 @@
       },
       "enterprise": {
         "name": "Plan entreprise",
-        "feature1": "Jusqu'à 20 étudiants",
+        "feature1": "Jusqu'à 30 étudiants",
         "feature2": "3 salles de classe",
         "feature3": "Accès à tous les marchés",
         "feature4": "Rapports personnalisés",
