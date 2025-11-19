@@ -217,10 +217,18 @@ function AppContent() {
           element={<GlobalLabHub />} 
         />
 
-        {/* Legacy redirect */}
+        {/* Legacy redirects */}
         <Route 
           path="/welcome" 
           element={<Navigate to="/trading" replace />} 
+        />
+        <Route 
+          path="/register" 
+          element={<Navigate to="/trading/register" replace />} 
+        />
+        <Route 
+          path="/login" 
+          element={<Navigate to="/trading/login" replace />} 
         />
 
         {/* Trading Lab Routes */}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -6,13 +6,21 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useAccountingContext } from '@/contexts/AccountingContext';
-import { Calculator, ArrowLeft, Users, FileCheck, Clock } from 'lucide-react';
+import { Calculator, ArrowLeft, Users, FileCheck, Clock, Eye } from 'lucide-react';
+import { formatCurrency } from '@/lib/accounting-data';
 
 const TeacherDashboard = () => {
   const { user, currentRoom, studentsInClass } = useAccountingContext();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [showSubmissionsDialog, setShowSubmissionsDialog] = useState(false);
+  const [feedback, setFeedback] = useState({});
+  const [grades, setGrades] = useState({});
 
   if (!user || !currentRoom) {
     navigate('/accounting/rooms');
@@ -42,6 +50,11 @@ const TeacherDashboard = () => {
 
     const config = statusConfig[status] || statusConfig.active;
     return <Badge variant="outline" className={config.className}>{config.label}</Badge>;
+  };
+
+  const handleViewSubmissions = (student) => {
+    setSelectedStudent(student);
+    setShowSubmissionsDialog(true);
   };
 
   return (
@@ -192,7 +205,16 @@ const TeacherDashboard = () => {
                             <TableCell className="text-center">
                               {getStatusBadge('active')}
                             </TableCell>
-                            <TableCell className="text-right">
+                            <TableCell className="text-right space-x-2">
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => handleViewSubmissions(student)}
+                                className="text-blue-400 hover:text-blue-300"
+                              >
+                                <Eye className="h-4 w-4 mr-1" />
+                                {t('accounting.view_submissions', { defaultValue: 'Ver Entregas' })}
+                              </Button>
                               <Button
                                 variant="ghost"
                                 size="sm"
@@ -225,6 +247,71 @@ const TeacherDashboard = () => {
           </motion.div>
         </div>
       </section>
+
+      <Dialog open={showSubmissionsDialog} onOpenChange={setShowSubmissionsDialog}>
+        <DialogContent className="bg-slate-900 border-emerald-500/20 max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-emerald-400">
+              {t('accounting.student_submissions', { defaultValue: 'Entregas del Estudiante' })}: {selectedStudent?.name}
+            </DialogTitle>
+            <DialogDescription>
+              {t('accounting.view_analyses_and_feedback', { defaultValue: 'Ver análisis completados y agregar retroalimentación' })}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            {selectedStudent?.analyses && selectedStudent.analyses.length > 0 ? (
+              selectedStudent.analyses.map((analysis, index) => (
+                <Card key={analysis.id} className="bg-slate-800/50 border-emerald-500/20">
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="text-white text-lg">
+                        {analysis.caseName || `Análisis ${index + 1}`}
+                      </CardTitle>
+                      <Badge className="bg-emerald-500/20 text-emerald-400">
+                        {new Date(analysis.createdAt).toLocaleDateString()}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {analysis.notes && (
+                      <div>
+                        <Label className="text-slate-300">{t('accounting.student_notes', { defaultValue: 'Notas del Estudiante' })}:</Label>
+                        <p className="text-slate-400 mt-1">{analysis.notes}</p>
+                      </div>
+                    )}
+                    <div className="grid md:grid-cols-2 gap-3">
+                      <div>
+                        <Label className="text-slate-300">{t('accounting.grade', { defaultValue: 'Calificación' })} (0-100):</Label>
+                        <Input
+                          type="number"
+                          min="0"
+                          max="100"
+                          value={grades[analysis.id] || analysis.grade || ''}
+                          onChange={(e) => setGrades({...grades, [analysis.id]: e.target.value})}
+                          className="bg-slate-900 border-emerald-500/20 text-white mt-1"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <Label className="text-slate-300">{t('accounting.teacher_feedback', { defaultValue: 'Retroalimentación del Profesor' })}:</Label>
+                      <Textarea
+                        value={feedback[analysis.id] || analysis.feedback || ''}
+                        onChange={(e) => setFeedback({...feedback, [analysis.id]: e.target.value})}
+                        className="bg-slate-900 border-emerald-500/20 text-white mt-1"
+                        rows={3}
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              ))
+            ) : (
+              <p className="text-center text-slate-400 py-8">
+                {t('accounting.no_submissions_yet', { defaultValue: 'Este estudiante aún no ha enviado análisis' })}
+              </p>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

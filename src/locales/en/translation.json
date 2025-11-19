@@ -961,6 +961,17 @@
     "scenarios": "Scenarios",
     "avg_performance": "Avg Performance",
     "no_data": "No data available yet",
-    "no_companies": "Students haven't created companies yet"
+    "no_companies": "Students haven't created companies yet",
+    "back_to_rooms": "Back to Rooms",
+    "teacher_no_company": "Student Access Only",
+    "teacher_no_company_desc": "Teachers can view and monitor student companies, but cannot create their own company.",
+    "go_to_teacher_dashboard": "Go to Teacher Dashboard",
+    "view_submissions": "View Submissions",
+    "student_submissions": "Student Submissions",
+    "view_analyses_and_feedback": "View completed analyses and add feedback",
+    "student_notes": "Student Notes",
+    "grade": "Grade",
+    "teacher_feedback": "Teacher Feedback",
+    "no_submissions_yet": "This student hasn't submitted any analyses yet"
   }
 }

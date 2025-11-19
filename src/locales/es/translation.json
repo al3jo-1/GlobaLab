@@ -961,6 +961,17 @@
     "scenarios": "Escenarios",
     "avg_performance": "Rendimiento Prom.",
     "no_data": "No hay datos disponibles aún",
-    "no_companies": "Los estudiantes aún no han creado empresas"
+    "no_companies": "Los estudiantes aún no han creado empresas",
+    "back_to_rooms": "Volver a Salas",
+    "teacher_no_company": "Acceso Solo para Estudiantes",
+    "teacher_no_company_desc": "Los profesores pueden ver y monitorear las empresas de los estudiantes, pero no pueden crear su propia empresa.",
+    "go_to_teacher_dashboard": "Ir al Panel de Profesor",
+    "view_submissions": "Ver Entregas",
+    "student_submissions": "Entregas del Estudiante",
+    "view_analyses_and_feedback": "Ver análisis completados y agregar retroalimentación",
+    "student_notes": "Notas del Estudiante",
+    "grade": "Calificación",
+    "teacher_feedback": "Retroalimentación del Profesor",
+    "no_submissions_yet": "Este estudiante aún no ha enviado análisis"
   }
 }

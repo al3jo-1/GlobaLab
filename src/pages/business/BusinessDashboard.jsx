@@ -8,7 +8,7 @@ import { useBusinessContext } from '@/contexts/BusinessContext';
 import { calculateCompanyKPIs } from '@/lib/business-data';
 import { 
   Building2, Users, DollarSign, TrendingUp, TrendingDown,
-  Briefcase, CreditCard, Brain, ArrowLeft, Settings
+  Briefcase, CreditCard, Brain, ArrowLeft, Settings, Home
 } from 'lucide-react';
 import { AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import LanguageSelector from '@/components/LanguageSelector';
@@ -61,14 +61,6 @@ const BusinessDashboard = () => {
       <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => navigate('/business')}
-              className="text-slate-300 hover:text-white"
-            >
-              <ArrowLeft className="h-5 w-5" />
-            </Button>
             <div className="flex items-center space-x-2">
               <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
                 <Building2 className="h-6 w-6 text-white" />
@@ -80,6 +72,14 @@ const BusinessDashboard = () => {
             </div>
           </div>
           <div className="flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              onClick={() => navigate('/business/rooms')}
+              className="text-slate-300 hover:text-white"
+            >
+              <Home className="h-5 w-5 mr-2" />
+              {t('business.back_to_rooms', { defaultValue: 'Volver a Salas' })}
+            </Button>
             <LanguageSelector />
             <Button
               variant="ghost"

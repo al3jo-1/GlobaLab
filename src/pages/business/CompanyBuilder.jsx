@@ -43,6 +43,33 @@ const CompanyBuilder = () => {
     });
   };
 
+  if (user?.role === 'teacher') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
+        <Card className="bg-slate-800/50 backdrop-blur-sm border-violet-500/20 max-w-md">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl text-white mb-2">
+              {t('business.teacher_no_company', { defaultValue: 'Acceso Solo para Estudiantes' })}
+            </CardTitle>
+            <CardDescription className="text-slate-300">
+              {t('business.teacher_no_company_desc', { 
+                defaultValue: 'Los profesores pueden ver y monitorear las empresas de los estudiantes, pero no pueden crear su propia empresa.'
+              })}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button 
+              onClick={() => navigate('/business/teacher')}
+              className="w-full bg-gradient-to-r from-violet-500 to-purple-600"
+            >
+              {t('business.go_to_teacher_dashboard', { defaultValue: 'Ir al Panel de Profesor' })}
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
   if (user?.company) {
     navigate('/business/dashboard');
     return null;

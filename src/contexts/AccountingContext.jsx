@@ -155,6 +155,7 @@ export const AccountingProvider = ({ children }) => {
       ownerId: currentUser.id,
       studentCount: 0,
       cases: [],
+      customCases: [],
     };
 
     const updatedUser = {
@@ -289,10 +290,43 @@ export const AccountingProvider = ({ children }) => {
     return true;
   };
 
+  const createCustomCase = (caseData) => {
+    if (!currentUser || currentUser.role !== 'teacher' || !currentRoom) {
+      return false;
+    }
+
+    const newCase = {
+      id: `custom_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
+      ...caseData,
+      isCustom: true,
+      createdBy: currentUser.id,
+      createdAt: Date.now(),
+    };
+
+    const updatedUser = {
+      ...currentUser,
+      rooms: currentUser.rooms.map(r => 
+        r.id === currentRoom.id 
+          ? { ...r, customCases: [...(r.customCases || []), newCase] }
+          : r
+      ),
+    };
+
+    updateUserInList(updatedUser);
+
+    toast({
+      title: t('accounting.custom_case_created'),
+      description: t('accounting.custom_case_created_message'),
+    });
+
+    return true;
+  };
+
   const assignCase = (caseId, studentIds) => {
     if (!currentUser || currentUser.role !== 'teacher') return false;
 
-    const selectedCase = sampleCases.find(c => c.id === caseId);
+    const allCases = [...sampleCases, ...(currentRoom?.customCases || [])];
+    const selectedCase = allCases.find(c => c.id === caseId);
     if (!selectedCase) return false;
 
     const updatedUsers = allUsers.map(user => {
@@ -361,6 +395,8 @@ export const AccountingProvider = ({ children }) => {
       ) 
     : [];
 
+  const allAvailableCases = [...sampleCases, ...(currentRoom?.customCases || [])];
+
   const value = {
     user: currentUser,
     allUsers,
@@ -377,7 +413,8 @@ export const AccountingProvider = ({ children }) => {
     selectRoom,
     getUserPlan,
     currentRoom,
-    sampleCases,
+    sampleCases: allAvailableCases,
+    createCustomCase,
     assignCase,
     saveAnalysis,
   };

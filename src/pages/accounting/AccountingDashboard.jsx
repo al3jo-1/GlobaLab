@@ -71,14 +71,6 @@ const AccountingDashboard = () => {
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => navigate('/accounting/rooms')}
-              className="text-slate-300 hover:text-white"
-            >
-              <ArrowLeft className="h-5 w-5" />
-            </Button>
             <div className="flex items-center space-x-2">
               <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-white" />
@@ -90,6 +82,14 @@ const AccountingDashboard = () => {
             </div>
           </div>
           <div className="flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              onClick={() => navigate('/accounting/rooms')}
+              className="text-slate-300 hover:text-white"
+            >
+              <ArrowLeft className="h-5 w-5 mr-2" />
+              {t('accounting.back_to_rooms', { defaultValue: 'Volver a Salas' })}
+            </Button>
             <LanguageSelector />
             <Button
               variant="ghost"

@@ -57,6 +57,16 @@ export const JOB_POSITIONS = [
   { department: 'customer_service', position: 'Representante de Servicio', level: 'staff', baseSalary: 32000 },
 ];
 
+export const EXPENSE_CATEGORIES = [
+  { id: 'payroll', label: 'Nómina', description: 'Salarios y beneficios de empleados', baseAmount: 0 },
+  { id: 'rent', label: 'Arriendo', description: 'Alquiler de oficinas y espacios comerciales', baseAmount: 5000 },
+  { id: 'services', label: 'Servicios', description: 'Servicios públicos, internet, teléfono', baseAmount: 1200 },
+  { id: 'taxes', label: 'Impuestos', description: 'IVA, impuesto sobre la renta, impuestos de nómina', baseAmount: 0 },
+  { id: 'marketing', label: 'Marketing', description: 'Publicidad y promoción', baseAmount: 2000 },
+  { id: 'operations', label: 'Operaciones', description: 'Costos operacionales', baseAmount: 3000 },
+  { id: 'supplies', label: 'Suministros', description: 'Material de oficina y otros suministros', baseAmount: 800 },
+];
+
 export const DECISION_SCENARIOS = [
   {
     id: 'expansion_opportunity',
@@ -322,6 +332,236 @@ export const DECISION_SCENARIOS = [
           cash: -20000,
           monthlyRevenue: 3000,
           description: 'Creas una línea premium manteniendo la original.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'cybersecurity_threat',
+    title: 'Amenaza de Ciberseguridad',
+    category: 'crisis',
+    difficulty: 'hard',
+    description: 'Tu empresa sufrió un intento de hackeo. Los sistemas están comprometidos y necesitas tomar medidas urgentes.',
+    context: 'El ataque podría haber expuesto datos de clientes. Necesitas actuar rápido para proteger la información y mantener la confianza.',
+    options: [
+      {
+        id: 'hire_experts',
+        label: 'Contratar expertos en ciberseguridad',
+        effects: {
+          cash: -60000,
+          monthlyExpenses: 5000,
+          customerSatisfaction: 15,
+          description: 'Contratas expertos que fortalecen tu seguridad y recuperan la confianza de clientes.',
+        },
+      },
+      {
+        id: 'internal_solution',
+        label: 'Solución interna con IT',
+        effects: {
+          cash: -20000,
+          employeeMorale: -15,
+          description: 'Tu equipo interno maneja la crisis pero están sobrecargados.',
+        },
+      },
+      {
+        id: 'insurance_claim',
+        label: 'Reclamar seguro cibernético',
+        effects: {
+          cash: 40000,
+          customerSatisfaction: -10,
+          description: 'El seguro cubre parte del daño pero el proceso es lento.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'sustainability_initiative',
+    title: 'Iniciativa de Sostenibilidad',
+    category: 'opportunity',
+    difficulty: 'medium',
+    description: 'Los consumidores demandan prácticas sostenibles. Puedes implementar un programa verde.',
+    context: 'Invertir en sostenibilidad mejorará tu imagen de marca y podría atraer nuevos clientes conscientes.',
+    options: [
+      {
+        id: 'full_green',
+        label: 'Programa completo de sostenibilidad',
+        effects: {
+          cash: -100000,
+          monthlyRevenue: 6000,
+          customerSatisfaction: 25,
+          description: 'Implementas energía renovable y prácticas verdes completamente.',
+        },
+      },
+      {
+        id: 'partial_green',
+        label: 'Iniciativas verdes graduales',
+        effects: {
+          cash: -40000,
+          monthlyRevenue: 2500,
+          customerSatisfaction: 10,
+          description: 'Implementas cambios graduales hacia sostenibilidad.',
+        },
+      },
+      {
+        id: 'marketing_only',
+        label: 'Solo marketing verde',
+        effects: {
+          cash: -15000,
+          monthlyRevenue: 1000,
+          customerSatisfaction: -5,
+          description: 'Promocionas iniciativas verdes sin cambios reales (greenwashing).',
+        },
+      },
+    ],
+  },
+  {
+    id: 'employee_wellness',
+    title: 'Programa de Bienestar Laboral',
+    category: 'challenge',
+    difficulty: 'easy',
+    description: 'Los empleados reportan estrés y agotamiento. Un programa de bienestar podría mejorar productividad.',
+    context: 'Invertir en el bienestar de empleados puede reducir rotación y aumentar moral, pero tiene costos.',
+    options: [
+      {
+        id: 'comprehensive_program',
+        label: 'Programa integral de bienestar',
+        effects: {
+          cash: -50000,
+          monthlyExpenses: 4000,
+          employeeMorale: 30,
+          description: 'Gimnasio, consejería, horarios flexibles y beneficios de salud.',
+        },
+      },
+      {
+        id: 'basic_benefits',
+        label: 'Beneficios básicos',
+        effects: {
+          cash: -20000,
+          monthlyExpenses: 1500,
+          employeeMorale: 15,
+          description: 'Seguro médico mejorado y días de salud mental.',
+        },
+      },
+      {
+        id: 'skip',
+        label: 'Posponer iniciativa',
+        effects: {
+          employeeMorale: -10,
+          description: 'Decides no invertir ahora, algunos empleados están decepcionados.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'product_recall',
+    title: 'Retiro de Producto',
+    category: 'crisis',
+    difficulty: 'hard',
+    description: 'Se detectó un defecto en tu producto principal. Debes decidir cómo manejar la situación.',
+    context: 'Un defecto podría causar daño a clientes. La respuesta que des afectará tu reputación y finanzas.',
+    options: [
+      {
+        id: 'full_recall',
+        label: 'Retiro completo voluntario',
+        effects: {
+          cash: -200000,
+          monthlyRevenue: -8000,
+          customerSatisfaction: 20,
+          description: 'Retiras todo el producto y ofreces reembolsos completos.',
+        },
+      },
+      {
+        id: 'partial_recall',
+        label: 'Retiro de lotes afectados',
+        effects: {
+          cash: -80000,
+          monthlyRevenue: -3000,
+          customerSatisfaction: 5,
+          description: 'Solo retiras los lotes identificados como defectuosos.',
+        },
+      },
+      {
+        id: 'fix_quietly',
+        label: 'Reparar silenciosamente',
+        effects: {
+          cash: -30000,
+          customerSatisfaction: -25,
+          description: 'Intentas arreglar el problema sin publicidad, arriesgando tu reputación.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'strategic_partnership',
+    title: 'Alianza Estratégica',
+    category: 'opportunity',
+    difficulty: 'medium',
+    description: 'Una empresa líder te ofrece una alianza estratégica que podría expandir tu alcance.',
+    context: 'La alianza te daría acceso a nuevos mercados, pero perderías parte de tu independencia operativa.',
+    options: [
+      {
+        id: 'accept_partnership',
+        label: 'Aceptar alianza completa',
+        effects: {
+          cash: 150000,
+          monthlyRevenue: 10000,
+          marketShare: 0.25,
+          description: 'Formas una alianza fuerte con beneficios mutuos.',
+        },
+      },
+      {
+        id: 'limited_partnership',
+        label: 'Colaboración limitada',
+        effects: {
+          cash: 50000,
+          monthlyRevenue: 4000,
+          marketShare: 0.10,
+          description: 'Colaboras en proyectos específicos manteniendo independencia.',
+        },
+      },
+      {
+        id: 'decline',
+        label: 'Rechazar oferta',
+        effects: {
+          description: 'Mantienes completa independencia pero pierdes oportunidad de crecimiento.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'remote_work_policy',
+    title: 'Política de Trabajo Remoto',
+    category: 'challenge',
+    difficulty: 'medium',
+    description: 'Los empleados piden más flexibilidad para trabajo remoto. Debes definir una política.',
+    context: 'El trabajo remoto puede reducir costos de oficina pero también afectar colaboración y cultura.',
+    options: [
+      {
+        id: 'full_remote',
+        label: 'Trabajo remoto completo',
+        effects: {
+          monthlyExpenses: -12000,
+          employeeMorale: 20,
+          efficiency: -0.10,
+          description: 'Cierras la oficina y todos trabajan desde casa.',
+        },
+      },
+      {
+        id: 'hybrid_model',
+        label: 'Modelo híbrido',
+        effects: {
+          monthlyExpenses: -6000,
+          employeeMorale: 15,
+          efficiency: -0.05,
+          description: 'Los empleados vienen 2-3 días por semana.',
+        },
+      },
+      {
+        id: 'office_only',
+        label: 'Solo presencial',
+        effects: {
+          employeeMorale: -15,
+          description: 'Requieres presencia completa en la oficina.',
         },
       },
     ],
