@@ -69,6 +69,48 @@
       }
     }
   },
+  "business": {
+    "landing": {
+      "hero": {
+        "title": "Padroneggia gestione e strategia aziendale",
+        "subtitle": "Piattaforma educativa per apprendere gestione aziendale, decisioni strategiche e operazioni commerciali"
+      },
+      "features": {
+        "title": "Caratteristiche principali",
+        "subtitle": "Impara la gestione aziendale attraverso la simulazione pratica",
+        "company_management": {
+          "title": "Gestione aziendale",
+          "description": "Gestisci risorse, inventari e operazioni aziendali in tempo reale con aziende simulate."
+        },
+        "workforce": {
+          "title": "Gestione del personale",
+          "description": "Recluta e gestisci dipendenti virtuali con diverse competenze, stipendi e livelli di prestazione."
+        },
+        "decisions": {
+          "title": "Decisioni strategiche",
+          "description": "Prendi decisioni finanziarie, operative e strategiche che influenzano il successo della tua azienda."
+        }
+      },
+      "plans": {
+        "starter": {
+          "feature3": "Gestione aziendale di base"
+        },
+        "professional": {
+          "feature3": "Simulatore aziendale avanzato"
+        },
+        "enterprise": {
+          "feature3": "Scenari aziendali personalizzati",
+          "feature6": "Analisi di mercato avanzata"
+        }
+      },
+      "cta": {
+        "subtitle": "Unisciti a GlobalBusiness Lab e padroneggia la gestione aziendale oggi"
+      },
+      "footer": {
+        "disclaimer": "Piattaforma educativa - Tutti i dati sono simulati a scopo didattico."
+      }
+    }
+  },
   "coming_soon": {
     "message": "Prossimamente",
     "back_button": "Torna a GlobalLab",
@@ -100,11 +142,16 @@
     "name": "Nome completo",
     "email": "Indirizzo email",
     "password": "Password",
+    "confirm_password": "Conferma password",
     "role": "Tipo di account",
+    "select_role": "Seleziona il tipo di account",
     "student": "Studente",
     "teacher": "Insegnante",
+    "plan": "Piano",
+    "select_plan": "Seleziona un piano",
     "button": "Registrati",
     "have_account": "Hai già un account?",
+    "already_account": "Hai già un account?",
     "login": "Accedi",
     "error_name": "Il nome deve contenere almeno 2 caratteri",
     "error_email": "Inserisci un indirizzo email valido",

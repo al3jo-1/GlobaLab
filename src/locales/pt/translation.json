@@ -69,6 +69,48 @@
       }
     }
   },
+  "business": {
+    "landing": {
+      "hero": {
+        "title": "Domine gestão e estratégia empresarial",
+        "subtitle": "Plataforma educacional para aprender gestão empresarial, decisões estratégicas e operações comerciais"
+      },
+      "features": {
+        "title": "Características principais",
+        "subtitle": "Aprenda gestão empresarial através de simulação prática",
+        "company_management": {
+          "title": "Gestão empresarial",
+          "description": "Gerencie recursos, inventários e operações empresariais em tempo real com empresas simuladas."
+        },
+        "workforce": {
+          "title": "Gestão de pessoal",
+          "description": "Recrute e gerencie funcionários virtuais com diferentes habilidades, salários e níveis de desempenho."
+        },
+        "decisions": {
+          "title": "Decisões estratégicas",
+          "description": "Tome decisões financeiras, operacionais e estratégicas que impactam o sucesso da sua empresa."
+        }
+      },
+      "plans": {
+        "starter": {
+          "feature3": "Gestão empresarial básica"
+        },
+        "professional": {
+          "feature3": "Simulador empresarial avançado"
+        },
+        "enterprise": {
+          "feature3": "Cenários empresariais personalizados",
+          "feature6": "Análise de mercado avançada"
+        }
+      },
+      "cta": {
+        "subtitle": "Junte-se ao GlobalBusiness Lab e domine a gestão empresarial hoje"
+      },
+      "footer": {
+        "disclaimer": "Plataforma educacional - Todos os dados são simulados para fins educacionais."
+      }
+    }
+  },
   "coming_soon": {
     "message": "Em breve",
     "back_button": "Voltar para GlobalLab",
@@ -100,11 +142,16 @@
     "name": "Nome completo",
     "email": "Endereço de e-mail",
     "password": "Senha",
+    "confirm_password": "Confirmar senha",
     "role": "Tipo de conta",
+    "select_role": "Selecione o tipo de conta",
     "student": "Estudante",
     "teacher": "Professor",
+    "plan": "Plano",
+    "select_plan": "Selecione um plano",
     "button": "Cadastrar",
     "have_account": "Já tem uma conta?",
+    "already_account": "Já tem uma conta?",
     "login": "Entrar",
     "error_name": "O nome deve ter pelo menos 2 caracteres",
     "error_email": "Por favor, insira um endereço de e-mail válido",

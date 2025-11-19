@@ -32,6 +32,9 @@ import RatioCalculator from '@/pages/accounting/RatioCalculator';
 import TeacherDashboard from '@/pages/accounting/TeacherDashboard';
 import CaseManager from '@/pages/accounting/CaseManager';
 import BusinessComingSoon from '@/pages/BusinessComingSoon';
+import BusinessLandingPage from '@/pages/BusinessLandingPage';
+import BusinessLogin from '@/pages/BusinessLogin';
+import BusinessRegister from '@/pages/BusinessRegister';
 import BusinessRooms from '@/pages/business/BusinessRooms';
 import BusinessDashboard from '@/pages/business/BusinessDashboard';
 import CompanyBuilder from '@/pages/business/CompanyBuilder';
@@ -173,9 +176,28 @@ const BusinessProtectedRoute = ({ children, requireRoom = false }) => {
   }
 
   if (requireRoom && (!user.rooms || user.rooms.length === 0 || !user.selectedRoomId)) {
-    return <Navigate to="/business" replace />;
+    return <Navigate to="/business/rooms" replace />;
   }
 
+  return children;
+};
+
+const BusinessAuthRoute = ({ children }) => {
+  const { user, isLoading } = useBusinessContext();
+
+  if (isLoading) {
+    return (
+      <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900 text-white">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-2">Cargando...</h2>
+        </div>
+      </div>
+    );
+  }
+
+  if (user) {
+    return <Navigate to="/business/rooms" replace />;
+  }
   return children;
 };
 
@@ -391,7 +413,31 @@ function AppContent() {
         {/* Business Lab Routes */}
         <Route 
           path="/business" 
-          element={<BusinessComingSoon />} 
+          element={<BusinessLandingPage />} 
+        />
+        <Route 
+          path="/business/login" 
+          element={
+            <BusinessAuthRoute>
+              <BusinessLogin />
+            </BusinessAuthRoute>
+          } 
+        />
+        <Route 
+          path="/business/register" 
+          element={
+            <BusinessAuthRoute>
+              <BusinessRegister />
+            </BusinessAuthRoute>
+          } 
+        />
+        <Route 
+          path="/business/rooms" 
+          element={
+            <BusinessProtectedRoute requireRoom={false}>
+              <BusinessRooms />
+            </BusinessProtectedRoute>
+          } 
         />
         <Route 
           path="/business/dashboard" 

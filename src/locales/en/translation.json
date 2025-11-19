@@ -69,6 +69,48 @@
       }
     }
   },
+  "business": {
+    "landing": {
+      "hero": {
+        "title": "Master Business Management and Strategy",
+        "subtitle": "Educational platform to learn company management, strategic decisions, and business operations"
+      },
+      "features": {
+        "title": "Key Features",
+        "subtitle": "Learn business management through practical simulation",
+        "company_management": {
+          "title": "Company Management",
+          "description": "Manage resources, inventory, and business operations in real-time with simulated companies."
+        },
+        "workforce": {
+          "title": "Workforce Management",
+          "description": "Recruit and manage virtual employees with different skills, salaries, and performance levels."
+        },
+        "decisions": {
+          "title": "Strategic Decisions",
+          "description": "Make financial, operational, and strategic decisions that impact your company's success."
+        }
+      },
+      "plans": {
+        "starter": {
+          "feature3": "Basic business management"
+        },
+        "professional": {
+          "feature3": "Advanced business simulator"
+        },
+        "enterprise": {
+          "feature3": "Customized business scenarios",
+          "feature6": "Advanced market analysis"
+        }
+      },
+      "cta": {
+        "subtitle": "Join GlobalBusiness Lab and master business management today"
+      },
+      "footer": {
+        "disclaimer": "Educational platform - All data is simulated for educational purposes."
+      }
+    }
+  },
   "coming_soon": {
     "message": "Coming Soon",
     "back_button": "Back to GlobalLab",
@@ -100,11 +142,16 @@
     "name": "Full name",
     "email": "Email address",
     "password": "Password",
+    "confirm_password": "Confirm password",
     "role": "Account type",
+    "select_role": "Select account type",
     "student": "Student",
     "teacher": "Teacher",
+    "plan": "Plan",
+    "select_plan": "Select a plan",
     "button": "Sign up",
     "have_account": "Already have an account?",
+    "already_account": "Already have an account?",
     "login": "Sign in",
     "error_name": "Name must be at least 2 characters",
     "error_email": "Please enter a valid email address",

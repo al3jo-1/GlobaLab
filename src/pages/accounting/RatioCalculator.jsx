@@ -164,7 +164,7 @@ const RatioCalculator = () => {
                   labelStyle={{ color: '#e2e8f0' }}
                 />
                 <Legend />
-                <Bar dataKey="value" fill="#3b82f6" name={t('accounting.percentage', { defaultValue: 'Porcentaje' })} />
+                <Bar dataKey="value" fill="#10b981" name={t('accounting.percentage', { defaultValue: 'Porcentaje' })} />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
@@ -286,7 +286,7 @@ const RatioCalculator = () => {
                   labelStyle={{ color: '#e2e8f0' }}
                 />
                 <Legend />
-                <Bar dataKey="value" fill="#a855f7" name={t('accounting.times', { defaultValue: 'Veces' })} />
+                <Bar dataKey="value" fill="#14b8a6" name={t('accounting.times', { defaultValue: 'Veces' })} />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>

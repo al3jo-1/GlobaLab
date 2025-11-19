@@ -109,17 +109,17 @@ const TeacherDashboard = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border-blue-500/30">
+              <Card className="bg-gradient-to-br from-teal-500/20 to-emerald-500/20 border-teal-500/30">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm text-slate-300">
                       {t('accounting.analyses_submitted', { defaultValue: 'Análisis Enviados' })}
                     </CardTitle>
-                    <FileCheck className="h-5 w-5 text-blue-400" />
+                    <FileCheck className="h-5 w-5 text-teal-400" />
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-3xl font-bold text-blue-400">
+                  <p className="text-3xl font-bold text-teal-400">
                     {studentsInClass.reduce((sum, s) => sum + (s.analyses?.length || 0), 0)}
                   </p>
                 </CardContent>

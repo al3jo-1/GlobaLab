@@ -13,7 +13,7 @@ const CaseCard = ({ caseData, onSelect, showStatus = false, status = 'pending' }
   const getStatusBadge = () => {
     const statusConfig = {
       pending: { label: t('accounting.pending', { defaultValue: 'Pendiente' }), className: 'bg-amber-500/20 text-amber-400 border-amber-500/50' },
-      in_progress: { label: t('accounting.in_progress', { defaultValue: 'En Progreso' }), className: 'bg-blue-500/20 text-blue-400 border-blue-500/50' },
+      in_progress: { label: t('accounting.in_progress', { defaultValue: 'En Progreso' }), className: 'bg-teal-500/20 text-teal-400 border-teal-500/50' },
       completed: { label: t('accounting.completed', { defaultValue: 'Completado' }), className: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/50' },
     };
 

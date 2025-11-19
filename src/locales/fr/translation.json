@@ -69,6 +69,48 @@
       }
     }
   },
+  "business": {
+    "landing": {
+      "hero": {
+        "title": "Maîtrisez la gestion et la stratégie d'entreprise",
+        "subtitle": "Plateforme éducative pour apprendre la gestion d'entreprise, les décisions stratégiques et les opérations commerciales"
+      },
+      "features": {
+        "title": "Caractéristiques principales",
+        "subtitle": "Apprenez la gestion d'entreprise par la simulation pratique",
+        "company_management": {
+          "title": "Gestion d'entreprise",
+          "description": "Gérez les ressources, les stocks et les opérations commerciales en temps réel avec des entreprises simulées."
+        },
+        "workforce": {
+          "title": "Gestion du personnel",
+          "description": "Recrutez et gérez des employés virtuels avec différentes compétences, salaires et niveaux de performance."
+        },
+        "decisions": {
+          "title": "Décisions stratégiques",
+          "description": "Prenez des décisions financières, opérationnelles et stratégiques qui impactent le succès de votre entreprise."
+        }
+      },
+      "plans": {
+        "starter": {
+          "feature3": "Gestion d'entreprise de base"
+        },
+        "professional": {
+          "feature3": "Simulateur d'entreprise avancé"
+        },
+        "enterprise": {
+          "feature3": "Scénarios d'entreprise personnalisés",
+          "feature6": "Analyse de marché avancée"
+        }
+      },
+      "cta": {
+        "subtitle": "Rejoignez GlobalBusiness Lab et maîtrisez la gestion d'entreprise aujourd'hui"
+      },
+      "footer": {
+        "disclaimer": "Plateforme éducative - Toutes les données sont simulées à des fins éducatives."
+      }
+    }
+  },
   "coming_soon": {
     "message": "Prochainement",
     "back_button": "Retour à GlobalLab",
@@ -100,11 +142,16 @@
     "name": "Nom complet",
     "email": "Adresse e-mail",
     "password": "Mot de passe",
+    "confirm_password": "Confirmer le mot de passe",
     "role": "Type de compte",
+    "select_role": "Sélectionnez le type de compte",
     "student": "Étudiant",
     "teacher": "Enseignant",
+    "plan": "Plan",
+    "select_plan": "Sélectionnez un plan",
     "button": "S'inscrire",
     "have_account": "Vous avez déjà un compte?",
+    "already_account": "Vous avez déjà un compte?",
     "login": "Se connecter",
     "error_name": "Le nom doit contenir au moins 2 caractères",
     "error_email": "Veuillez saisir une adresse e-mail valide",

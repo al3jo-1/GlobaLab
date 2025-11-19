@@ -43,21 +43,21 @@ export const BusinessProvider = ({ children }) => {
     });
   };
 
-  const login = (email, password) => {
-    const user = allUsers.find(u => u.email === email && u.password === password);
+  const login = (loginData) => {
+    const user = allUsers.find(u => u.email === loginData.email && u.password === loginData.password);
     
     if (user) {
-      setCurrentUserEmail(email);
-      saveCurrentUserEmail(email);
+      setCurrentUserEmail(loginData.email);
+      saveCurrentUserEmail(loginData.email);
       toast({
         title: t('auth.login_success'),
-        description: t('auth.welcome', { name: user.name }),
+        description: t('auth.login_success_message', { name: user.name }),
       });
       return true;
     } else {
       toast({
-        title: t('auth.login_failed'),
-        description: t('auth.invalid_credentials'),
+        title: t('auth.login_error'),
+        description: t('auth.login_error_message'),
         variant: "destructive",
       });
       return false;
@@ -73,22 +73,24 @@ export const BusinessProvider = ({ children }) => {
     });
   };
 
-  const register = (name, email, password, role) => {
-    if (allUsers.some(u => u.email === email)) {
+  const register = (userData) => {
+    const userExists = allUsers.find(u => u.email === userData.email);
+    if (userExists) {
       toast({
-        title: t('auth.registration_failed'),
-        description: t('auth.email_exists'),
+        title: t('auth.register_error'),
+        description: t('auth.register_error_duplicate'),
         variant: "destructive",
       });
-      return false;
+      return null;
     }
 
     const newUser = {
       id: `user_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
-      name,
-      email,
-      password,
-      role,
+      name: userData.name,
+      email: userData.email,
+      password: userData.password,
+      role: userData.role,
+      plan: userData.role === 'teacher' ? (userData.plan || 'starter') : null,
       rooms: [],
       selectedRoomId: null,
       company: null,
@@ -98,13 +100,15 @@ export const BusinessProvider = ({ children }) => {
     const updatedUsers = [...allUsers, newUser];
     setAllUsers(updatedUsers);
     saveAllUsers(updatedUsers);
+    setCurrentUserEmail(newUser.email);
+    saveCurrentUserEmail(newUser.email);
     
     toast({
-      title: t('auth.registration_success'),
-      description: t('auth.account_created'),
+      title: t('auth.register_success'),
+      description: t('auth.register_success_message', { name: newUser.name }),
     });
     
-    return true;
+    return newUser;
   };
 
   const PLAN_LIMITS = {

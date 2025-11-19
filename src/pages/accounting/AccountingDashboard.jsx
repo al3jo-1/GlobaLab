@@ -40,14 +40,14 @@ const AccountingDashboard = () => {
       description: t('accounting.calculate_ratios', { defaultValue: 'Calcular ratios financieros' }),
       icon: PieChart,
       path: '/accounting/ratios',
-      color: 'from-blue-500 to-cyan-600',
+      color: 'from-emerald-600 to-teal-600',
     },
     {
       title: t('accounting.my_analyses', { defaultValue: 'Mis Análisis' }),
       description: t('accounting.view_history', { defaultValue: 'Ver historial de análisis' }),
       icon: BarChart3,
       path: '/accounting/history',
-      color: 'from-purple-500 to-pink-600',
+      color: 'from-teal-500 to-emerald-600',
     },
   ] : [
     {
@@ -62,7 +62,7 @@ const AccountingDashboard = () => {
       description: t('accounting.monitor_students', { defaultValue: 'Monitorear análisis' }),
       icon: Users,
       path: '/accounting/teacher',
-      color: 'from-blue-500 to-cyan-600',
+      color: 'from-emerald-600 to-teal-600',
     },
   ];
 
@@ -129,24 +129,24 @@ const AccountingDashboard = () => {
                     <p className="text-3xl font-bold text-emerald-400">{assignedCases.length}</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border-blue-500/30">
+                <Card className="bg-gradient-to-br from-teal-500/20 to-emerald-500/20 border-teal-500/30">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-sm text-slate-300">
                       {t('accounting.pending_cases', { defaultValue: 'Casos Pendientes' })}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-3xl font-bold text-blue-400">{pendingCases.length}</p>
+                    <p className="text-3xl font-bold text-teal-400">{pendingCases.length}</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500/30">
+                <Card className="bg-gradient-to-br from-emerald-600/20 to-teal-600/20 border-emerald-600/30">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-sm text-slate-300">
                       {t('accounting.completed_analyses', { defaultValue: 'Análisis Completados' })}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-3xl font-bold text-purple-400">{completedAnalyses.length}</p>
+                    <p className="text-3xl font-bold text-emerald-400">{completedAnalyses.length}</p>
                   </CardContent>
                 </Card>
               </div>

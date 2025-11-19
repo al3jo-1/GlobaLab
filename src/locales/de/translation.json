@@ -69,6 +69,48 @@
       }
     }
   },
+  "business": {
+    "landing": {
+      "hero": {
+        "title": "Beherrschen Sie Unternehmensführung und Strategie",
+        "subtitle": "Bildungsplattform zum Lernen von Unternehmensführung, strategischen Entscheidungen und Geschäftsabläufen"
+      },
+      "features": {
+        "title": "Hauptmerkmale",
+        "subtitle": "Lernen Sie Unternehmensführung durch praktische Simulation",
+        "company_management": {
+          "title": "Unternehmensführung",
+          "description": "Verwalten Sie Ressourcen, Bestände und Geschäftsabläufe in Echtzeit mit simulierten Unternehmen."
+        },
+        "workforce": {
+          "title": "Personalverwaltung",
+          "description": "Rekrutieren und verwalten Sie virtuelle Mitarbeiter mit unterschiedlichen Fähigkeiten, Gehältern und Leistungsniveaus."
+        },
+        "decisions": {
+          "title": "Strategische Entscheidungen",
+          "description": "Treffen Sie finanzielle, operative und strategische Entscheidungen, die den Erfolg Ihres Unternehmens beeinflussen."
+        }
+      },
+      "plans": {
+        "starter": {
+          "feature3": "Grundlegende Unternehmensführung"
+        },
+        "professional": {
+          "feature3": "Fortgeschrittener Unternehmenssimulator"
+        },
+        "enterprise": {
+          "feature3": "Angepasste Unternehmensszenarien",
+          "feature6": "Erweiterte Marktanalyse"
+        }
+      },
+      "cta": {
+        "subtitle": "Treten Sie GlobalBusiness Lab bei und meistern Sie die Unternehmensführung heute"
+      },
+      "footer": {
+        "disclaimer": "Bildungsplattform - Alle Daten sind für Bildungszwecke simuliert."
+      }
+    }
+  },
   "coming_soon": {
     "message": "Demnächst",
     "back_button": "Zurück zu GlobalLab",
@@ -100,11 +142,16 @@
     "name": "Vollständiger Name",
     "email": "E-Mail-Adresse",
     "password": "Passwort",
+    "confirm_password": "Passwort bestätigen",
     "role": "Kontotyp",
+    "select_role": "Wählen Sie den Kontotyp",
     "student": "Student",
     "teacher": "Lehrer",
+    "plan": "Plan",
+    "select_plan": "Wählen Sie einen Plan",
     "button": "Registrieren",
     "have_account": "Haben Sie bereits ein Konto?",
+    "already_account": "Haben Sie bereits ein Konto?",
     "login": "Anmelden",
     "error_name": "Der Name muss mindestens 2 Zeichen lang sein",
     "error_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",

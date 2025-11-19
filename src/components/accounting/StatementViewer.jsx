@@ -137,7 +137,7 @@ const StatementViewer = ({ caseData }) => {
                     <TableCell className="text-right">{formatCurrency(totalLiabilities)}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell colSpan={2} className="font-semibold text-blue-300 pt-4">
+                    <TableCell colSpan={2} className="font-semibold text-emerald-300 pt-4">
                       {t('accounting.equity', { defaultValue: 'Patrimonio' })}
                     </TableCell>
                   </TableRow>
@@ -149,7 +149,7 @@ const StatementViewer = ({ caseData }) => {
                     <TableCell className="pl-6">{t('accounting.retained_earnings', { defaultValue: 'Utilidades Retenidas' })}</TableCell>
                     <TableCell className="text-right">{formatCurrency(balanceSheet.equity.retainedEarnings)}</TableCell>
                   </TableRow>
-                  <TableRow className="font-bold border-t-2 border-blue-500/30">
+                  <TableRow className="font-bold border-t-2 border-emerald-500/30">
                     <TableCell>{t('accounting.total_equity', { defaultValue: 'Total Patrimonio' })}</TableCell>
                     <TableCell className="text-right">{formatCurrency(totalEquity)}</TableCell>
                   </TableRow>
@@ -231,7 +231,7 @@ const StatementViewer = ({ caseData }) => {
                 <TableCell className="pl-6">{t('accounting.interest_expense', { defaultValue: 'Gastos Financieros' })}</TableCell>
                 <TableCell className="text-right text-red-400">({formatCurrency(incomeStatement.interestExpense)})</TableCell>
               </TableRow>
-              <TableRow className="font-semibold border-t-2 border-blue-500/30">
+              <TableRow className="font-semibold border-t-2 border-emerald-500/30">
                 <TableCell>{t('accounting.ebt', { defaultValue: 'EBT (Utilidad antes de Impuestos)' })}</TableCell>
                 <TableCell className="text-right">{formatCurrency(ebt)}</TableCell>
               </TableRow>
@@ -306,7 +306,7 @@ const StatementViewer = ({ caseData }) => {
               </TableRow>
               
               <TableRow>
-                <TableCell colSpan={2} className="font-semibold text-blue-300 pt-4">
+                <TableCell colSpan={2} className="font-semibold text-teal-300 pt-4">
                   {t('accounting.investing_activities', { defaultValue: 'Actividades de Inversión' })}
                 </TableCell>
               </TableRow>
@@ -318,7 +318,7 @@ const StatementViewer = ({ caseData }) => {
                 <TableCell className="pl-6">{t('accounting.purchase_investments', { defaultValue: 'Compra de Inversiones' })}</TableCell>
                 <TableCell className="text-right text-red-400">({formatCurrency(Math.abs(cashFlowStatement.investing.purchaseOfInvestments))})</TableCell>
               </TableRow>
-              <TableRow className="font-semibold border-t-2 border-blue-500/30">
+              <TableRow className="font-semibold border-t-2 border-teal-500/30">
                 <TableCell>{t('accounting.net_investing_cash', { defaultValue: 'Efectivo Neto de Inversión' })}</TableCell>
                 <TableCell className="text-right text-red-400">({formatCurrency(Math.abs(investingCashFlow))})</TableCell>
               </TableRow>
