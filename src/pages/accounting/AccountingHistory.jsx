@@ -232,7 +232,7 @@ const AccountingHistory = () => {
       </section>
 
       <Dialog open={showDetailDialog} onOpenChange={setShowDetailDialog}>
-        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-slate-900 border-emerald-500/20">
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-gradient-to-br from-slate-900 to-emerald-950 border-emerald-500/20 text-white">
           <DialogHeader>
             <DialogTitle className="text-white flex items-center">
               <TrendingUp className="mr-2 h-5 w-5 text-emerald-400" />

@@ -7,20 +7,24 @@ import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useAccountingContext } from '@/contexts/AccountingContext';
-import { Calculator, ArrowLeft, Users, FileCheck, Clock, Eye } from 'lucide-react';
+import { Calculator, ArrowLeft, Users, FileCheck, Clock, Eye, Copy, Check } from 'lucide-react';
 import { formatCurrency } from '@/lib/accounting-data';
+import { useToast } from '@/components/ui/use-toast';
 
 const TeacherDashboard = () => {
   const { user, currentRoom, studentsInClass } = useAccountingContext();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { toast } = useToast();
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [showSubmissionsDialog, setShowSubmissionsDialog] = useState(false);
   const [feedback, setFeedback] = useState({});
   const [grades, setGrades] = useState({});
+  const [codeCopied, setCodeCopied] = useState(false);
 
   if (!user || !currentRoom) {
     navigate('/accounting/rooms');
@@ -55,6 +59,19 @@ const TeacherDashboard = () => {
   const handleViewSubmissions = (student) => {
     setSelectedStudent(student);
     setShowSubmissionsDialog(true);
+  };
+
+  const handleCopyCode = () => {
+    if (currentRoom?.classCode) {
+      navigator.clipboard.writeText(currentRoom.classCode).then(() => {
+        setCodeCopied(true);
+        toast({
+          title: t('common.success', { defaultValue: 'Éxito' }),
+          description: t('accounting.code_copied', { defaultValue: 'Código copiado al portapapeles' }),
+        });
+        setTimeout(() => setCodeCopied(false), 2000);
+      });
+    }
   };
 
   return (
@@ -106,6 +123,43 @@ const TeacherDashboard = () => {
                 {t('accounting.manage_cases', { defaultValue: 'Gestionar Casos' })}
               </Button>
             </div>
+
+            {currentRoom?.classCode && (
+              <Card className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border-emerald-500/30 mb-6">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-slate-300 mb-1">
+                        {t('accounting.class_code', { defaultValue: 'Código de Sala' })}
+                      </p>
+                      <p className="text-3xl font-bold text-white font-mono">
+                        {currentRoom.classCode}
+                      </p>
+                      <p className="text-xs text-slate-400 mt-1">
+                        {t('accounting.share_with_students', { defaultValue: 'Comparte este código con tus estudiantes' })}
+                      </p>
+                    </div>
+                    <Button
+                      onClick={handleCopyCode}
+                      className="bg-emerald-600 hover:bg-emerald-700"
+                      size="lg"
+                    >
+                      {codeCopied ? (
+                        <>
+                          <Check className="mr-2 h-5 w-5" />
+                          {t('common.copied', { defaultValue: 'Copiado' })}
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="mr-2 h-5 w-5" />
+                          {t('common.copy', { defaultValue: 'Copiar' })}
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <Card className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-500/30">
@@ -249,7 +303,7 @@ const TeacherDashboard = () => {
       </section>
 
       <Dialog open={showSubmissionsDialog} onOpenChange={setShowSubmissionsDialog}>
-        <DialogContent className="bg-slate-900 border-emerald-500/20 max-w-4xl max-h-[80vh] overflow-y-auto">
+        <DialogContent className="bg-gradient-to-br from-slate-900 to-emerald-950 border-emerald-500/20 max-w-4xl max-h-[80vh] overflow-y-auto text-white">
           <DialogHeader>
             <DialogTitle className="text-emerald-400">
               {t('accounting.student_submissions', { defaultValue: 'Entregas del Estudiante' })}: {selectedStudent?.name}

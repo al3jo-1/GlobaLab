@@ -94,13 +94,13 @@ const RoomSelection = () => {
         title: t('common.success'),
         description: t('rooms.joined', { defaultValue: 'Te has unido a la sala exitosamente' }),
       });
-      navigate('/');
+      navigate('/trading/dashboard');
     }
   };
 
   const handleSelectRoom = (room) => {
     selectRoom(room.id);
-    navigate('/');
+    navigate('/trading/dashboard');
   };
 
   const handleDeleteRoom = (roomId) => {

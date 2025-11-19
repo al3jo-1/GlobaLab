@@ -18,6 +18,12 @@ const BusinessDashboard = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
+  React.useEffect(() => {
+    if (user?.role === 'teacher') {
+      navigate('/business/teacher');
+    }
+  }, [user, navigate]);
+
   if (!user?.company) {
     navigate('/business/company');
     return null;

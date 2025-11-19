@@ -10,7 +10,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useBusinessContext } from '@/contexts/BusinessContext';
 import { calculateCompanyKPIs } from '@/lib/business-data';
-import { Briefcase, Users, TrendingUp, Settings, Plus, ArrowLeft, Building2, Brain } from 'lucide-react';
+import { useToast } from '@/components/ui/use-toast';
+import { Briefcase, Users, TrendingUp, Settings, Plus, ArrowLeft, Building2, Brain, Copy, Check } from 'lucide-react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
@@ -19,9 +20,11 @@ const TeacherDashboard = () => {
   const { user, studentsInClass, currentRoom, addScenario, updateMarketConditions } = useBusinessContext();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { toast } = useToast();
 
   const [showScenarioDialog, setShowScenarioDialog] = useState(false);
   const [showMarketDialog, setShowMarketDialog] = useState(false);
+  const [codeCopied, setCodeCopied] = useState(false);
   const [scenarioData, setScenarioData] = useState({
     title: '',
     category: 'challenge',
@@ -69,6 +72,19 @@ const TeacherDashboard = () => {
   const handleUpdateMarket = () => {
     updateMarketConditions(marketData);
     setShowMarketDialog(false);
+  };
+
+  const handleCopyCode = () => {
+    if (currentRoom?.classCode) {
+      navigator.clipboard.writeText(currentRoom.classCode).then(() => {
+        setCodeCopied(true);
+        toast({
+          title: t('common.success', { defaultValue: 'Éxito' }),
+          description: t('business.code_copied', { defaultValue: 'Código copiado al portapapeles' }),
+        });
+        setTimeout(() => setCodeCopied(false), 2000);
+      });
+    }
   };
 
   const rankingData = studentCompanies
@@ -131,6 +147,48 @@ const TeacherDashboard = () => {
       </header>
 
       <div className="container mx-auto px-4 py-8 space-y-8">
+        {currentRoom?.classCode && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6"
+          >
+            <Card className="bg-gradient-to-r from-violet-500/20 to-purple-500/20 border-violet-500/30">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-slate-300 mb-1">
+                      {t('business.class_code', { defaultValue: 'Código de Sala' })}
+                    </p>
+                    <p className="text-3xl font-bold text-white font-mono">
+                      {currentRoom.classCode}
+                    </p>
+                    <p className="text-xs text-slate-400 mt-1">
+                      {t('business.share_with_students', { defaultValue: 'Comparte este código con tus estudiantes' })}
+                    </p>
+                  </div>
+                  <Button
+                    onClick={handleCopyCode}
+                    className="bg-violet-600 hover:bg-violet-700"
+                    size="lg"
+                  >
+                    {codeCopied ? (
+                      <>
+                        <Check className="mr-2 h-5 w-5" />
+                        {t('common.copied', { defaultValue: 'Copiado' })}
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="mr-2 h-5 w-5" />
+                        {t('common.copy', { defaultValue: 'Copiar' })}
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        )}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -14,6 +14,12 @@ const AccountingDashboard = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
+  React.useEffect(() => {
+    if (user?.role === 'teacher') {
+      navigate('/accounting/teacher');
+    }
+  }, [user, navigate]);
+
   if (!user || !currentRoom) {
     navigate('/accounting/rooms');
     return null;
