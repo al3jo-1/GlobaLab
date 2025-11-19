@@ -102,7 +102,7 @@ const WorkforceManager = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen business-bg">
       <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -123,7 +123,7 @@ const WorkforceManager = () => {
           </div>
           <Button
             onClick={() => setShowAddDialog(true)}
-            className="bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white"
+            className="business-btn"
           >
             <Plus className="mr-2 h-5 w-5" />
             {t('business.add_employee', { defaultValue: 'Agregar Empleado' })}
@@ -258,7 +258,7 @@ const WorkforceManager = () => {
                 </p>
                 <Button
                   onClick={() => setShowAddDialog(true)}
-                  className="bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white"
+                  className="business-btn"
                 >
                   <Plus className="mr-2 h-5 w-5" />
                   {t('business.hire_first_employee', { defaultValue: 'Contratar Primer Empleado' })}
@@ -296,7 +296,7 @@ const WorkforceManager = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="name" className="text-slate-200">
+                <Label htmlFor="name" className="text-foreground">
                   {t('business.name', { defaultValue: 'Nombre' })} *
                 </Label>
                 <Input
@@ -308,7 +308,7 @@ const WorkforceManager = () => {
               </div>
 
               <div>
-                <Label htmlFor="position" className="text-slate-200">
+                <Label htmlFor="position" className="text-foreground">
                   {t('business.position', { defaultValue: 'Cargo' })} *
                 </Label>
                 <Input
@@ -320,7 +320,7 @@ const WorkforceManager = () => {
               </div>
 
               <div>
-                <Label htmlFor="department" className="text-slate-200">
+                <Label htmlFor="department" className="text-foreground">
                   {t('business.department', { defaultValue: 'Departamento' })} *
                 </Label>
                 <Select 
@@ -341,7 +341,7 @@ const WorkforceManager = () => {
               </div>
 
               <div>
-                <Label htmlFor="salary" className="text-slate-200">
+                <Label htmlFor="salary" className="text-foreground">
                   {t('business.annual_salary', { defaultValue: 'Salario Anual' })} *
                 </Label>
                 <Input
@@ -376,7 +376,7 @@ const WorkforceManager = () => {
           <div className="space-y-4">
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="edit-name" className="text-slate-200">
+                <Label htmlFor="edit-name" className="text-foreground">
                   {t('business.name', { defaultValue: 'Nombre' })} *
                 </Label>
                 <Input
@@ -388,7 +388,7 @@ const WorkforceManager = () => {
               </div>
 
               <div>
-                <Label htmlFor="edit-position" className="text-slate-200">
+                <Label htmlFor="edit-position" className="text-foreground">
                   {t('business.position', { defaultValue: 'Cargo' })} *
                 </Label>
                 <Input
@@ -400,7 +400,7 @@ const WorkforceManager = () => {
               </div>
 
               <div>
-                <Label htmlFor="edit-department" className="text-slate-200">
+                <Label htmlFor="edit-department" className="text-foreground">
                   {t('business.department', { defaultValue: 'Departamento' })} *
                 </Label>
                 <Select 
@@ -421,7 +421,7 @@ const WorkforceManager = () => {
               </div>
 
               <div>
-                <Label htmlFor="edit-salary" className="text-slate-200">
+                <Label htmlFor="edit-salary" className="text-foreground">
                   {t('business.annual_salary', { defaultValue: 'Salario Anual' })} *
                 </Label>
                 <Input

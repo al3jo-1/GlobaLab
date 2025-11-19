@@ -12,9 +12,9 @@ const CaseCard = ({ caseData, onSelect, showStatus = false, status = 'pending' }
 
   const getStatusBadge = () => {
     const statusConfig = {
-      pending: { label: t('accounting.pending', { defaultValue: 'Pendiente' }), className: 'bg-amber-500/20 text-amber-400 border-amber-500/50' },
-      in_progress: { label: t('accounting.in_progress', { defaultValue: 'En Progreso' }), className: 'bg-teal-500/20 text-teal-400 border-teal-500/50' },
-      completed: { label: t('accounting.completed', { defaultValue: 'Completado' }), className: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/50' },
+      pending: { label: t('accounting.pending', { defaultValue: 'Pendiente' }), className: 'bg-amber-500/20 border-amber-500/50 text-amber-400 light:text-amber-700' },
+      in_progress: { label: t('accounting.in_progress', { defaultValue: 'En Progreso' }), className: 'bg-teal-500/20 border-teal-500/50 text-teal-400 light:text-teal-700' },
+      completed: { label: t('accounting.completed', { defaultValue: 'Completado' }), className: 'bg-emerald-500/20 border-emerald-500/50 accounting-text-muted' },
     };
 
     const config = statusConfig[status] || statusConfig.pending;
@@ -26,11 +26,11 @@ const CaseCard = ({ caseData, onSelect, showStatus = false, status = 'pending' }
       <CardHeader>
         <div className="flex items-start justify-between">
           <div className="flex items-center space-x-2">
-            <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center border border-emerald-500/30">
-              <Building2 className="h-5 w-5 text-emerald-400" />
+            <div className="h-10 w-10 rounded-lg accounting-card-bg flex items-center justify-center border border-emerald-500/30">
+              <Building2 className="h-5 w-5 accounting-text-muted" />
             </div>
             <div>
-              <CardTitle className="text-lg text-slate-100">{caseData.companyName}</CardTitle>
+              <CardTitle className="text-lg accounting-text">{caseData.companyName}</CardTitle>
               <CardDescription className="text-sm text-slate-400">{caseData.industry}</CardDescription>
             </div>
           </div>
@@ -38,7 +38,7 @@ const CaseCard = ({ caseData, onSelect, showStatus = false, status = 'pending' }
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
-        <p className="text-sm text-slate-300">{caseData.description}</p>
+        <p className="text-sm text-muted-foreground">{caseData.description}</p>
         
         <div className="flex items-center space-x-4 text-xs text-slate-400">
           <div className="flex items-center space-x-1">
@@ -54,7 +54,7 @@ const CaseCard = ({ caseData, onSelect, showStatus = false, status = 'pending' }
         {onSelect && (
           <Button 
             onClick={() => onSelect(caseData)}
-            className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white"
+            className="w-full accounting-btn"
           >
             {t('accounting.analyze_case', { defaultValue: 'Analizar Caso' })}
           </Button>

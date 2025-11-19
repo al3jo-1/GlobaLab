@@ -138,7 +138,7 @@ const CaseManager = () => {
   const selectedCase = sampleCases.find(c => c.id === selectedCaseId);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900">
+    <div className="min-h-screen accounting-bg">
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -151,7 +151,7 @@ const CaseManager = () => {
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div className="flex items-center space-x-2">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-lg accounting-icon-bg flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-xl font-bold text-white">
@@ -198,7 +198,7 @@ const CaseManager = () => {
                       </div>
                       <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
                         <DialogTrigger asChild>
-                          <Button className="bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700">
+                          <Button className="business-btn">
                             <Plus className="h-4 w-4 mr-2" />
                             {t('accounting.create_custom_case', { defaultValue: 'Crear Caso Personalizado' })}
                           </Button>
@@ -215,7 +215,7 @@ const CaseManager = () => {
                           <div className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-4">
                               <div>
-                                <Label className="text-slate-300">{t('accounting.company_name', { defaultValue: 'Nombre de la Empresa' })}</Label>
+                                <Label className="text-foreground">{t('accounting.company_name', { defaultValue: 'Nombre de la Empresa' })}</Label>
                                 <Input
                                   value={newCase.companyName}
                                   onChange={(e) => setNewCase({...newCase, companyName: e.target.value})}
@@ -223,7 +223,7 @@ const CaseManager = () => {
                                 />
                               </div>
                               <div>
-                                <Label className="text-slate-300">{t('accounting.industry', { defaultValue: 'Industria' })}</Label>
+                                <Label className="text-foreground">{t('accounting.industry', { defaultValue: 'Industria' })}</Label>
                                 <Input
                                   value={newCase.industry}
                                   onChange={(e) => setNewCase({...newCase, industry: e.target.value})}
@@ -232,7 +232,7 @@ const CaseManager = () => {
                               </div>
                             </div>
                             <div>
-                              <Label className="text-slate-300">{t('accounting.description', { defaultValue: 'Descripción' })}</Label>
+                              <Label className="text-foreground">{t('accounting.description', { defaultValue: 'Descripción' })}</Label>
                               <Textarea
                                 value={newCase.description}
                                 onChange={(e) => setNewCase({...newCase, description: e.target.value})}
@@ -273,7 +273,7 @@ const CaseManager = () => {
                               <Button variant="outline" onClick={() => setShowCreateDialog(false)} className="border-emerald-500/20">
                                 {t('common.cancel', { defaultValue: 'Cancelar' })}
                               </Button>
-                              <Button onClick={handleCreateCustomCase} className="bg-gradient-to-r from-emerald-500 to-teal-600">
+                              <Button onClick={handleCreateCustomCase} className="accounting-btn">
                                 {t('common.create', { defaultValue: 'Crear' })}
                               </Button>
                             </div>
@@ -332,7 +332,7 @@ const CaseManager = () => {
                             onCheckedChange={handleSelectAll}
                             className="border-emerald-500/50"
                           />
-                          <Label htmlFor="select-all" className="text-slate-200 font-semibold cursor-pointer">
+                          <Label htmlFor="select-all" className="text-foreground font-semibold cursor-pointer">
                             {t('accounting.select_all', { defaultValue: 'Seleccionar Todos' })}
                           </Label>
                         </div>
@@ -346,7 +346,7 @@ const CaseManager = () => {
                                 onCheckedChange={() => handleStudentToggle(student.id)}
                                 className="border-emerald-500/50"
                               />
-                              <Label htmlFor={student.id} className="text-slate-300 cursor-pointer flex-1">
+                              <Label htmlFor={student.id} className="text-foreground cursor-pointer flex-1">
                                 <div className="flex flex-col">
                                   <span className="font-medium">{student.name}</span>
                                   <span className="text-xs text-slate-500">{student.email}</span>
@@ -365,7 +365,7 @@ const CaseManager = () => {
                 </Card>
 
                 {selectedCase && (
-                  <Card className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-500/30 mb-4">
+                  <Card className="accounting-card-bg border-emerald-500/30 mb-4">
                     <CardHeader>
                       <CardTitle className="text-lg text-emerald-400">
                         {t('accounting.selected_case', { defaultValue: 'Caso Seleccionado' })}
@@ -381,7 +381,7 @@ const CaseManager = () => {
                 <Button
                   onClick={handleAssignCase}
                   disabled={!selectedCaseId || selectedStudents.length === 0}
-                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white disabled:opacity-50"
+                  className="w-full accounting-btn disabled:opacity-50"
                 >
                   <Send className="mr-2 h-5 w-5" />
                   {t('accounting.assign_case', { defaultValue: 'Asignar Caso' })} 

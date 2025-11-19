@@ -75,7 +75,7 @@ const TeacherDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900">
+    <div className="min-h-screen accounting-bg">
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -88,7 +88,7 @@ const TeacherDashboard = () => {
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div className="flex items-center space-x-2">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-lg accounting-icon-bg flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-xl font-bold text-white">
@@ -118,18 +118,18 @@ const TeacherDashboard = () => {
               </div>
               <Button
                 onClick={() => navigate('/accounting/cases')}
-                className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white"
+                className="accounting-btn"
               >
                 {t('accounting.manage_cases', { defaultValue: 'Gestionar Casos' })}
               </Button>
             </div>
 
             {currentRoom?.classCode && (
-              <Card className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border-emerald-500/30 mb-6">
+              <Card className="accounting-card-bg border-emerald-500/30 mb-6">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-slate-300 mb-1">
+                      <p className="text-sm accounting-text-muted mb-1">
                         {t('accounting.class_code', { defaultValue: 'Código de Sala' })}
                       </p>
                       <p className="text-3xl font-bold text-white font-mono">
@@ -162,10 +162,10 @@ const TeacherDashboard = () => {
             )}
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <Card className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-500/30">
+              <Card className="accounting-card-bg border-emerald-500/30">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-sm text-slate-300">
+                    <CardTitle className="text-sm accounting-text-muted">
                       {t('accounting.total_students', { defaultValue: 'Total Estudiantes' })}
                     </CardTitle>
                     <Users className="h-5 w-5 text-emerald-400" />
@@ -176,10 +176,10 @@ const TeacherDashboard = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-teal-500/20 to-emerald-500/20 border-teal-500/30">
+              <Card className="accounting-card-gradient">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-sm text-slate-300">
+                    <CardTitle className="text-sm accounting-text-muted">
                       {t('accounting.analyses_submitted', { defaultValue: 'Análisis Enviados' })}
                     </CardTitle>
                     <FileCheck className="h-5 w-5 text-teal-400" />
@@ -195,7 +195,7 @@ const TeacherDashboard = () => {
               <Card className="bg-gradient-to-br from-amber-500/20 to-orange-500/20 border-amber-500/30">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-sm text-slate-300">
+                    <CardTitle className="text-sm accounting-text-muted">
                       {t('accounting.pending_work', { defaultValue: 'Trabajos Pendientes' })}
                     </CardTitle>
                     <Clock className="h-5 w-5 text-amber-400" />
@@ -303,7 +303,7 @@ const TeacherDashboard = () => {
       </section>
 
       <Dialog open={showSubmissionsDialog} onOpenChange={setShowSubmissionsDialog}>
-        <DialogContent className="bg-gradient-to-br from-slate-900 to-emerald-950 border-emerald-500/20 max-w-4xl max-h-[80vh] overflow-y-auto text-white">
+        <DialogContent className="bg-slate-900 border-emerald-500/20 max-w-4xl max-h-[80vh] overflow-y-auto text-white">
           <DialogHeader>
             <DialogTitle className="text-emerald-400">
               {t('accounting.student_submissions', { defaultValue: 'Entregas del Estudiante' })}: {selectedStudent?.name}

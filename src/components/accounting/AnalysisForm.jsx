@@ -40,9 +40,9 @@ const AnalysisForm = ({ caseData, ratios, onSave }) => {
     <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-emerald-500/20">
       <CardHeader>
         <div className="flex items-center space-x-2">
-          <FileText className="h-6 w-6 text-emerald-400" />
+          <FileText className="h-6 w-6 accounting-text-muted" />
           <div>
-            <CardTitle className="text-xl text-slate-100">
+            <CardTitle className="text-xl accounting-text">
               {t('accounting.financial_analysis', { defaultValue: 'Análisis Financiero' })}
             </CardTitle>
             <CardDescription>
@@ -53,7 +53,7 @@ const AnalysisForm = ({ caseData, ratios, onSave }) => {
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="liquidity" className="text-emerald-400">
+          <Label htmlFor="liquidity" className="accounting-text-muted">
             {t('accounting.liquidity_analysis', { defaultValue: 'Análisis de Liquidez' })}
           </Label>
           <Textarea
@@ -68,7 +68,7 @@ const AnalysisForm = ({ caseData, ratios, onSave }) => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="profitability" className="text-emerald-400">
+          <Label htmlFor="profitability" className="accounting-text-muted">
             {t('accounting.profitability_analysis', { defaultValue: 'Análisis de Rentabilidad' })}
           </Label>
           <Textarea
@@ -83,7 +83,7 @@ const AnalysisForm = ({ caseData, ratios, onSave }) => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="leverage" className="text-emerald-400">
+          <Label htmlFor="leverage" className="accounting-text-muted">
             {t('accounting.leverage_analysis', { defaultValue: 'Análisis de Endeudamiento' })}
           </Label>
           <Textarea
@@ -98,7 +98,7 @@ const AnalysisForm = ({ caseData, ratios, onSave }) => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="efficiency" className="text-emerald-400">
+          <Label htmlFor="efficiency" className="accounting-text-muted">
             {t('accounting.efficiency_analysis', { defaultValue: 'Análisis de Eficiencia' })}
           </Label>
           <Textarea
@@ -113,7 +113,7 @@ const AnalysisForm = ({ caseData, ratios, onSave }) => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="conclusion" className="text-emerald-400">
+          <Label htmlFor="conclusion" className="accounting-text-muted">
             {t('accounting.overall_conclusion', { defaultValue: 'Conclusión General' })}
           </Label>
           <Textarea
@@ -128,7 +128,7 @@ const AnalysisForm = ({ caseData, ratios, onSave }) => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="recommendations" className="text-emerald-400">
+          <Label htmlFor="recommendations" className="accounting-text-muted">
             {t('accounting.recommendations', { defaultValue: 'Recomendaciones' })}
           </Label>
           <Textarea
@@ -145,7 +145,7 @@ const AnalysisForm = ({ caseData, ratios, onSave }) => {
         <Button 
           onClick={handleSubmit}
           disabled={!isFormComplete()}
-          className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white disabled:opacity-50"
+          className="w-full accounting-btn disabled:opacity-50"
         >
           <Save className="mr-2 h-5 w-5" />
           {t('accounting.save_analysis', { defaultValue: 'Guardar Análisis' })}

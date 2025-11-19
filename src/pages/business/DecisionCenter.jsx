@@ -105,7 +105,7 @@ const DecisionCenter = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen business-bg">
       <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -190,7 +190,7 @@ const DecisionCenter = () => {
                     ) : (
                       <Button
                         onClick={() => handleOpenScenario(scenario)}
-                        className="w-full bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white"
+                        className="w-full business-btn"
                       >
                         {t('business.view_options', { defaultValue: 'Ver Opciones' })}
                       </Button>

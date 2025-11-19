@@ -116,7 +116,7 @@ const AccountingLandingPage = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto text-center"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent leading-tight pb-2">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 accounting-text-gradient leading-tight pb-2">
             {t('accounting.landing.hero.title', { defaultValue: 'Domina la Contabilidad y Análisis Financiero' })}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
@@ -275,7 +275,7 @@ const AccountingLandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-emerald-500/10 to-emerald-500/5">
+      <section className="py-20 px-4 accounting-section-bg">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

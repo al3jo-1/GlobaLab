@@ -48,7 +48,7 @@ const AccountingHistory = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900">
+    <div className="min-h-screen accounting-bg">
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -61,7 +61,7 @@ const AccountingHistory = () => {
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div className="flex items-center space-x-2">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-lg accounting-icon-bg flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-xl font-bold text-white">
@@ -89,9 +89,9 @@ const AccountingHistory = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <Card className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-500/30">
+            <Card className="accounting-card-bg border-emerald-500/30">
               <CardHeader className="pb-3">
-                <CardTitle className="text-sm text-slate-300">
+                <CardTitle className="text-sm accounting-text-muted">
                   {t('accounting.total_analyses', { defaultValue: 'Total Análisis' })}
                 </CardTitle>
               </CardHeader>
@@ -100,9 +100,9 @@ const AccountingHistory = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-teal-500/20 to-emerald-500/20 border-teal-500/30">
+            <Card className="accounting-card-gradient">
               <CardHeader className="pb-3">
-                <CardTitle className="text-sm text-slate-300">
+                <CardTitle className="text-sm accounting-text-muted">
                   {t('accounting.assigned_cases', { defaultValue: 'Casos Asignados' })}
                 </CardTitle>
               </CardHeader>
@@ -111,9 +111,9 @@ const AccountingHistory = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-slate-500/20 to-emerald-500/20 border-slate-500/30">
+            <Card className="accounting-card-gradient">
               <CardHeader className="pb-3">
-                <CardTitle className="text-sm text-slate-300">
+                <CardTitle className="text-sm accounting-text-muted">
                   {t('accounting.pending_cases', { defaultValue: 'Casos Pendientes' })}
                 </CardTitle>
               </CardHeader>
@@ -144,7 +144,7 @@ const AccountingHistory = () => {
                   </p>
                   <Button
                     onClick={() => navigate('/accounting/statements')}
-                    className="mt-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700"
+                    className="mt-4 accounting-btn"
                   >
                     {t('accounting.start_analysis', { defaultValue: 'Comenzar Análisis' })}
                   </Button>
@@ -232,7 +232,7 @@ const AccountingHistory = () => {
       </section>
 
       <Dialog open={showDetailDialog} onOpenChange={setShowDetailDialog}>
-        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-gradient-to-br from-slate-900 to-emerald-950 border-emerald-500/20 text-white">
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-slate-900 border-emerald-500/20 text-white">
           <DialogHeader>
             <DialogTitle className="text-white flex items-center">
               <TrendingUp className="mr-2 h-5 w-5 text-emerald-400" />

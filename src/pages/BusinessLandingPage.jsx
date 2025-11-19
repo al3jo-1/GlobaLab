@@ -312,7 +312,7 @@ const BusinessLandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-violet-600 to-violet-700">
+      <section className="py-20 px-4 business-section-bg">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

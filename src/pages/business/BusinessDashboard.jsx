@@ -46,10 +46,10 @@ const BusinessDashboard = () => {
     <Card className={`bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-${color}-500/20`}>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle className="text-sm font-medium text-slate-400">{title}</CardTitle>
-        <Icon className={`h-5 w-5 text-${color}-400`} />
+        <Icon className={`h-5 w-5 text-${color}-400 light:text-${color}-700`} />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold text-white">
+        <div className="text-2xl font-bold business-text">
           {typeof value === 'number' ? `$${value.toLocaleString()}` : value}
         </div>
         {trend !== undefined && (
@@ -63,16 +63,16 @@ const BusinessDashboard = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen business-bg">
       <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-lg business-icon-bg flex items-center justify-center">
                 <Building2 className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-white">{user.company.name}</h1>
+                <h1 className="text-xl font-bold business-text">{user.company.name}</h1>
                 <p className="text-xs text-slate-400">{currentRoom?.name}</p>
               </div>
             </div>
@@ -141,7 +141,7 @@ const BusinessDashboard = () => {
           >
             <Card className="bg-slate-800/50 border-violet-500/20">
               <CardHeader>
-                <CardTitle className="text-white">
+                <CardTitle className="business-text">
                   {t('business.revenue_trend', { defaultValue: 'Tendencia de Ingresos' })}
                 </CardTitle>
               </CardHeader>
@@ -169,7 +169,7 @@ const BusinessDashboard = () => {
           >
             <Card className="bg-slate-800/50 border-violet-500/20">
               <CardHeader>
-                <CardTitle className="text-white">
+                <CardTitle className="business-text">
                   {t('business.financial_overview', { defaultValue: 'Resumen Financiero' })}
                 </CardTitle>
               </CardHeader>
@@ -199,38 +199,38 @@ const BusinessDashboard = () => {
         >
           <Button
             onClick={() => navigate('/business/workforce')}
-            className="h-24 bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/30 hover:border-blue-500/50 text-white flex-col"
+            className="h-24 bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/30 hover:border-blue-500/50 business-text flex-col"
             variant="outline"
           >
-            <Users className="h-8 w-8 mb-2 text-blue-400" />
+            <Users className="h-8 w-8 mb-2 text-blue-400 light:text-blue-700" />
             <span>{t('business.manage_workforce', { defaultValue: 'Gestionar Personal' })}</span>
           </Button>
 
           <Button
             onClick={() => navigate('/business/loans')}
-            className="h-24 bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 border border-emerald-500/30 hover:border-emerald-500/50 text-white flex-col"
+            className="h-24 business-card-success business-text flex-col"
             variant="outline"
           >
-            <CreditCard className="h-8 w-8 mb-2 text-emerald-400" />
+            <CreditCard className="h-8 w-8 mb-2 text-emerald-400 light:text-emerald-700" />
             <span>{t('business.loan_simulator', { defaultValue: 'Simulador de Préstamos' })}</span>
           </Button>
 
           <Button
             onClick={() => navigate('/business/decisions')}
-            className="h-24 bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-500/30 hover:border-purple-500/50 text-white flex-col"
+            className="h-24 business-card-info business-text flex-col"
             variant="outline"
           >
-            <Brain className="h-8 w-8 mb-2 text-purple-400" />
+            <Brain className="h-8 w-8 mb-2 business-text-muted" />
             <span>{t('business.decision_center', { defaultValue: 'Centro de Decisiones' })}</span>
           </Button>
 
           {user.role === 'teacher' && (
             <Button
               onClick={() => navigate('/business/teacher')}
-              className="h-24 bg-gradient-to-br from-amber-500/20 to-amber-600/20 border border-amber-500/30 hover:border-amber-500/50 text-white flex-col"
+              className="h-24 bg-gradient-to-br from-amber-500/20 to-amber-600/20 border border-amber-500/30 hover:border-amber-500/50 business-text flex-col"
               variant="outline"
             >
-              <Briefcase className="h-8 w-8 mb-2 text-amber-400" />
+              <Briefcase className="h-8 w-8 mb-2 text-amber-400 light:text-amber-700" />
               <span>{t('business.teacher_panel', { defaultValue: 'Panel Docente' })}</span>
             </Button>
           )}

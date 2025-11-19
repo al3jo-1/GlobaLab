@@ -71,7 +71,7 @@ const AccountingRooms = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900">
+    <div className="min-h-screen accounting-bg">
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -84,7 +84,7 @@ const AccountingRooms = () => {
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div className="flex items-center space-x-2">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-lg accounting-icon-bg flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-2xl font-bold">
@@ -136,7 +136,7 @@ const AccountingRooms = () => {
               {!showCreateForm ? (
                 <Button
                   onClick={() => setShowCreateForm(true)}
-                  className="w-full md:w-auto bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white"
+                  className="w-full md:w-auto accounting-btn"
                 >
                   <Plus className="mr-2 h-5 w-5" />
                   {t('accounting.create_room', { defaultValue: 'Crear Nueva Sala' })}
@@ -150,7 +150,7 @@ const AccountingRooms = () => {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <Label htmlFor="roomName" className="text-slate-200">
+                      <Label htmlFor="roomName" className="text-foreground">
                         {t('accounting.room_name', { defaultValue: 'Nombre de la Sala' })}
                       </Label>
                       <Input
@@ -186,7 +186,7 @@ const AccountingRooms = () => {
               {!showJoinForm ? (
                 <Button
                   onClick={() => setShowJoinForm(true)}
-                  className="w-full md:w-auto bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white"
+                  className="w-full md:w-auto accounting-btn"
                 >
                   <LogIn className="mr-2 h-5 w-5" />
                   {t('accounting.join_room', { defaultValue: 'Unirse a una Sala' })}
@@ -200,7 +200,7 @@ const AccountingRooms = () => {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <Label htmlFor="joinCode" className="text-slate-200">
+                      <Label htmlFor="joinCode" className="text-foreground">
                         {t('accounting.room_code', { defaultValue: 'Código de la Sala' })}
                       </Label>
                       <Input
@@ -239,7 +239,7 @@ const AccountingRooms = () => {
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div>
-                        <CardTitle className="text-xl text-slate-100">{room.name}</CardTitle>
+                        <CardTitle className="text-xl accounting-text">{room.name}</CardTitle>
                         <CardDescription className="text-slate-400 mt-1">
                           {t('accounting.code', { defaultValue: 'Código' })}: {room.classCode}
                         </CardDescription>
@@ -287,7 +287,7 @@ const AccountingRooms = () => {
                     )}
                     <Button 
                       onClick={() => handleSelectRoom(room.id)}
-                      className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white"
+                      className="w-full accounting-btn"
                     >
                       {t('accounting.enter_room', { defaultValue: 'Entrar a la Sala' })}
                     </Button>

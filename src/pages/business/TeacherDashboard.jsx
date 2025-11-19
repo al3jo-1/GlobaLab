@@ -102,7 +102,7 @@ const TeacherDashboard = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen business-bg">
       <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -137,7 +137,7 @@ const TeacherDashboard = () => {
             <Button
               onClick={() => setShowScenarioDialog(true)}
               size="sm"
-              className="bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white"
+              className="business-btn"
             >
               <Plus className="mr-2 h-4 w-4" />
               {t('business.create_scenario', { defaultValue: 'Crear Escenario' })}
@@ -153,7 +153,7 @@ const TeacherDashboard = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-6"
           >
-            <Card className="bg-gradient-to-r from-violet-500/20 to-purple-500/20 border-violet-500/30">
+            <Card className="business-card-bg border-violet-500/30">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -396,7 +396,7 @@ const TeacherDashboard = () => {
           </DialogHeader>
           <div className="space-y-4">
             <div>
-              <Label htmlFor="title" className="text-slate-200">
+              <Label htmlFor="title" className="text-foreground">
                 {t('business.title', { defaultValue: 'Título' })} *
               </Label>
               <Input
@@ -409,7 +409,7 @@ const TeacherDashboard = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="category" className="text-slate-200">
+                <Label htmlFor="category" className="text-foreground">
                   {t('business.category', { defaultValue: 'Categoría' })} *
                 </Label>
                 <Select 
@@ -428,7 +428,7 @@ const TeacherDashboard = () => {
               </div>
 
               <div>
-                <Label htmlFor="difficulty" className="text-slate-200">
+                <Label htmlFor="difficulty" className="text-foreground">
                   {t('business.difficulty', { defaultValue: 'Dificultad' })} *
                 </Label>
                 <Select 
@@ -448,7 +448,7 @@ const TeacherDashboard = () => {
             </div>
 
             <div>
-              <Label htmlFor="description" className="text-slate-200">
+              <Label htmlFor="description" className="text-foreground">
                 {t('business.description', { defaultValue: 'Descripción' })} *
               </Label>
               <Textarea
@@ -460,7 +460,7 @@ const TeacherDashboard = () => {
             </div>
 
             <div>
-              <Label htmlFor="context" className="text-slate-200">
+              <Label htmlFor="context" className="text-foreground">
                 {t('business.context', { defaultValue: 'Contexto' })}
               </Label>
               <Textarea
@@ -495,7 +495,7 @@ const TeacherDashboard = () => {
           </DialogHeader>
           <div className="space-y-4">
             <div>
-              <Label htmlFor="interest" className="text-slate-200">
+              <Label htmlFor="interest" className="text-foreground">
                 {t('business.interest_rate', { defaultValue: 'Tasa de Interés' })} (%)
               </Label>
               <Input
@@ -509,7 +509,7 @@ const TeacherDashboard = () => {
             </div>
 
             <div>
-              <Label htmlFor="growth" className="text-slate-200">
+              <Label htmlFor="growth" className="text-foreground">
                 {t('business.economic_growth', { defaultValue: 'Crecimiento Económico' })} (%)
               </Label>
               <Input
@@ -523,7 +523,7 @@ const TeacherDashboard = () => {
             </div>
 
             <div>
-              <Label htmlFor="inflation" className="text-slate-200">
+              <Label htmlFor="inflation" className="text-foreground">
                 {t('business.inflation_rate', { defaultValue: 'Tasa de Inflación' })} (%)
               </Label>
               <Input
@@ -537,7 +537,7 @@ const TeacherDashboard = () => {
             </div>
 
             <div>
-              <Label htmlFor="demand" className="text-slate-200">
+              <Label htmlFor="demand" className="text-foreground">
                 {t('business.market_demand', { defaultValue: 'Demanda de Mercado' })}
               </Label>
               <Select 

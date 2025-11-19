@@ -14,12 +14,12 @@ const AccountingComingSoon = () => {
   const { theme, toggleTheme } = useTradingContext();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900">
+    <div className="min-h-screen accounting-bg">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+            <div className="h-10 w-10 rounded-lg accounting-icon-bg flex items-center justify-center">
               <Calculator className="h-6 w-6 text-white" />
             </div>
             <h1 className="text-2xl font-bold">
@@ -55,7 +55,7 @@ const AccountingComingSoon = () => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center border-2 border-emerald-500/30"
+                className="w-24 h-24 mx-auto mb-6 rounded-2xl accounting-card-bg flex items-center justify-center border-2 border-emerald-500/30"
               >
                 <Calculator className="h-12 w-12 text-emerald-400" />
               </motion.div>
@@ -85,7 +85,7 @@ const AccountingComingSoon = () => {
                 <Button
                   onClick={() => navigate('/')}
                   size="lg"
-                  className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold"
+                  className="accounting-btn font-semibold"
                 >
                   <ArrowLeft className="mr-2 h-5 w-5" />
                   {t('coming_soon.back_button', { defaultValue: 'Volver a GlobalLab' })}

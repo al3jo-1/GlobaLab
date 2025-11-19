@@ -119,10 +119,10 @@ const AccountingProtectedRoute = ({ children, requireRoom = false }) => {
 
   if (isLoading) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900 text-white">
+      <div className="h-screen w-full flex items-center justify-center accounting-bg text-foreground">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-2">Cargando AccountingLab...</h2>
-          <p className="text-slate-300">Preparando la plataforma de contabilidad.</p>
+          <p className="text-muted-foreground">Preparando la plataforma de contabilidad.</p>
         </div>
       </div>
     );
@@ -144,7 +144,7 @@ const AccountingAuthRoute = ({ children }) => {
 
   if (isLoading) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900 text-white">
+      <div className="h-screen w-full flex items-center justify-center accounting-bg text-foreground">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-2">Cargando...</h2>
         </div>
@@ -163,10 +163,10 @@ const BusinessProtectedRoute = ({ children, requireRoom = false }) => {
 
   if (isLoading) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900 text-white">
+      <div className="h-screen w-full flex items-center justify-center business-bg text-foreground">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-2">Cargando BusinessLab...</h2>
-          <p className="text-slate-300">Preparando la plataforma de gestión empresarial.</p>
+          <p className="text-muted-foreground">Preparando la plataforma de gestión empresarial.</p>
         </div>
       </div>
     );
@@ -188,7 +188,7 @@ const BusinessAuthRoute = ({ children }) => {
 
   if (isLoading) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900 text-white">
+      <div className="h-screen w-full flex items-center justify-center business-bg text-foreground">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-2">Cargando...</h2>
         </div>

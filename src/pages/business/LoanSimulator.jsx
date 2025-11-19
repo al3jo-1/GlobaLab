@@ -68,7 +68,7 @@ const LoanSimulator = () => {
     : null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen business-bg">
       <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -89,7 +89,7 @@ const LoanSimulator = () => {
           </div>
           <Button
             onClick={() => setShowRequestDialog(true)}
-            className="bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white"
+            className="business-btn"
           >
             <DollarSign className="mr-2 h-5 w-5" />
             {t('business.request_loan', { defaultValue: 'Solicitar Préstamo' })}
@@ -225,7 +225,7 @@ const LoanSimulator = () => {
                 </p>
                 <Button
                   onClick={() => setShowRequestDialog(true)}
-                  className="bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white"
+                  className="business-btn"
                 >
                   <DollarSign className="mr-2 h-5 w-5" />
                   {t('business.request_first_loan', { defaultValue: 'Solicitar Primer Préstamo' })}
@@ -249,7 +249,7 @@ const LoanSimulator = () => {
           <div className="space-y-6">
             <div className="grid md:grid-cols-3 gap-4">
               <div>
-                <Label htmlFor="amount" className="text-slate-200">
+                <Label htmlFor="amount" className="text-foreground">
                   {t('business.loan_amount', { defaultValue: 'Monto del Préstamo' })} *
                 </Label>
                 <Input
@@ -264,7 +264,7 @@ const LoanSimulator = () => {
               </div>
 
               <div>
-                <Label htmlFor="rate" className="text-slate-200">
+                <Label htmlFor="rate" className="text-foreground">
                   {t('business.interest_rate', { defaultValue: 'Tasa de Interés' })} (%)
                 </Label>
                 <Input
@@ -279,7 +279,7 @@ const LoanSimulator = () => {
               </div>
 
               <div>
-                <Label htmlFor="term" className="text-slate-200">
+                <Label htmlFor="term" className="text-foreground">
                   {t('business.term_months', { defaultValue: 'Plazo (meses)' })} *
                 </Label>
                 <Input

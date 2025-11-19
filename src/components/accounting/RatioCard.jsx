@@ -10,13 +10,13 @@ const RatioCard = ({ title, value, benchmark, isPercentage = false, description,
   const getTrendIcon = () => {
     if (isNeutral) return <Minus className="h-5 w-5 text-slate-400" />;
     return isBetter ? 
-      <TrendingUp className="h-5 w-5 text-emerald-400" /> : 
-      <TrendingDown className="h-5 w-5 text-red-400" />;
+      <TrendingUp className="h-5 w-5 accounting-text-muted" /> : 
+      <TrendingDown className="h-5 w-5 text-red-400 light:text-red-700" />;
   };
 
   const getColorClass = () => {
     if (isNeutral) return 'text-slate-400';
-    return isBetter ? 'text-emerald-400' : 'text-red-400';
+    return isBetter ? 'accounting-text-muted' : 'text-red-400 light:text-red-700';
   };
 
   const displayValue = isPercentage ? formatPercentage(value) : formatRatio(value);
@@ -26,7 +26,7 @@ const RatioCard = ({ title, value, benchmark, isPercentage = false, description,
     <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-emerald-500/20 hover:border-emerald-500/40 transition-all">
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
-          <CardTitle className="text-lg text-slate-200">{title}</CardTitle>
+          <CardTitle className="text-lg accounting-text">{title}</CardTitle>
           {getTrendIcon()}
         </div>
         {description && (
@@ -40,12 +40,12 @@ const RatioCard = ({ title, value, benchmark, isPercentage = false, description,
           </div>
           <div className="flex items-center justify-between text-sm">
             <span className="text-slate-400">Benchmark:</span>
-            <span className="text-slate-300">{displayBenchmark}</span>
+            <span className="text-muted-foreground">{displayBenchmark}</span>
           </div>
           {trend && (
             <div className="flex items-center text-xs text-slate-400">
               <span className="mr-1">Tendencia:</span>
-              <span className={trend > 0 ? 'text-emerald-400' : trend < 0 ? 'text-red-400' : 'text-slate-400'}>
+              <span className={trend > 0 ? 'accounting-text-muted' : trend < 0 ? 'text-red-400 light:text-red-700' : 'text-slate-400'}>
                 {trend > 0 ? '+' : ''}{formatPercentage(trend, 1)}
               </span>
             </div>

@@ -127,6 +127,165 @@
   border-right: 1px solid hsla(var(--border) / 0.6);
 }
 
+/* Accounting Lab gradient background - theme aware */
+.accounting-bg {
+  @apply bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900;
+}
+.light .accounting-bg {
+  @apply bg-gradient-to-br from-emerald-50 via-teal-50 to-slate-100;
+}
+
+/* Accounting Lab card gradient (20% opacity) - theme aware */
+.accounting-card-bg {
+  @apply bg-gradient-to-br from-emerald-500/20 to-teal-500/20;
+}
+.light .accounting-card-bg {
+  @apply bg-gradient-to-br from-emerald-200 to-teal-200 border-emerald-400;
+}
+
+/* Accounting Lab card gradient (darker variant) - theme aware */
+.accounting-card-dark-bg {
+  @apply bg-gradient-to-br from-emerald-600/20 to-teal-600/20;
+}
+.light .accounting-card-dark-bg {
+  @apply bg-gradient-to-br from-emerald-300 to-teal-300 border-emerald-500;
+}
+
+/* Accounting Lab subtle gradient (10% opacity) - theme aware */
+.accounting-subtle-bg {
+  @apply bg-gradient-to-br from-emerald-500/10 to-teal-500/10;
+}
+.light .accounting-subtle-bg {
+  @apply bg-gradient-to-br from-emerald-100 to-teal-100;
+}
+
+/* Business Lab gradient background - theme aware */
+.business-bg {
+  @apply bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900;
+}
+.light .business-bg {
+  @apply bg-gradient-to-br from-violet-50 via-purple-50 to-slate-100;
+}
+
+/* Business Lab card gradient (20% opacity) - theme aware */
+.business-card-bg {
+  @apply bg-gradient-to-br from-violet-500/20 to-purple-500/20;
+}
+.light .business-card-bg {
+  @apply bg-gradient-to-br from-violet-200 to-purple-200 border-violet-400;
+}
+
+/* Business Lab subtle gradient (10% opacity) - theme aware */
+.business-subtle-bg {
+  @apply bg-gradient-to-br from-violet-500/10 to-purple-500/10;
+}
+.light .business-subtle-bg {
+  @apply bg-gradient-to-br from-violet-100 to-purple-100;
+}
+
+/* Accounting Lab buttons and UI elements */
+.accounting-btn {
+  @apply bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white;
+}
+.light .accounting-btn {
+  @apply bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white;
+}
+
+.accounting-icon-bg {
+  @apply bg-gradient-to-br from-emerald-500 to-teal-600;
+}
+.light .accounting-icon-bg {
+  @apply bg-gradient-to-br from-emerald-600 to-teal-700;
+}
+
+.accounting-card-gradient {
+  @apply bg-gradient-to-br from-teal-500/20 to-emerald-500/20 border-teal-500/30;
+}
+.light .accounting-card-gradient {
+  @apply bg-gradient-to-br from-teal-200 to-emerald-200 border-teal-500;
+}
+
+.accounting-text-gradient {
+  @apply bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent;
+}
+.light .accounting-text-gradient {
+  @apply bg-gradient-to-r from-emerald-700 to-emerald-500 bg-clip-text text-transparent;
+}
+
+.accounting-section-bg {
+  @apply bg-gradient-to-r from-emerald-500/10 to-emerald-500/5;
+}
+.light .accounting-section-bg {
+  @apply bg-gradient-to-r from-emerald-100/50 to-emerald-50;
+}
+
+/* Business Lab buttons and UI elements */
+.business-btn {
+  @apply bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white;
+}
+.light .business-btn {
+  @apply bg-gradient-to-r from-violet-600 to-purple-700 hover:from-violet-700 hover:to-purple-800 text-white;
+}
+
+.business-icon-bg {
+  @apply bg-gradient-to-br from-violet-500 to-purple-600;
+}
+.light .business-icon-bg {
+  @apply bg-gradient-to-br from-violet-600 to-purple-700;
+}
+
+.business-section-bg {
+  @apply bg-gradient-to-r from-violet-600 to-violet-700;
+}
+.light .business-section-bg {
+  @apply bg-gradient-to-r from-violet-100 to-violet-200;
+}
+
+/* Special cards in BusinessDashboard */
+.business-card-success {
+  @apply bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 border border-emerald-500/30 hover:border-emerald-500/50;
+}
+.light .business-card-success {
+  @apply bg-gradient-to-br from-emerald-200 to-emerald-300 border border-emerald-500 hover:border-emerald-600;
+}
+
+.business-card-info {
+  @apply bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-500/30 hover:border-purple-500/50;
+}
+.light .business-card-info {
+  @apply bg-gradient-to-br from-purple-200 to-purple-300 border border-purple-500 hover:border-purple-600;
+}
+
+/* Accounting Lab theme-aware text colors */
+.accounting-text {
+  @apply text-emerald-100;
+}
+.light .accounting-text {
+  @apply text-emerald-900;
+}
+
+.accounting-text-muted {
+  @apply text-emerald-400;
+}
+.light .accounting-text-muted {
+  @apply text-emerald-700;
+}
+
+/* Business Lab theme-aware text colors */
+.business-text {
+  @apply text-violet-100;
+}
+.light .business-text {
+  @apply text-violet-900;
+}
+
+.business-text-muted {
+  @apply text-violet-400;
+}
+.light .business-text-muted {
+  @apply text-violet-700;
+}
+
 /* Removed .trading-grid as layout is now handled by flex in Dashboard.jsx */
 /* Ensure body and html take full height for mobile menu overlay to work correctly */
 html, body, #root {

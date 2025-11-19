@@ -25,15 +25,15 @@ const StatementViewer = ({ caseData }) => {
     return (
       <div className="space-y-6">
         <div className="grid md:grid-cols-2 gap-6">
-          <Card className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border-emerald-500/20">
+          <Card className="accounting-subtle-bg border-emerald-500/20">
             <CardHeader>
-              <CardTitle className="text-emerald-400">{t('accounting.assets', { defaultValue: 'Activos' })}</CardTitle>
+              <CardTitle className="accounting-text-muted">{t('accounting.assets', { defaultValue: 'Activos' })}</CardTitle>
             </CardHeader>
             <CardContent>
               <Table>
                 <TableBody>
                   <TableRow>
-                    <TableCell colSpan={2} className="font-semibold text-emerald-300">
+                    <TableCell colSpan={2} className="font-semibold accounting-text-muted">
                       {t('accounting.current_assets', { defaultValue: 'Activos Corrientes' })}
                     </TableCell>
                   </TableRow>
@@ -58,7 +58,7 @@ const StatementViewer = ({ caseData }) => {
                     <TableCell className="text-right">{formatCurrency(currentAssets)}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell colSpan={2} className="font-semibold text-emerald-300 pt-4">
+                    <TableCell colSpan={2} className="font-semibold accounting-text-muted pt-4">
                       {t('accounting.non_current_assets', { defaultValue: 'Activos No Corrientes' })}
                     </TableCell>
                   </TableRow>
@@ -80,7 +80,7 @@ const StatementViewer = ({ caseData }) => {
                   </TableRow>
                   <TableRow className="font-bold text-lg border-t-4 border-emerald-500/50">
                     <TableCell>{t('accounting.total_assets', { defaultValue: 'TOTAL ACTIVOS' })}</TableCell>
-                    <TableCell className="text-right text-emerald-400">{formatCurrency(totalAssets)}</TableCell>
+                    <TableCell className="text-right accounting-text-muted">{formatCurrency(totalAssets)}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -89,13 +89,13 @@ const StatementViewer = ({ caseData }) => {
 
           <Card className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border-amber-500/20">
             <CardHeader>
-              <CardTitle className="text-amber-400">{t('accounting.liabilities_equity', { defaultValue: 'Pasivos y Patrimonio' })}</CardTitle>
+              <CardTitle className="text-amber-400 light:text-amber-700">{t('accounting.liabilities_equity', { defaultValue: 'Pasivos y Patrimonio' })}</CardTitle>
             </CardHeader>
             <CardContent>
               <Table>
                 <TableBody>
                   <TableRow>
-                    <TableCell colSpan={2} className="font-semibold text-amber-300">
+                    <TableCell colSpan={2} className="font-semibold text-amber-400 light:text-amber-700">
                       {t('accounting.current_liabilities', { defaultValue: 'Pasivos Corrientes' })}
                     </TableCell>
                   </TableRow>
@@ -116,7 +116,7 @@ const StatementViewer = ({ caseData }) => {
                     <TableCell className="text-right">{formatCurrency(currentLiabilities)}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell colSpan={2} className="font-semibold text-amber-300 pt-4">
+                    <TableCell colSpan={2} className="font-semibold text-amber-400 light:text-amber-700 pt-4">
                       {t('accounting.non_current_liabilities', { defaultValue: 'Pasivos No Corrientes' })}
                     </TableCell>
                   </TableRow>
@@ -137,7 +137,7 @@ const StatementViewer = ({ caseData }) => {
                     <TableCell className="text-right">{formatCurrency(totalLiabilities)}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell colSpan={2} className="font-semibold text-emerald-300 pt-4">
+                    <TableCell colSpan={2} className="font-semibold accounting-text-muted pt-4">
                       {t('accounting.equity', { defaultValue: 'Patrimonio' })}
                     </TableCell>
                   </TableRow>
@@ -155,7 +155,7 @@ const StatementViewer = ({ caseData }) => {
                   </TableRow>
                   <TableRow className="font-bold text-lg border-t-4 border-amber-500/50">
                     <TableCell>{t('accounting.total_liabilities_equity', { defaultValue: 'TOTAL PASIVOS + PATRIMONIO' })}</TableCell>
-                    <TableCell className="text-right text-amber-400">{formatCurrency(totalLiabilities + totalEquity)}</TableCell>
+                    <TableCell className="text-right text-amber-400 light:text-amber-700">{formatCurrency(totalLiabilities + totalEquity)}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -176,9 +176,9 @@ const StatementViewer = ({ caseData }) => {
     const netIncome = ebt - incomeStatement.taxExpense;
 
     return (
-      <Card className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border-emerald-500/20">
+      <Card className="accounting-subtle-bg border-emerald-500/20">
         <CardHeader>
-          <CardTitle className="text-emerald-400">{t('accounting.income_statement', { defaultValue: 'Estado de Resultados' })}</CardTitle>
+          <CardTitle className="accounting-text-muted">{t('accounting.income_statement', { defaultValue: 'Estado de Resultados' })}</CardTitle>
           <CardDescription>{caseData.companyName} - {caseData.year}</CardDescription>
         </CardHeader>
         <CardContent>
@@ -186,7 +186,7 @@ const StatementViewer = ({ caseData }) => {
             <TableBody>
               <TableRow className="font-semibold text-lg">
                 <TableCell>{t('accounting.revenue', { defaultValue: 'Ingresos' })}</TableCell>
-                <TableCell className="text-right text-emerald-400">{formatCurrency(incomeStatement.revenue)}</TableCell>
+                <TableCell className="text-right accounting-text-muted">{formatCurrency(incomeStatement.revenue)}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="pl-6">{t('accounting.cogs', { defaultValue: 'Costo de Ventas' })}</TableCell>
@@ -197,7 +197,7 @@ const StatementViewer = ({ caseData }) => {
                 <TableCell className="text-right">{formatCurrency(grossProfit)}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell colSpan={2} className="font-semibold text-amber-300 pt-4">
+                <TableCell colSpan={2} className="font-semibold text-amber-400 light:text-amber-700 pt-4">
                   {t('accounting.operating_expenses', { defaultValue: 'Gastos Operacionales' })}
                 </TableCell>
               </TableRow>
@@ -221,7 +221,7 @@ const StatementViewer = ({ caseData }) => {
               </TableRow>
               <TableRow>
                 <TableCell className="pl-6">{t('accounting.other_income', { defaultValue: 'Otros Ingresos' })}</TableCell>
-                <TableCell className="text-right text-emerald-400">{formatCurrency(incomeStatement.otherIncome)}</TableCell>
+                <TableCell className="text-right accounting-text-muted">{formatCurrency(incomeStatement.otherIncome)}</TableCell>
               </TableRow>
               <TableRow className="font-semibold border-t-2 border-emerald-500/30">
                 <TableCell>{t('accounting.ebit', { defaultValue: 'EBIT' })}</TableCell>
@@ -241,7 +241,7 @@ const StatementViewer = ({ caseData }) => {
               </TableRow>
               <TableRow className="font-bold text-lg border-t-4 border-emerald-500/50">
                 <TableCell>{t('accounting.net_income', { defaultValue: 'UTILIDAD NETA' })}</TableCell>
-                <TableCell className="text-right text-emerald-400">{formatCurrency(netIncome)}</TableCell>
+                <TableCell className="text-right accounting-text-muted">{formatCurrency(netIncome)}</TableCell>
               </TableRow>
             </TableBody>
           </Table>
@@ -259,16 +259,16 @@ const StatementViewer = ({ caseData }) => {
     const netCashFlow = operatingCashFlow + investingCashFlow + financingCashFlow;
 
     return (
-      <Card className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border-emerald-500/20">
+      <Card className="accounting-subtle-bg border-emerald-500/20">
         <CardHeader>
-          <CardTitle className="text-emerald-400">{t('accounting.cash_flow_statement', { defaultValue: 'Estado de Flujo de Efectivo' })}</CardTitle>
+          <CardTitle className="accounting-text-muted">{t('accounting.cash_flow_statement', { defaultValue: 'Estado de Flujo de Efectivo' })}</CardTitle>
           <CardDescription>{caseData.companyName} - {caseData.year}</CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableBody>
               <TableRow>
-                <TableCell colSpan={2} className="font-semibold text-emerald-300">
+                <TableCell colSpan={2} className="font-semibold accounting-text-muted">
                   {t('accounting.operating_activities', { defaultValue: 'Actividades de Operación' })}
                 </TableCell>
               </TableRow>
@@ -302,11 +302,11 @@ const StatementViewer = ({ caseData }) => {
               </TableRow>
               <TableRow className="font-semibold border-t-2 border-emerald-500/30">
                 <TableCell>{t('accounting.net_operating_cash', { defaultValue: 'Efectivo Neto de Operación' })}</TableCell>
-                <TableCell className="text-right text-emerald-400">{formatCurrency(operatingCashFlow)}</TableCell>
+                <TableCell className="text-right accounting-text-muted">{formatCurrency(operatingCashFlow)}</TableCell>
               </TableRow>
               
               <TableRow>
-                <TableCell colSpan={2} className="font-semibold text-teal-300 pt-4">
+                <TableCell colSpan={2} className="font-semibold text-teal-400 light:text-teal-700 pt-4">
                   {t('accounting.investing_activities', { defaultValue: 'Actividades de Inversión' })}
                 </TableCell>
               </TableRow>
@@ -324,7 +324,7 @@ const StatementViewer = ({ caseData }) => {
               </TableRow>
               
               <TableRow>
-                <TableCell colSpan={2} className="font-semibold text-amber-300 pt-4">
+                <TableCell colSpan={2} className="font-semibold text-amber-400 light:text-amber-700 pt-4">
                   {t('accounting.financing_activities', { defaultValue: 'Actividades de Financiamiento' })}
                 </TableCell>
               </TableRow>
@@ -343,7 +343,7 @@ const StatementViewer = ({ caseData }) => {
               
               <TableRow className="font-bold text-lg border-t-4 border-emerald-500/50">
                 <TableCell>{t('accounting.net_change_cash', { defaultValue: 'CAMBIO NETO EN EFECTIVO' })}</TableCell>
-                <TableCell className="text-right text-emerald-400">{formatCurrency(netCashFlow)}</TableCell>
+                <TableCell className="text-right accounting-text-muted">{formatCurrency(netCashFlow)}</TableCell>
               </TableRow>
             </TableBody>
           </Table>

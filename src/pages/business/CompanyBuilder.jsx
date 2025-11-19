@@ -45,7 +45,7 @@ const CompanyBuilder = () => {
 
   if (user?.role === 'teacher') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
+      <div className="min-h-screen business-bg flex items-center justify-center p-4">
         <Card className="bg-slate-800/50 backdrop-blur-sm border-violet-500/20 max-w-md">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl text-white mb-2">
@@ -60,7 +60,7 @@ const CompanyBuilder = () => {
           <CardContent>
             <Button 
               onClick={() => navigate('/business/teacher')}
-              className="w-full bg-gradient-to-r from-violet-500 to-purple-600"
+              className="w-full business-btn"
             >
               {t('business.go_to_teacher_dashboard', { defaultValue: 'Ir al Panel de Profesor' })}
             </Button>
@@ -76,7 +76,7 @@ const CompanyBuilder = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-900 via-purple-900 to-slate-900 p-4">
+    <div className="min-h-screen business-bg p-4">
       <div className="container mx-auto max-w-4xl py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -85,7 +85,7 @@ const CompanyBuilder = () => {
         >
           <Card className="bg-slate-800/50 backdrop-blur-sm border-violet-500/20">
             <CardHeader className="text-center pb-8">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-violet-500/20 to-purple-500/20 flex items-center justify-center border-2 border-violet-500/30">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl business-card-bg flex items-center justify-center border-2 border-violet-500/30">
                 <Building2 className="h-10 w-10 text-violet-400" />
               </div>
               <CardTitle className="text-3xl font-bold text-white mb-2">
@@ -112,7 +112,7 @@ const CompanyBuilder = () => {
                       onClick={() => loadTemplate(template)}
                     >
                       <CardHeader>
-                        <CardTitle className="text-sm text-slate-200">{template.name}</CardTitle>
+                        <CardTitle className="text-sm business-text">{template.name}</CardTitle>
                         <CardDescription className="text-xs">{template.description}</CardDescription>
                       </CardHeader>
                       <CardContent className="text-xs text-slate-400">
@@ -126,7 +126,7 @@ const CompanyBuilder = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="name" className="text-slate-200">
+                    <Label htmlFor="name" className="text-foreground">
                       {t('business.company_name', { defaultValue: 'Nombre de la Empresa' })} *
                     </Label>
                     <Input
@@ -141,7 +141,7 @@ const CompanyBuilder = () => {
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="type" className="text-slate-200">
+                      <Label htmlFor="type" className="text-foreground">
                         {t('business.company_type', { defaultValue: 'Tipo de Empresa' })} *
                       </Label>
                       <Select 
@@ -162,7 +162,7 @@ const CompanyBuilder = () => {
                     </div>
 
                     <div>
-                      <Label htmlFor="industry" className="text-slate-200">
+                      <Label htmlFor="industry" className="text-foreground">
                         {t('business.industry', { defaultValue: 'Industria' })} *
                       </Label>
                       <Select 
@@ -184,7 +184,7 @@ const CompanyBuilder = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="capital" className="text-slate-200 flex items-center">
+                    <Label htmlFor="capital" className="text-foreground flex items-center">
                       <DollarSign className="h-4 w-4 mr-1" />
                       {t('business.initial_capital', { defaultValue: 'Capital Inicial' })} *
                     </Label>
@@ -204,7 +204,7 @@ const CompanyBuilder = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="description" className="text-slate-200">
+                    <Label htmlFor="description" className="text-foreground">
                       {t('business.description', { defaultValue: 'Descripción' })}
                     </Label>
                     <Textarea
@@ -230,7 +230,7 @@ const CompanyBuilder = () => {
                   </Button>
                   <Button
                     type="submit"
-                    className="flex-1 bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white"
+                    className="flex-1 business-btn"
                   >
                     {t('business.create_company_button', { defaultValue: 'Crear Empresa' })}
                   </Button>

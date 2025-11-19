@@ -39,21 +39,18 @@ const AccountingDashboard = () => {
       description: t('accounting.view_statements', { defaultValue: 'Ver y analizar estados financieros' }),
       icon: FileText,
       path: '/accounting/statements',
-      color: 'from-emerald-500 to-teal-600',
     },
     {
       title: t('accounting.ratio_calculator', { defaultValue: 'Calculadora de Ratios' }),
       description: t('accounting.calculate_ratios', { defaultValue: 'Calcular ratios financieros' }),
       icon: PieChart,
       path: '/accounting/ratios',
-      color: 'from-emerald-600 to-teal-600',
     },
     {
       title: t('accounting.my_analyses', { defaultValue: 'Mis Análisis' }),
       description: t('accounting.view_history', { defaultValue: 'Ver historial de análisis' }),
       icon: BarChart3,
       path: '/accounting/history',
-      color: 'from-teal-500 to-emerald-600',
     },
   ] : [
     {
@@ -61,28 +58,26 @@ const AccountingDashboard = () => {
       description: t('accounting.assign_cases', { defaultValue: 'Crear y asignar casos' }),
       icon: BookOpen,
       path: '/accounting/cases',
-      color: 'from-emerald-500 to-teal-600',
     },
     {
       title: t('accounting.student_progress', { defaultValue: 'Progreso de Estudiantes' }),
       description: t('accounting.monitor_students', { defaultValue: 'Monitorear análisis' }),
       icon: Users,
       path: '/accounting/teacher',
-      color: 'from-emerald-600 to-teal-600',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900">
+    <div className="min-h-screen accounting-bg">
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+              <div className="h-10 w-10 rounded-lg accounting-icon-bg flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-white">{currentRoom.name}</h1>
+                <h1 className="text-xl font-bold accounting-text">{currentRoom.name}</h1>
                 <p className="text-xs text-slate-400">{user.name}</p>
               </div>
             </div>
@@ -117,7 +112,7 @@ const AccountingDashboard = () => {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold accounting-text mb-4">
               {user.role === 'teacher' 
                 ? t('accounting.teacher_dashboard', { defaultValue: 'Panel de Profesor' })
                 : t('accounting.student_dashboard', { defaultValue: 'Panel de Estudiante' })
@@ -125,34 +120,34 @@ const AccountingDashboard = () => {
             </h2>
             {user.role === 'student' && (
               <div className="grid md:grid-cols-3 gap-4 mt-6">
-                <Card className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-500/30">
+                <Card className="accounting-card-bg border-emerald-500/30">
                   <CardHeader className="pb-3">
-                    <CardTitle className="text-sm text-slate-300">
+                    <CardTitle className="text-sm accounting-text-muted">
                       {t('accounting.assigned_cases', { defaultValue: 'Casos Asignados' })}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-3xl font-bold text-emerald-400">{assignedCases.length}</p>
+                    <p className="text-3xl font-bold accounting-text-muted">{assignedCases.length}</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-gradient-to-br from-teal-500/20 to-emerald-500/20 border-teal-500/30">
+                <Card className="accounting-card-gradient">
                   <CardHeader className="pb-3">
-                    <CardTitle className="text-sm text-slate-300">
+                    <CardTitle className="text-sm accounting-text-muted">
                       {t('accounting.pending_cases', { defaultValue: 'Casos Pendientes' })}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-3xl font-bold text-teal-400">{pendingCases.length}</p>
+                    <p className="text-3xl font-bold accounting-text-muted">{pendingCases.length}</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-gradient-to-br from-emerald-600/20 to-teal-600/20 border-emerald-600/30">
+                <Card className="accounting-card-dark-bg border-emerald-600/30">
                   <CardHeader className="pb-3">
-                    <CardTitle className="text-sm text-slate-300">
+                    <CardTitle className="text-sm accounting-text-muted">
                       {t('accounting.completed_analyses', { defaultValue: 'Análisis Completados' })}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-3xl font-bold text-emerald-400">{completedAnalyses.length}</p>
+                    <p className="text-3xl font-bold accounting-text-muted">{completedAnalyses.length}</p>
                   </CardContent>
                 </Card>
               </div>
@@ -174,10 +169,10 @@ const AccountingDashboard = () => {
                     onClick={() => navigate(card.path)}
                   >
                     <CardHeader>
-                      <div className={`h-12 w-12 rounded-lg bg-gradient-to-br ${card.color} bg-opacity-20 flex items-center justify-center mb-4`}>
+                      <div className="h-12 w-12 rounded-lg accounting-icon-bg flex items-center justify-center mb-4">
                         <Icon className="h-6 w-6 text-white" />
                       </div>
-                      <CardTitle className="text-xl text-slate-100">{card.title}</CardTitle>
+                      <CardTitle className="text-xl accounting-text">{card.title}</CardTitle>
                       <CardDescription className="text-slate-400">{card.description}</CardDescription>
                     </CardHeader>
                   </Card>
@@ -192,7 +187,7 @@ const AccountingDashboard = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h3 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-2xl font-bold accounting-text mb-6">
                 {t('accounting.recent_cases', { defaultValue: 'Casos Recientes' })}
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
