@@ -31,6 +31,7 @@ import FinancialStatements from '@/pages/accounting/FinancialStatements';
 import RatioCalculator from '@/pages/accounting/RatioCalculator';
 import TeacherDashboard from '@/pages/accounting/TeacherDashboard';
 import CaseManager from '@/pages/accounting/CaseManager';
+import AccountingHistory from '@/pages/accounting/AccountingHistory';
 import BusinessComingSoon from '@/pages/BusinessComingSoon';
 import BusinessLandingPage from '@/pages/BusinessLandingPage';
 import BusinessLogin from '@/pages/BusinessLogin';
@@ -406,6 +407,14 @@ function AppContent() {
           element={
             <AccountingProtectedRoute requireRoom={true}>
               <CaseManager />
+            </AccountingProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/accounting/history" 
+          element={
+            <AccountingProtectedRoute requireRoom={true}>
+              <AccountingHistory />
             </AccountingProtectedRoute>
           } 
         />
