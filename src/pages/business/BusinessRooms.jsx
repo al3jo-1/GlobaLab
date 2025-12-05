@@ -72,14 +72,14 @@ const BusinessRooms = () => {
 
   return (
     <div className="min-h-screen business-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
+      <header className="fixed top-0 left-0 right-0 z-50 business-header-bg">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => navigate('/')}
-              className="text-slate-300 hover:text-white"
+              className="business-ghost-btn"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
@@ -88,8 +88,8 @@ const BusinessRooms = () => {
                 <Building2 className="h-6 w-6 text-white" />
               </div>
               <h1 className="text-2xl font-bold">
-                <span className="text-white">GlobalBusiness</span>
-                <span className="text-violet-400">Lab</span>
+                <span className="business-heading">GlobalBusiness</span>
+                <span className="business-text-muted">Lab</span>
               </h1>
             </div>
           </div>
@@ -99,7 +99,7 @@ const BusinessRooms = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="text-slate-300 hover:text-white"
+              className="business-ghost-btn"
             >
               {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
@@ -115,10 +115,10 @@ const BusinessRooms = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold business-heading mb-4">
               {t('business.welcome', { defaultValue: 'Bienvenido' })}, {user.name}
             </h2>
-            <p className="text-xl text-slate-300">
+            <p className="text-xl business-text-secondary">
               {user.role === 'teacher' 
                 ? t('business.manage_rooms', { defaultValue: 'Gestiona tus salas de negocio' })
                 : t('business.select_room', { defaultValue: 'Selecciona o únete a una sala' })
@@ -142,9 +142,9 @@ const BusinessRooms = () => {
                   {t('business.create_room', { defaultValue: 'Crear Nueva Sala' })}
                 </Button>
               ) : (
-                <Card className="bg-slate-800/50 border-violet-500/20">
+                <Card className="business-card">
                   <CardHeader>
-                    <CardTitle className="text-violet-400">
+                    <CardTitle className="business-text-muted">
                       {t('business.create_new_room', { defaultValue: 'Crear Nueva Sala' })}
                     </CardTitle>
                   </CardHeader>
@@ -158,7 +158,7 @@ const BusinessRooms = () => {
                         value={newRoomName}
                         onChange={(e) => setNewRoomName(e.target.value)}
                         placeholder={t('business.room_name_placeholder', { defaultValue: 'Ej: Gestión Empresarial 101' })}
-                        className="bg-slate-900/50 border-violet-500/20 text-white"
+                        className="business-input"
                         onKeyPress={(e) => e.key === 'Enter' && handleCreateRoom()}
                       />
                     </div>
@@ -192,9 +192,9 @@ const BusinessRooms = () => {
                   {t('business.join_room', { defaultValue: 'Unirse a una Sala' })}
                 </Button>
               ) : (
-                <Card className="bg-slate-800/50 border-violet-500/20">
+                <Card className="business-card">
                   <CardHeader>
-                    <CardTitle className="text-violet-400">
+                    <CardTitle className="business-text-muted">
                       {t('business.join_room', { defaultValue: 'Unirse a una Sala' })}
                     </CardTitle>
                   </CardHeader>
@@ -208,7 +208,7 @@ const BusinessRooms = () => {
                         value={joinCode}
                         onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
                         placeholder="ABC123"
-                        className="bg-slate-900/50 border-violet-500/20 text-white uppercase"
+                        className="business-input uppercase"
                         maxLength={6}
                         onKeyPress={(e) => e.key === 'Enter' && handleJoinRoom()}
                       />
@@ -235,12 +235,12 @@ const BusinessRooms = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
               >
-                <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-violet-500/20 hover:border-violet-500/40 transition-all hover:shadow-lg hover:shadow-violet-500/10">
+                <Card className="business-card-hover">
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div>
                         <CardTitle className="text-xl business-text">{room.name}</CardTitle>
-                        <CardDescription className="text-slate-400 mt-1">
+                        <CardDescription className="business-text-tertiary mt-1">
                           {t('business.code', { defaultValue: 'Código' })}: {room.classCode}
                         </CardDescription>
                       </div>
@@ -251,19 +251,19 @@ const BusinessRooms = () => {
                               <Trash2 className="h-4 w-4" />
                             </Button>
                           </AlertDialogTrigger>
-                          <AlertDialogContent className="bg-slate-800 border-violet-500/20">
+                          <AlertDialogContent className="business-dialog">
                             <AlertDialogHeader>
-                              <AlertDialogTitle className="text-white">
+                              <AlertDialogTitle className="business-heading">
                                 {t('common.confirm_delete', { defaultValue: '¿Eliminar sala?' })}
                               </AlertDialogTitle>
-                              <AlertDialogDescription className="text-slate-300">
+                              <AlertDialogDescription className="business-text-secondary">
                                 {t('business.delete_room_warning', { 
                                   defaultValue: 'Esta acción no se puede deshacer. Se eliminará la sala permanentemente.' 
                                 })}
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                              <AlertDialogCancel className="bg-slate-700 text-white hover:bg-slate-600">
+                              <AlertDialogCancel>
                                 {t('common.cancel', { defaultValue: 'Cancelar' })}
                               </AlertDialogCancel>
                               <AlertDialogAction 
@@ -280,7 +280,7 @@ const BusinessRooms = () => {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {user.role === 'teacher' && (
-                      <div className="flex items-center text-sm text-slate-400">
+                      <div className="flex items-center text-sm business-text-tertiary">
                         <Users className="h-4 w-4 mr-2" />
                         {room.studentCount || 0} {t('business.students', { defaultValue: 'estudiantes' })}
                       </div>
@@ -304,7 +304,7 @@ const BusinessRooms = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-center py-12"
             >
-              <p className="text-slate-400 text-lg">
+              <p className="business-text-tertiary text-lg">
                 {user.role === 'teacher' 
                   ? t('business.no_rooms_teacher', { defaultValue: 'No tienes salas creadas. Crea tu primera sala para comenzar.' })
                   : t('business.no_rooms_student', { defaultValue: 'No estás en ninguna sala. Únete a una sala usando el código proporcionado por tu profesor.' })

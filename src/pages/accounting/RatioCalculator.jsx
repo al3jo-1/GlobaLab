@@ -71,9 +71,9 @@ const RatioCalculator = () => {
             description={t('accounting.cash_ratio_desc', { defaultValue: 'Efectivo / Pasivos corrientes' })}
           />
         </div>
-        <Card className="bg-slate-800/50 border-emerald-500/20">
+        <Card className="accounting-chart-card">
           <CardHeader>
-            <CardTitle className="text-emerald-400">
+            <CardTitle className="accounting-text-muted">
               {t('accounting.liquidity_chart', { defaultValue: 'Gráfico de Liquidez' })}
             </CardTitle>
           </CardHeader>
@@ -147,9 +147,9 @@ const RatioCalculator = () => {
             description={t('accounting.roe_desc', { defaultValue: 'Utilidad / Patrimonio' })}
           />
         </div>
-        <Card className="bg-slate-800/50 border-emerald-500/20">
+        <Card className="accounting-chart-card">
           <CardHeader>
-            <CardTitle className="text-emerald-400">
+            <CardTitle className="accounting-text-muted">
               {t('accounting.profitability_chart', { defaultValue: 'Gráfico de Rentabilidad' })}
             </CardTitle>
           </CardHeader>
@@ -212,9 +212,9 @@ const RatioCalculator = () => {
             description={t('accounting.interest_coverage_desc', { defaultValue: 'EBIT / Intereses' })}
           />
         </div>
-        <Card className="bg-slate-800/50 border-emerald-500/20">
+        <Card className="accounting-chart-card">
           <CardHeader>
-            <CardTitle className="text-emerald-400">
+            <CardTitle className="accounting-text-muted">
               {t('accounting.leverage_chart', { defaultValue: 'Gráfico de Endeudamiento' })}
             </CardTitle>
           </CardHeader>
@@ -269,9 +269,9 @@ const RatioCalculator = () => {
             description={t('accounting.receivables_turnover_desc', { defaultValue: 'Ventas / Cuentas por cobrar' })}
           />
         </div>
-        <Card className="bg-slate-800/50 border-emerald-500/20">
+        <Card className="accounting-chart-card">
           <CardHeader>
-            <CardTitle className="text-emerald-400">
+            <CardTitle className="accounting-text-muted">
               {t('accounting.efficiency_chart', { defaultValue: 'Gráfico de Eficiencia' })}
             </CardTitle>
           </CardHeader>
@@ -297,14 +297,14 @@ const RatioCalculator = () => {
 
   return (
     <div className="min-h-screen accounting-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20">
+      <header className="fixed top-0 left-0 right-0 z-50 accounting-header-bg">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => navigate('/accounting/dashboard')}
-              className="text-slate-300 hover:text-white"
+              className="accounting-ghost-btn"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
@@ -312,7 +312,7 @@ const RatioCalculator = () => {
               <div className="h-10 w-10 rounded-lg accounting-icon-bg flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-white" />
               </div>
-              <h1 className="text-xl font-bold text-white">
+              <h1 className="text-xl font-bold accounting-heading">
                 {t('accounting.ratio_calculator', { defaultValue: 'Calculadora de Ratios' })}
               </h1>
             </div>
@@ -328,28 +328,28 @@ const RatioCalculator = () => {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <Card className="bg-slate-800/50 border-emerald-500/20">
+            <Card className="accounting-card">
               <CardHeader>
-                <CardTitle className="text-emerald-400">
+                <CardTitle className="accounting-text-muted">
                   {t('accounting.select_case', { defaultValue: 'Seleccionar Caso' })}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 {assignedCases.length > 0 ? (
                   <Select value={selectedCaseId} onValueChange={setSelectedCaseId}>
-                    <SelectTrigger className="w-full bg-slate-900/50 border-emerald-500/20 text-white">
+                    <SelectTrigger className="w-full accounting-input">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent className="bg-slate-800 border-emerald-500/20">
+                    <SelectContent className="accounting-select">
                       {assignedCases.map((caseData) => (
-                        <SelectItem key={caseData.id} value={caseData.id} className="text-white">
+                        <SelectItem key={caseData.id} value={caseData.id}>
                           {caseData.companyName} - {caseData.industry}
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
                 ) : (
-                  <p className="text-slate-400">
+                  <p className="accounting-text-tertiary">
                     {t('accounting.no_assigned_cases', { defaultValue: 'No tienes casos asignados.' })}
                   </p>
                 )}
@@ -363,9 +363,9 @@ const RatioCalculator = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="bg-slate-800/50 border-emerald-500/20 mb-8">
+              <Card className="accounting-card mb-8">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-white">{selectedCase.companyName}</CardTitle>
+                  <CardTitle className="text-2xl accounting-heading">{selectedCase.companyName}</CardTitle>
                   <CardDescription className="text-lg">
                     {t('accounting.financial_ratios_analysis', { defaultValue: 'Análisis de Ratios Financieros' })}
                   </CardDescription>
@@ -373,7 +373,7 @@ const RatioCalculator = () => {
               </Card>
 
               <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full mb-8">
-                <TabsList className="grid w-full grid-cols-4 bg-slate-800/50">
+                <TabsList className="grid w-full grid-cols-4 accounting-tabs">
                   <TabsTrigger value="liquidity" className="data-[state=active]:bg-emerald-500/20">
                     <DollarSign className="h-4 w-4 mr-2" />
                     {t('accounting.liquidity', { defaultValue: 'Liquidez' })}

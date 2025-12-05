@@ -22,7 +22,7 @@ const Header = ({ isMobileMenuOpen, toggleMobileMenu }) => {
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate('/trading/login');
   };
 
   const getInitials = (name) => {
@@ -56,7 +56,7 @@ const Header = ({ isMobileMenuOpen, toggleMobileMenu }) => {
             <Button 
               variant="ghost" 
               size="icon" 
-              onClick={() => navigate('/rooms')}
+              onClick={() => navigate('/trading/rooms')}
               className="text-foreground"
               title={t('rooms.change', { defaultValue: 'Cambiar de sala' })}
             >
@@ -100,10 +100,10 @@ const Header = ({ isMobileMenuOpen, toggleMobileMenu }) => {
                   </div>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="sm:hidden" />
-                <DropdownMenuItem onClick={() => navigate('/settings')}>
+                <DropdownMenuItem onClick={() => navigate('/trading/settings')}>
                   {t('navigation.settings')}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => navigate('/help')}>
+                <DropdownMenuItem onClick={() => navigate('/trading/help')}>
                   {t('navigation.help')}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />

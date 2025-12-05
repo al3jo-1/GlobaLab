@@ -73,7 +73,7 @@ const Dashboard = ({ mainContent }) => {
   }
 
   if (!user) {
-     return <Navigate to="/login" replace />;
+     return <Navigate to="/trading/login" replace />;
   }
   
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);

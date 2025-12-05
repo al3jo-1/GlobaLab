@@ -52,10 +52,42 @@ export const useAuthManager = ({ allUsers, setAllUsers, setCurrentUserEmail, sav
       rooms: [],
       selectedRoomId: null,
       leverage: userData.role === 'teacher' ? (userData.leverage || '1:1') : '1:1',
+      balance: 10000,
+      positions: [],
+      transactions: [],
     };
     
-    const updatedUsers = [...allUsers, newUser];
-    setAllUsers(updatedUsers);
+    setAllUsers(prevUsers => {
+      if (!Array.isArray(prevUsers)) {
+        console.error('register: prevUsers is not an array, starting fresh with new user');
+        return [newUser];
+      }
+      
+      const existingCheck = prevUsers.find(u => u.email === userData.email);
+      if (existingCheck) {
+        console.warn('register: User already exists in callback, skipping add');
+        return prevUsers;
+      }
+      
+      const updatedUsers = [...prevUsers, newUser];
+      
+      if (updatedUsers.length !== prevUsers.length + 1) {
+        console.error('register: User count mismatch after registration');
+        return prevUsers;
+      }
+      
+      const allPreviousUsersPreserved = prevUsers.every(prevUser =>
+        updatedUsers.some(u => u.id === prevUser.id)
+      );
+      
+      if (!allPreviousUsersPreserved) {
+        console.error('register: Some users were lost during registration, aborting');
+        return prevUsers;
+      }
+      
+      return updatedUsers;
+    });
+    
     setCurrentUserEmail(newUser.email);
     saveCurrentUserEmail(newUser.email);
     

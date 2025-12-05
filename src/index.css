@@ -286,6 +286,237 @@
   @apply text-violet-700;
 }
 
+/* ========================================
+   Theme-aware header backgrounds
+   ======================================== */
+.accounting-header-bg {
+  @apply backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20;
+}
+.light .accounting-header-bg {
+  @apply bg-white/90 border-emerald-200;
+}
+
+.business-header-bg {
+  @apply backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20;
+}
+.light .business-header-bg {
+  @apply bg-white/90 border-violet-200;
+}
+
+/* ========================================
+   Theme-aware card backgrounds for Accounting
+   ======================================== */
+.accounting-card {
+  @apply bg-slate-800/50 border-emerald-500/20;
+}
+.light .accounting-card {
+  @apply bg-white border-emerald-300 shadow-sm;
+}
+
+.accounting-card-hover {
+  @apply bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-emerald-500/20 hover:border-emerald-500/40 transition-all hover:shadow-lg hover:shadow-emerald-500/10;
+}
+.light .accounting-card-hover {
+  @apply bg-gradient-to-br from-white to-emerald-50/50 border-emerald-300 hover:border-emerald-400 hover:shadow-emerald-200/50;
+}
+
+/* ========================================
+   Theme-aware card backgrounds for Business
+   ======================================== */
+.business-card {
+  @apply bg-slate-800/50 border-violet-500/20;
+}
+.light .business-card {
+  @apply bg-white border-violet-300 shadow-sm;
+}
+
+.business-card-hover {
+  @apply bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-violet-500/20 hover:border-violet-500/40 transition-all hover:shadow-lg hover:shadow-violet-500/10;
+}
+.light .business-card-hover {
+  @apply bg-gradient-to-br from-white to-violet-50/50 border-violet-300 hover:border-violet-400 hover:shadow-violet-200/50;
+}
+
+/* ========================================
+   Theme-aware input backgrounds
+   ======================================== */
+.accounting-input {
+  @apply bg-slate-900/50 border-emerald-500/20 text-white placeholder:text-slate-400;
+}
+.light .accounting-input {
+  @apply bg-white border-emerald-300 text-slate-900 placeholder:text-slate-500;
+}
+
+.business-input {
+  @apply bg-slate-900/50 border-violet-500/20 text-white placeholder:text-slate-400;
+}
+.light .business-input {
+  @apply bg-white border-violet-300 text-slate-900 placeholder:text-slate-500;
+}
+
+/* ========================================
+   Theme-aware dialog backgrounds
+   ======================================== */
+.accounting-dialog {
+  @apply bg-slate-800 border-emerald-500/20;
+}
+.light .accounting-dialog {
+  @apply bg-white border-emerald-300;
+}
+
+.business-dialog {
+  @apply bg-slate-800 border-violet-500/20;
+}
+.light .business-dialog {
+  @apply bg-white border-violet-300;
+}
+
+/* ========================================
+   Theme-aware text colors for headings
+   ======================================== */
+.accounting-heading {
+  @apply text-white;
+}
+.light .accounting-heading {
+  @apply text-emerald-900;
+}
+
+.business-heading {
+  @apply text-white;
+}
+.light .business-heading {
+  @apply text-violet-900;
+}
+
+/* Theme-aware secondary text */
+.accounting-text-secondary {
+  @apply text-slate-300;
+}
+.light .accounting-text-secondary {
+  @apply text-slate-600;
+}
+
+.business-text-secondary {
+  @apply text-slate-300;
+}
+.light .business-text-secondary {
+  @apply text-slate-600;
+}
+
+/* Theme-aware tertiary/placeholder text */
+.accounting-text-tertiary {
+  @apply text-slate-400;
+}
+.light .accounting-text-tertiary {
+  @apply text-slate-500;
+}
+
+.business-text-tertiary {
+  @apply text-slate-400;
+}
+.light .business-text-tertiary {
+  @apply text-slate-500;
+}
+
+/* ========================================
+   Theme-aware tab styles
+   ======================================== */
+.accounting-tabs {
+  @apply bg-slate-800/50;
+}
+.light .accounting-tabs {
+  @apply bg-emerald-100;
+}
+
+.business-tabs {
+  @apply bg-slate-800/50;
+}
+.light .business-tabs {
+  @apply bg-violet-100;
+}
+
+/* ========================================
+   Theme-aware chart container
+   ======================================== */
+.accounting-chart-card {
+  @apply bg-slate-800/50 border-emerald-500/20;
+}
+.light .accounting-chart-card {
+  @apply bg-white border-emerald-300 shadow-sm;
+}
+
+.business-chart-card {
+  @apply bg-slate-800/50 border-violet-500/20;
+}
+.light .business-chart-card {
+  @apply bg-white border-violet-300 shadow-sm;
+}
+
+/* ========================================
+   Theme-aware ghost button for navigation
+   ======================================== */
+.accounting-ghost-btn {
+  @apply text-slate-300 hover:text-white hover:bg-emerald-500/20;
+}
+.light .accounting-ghost-btn {
+  @apply text-slate-600 hover:text-emerald-700 hover:bg-emerald-100;
+}
+
+.business-ghost-btn {
+  @apply text-slate-300 hover:text-white hover:bg-violet-500/20;
+}
+.light .business-ghost-btn {
+  @apply text-slate-600 hover:text-violet-700 hover:bg-violet-100;
+}
+
+/* ========================================
+   Theme-aware table styles
+   ======================================== */
+.accounting-table-row {
+  @apply border-b border-slate-700/50 hover:bg-slate-700/30;
+}
+.light .accounting-table-row {
+  @apply border-slate-200 hover:bg-emerald-50;
+}
+
+.business-table-row {
+  @apply border-b border-slate-700/50 hover:bg-slate-700/30;
+}
+.light .business-table-row {
+  @apply border-slate-200 hover:bg-violet-50;
+}
+
+.accounting-table-header {
+  @apply text-slate-400 border-b border-slate-700;
+}
+.light .accounting-table-header {
+  @apply text-slate-600 border-slate-300;
+}
+
+.business-table-header {
+  @apply text-slate-400 border-b border-slate-700;
+}
+.light .business-table-header {
+  @apply text-slate-600 border-slate-300;
+}
+
+/* ========================================
+   Theme-aware select dropdown
+   ======================================== */
+.accounting-select {
+  @apply bg-slate-800 border-emerald-500/20;
+}
+.light .accounting-select {
+  @apply bg-white border-emerald-300;
+}
+
+.business-select {
+  @apply bg-slate-800 border-violet-500/20;
+}
+.light .business-select {
+  @apply bg-white border-violet-300;
+}
+
 /* Removed .trading-grid as layout is now handled by flex in Dashboard.jsx */
 /* Ensure body and html take full height for mobile menu overlay to work correctly */
 html, body, #root {

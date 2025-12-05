@@ -43,17 +43,17 @@ const BusinessDashboard = () => {
   ];
 
   const KPICard = ({ title, value, icon: Icon, trend, color = 'violet' }) => (
-    <Card className={`bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-${color}-500/20`}>
+    <Card className="business-card">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-sm font-medium text-slate-400">{title}</CardTitle>
-        <Icon className={`h-5 w-5 text-${color}-400 light:text-${color}-700`} />
+        <CardTitle className="text-sm font-medium business-text-tertiary">{title}</CardTitle>
+        <Icon className={`h-5 w-5 text-${color}-500`} />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold business-text">
+        <div className="text-2xl font-bold business-heading">
           {typeof value === 'number' ? `$${value.toLocaleString()}` : value}
         </div>
         {trend !== undefined && (
-          <div className={`flex items-center text-sm mt-1 ${trend >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+          <div className={`flex items-center text-sm mt-1 ${trend >= 0 ? 'text-green-500' : 'text-red-500'}`}>
             {trend >= 0 ? <TrendingUp className="h-4 w-4 mr-1" /> : <TrendingDown className="h-4 w-4 mr-1" />}
             {Math.abs(trend).toFixed(1)}%
           </div>
@@ -64,7 +64,7 @@ const BusinessDashboard = () => {
 
   return (
     <div className="min-h-screen business-bg">
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
+      <header className="sticky top-0 z-50 business-header-bg">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
@@ -73,7 +73,7 @@ const BusinessDashboard = () => {
               </div>
               <div>
                 <h1 className="text-xl font-bold business-text">{user.company.name}</h1>
-                <p className="text-xs text-slate-400">{currentRoom?.name}</p>
+                <p className="text-xs business-text-tertiary">{currentRoom?.name}</p>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ const BusinessDashboard = () => {
             <Button
               variant="ghost"
               onClick={() => navigate('/business/rooms')}
-              className="text-slate-300 hover:text-white"
+              className="business-ghost-btn"
             >
               <Home className="h-5 w-5 mr-2" />
               {t('business.back_to_rooms', { defaultValue: 'Volver a Salas' })}
@@ -91,7 +91,7 @@ const BusinessDashboard = () => {
               variant="ghost"
               size="icon"
               onClick={() => navigate('/business/company')}
-              className="text-slate-300 hover:text-white"
+              className="business-ghost-btn"
             >
               <Settings className="h-5 w-5" />
             </Button>
@@ -139,7 +139,7 @@ const BusinessDashboard = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            <Card className="bg-slate-800/50 border-violet-500/20">
+            <Card className="business-chart-card">
               <CardHeader>
                 <CardTitle className="business-text">
                   {t('business.revenue_trend', { defaultValue: 'Tendencia de Ingresos' })}
@@ -167,7 +167,7 @@ const BusinessDashboard = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <Card className="bg-slate-800/50 border-violet-500/20">
+            <Card className="business-chart-card">
               <CardHeader>
                 <CardTitle className="business-text">
                   {t('business.financial_overview', { defaultValue: 'Resumen Financiero' })}
@@ -199,25 +199,25 @@ const BusinessDashboard = () => {
         >
           <Button
             onClick={() => navigate('/business/workforce')}
-            className="h-24 bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/30 hover:border-blue-500/50 business-text flex-col"
+            className="h-24 bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/30 hover:border-blue-500/50 business-heading flex-col"
             variant="outline"
           >
-            <Users className="h-8 w-8 mb-2 text-blue-400 light:text-blue-700" />
+            <Users className="h-8 w-8 mb-2 text-blue-500" />
             <span>{t('business.manage_workforce', { defaultValue: 'Gestionar Personal' })}</span>
           </Button>
 
           <Button
             onClick={() => navigate('/business/loans')}
-            className="h-24 business-card-success business-text flex-col"
+            className="h-24 business-card-success business-heading flex-col"
             variant="outline"
           >
-            <CreditCard className="h-8 w-8 mb-2 text-emerald-400 light:text-emerald-700" />
+            <CreditCard className="h-8 w-8 mb-2 text-emerald-500" />
             <span>{t('business.loan_simulator', { defaultValue: 'Simulador de Préstamos' })}</span>
           </Button>
 
           <Button
             onClick={() => navigate('/business/decisions')}
-            className="h-24 business-card-info business-text flex-col"
+            className="h-24 business-card-info business-heading flex-col"
             variant="outline"
           >
             <Brain className="h-8 w-8 mb-2 business-text-muted" />
@@ -227,10 +227,10 @@ const BusinessDashboard = () => {
           {user.role === 'teacher' && (
             <Button
               onClick={() => navigate('/business/teacher')}
-              className="h-24 bg-gradient-to-br from-amber-500/20 to-amber-600/20 border border-amber-500/30 hover:border-amber-500/50 business-text flex-col"
+              className="h-24 bg-gradient-to-br from-amber-500/20 to-amber-600/20 border border-amber-500/30 hover:border-amber-500/50 business-heading flex-col"
               variant="outline"
             >
-              <Briefcase className="h-8 w-8 mb-2 text-amber-400 light:text-amber-700" />
+              <Briefcase className="h-8 w-8 mb-2 text-amber-500" />
               <span>{t('business.teacher_panel', { defaultValue: 'Panel Docente' })}</span>
             </Button>
           )}

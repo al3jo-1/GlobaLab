@@ -103,20 +103,20 @@ const WorkforceManager = () => {
 
   return (
     <div className="min-h-screen business-bg">
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
+      <header className="sticky top-0 z-50 business-header-bg">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => navigate('/business/dashboard')}
-              className="text-slate-300 hover:text-white"
+              className="business-ghost-btn"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div className="flex items-center space-x-2">
-              <Users className="h-6 w-6 text-violet-400" />
-              <h1 className="text-xl font-bold text-white">
+              <Users className="h-6 w-6 business-text-muted" />
+              <h1 className="text-xl font-bold business-heading">
                 {t('business.workforce_management', { defaultValue: 'Gestión de Personal' })}
               </h1>
             </div>
@@ -137,39 +137,39 @@ const WorkforceManager = () => {
           animate={{ opacity: 1, y: 0 }}
           className="grid md:grid-cols-3 gap-4"
         >
-          <Card className="bg-slate-800/50 border-violet-500/20">
+          <Card className="business-card">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-slate-400">
+              <CardTitle className="text-sm font-medium business-text-tertiary">
                 {t('business.total_employees', { defaultValue: 'Total Empleados' })}
               </CardTitle>
-              <Users className="h-5 w-5 text-blue-400" />
+              <Users className="h-5 w-5 text-blue-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{employees.length}</div>
+              <div className="text-2xl font-bold business-heading">{employees.length}</div>
             </CardContent>
           </Card>
 
-          <Card className="bg-slate-800/50 border-violet-500/20">
+          <Card className="business-card">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-slate-400">
+              <CardTitle className="text-sm font-medium business-text-tertiary">
                 {t('business.monthly_payroll', { defaultValue: 'Nómina Mensual' })}
               </CardTitle>
-              <DollarSign className="h-5 w-5 text-emerald-400" />
+              <DollarSign className="h-5 w-5 text-emerald-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">${monthlyPayroll.toLocaleString()}</div>
+              <div className="text-2xl font-bold business-heading">${monthlyPayroll.toLocaleString()}</div>
             </CardContent>
           </Card>
 
-          <Card className="bg-slate-800/50 border-violet-500/20">
+          <Card className="business-card">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-slate-400">
+              <CardTitle className="text-sm font-medium business-text-tertiary">
                 {t('business.departments', { defaultValue: 'Departamentos' })}
               </CardTitle>
-              <Briefcase className="h-5 w-5 text-purple-400" />
+              <Briefcase className="h-5 w-5 text-purple-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-2xl font-bold business-heading">
                 {employeesByDepartment.filter(d => d.employees.length > 0).length}
               </div>
             </CardContent>
@@ -184,9 +184,9 @@ const WorkforceManager = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="bg-slate-800/50 border-violet-500/20">
+              <Card className="business-card">
                 <CardHeader>
-                  <CardTitle className="text-white flex items-center">
+                  <CardTitle className="business-heading flex items-center">
                     <div 
                       className="w-3 h-3 rounded-full mr-3" 
                       style={{ backgroundColor: dept.color }}
@@ -198,27 +198,27 @@ const WorkforceManager = () => {
                   <div className="overflow-x-auto">
                     <table className="w-full">
                       <thead>
-                        <tr className="border-b border-slate-700">
-                          <th className="text-left py-3 px-4 text-slate-400 font-medium">
+                        <tr className="business-table-header">
+                          <th className="text-left py-3 px-4 font-medium">
                             {t('business.name', { defaultValue: 'Nombre' })}
                           </th>
-                          <th className="text-left py-3 px-4 text-slate-400 font-medium">
+                          <th className="text-left py-3 px-4 font-medium">
                             {t('business.position', { defaultValue: 'Cargo' })}
                           </th>
-                          <th className="text-left py-3 px-4 text-slate-400 font-medium">
+                          <th className="text-left py-3 px-4 font-medium">
                             {t('business.salary', { defaultValue: 'Salario' })}
                           </th>
-                          <th className="text-right py-3 px-4 text-slate-400 font-medium">
+                          <th className="text-right py-3 px-4 font-medium">
                             {t('business.actions', { defaultValue: 'Acciones' })}
                           </th>
                         </tr>
                       </thead>
                       <tbody>
                         {dept.employees.map((emp) => (
-                          <tr key={emp.id} className="border-b border-slate-700/50 hover:bg-slate-700/30">
-                            <td className="py-3 px-4 text-white">{emp.name}</td>
-                            <td className="py-3 px-4 text-slate-300">{emp.position}</td>
-                            <td className="py-3 px-4 text-emerald-400">${emp.salary.toLocaleString()}</td>
+                          <tr key={emp.id} className="business-table-row">
+                            <td className="py-3 px-4 business-heading">{emp.name}</td>
+                            <td className="py-3 px-4 business-text-secondary">{emp.position}</td>
+                            <td className="py-3 px-4 text-emerald-500">${emp.salary.toLocaleString()}</td>
                             <td className="py-3 px-4 text-right">
                               <div className="flex justify-end space-x-2">
                                 <Button
@@ -250,10 +250,10 @@ const WorkforceManager = () => {
           ))}
 
           {employees.length === 0 && (
-            <Card className="bg-slate-800/50 border-violet-500/20">
+            <Card className="business-card">
               <CardContent className="py-12 text-center">
-                <Users className="h-16 w-16 text-slate-600 mx-auto mb-4" />
-                <p className="text-slate-400 text-lg mb-4">
+                <Users className="h-16 w-16 business-text-tertiary mx-auto mb-4" />
+                <p className="business-text-tertiary text-lg mb-4">
                   {t('business.no_employees', { defaultValue: 'No hay empleados contratados aún' })}
                 </p>
                 <Button
@@ -270,12 +270,12 @@ const WorkforceManager = () => {
       </div>
 
       <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
-        <DialogContent className="bg-slate-800 border-violet-500/20 max-w-2xl">
+        <DialogContent className="business-dialog max-w-2xl">
           <DialogHeader>
-            <DialogTitle className="text-white">
+            <DialogTitle className="business-heading">
               {t('business.add_employee', { defaultValue: 'Agregar Empleado' })}
             </DialogTitle>
-            <DialogDescription className="text-slate-400">
+            <DialogDescription className="business-text-tertiary">
               {t('business.add_employee_description', { defaultValue: 'Completa los datos del nuevo empleado' })}
             </DialogDescription>
           </DialogHeader>
@@ -303,7 +303,7 @@ const WorkforceManager = () => {
                   id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-slate-900/50 border-violet-500/20 text-white"
+                  className="business-input"
                 />
               </div>
 
@@ -315,7 +315,7 @@ const WorkforceManager = () => {
                   id="position"
                   value={formData.position}
                   onChange={(e) => setFormData({ ...formData, position: e.target.value })}
-                  className="bg-slate-900/50 border-violet-500/20 text-white"
+                  className="business-input"
                 />
               </div>
 
@@ -327,12 +327,12 @@ const WorkforceManager = () => {
                   value={formData.department} 
                   onValueChange={(value) => setFormData({ ...formData, department: value })}
                 >
-                  <SelectTrigger className="bg-slate-900/50 border-violet-500/20 text-white">
+                  <SelectTrigger className="business-input">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="bg-slate-800 border-violet-500/20">
+                  <SelectContent className="business-select">
                     {DEPARTMENTS.map((dept) => (
-                      <SelectItem key={dept.value} value={dept.value} className="text-white">
+                      <SelectItem key={dept.value} value={dept.value}>
                         {dept.label}
                       </SelectItem>
                     ))}

@@ -69,7 +69,7 @@ const AccountingDashboard = () => {
 
   return (
     <div className="min-h-screen accounting-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20">
+      <header className="fixed top-0 left-0 right-0 z-50 accounting-header-bg">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
@@ -78,7 +78,7 @@ const AccountingDashboard = () => {
               </div>
               <div>
                 <h1 className="text-xl font-bold accounting-text">{currentRoom.name}</h1>
-                <p className="text-xs text-slate-400">{user.name}</p>
+                <p className="text-xs accounting-text-tertiary">{user.name}</p>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ const AccountingDashboard = () => {
             <Button
               variant="ghost"
               onClick={() => navigate('/accounting/rooms')}
-              className="text-slate-300 hover:text-white"
+              className="accounting-ghost-btn"
             >
               <ArrowLeft className="h-5 w-5 mr-2" />
               {t('accounting.back_to_rooms', { defaultValue: 'Volver a Salas' })}
@@ -95,7 +95,7 @@ const AccountingDashboard = () => {
             <Button
               variant="ghost"
               onClick={logout}
-              className="text-slate-300 hover:text-white"
+              className="accounting-ghost-btn"
             >
               <LogOut className="h-5 w-5 mr-2" />
               {t('auth.logout', { defaultValue: 'Salir' })}
@@ -165,7 +165,7 @@ const AccountingDashboard = () => {
                   transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
                 >
                   <Card 
-                    className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-emerald-500/20 hover:border-emerald-500/40 transition-all hover:shadow-lg hover:shadow-emerald-500/10 cursor-pointer h-full"
+                    className="accounting-card-hover cursor-pointer h-full"
                     onClick={() => navigate(card.path)}
                   >
                     <CardHeader>
@@ -173,7 +173,7 @@ const AccountingDashboard = () => {
                         <Icon className="h-6 w-6 text-white" />
                       </div>
                       <CardTitle className="text-xl accounting-text">{card.title}</CardTitle>
-                      <CardDescription className="text-slate-400">{card.description}</CardDescription>
+                      <CardDescription className="accounting-text-tertiary">{card.description}</CardDescription>
                     </CardHeader>
                   </Card>
                 </motion.div>

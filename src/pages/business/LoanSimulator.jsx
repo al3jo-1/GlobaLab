@@ -69,20 +69,20 @@ const LoanSimulator = () => {
 
   return (
     <div className="min-h-screen business-bg">
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
+      <header className="sticky top-0 z-50 business-header-bg">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => navigate('/business/dashboard')}
-              className="text-slate-300 hover:text-white"
+              className="business-ghost-btn"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div className="flex items-center space-x-2">
-              <CreditCard className="h-6 w-6 text-violet-400" />
-              <h1 className="text-xl font-bold text-white">
+              <CreditCard className="h-6 w-6 business-text-muted" />
+              <h1 className="text-xl font-bold business-heading">
                 {t('business.loan_simulator', { defaultValue: 'Simulador de Préstamos' })}
               </h1>
             </div>
@@ -103,39 +103,39 @@ const LoanSimulator = () => {
           animate={{ opacity: 1, y: 0 }}
           className="grid md:grid-cols-3 gap-4"
         >
-          <Card className="bg-slate-800/50 border-violet-500/20">
+          <Card className="business-card">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-slate-400">
+              <CardTitle className="text-sm font-medium business-text-tertiary">
                 {t('business.total_debt', { defaultValue: 'Deuda Total' })}
               </CardTitle>
-              <CreditCard className="h-5 w-5 text-red-400" />
+              <CreditCard className="h-5 w-5 text-red-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">${totalDebt.toLocaleString()}</div>
+              <div className="text-2xl font-bold business-heading">${totalDebt.toLocaleString()}</div>
             </CardContent>
           </Card>
 
-          <Card className="bg-slate-800/50 border-violet-500/20">
+          <Card className="business-card">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-slate-400">
+              <CardTitle className="text-sm font-medium business-text-tertiary">
                 {t('business.monthly_payments', { defaultValue: 'Pagos Mensuales' })}
               </CardTitle>
-              <TrendingUp className="h-5 w-5 text-orange-400" />
+              <TrendingUp className="h-5 w-5 text-orange-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">${monthlyPayments.toLocaleString()}</div>
+              <div className="text-2xl font-bold business-heading">${monthlyPayments.toLocaleString()}</div>
             </CardContent>
           </Card>
 
-          <Card className="bg-slate-800/50 border-violet-500/20">
+          <Card className="business-card">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-slate-400">
+              <CardTitle className="text-sm font-medium business-text-tertiary">
                 {t('business.active_loans', { defaultValue: 'Préstamos Activos' })}
               </CardTitle>
-              <Calculator className="h-5 w-5 text-blue-400" />
+              <Calculator className="h-5 w-5 text-blue-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{activeLoans.length}</div>
+              <div className="text-2xl font-bold business-heading">{activeLoans.length}</div>
             </CardContent>
           </Card>
         </motion.div>
@@ -149,11 +149,11 @@ const LoanSimulator = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-slate-800/50 border-violet-500/20">
+                <Card className="business-card">
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div>
-                        <CardTitle className="text-white flex items-center">
+                        <CardTitle className="business-heading flex items-center">
                           {t('business.loan', { defaultValue: 'Préstamo' })} - ${loan.amount.toLocaleString()}
                           {loan.status === 'paid' && (
                             <span className="ml-3 text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">
@@ -166,7 +166,7 @@ const LoanSimulator = () => {
                             </span>
                           )}
                         </CardTitle>
-                        <p className="text-sm text-slate-400 mt-1">
+                        <p className="text-sm business-text-tertiary mt-1">
                           {loan.interestRate}% • {loan.term} {t('business.months', { defaultValue: 'meses' })}
                         </p>
                       </div>
@@ -175,19 +175,19 @@ const LoanSimulator = () => {
                   <CardContent className="space-y-4">
                     <div className="grid md:grid-cols-4 gap-4 text-sm">
                       <div>
-                        <p className="text-slate-400">{t('business.monthly_payment', { defaultValue: 'Pago Mensual' })}</p>
-                        <p className="text-white font-semibold">${loan.monthlyPayment.toFixed(2)}</p>
+                        <p className="business-text-tertiary">{t('business.monthly_payment', { defaultValue: 'Pago Mensual' })}</p>
+                        <p className="business-heading font-semibold">${loan.monthlyPayment.toFixed(2)}</p>
                       </div>
                       <div>
-                        <p className="text-slate-400">{t('business.remaining_balance', { defaultValue: 'Saldo Restante' })}</p>
-                        <p className="text-white font-semibold">${loan.remainingBalance.toFixed(2)}</p>
+                        <p className="business-text-tertiary">{t('business.remaining_balance', { defaultValue: 'Saldo Restante' })}</p>
+                        <p className="business-heading font-semibold">${loan.remainingBalance.toFixed(2)}</p>
                       </div>
                       <div>
-                        <p className="text-slate-400">{t('business.payments_made', { defaultValue: 'Pagos Realizados' })}</p>
-                        <p className="text-white font-semibold">{loan.paymentsMade} / {loan.term}</p>
+                        <p className="business-text-tertiary">{t('business.payments_made', { defaultValue: 'Pagos Realizados' })}</p>
+                        <p className="business-heading font-semibold">{loan.paymentsMade} / {loan.term}</p>
                       </div>
                       <div>
-                        <p className="text-slate-400">{t('business.progress', { defaultValue: 'Progreso' })}</p>
+                        <p className="business-text-tertiary">{t('business.progress', { defaultValue: 'Progreso' })}</p>
                         <Progress value={(loan.paymentsMade / loan.term) * 100} className="h-2 mt-1" />
                       </div>
                     </div>
@@ -217,10 +217,10 @@ const LoanSimulator = () => {
               </motion.div>
             ))
           ) : (
-            <Card className="bg-slate-800/50 border-violet-500/20">
+            <Card className="business-card">
               <CardContent className="py-12 text-center">
-                <CreditCard className="h-16 w-16 text-slate-600 mx-auto mb-4" />
-                <p className="text-slate-400 text-lg mb-4">
+                <CreditCard className="h-16 w-16 business-text-tertiary mx-auto mb-4" />
+                <p className="business-text-tertiary text-lg mb-4">
                   {t('business.no_loans', { defaultValue: 'No tienes préstamos activos' })}
                 </p>
                 <Button
@@ -237,12 +237,12 @@ const LoanSimulator = () => {
       </div>
 
       <Dialog open={showRequestDialog} onOpenChange={setShowRequestDialog}>
-        <DialogContent className="bg-slate-800 border-violet-500/20 max-w-2xl">
+        <DialogContent className="business-dialog max-w-2xl">
           <DialogHeader>
-            <DialogTitle className="text-white">
+            <DialogTitle className="business-heading">
               {t('business.request_loan', { defaultValue: 'Solicitar Préstamo' })}
             </DialogTitle>
-            <DialogDescription className="text-slate-400">
+            <DialogDescription className="business-text-tertiary">
               {t('business.request_loan_description', { defaultValue: 'Configura los términos de tu préstamo' })}
             </DialogDescription>
           </DialogHeader>
@@ -257,7 +257,7 @@ const LoanSimulator = () => {
                   type="number"
                   value={loanData.amount}
                   onChange={(e) => setLoanData({ ...loanData, amount: parseInt(e.target.value) || 0 })}
-                  className="bg-slate-900/50 border-violet-500/20 text-white"
+                  className="business-input"
                   min="1000"
                   step="1000"
                 />
@@ -272,7 +272,7 @@ const LoanSimulator = () => {
                   type="number"
                   value={loanData.interestRate}
                   onChange={(e) => setLoanData({ ...loanData, interestRate: parseFloat(e.target.value) || 0 })}
-                  className="bg-slate-900/50 border-violet-500/20 text-white"
+                  className="business-input"
                   step="0.1"
                   min="0"
                 />
@@ -287,7 +287,7 @@ const LoanSimulator = () => {
                   type="number"
                   value={loanData.term}
                   onChange={(e) => setLoanData({ ...loanData, term: parseInt(e.target.value) || 0 })}
-                  className="bg-slate-900/50 border-violet-500/20 text-white"
+                  className="business-input"
                   min="6"
                   max="60"
                 />
@@ -295,24 +295,24 @@ const LoanSimulator = () => {
             </div>
 
             {amortization && (
-              <Card className="bg-slate-900/50 border-violet-500/20">
+              <Card className="business-card">
                 <CardHeader>
-                  <CardTitle className="text-sm text-violet-400">
+                  <CardTitle className="text-sm business-text-muted">
                     {t('business.loan_summary', { defaultValue: 'Resumen del Préstamo' })}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="grid md:grid-cols-3 gap-4 text-sm">
                   <div>
-                    <p className="text-slate-400">{t('business.monthly_payment', { defaultValue: 'Pago Mensual' })}</p>
-                    <p className="text-white font-semibold text-lg">${amortization.monthlyPayment.toFixed(2)}</p>
+                    <p className="business-text-tertiary">{t('business.monthly_payment', { defaultValue: 'Pago Mensual' })}</p>
+                    <p className="business-heading font-semibold text-lg">${amortization.monthlyPayment.toFixed(2)}</p>
                   </div>
                   <div>
-                    <p className="text-slate-400">{t('business.total_payment', { defaultValue: 'Pago Total' })}</p>
-                    <p className="text-white font-semibold">${amortization.totalPayment.toFixed(2)}</p>
+                    <p className="business-text-tertiary">{t('business.total_payment', { defaultValue: 'Pago Total' })}</p>
+                    <p className="business-heading font-semibold">${amortization.totalPayment.toFixed(2)}</p>
                   </div>
                   <div>
-                    <p className="text-slate-400">{t('business.total_interest', { defaultValue: 'Interés Total' })}</p>
-                    <p className="text-orange-400 font-semibold">${amortization.totalInterest.toFixed(2)}</p>
+                    <p className="business-text-tertiary">{t('business.total_interest', { defaultValue: 'Interés Total' })}</p>
+                    <p className="text-orange-500 font-semibold">${amortization.totalInterest.toFixed(2)}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -342,9 +342,9 @@ const LoanSimulator = () => {
       </Dialog>
 
       <Dialog open={showAmortizationDialog} onOpenChange={setShowAmortizationDialog}>
-        <DialogContent className="bg-slate-800 border-violet-500/20 max-w-4xl max-h-[80vh] overflow-y-auto">
+        <DialogContent className="business-dialog max-w-4xl max-h-[80vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-white">
+            <DialogTitle className="business-heading">
               {t('business.amortization_schedule', { defaultValue: 'Tabla de Amortización' })}
             </DialogTitle>
           </DialogHeader>
@@ -353,32 +353,32 @@ const LoanSimulator = () => {
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-slate-700">
-                      <th className="text-left py-2 px-4 text-slate-400">
+                    <tr className="business-table-header">
+                      <th className="text-left py-2 px-4">
                         {t('business.month', { defaultValue: 'Mes' })}
                       </th>
-                      <th className="text-right py-2 px-4 text-slate-400">
+                      <th className="text-right py-2 px-4">
                         {t('business.payment', { defaultValue: 'Pago' })}
                       </th>
-                      <th className="text-right py-2 px-4 text-slate-400">
+                      <th className="text-right py-2 px-4">
                         {t('business.principal', { defaultValue: 'Capital' })}
                       </th>
-                      <th className="text-right py-2 px-4 text-slate-400">
+                      <th className="text-right py-2 px-4">
                         {t('business.interest', { defaultValue: 'Interés' })}
                       </th>
-                      <th className="text-right py-2 px-4 text-slate-400">
+                      <th className="text-right py-2 px-4">
                         {t('business.balance', { defaultValue: 'Saldo' })}
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     {previewAmortization.schedule.map((row) => (
-                      <tr key={row.month} className="border-b border-slate-700/50 hover:bg-slate-700/30">
-                        <td className="py-2 px-4 text-white">{row.month}</td>
-                        <td className="py-2 px-4 text-right text-white">${row.payment.toFixed(2)}</td>
-                        <td className="py-2 px-4 text-right text-blue-400">${row.principal.toFixed(2)}</td>
-                        <td className="py-2 px-4 text-right text-orange-400">${row.interest.toFixed(2)}</td>
-                        <td className="py-2 px-4 text-right text-slate-300">${row.balance.toFixed(2)}</td>
+                      <tr key={row.month} className="business-table-row">
+                        <td className="py-2 px-4 business-heading">{row.month}</td>
+                        <td className="py-2 px-4 text-right business-heading">${row.payment.toFixed(2)}</td>
+                        <td className="py-2 px-4 text-right text-blue-500">${row.principal.toFixed(2)}</td>
+                        <td className="py-2 px-4 text-right text-orange-500">${row.interest.toFixed(2)}</td>
+                        <td className="py-2 px-4 text-right business-text-secondary">${row.balance.toFixed(2)}</td>
                       </tr>
                     ))}
                   </tbody>

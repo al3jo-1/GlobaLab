@@ -29,14 +29,14 @@ const FinancialStatements = () => {
 
   return (
     <div className="min-h-screen accounting-bg">
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-emerald-500/20">
+      <header className="fixed top-0 left-0 right-0 z-50 accounting-header-bg">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => navigate('/accounting/dashboard')}
-              className="text-slate-300 hover:text-white"
+              className="accounting-ghost-btn"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
@@ -44,7 +44,7 @@ const FinancialStatements = () => {
               <div className="h-10 w-10 rounded-lg accounting-icon-bg flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-white" />
               </div>
-              <h1 className="text-xl font-bold text-white">
+              <h1 className="text-xl font-bold accounting-heading">
                 {t('accounting.financial_statements', { defaultValue: 'Estados Financieros' })}
               </h1>
             </div>
@@ -60,9 +60,9 @@ const FinancialStatements = () => {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <Card className="bg-slate-800/50 border-emerald-500/20">
+            <Card className="accounting-card">
               <CardHeader>
-                <CardTitle className="text-emerald-400">
+                <CardTitle className="accounting-text-muted">
                   {t('accounting.select_case', { defaultValue: 'Seleccionar Caso' })}
                 </CardTitle>
                 <CardDescription>
@@ -72,19 +72,19 @@ const FinancialStatements = () => {
               <CardContent>
                 {assignedCases.length > 0 ? (
                   <Select value={selectedCaseId} onValueChange={setSelectedCaseId}>
-                    <SelectTrigger className="w-full bg-slate-900/50 border-emerald-500/20 text-white">
+                    <SelectTrigger className="w-full accounting-input">
                       <SelectValue placeholder={t('accounting.select_case', { defaultValue: 'Seleccionar Caso' })} />
                     </SelectTrigger>
-                    <SelectContent className="bg-slate-800 border-emerald-500/20">
+                    <SelectContent className="accounting-select">
                       {assignedCases.map((caseData) => (
-                        <SelectItem key={caseData.id} value={caseData.id} className="text-white">
+                        <SelectItem key={caseData.id} value={caseData.id}>
                           {caseData.companyName} - {caseData.industry}
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
                 ) : (
-                  <p className="text-slate-400">
+                  <p className="accounting-text-tertiary">
                     {t('accounting.no_assigned_cases', { defaultValue: 'No tienes casos asignados. Contacta a tu profesor.' })}
                   </p>
                 )}
@@ -98,15 +98,15 @@ const FinancialStatements = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="bg-slate-800/50 border-emerald-500/20 mb-8">
+              <Card className="accounting-card mb-8">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-white">{selectedCase.companyName}</CardTitle>
+                  <CardTitle className="text-2xl accounting-heading">{selectedCase.companyName}</CardTitle>
                   <CardDescription className="text-lg">
                     {selectedCase.industry} - {selectedCase.year}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-slate-300">{selectedCase.description}</p>
+                  <p className="accounting-text-secondary">{selectedCase.description}</p>
                 </CardContent>
               </Card>
 

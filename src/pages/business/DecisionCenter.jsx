@@ -106,20 +106,20 @@ const DecisionCenter = () => {
 
   return (
     <div className="min-h-screen business-bg">
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-violet-500/20">
+      <header className="sticky top-0 z-50 business-header-bg">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => navigate('/business/dashboard')}
-              className="text-slate-300 hover:text-white"
+              className="business-ghost-btn"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div className="flex items-center space-x-2">
-              <Brain className="h-6 w-6 text-violet-400" />
-              <h1 className="text-xl font-bold text-white">
+              <Brain className="h-6 w-6 business-text-muted" />
+              <h1 className="text-xl font-bold business-heading">
                 {t('business.decision_center', { defaultValue: 'Centro de Decisiones' })}
               </h1>
             </div>
@@ -132,12 +132,12 @@ const DecisionCenter = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <Card className="bg-slate-800/50 border-violet-500/20">
+          <Card className="business-card">
             <CardHeader>
-              <CardTitle className="text-white">
+              <CardTitle className="business-heading">
                 {t('business.available_scenarios', { defaultValue: 'Escenarios Disponibles' })}
               </CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="business-text-tertiary">
                 {t('business.scenarios_description', { 
                   defaultValue: 'Toma decisiones estratégicas que impactarán el futuro de tu empresa' 
                 })}
@@ -158,7 +158,7 @@ const DecisionCenter = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className={`bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-${getCategoryColor(scenario.category)}-500/20 hover:border-${getCategoryColor(scenario.category)}-500/40 transition-all`}>
+                <Card className="business-card-hover">
                   <CardHeader>
                     <div className="flex items-start justify-between mb-2">
                       <div className={`p-2 rounded-lg bg-${getCategoryColor(scenario.category)}-500/20`}>
@@ -169,23 +169,23 @@ const DecisionCenter = () => {
                           {scenario.difficulty}
                         </Badge>
                         {decided && (
-                          <CheckCircle className="h-5 w-5 text-green-400" />
+                          <CheckCircle className="h-5 w-5 text-green-500" />
                         )}
                       </div>
                     </div>
-                    <CardTitle className="text-white">{scenario.title}</CardTitle>
-                    <CardDescription className="text-slate-400">
+                    <CardTitle className="business-heading">{scenario.title}</CardTitle>
+                    <CardDescription className="business-text-tertiary">
                       {scenario.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-slate-300 mb-4">{scenario.context}</p>
+                    <p className="text-sm business-text-secondary mb-4">{scenario.context}</p>
                     {decided ? (
                       <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
-                        <p className="text-sm text-green-400 font-medium mb-1">
+                        <p className="text-sm text-green-500 font-medium mb-1">
                           {t('business.decision_made', { defaultValue: 'Decisión tomada' })}:
                         </p>
-                        <p className="text-sm text-slate-300">{decision.optionLabel}</p>
+                        <p className="text-sm business-text-secondary">{decision.optionLabel}</p>
                       </div>
                     ) : (
                       <Button
@@ -203,10 +203,10 @@ const DecisionCenter = () => {
         </div>
 
         {allScenarios.length === 0 && (
-          <Card className="bg-slate-800/50 border-violet-500/20">
+          <Card className="business-card">
             <CardContent className="py-12 text-center">
-              <Brain className="h-16 w-16 text-slate-600 mx-auto mb-4" />
-              <p className="text-slate-400 text-lg">
+              <Brain className="h-16 w-16 business-text-tertiary mx-auto mb-4" />
+              <p className="business-text-tertiary text-lg">
                 {t('business.no_scenarios', { defaultValue: 'No hay escenarios disponibles en este momento' })}
               </p>
             </CardContent>
@@ -215,34 +215,34 @@ const DecisionCenter = () => {
       </div>
 
       <Dialog open={showScenarioDialog} onOpenChange={setShowScenarioDialog}>
-        <DialogContent className="bg-slate-800 border-violet-500/20 max-w-3xl">
+        <DialogContent className="business-dialog max-w-3xl">
           <DialogHeader>
-            <DialogTitle className="text-white text-2xl">{selectedScenario?.title}</DialogTitle>
-            <DialogDescription className="text-slate-400 text-base">
+            <DialogTitle className="business-heading text-2xl">{selectedScenario?.title}</DialogTitle>
+            <DialogDescription className="business-text-tertiary text-base">
               {selectedScenario?.description}
             </DialogDescription>
           </DialogHeader>
           {selectedScenario && (
             <div className="space-y-6">
-              <div className="bg-slate-900/50 rounded-lg p-4 border border-violet-500/20">
-                <p className="text-slate-300">{selectedScenario.context}</p>
+              <div className="business-card rounded-lg p-4">
+                <p className="business-text-secondary">{selectedScenario.context}</p>
               </div>
 
               <div className="space-y-3">
-                <h3 className="text-white font-semibold">
+                <h3 className="business-heading font-semibold">
                   {t('business.your_options', { defaultValue: 'Tus Opciones' })}:
                 </h3>
                 {selectedScenario.options.map((option) => (
                   <Card
                     key={option.id}
-                    className="bg-slate-900/50 border-violet-500/20 hover:border-violet-500/40 transition-all cursor-pointer"
+                    className="business-card-hover cursor-pointer"
                     onClick={() => handleMakeDecision(option)}
                   >
                     <CardHeader>
-                      <CardTitle className="text-white text-lg">{option.label}</CardTitle>
+                      <CardTitle className="business-heading text-lg">{option.label}</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
-                      <p className="text-sm text-slate-300">{option.effects.description}</p>
+                      <p className="text-sm business-text-secondary">{option.effects.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {option.effects.cash && (
                           <Badge className={option.effects.cash > 0 ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}>

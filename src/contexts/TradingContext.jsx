@@ -96,13 +96,48 @@ export const TradingProvider = ({ children }) => {
   }, [currentUserEmail]);
 
 
-  const updateUserInList = (updatedUser) => {
+  const updateUserInList = useCallback((updatedUser) => {
+    if (!updatedUser || !updatedUser.id) {
+      console.error('updateUserInList: Invalid user object provided');
+      return;
+    }
+
     setAllUsers(prevUsers => {
+      if (!Array.isArray(prevUsers)) {
+        console.error('updateUserInList: prevUsers is not an array, recovering...');
+        const recovered = [updatedUser];
+        saveAllUsers(recovered);
+        return recovered;
+      }
+
+      const userExists = prevUsers.some(u => u.id === updatedUser.id);
+      if (!userExists) {
+        console.warn('updateUserInList: User not found in list, adding user instead of updating');
+        const newUsers = [...prevUsers, updatedUser];
+        saveAllUsers(newUsers);
+        return newUsers;
+      }
+
       const newUsers = prevUsers.map(u => u.id === updatedUser.id ? updatedUser : u);
+      
+      if (newUsers.length < prevUsers.length) {
+        console.error('updateUserInList: User count decreased unexpectedly, aborting update');
+        return prevUsers;
+      }
+
+      const allPreviousIdsExist = prevUsers.every(prevUser => 
+        newUsers.some(newUser => newUser.id === prevUser.id)
+      );
+      
+      if (!allPreviousIdsExist) {
+        console.error('updateUserInList: Some users were lost during update, aborting');
+        return prevUsers;
+      }
+
       saveAllUsers(newUsers);
       return newUsers;
     });
-  };
+  }, [setAllUsers, saveAllUsers]);
 
   const setActiveSimulation = (simulation) => {
     setActiveSimulationState(simulation);
@@ -320,11 +355,31 @@ export const TradingProvider = ({ children }) => {
     };
 
     setAllUsers(prevUsers => {
+      if (!Array.isArray(prevUsers)) {
+        console.error('joinRoom: prevUsers is not an array, aborting');
+        return prevUsers;
+      }
+
       const newUsers = prevUsers.map(u => {
         if (u.id === updatedStudent.id) return updatedStudent;
         if (u.id === updatedTeacher.id) return updatedTeacher;
         return u;
       });
+      
+      if (newUsers.length < prevUsers.length) {
+        console.error('joinRoom: User count decreased unexpectedly, aborting update');
+        return prevUsers;
+      }
+
+      const allPreviousIdsExist = prevUsers.every(prevUser => 
+        newUsers.some(newUser => newUser.id === prevUser.id)
+      );
+      
+      if (!allPreviousIdsExist) {
+        console.error('joinRoom: Some users were lost during room join, aborting');
+        return prevUsers;
+      }
+
       saveAllUsers(newUsers);
       return newUsers;
     });

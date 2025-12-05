@@ -22,7 +22,7 @@ const CaseCard = ({ caseData, onSelect, showStatus = false, status = 'pending' }
   };
 
   return (
-    <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-emerald-500/20 hover:border-emerald-500/40 transition-all hover:shadow-lg hover:shadow-emerald-500/10">
+    <Card className="accounting-card-hover">
       <CardHeader>
         <div className="flex items-start justify-between">
           <div className="flex items-center space-x-2">
@@ -31,7 +31,7 @@ const CaseCard = ({ caseData, onSelect, showStatus = false, status = 'pending' }
             </div>
             <div>
               <CardTitle className="text-lg accounting-text">{caseData.companyName}</CardTitle>
-              <CardDescription className="text-sm text-slate-400">{caseData.industry}</CardDescription>
+              <CardDescription className="text-sm accounting-text-tertiary">{caseData.industry}</CardDescription>
             </div>
           </div>
           {showStatus && getStatusBadge()}
@@ -40,7 +40,7 @@ const CaseCard = ({ caseData, onSelect, showStatus = false, status = 'pending' }
       <CardContent className="space-y-4">
         <p className="text-sm text-muted-foreground">{caseData.description}</p>
         
-        <div className="flex items-center space-x-4 text-xs text-slate-400">
+        <div className="flex items-center space-x-4 text-xs accounting-text-tertiary">
           <div className="flex items-center space-x-1">
             <Calendar className="h-3 w-3" />
             <span>{caseData.year}</span>

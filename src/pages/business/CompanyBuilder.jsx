@@ -46,12 +46,12 @@ const CompanyBuilder = () => {
   if (user?.role === 'teacher') {
     return (
       <div className="min-h-screen business-bg flex items-center justify-center p-4">
-        <Card className="bg-slate-800/50 backdrop-blur-sm border-violet-500/20 max-w-md">
+        <Card className="business-card max-w-md">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl text-white mb-2">
+            <CardTitle className="text-2xl business-heading mb-2">
               {t('business.teacher_no_company', { defaultValue: 'Acceso Solo para Estudiantes' })}
             </CardTitle>
-            <CardDescription className="text-slate-300">
+            <CardDescription className="business-text-secondary">
               {t('business.teacher_no_company_desc', { 
                 defaultValue: 'Los profesores pueden ver y monitorear las empresas de los estudiantes, pero no pueden crear su propia empresa.'
               })}
@@ -83,15 +83,15 @@ const CompanyBuilder = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Card className="bg-slate-800/50 backdrop-blur-sm border-violet-500/20">
+          <Card className="business-card">
             <CardHeader className="text-center pb-8">
               <div className="w-20 h-20 mx-auto mb-6 rounded-2xl business-card-bg flex items-center justify-center border-2 border-violet-500/30">
-                <Building2 className="h-10 w-10 text-violet-400" />
+                <Building2 className="h-10 w-10 business-text-muted" />
               </div>
-              <CardTitle className="text-3xl font-bold text-white mb-2">
+              <CardTitle className="text-3xl font-bold business-heading mb-2">
                 {t('business.create_company', { defaultValue: 'Crear Tu Empresa' })}
               </CardTitle>
-              <CardDescription className="text-slate-300 text-lg">
+              <CardDescription className="business-text-secondary text-lg">
                 {t('business.create_company_description', { 
                   defaultValue: 'Define tu empresa virtual y comienza tu simulación empresarial' 
                 })}
@@ -100,7 +100,7 @@ const CompanyBuilder = () => {
 
             <CardContent className="space-y-8">
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-violet-400 flex items-center">
+                <h3 className="text-lg font-semibold business-text-muted flex items-center">
                   <Sparkles className="h-5 w-5 mr-2" />
                   {t('business.templates', { defaultValue: 'Plantillas de Empresa' })}
                 </h3>
@@ -108,14 +108,14 @@ const CompanyBuilder = () => {
                   {SAMPLE_COMPANIES.map((template) => (
                     <Card
                       key={template.name}
-                      className="bg-slate-900/50 border-violet-500/20 cursor-pointer hover:border-violet-500/40 transition-all"
+                      className="business-card-hover cursor-pointer"
                       onClick={() => loadTemplate(template)}
                     >
                       <CardHeader>
                         <CardTitle className="text-sm business-text">{template.name}</CardTitle>
                         <CardDescription className="text-xs">{template.description}</CardDescription>
                       </CardHeader>
-                      <CardContent className="text-xs text-slate-400">
+                      <CardContent className="text-xs business-text-tertiary">
                         {template.type} • {INDUSTRIES.find(i => i.value === template.industry)?.label} • ${template.initialCapital.toLocaleString()}
                       </CardContent>
                     </Card>
@@ -134,7 +134,7 @@ const CompanyBuilder = () => {
                       value={companyData.name}
                       onChange={(e) => setCompanyData({ ...companyData, name: e.target.value })}
                       placeholder="Ej: TechStart Inc."
-                      className="bg-slate-900/50 border-violet-500/20 text-white"
+                      className="business-input"
                       required
                     />
                   </div>
@@ -148,12 +148,12 @@ const CompanyBuilder = () => {
                         value={companyData.type} 
                         onValueChange={(value) => setCompanyData({ ...companyData, type: value })}
                       >
-                        <SelectTrigger className="bg-slate-900/50 border-violet-500/20 text-white">
+                        <SelectTrigger className="business-input">
                           <SelectValue />
                         </SelectTrigger>
-                        <SelectContent className="bg-slate-800 border-violet-500/20">
+                        <SelectContent className="business-select">
                           {COMPANY_TYPES.map((type) => (
-                            <SelectItem key={type.value} value={type.value} className="text-white">
+                            <SelectItem key={type.value} value={type.value}>
                               {type.label}
                             </SelectItem>
                           ))}
@@ -169,10 +169,10 @@ const CompanyBuilder = () => {
                         value={companyData.industry} 
                         onValueChange={(value) => setCompanyData({ ...companyData, industry: value })}
                       >
-                        <SelectTrigger className="bg-slate-900/50 border-violet-500/20 text-white">
+                        <SelectTrigger className="business-input">
                           <SelectValue />
                         </SelectTrigger>
-                        <SelectContent className="bg-slate-800 border-violet-500/20">
+                        <SelectContent className="business-select">
                           {INDUSTRIES.map((industry) => (
                             <SelectItem key={industry.value} value={industry.value} className="text-white">
                               {industry.label}
