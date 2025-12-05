@@ -10,19 +10,33 @@ import CaseCard from '@/components/accounting/CaseCard';
 import LanguageSelector from '@/components/LanguageSelector';
 
 const AccountingDashboard = () => {
-  const { user, currentRoom, logout } = useAccountingContext();
+  const { user, currentRoom, logout, isLoading } = useAccountingContext();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
   React.useEffect(() => {
-    if (user?.role === 'teacher') {
+    if (!isLoading && user?.role === 'teacher') {
       navigate('/accounting/teacher');
     }
-  }, [user, navigate]);
+  }, [user, navigate, isLoading]);
 
-  if (!user || !currentRoom) {
-    navigate('/accounting/rooms');
-    return null;
+  React.useEffect(() => {
+    if (!isLoading && (!user || !currentRoom)) {
+      navigate('/accounting/rooms');
+    }
+  }, [user, currentRoom, navigate, isLoading]);
+
+  if (isLoading || !user || !currentRoom) {
+    return (
+      <div className="min-h-screen accounting-bg flex items-center justify-center">
+        <div className="text-center">
+          <div className="h-12 w-12 rounded-lg accounting-icon-bg flex items-center justify-center mx-auto mb-4">
+            <Calculator className="h-8 w-8 text-white animate-pulse" />
+          </div>
+          <h2 className="text-xl font-bold accounting-text">Cargando...</h2>
+        </div>
+      </div>
+    );
   }
 
   const assignedCases = user.assignedCases || [];

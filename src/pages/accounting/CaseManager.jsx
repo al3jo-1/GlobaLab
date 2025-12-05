@@ -14,7 +14,7 @@ import { Calculator, ArrowLeft, Users, Send, Plus } from 'lucide-react';
 import CaseCard from '@/components/accounting/CaseCard';
 
 const CaseManager = () => {
-  const { user, currentRoom, sampleCases, studentsInClass, assignCase, createCustomCase } = useAccountingContext();
+  const { user, currentRoom, sampleCases, studentsInClass, assignCase, createCustomCase, isLoading } = useAccountingContext();
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
@@ -55,13 +55,32 @@ const CaseManager = () => {
     }
   });
 
-  if (!user || !currentRoom) {
-    navigate('/accounting/rooms');
-    return null;
+  React.useEffect(() => {
+    if (!isLoading && (!user || !currentRoom)) {
+      navigate('/accounting/rooms');
+    }
+  }, [user, currentRoom, navigate, isLoading]);
+
+  React.useEffect(() => {
+    if (!isLoading && user && user.role !== 'teacher') {
+      navigate('/accounting/dashboard');
+    }
+  }, [user, navigate, isLoading]);
+
+  if (isLoading || !user || !currentRoom) {
+    return (
+      <div className="min-h-screen accounting-bg flex items-center justify-center">
+        <div className="text-center">
+          <div className="h-12 w-12 rounded-lg accounting-icon-bg flex items-center justify-center mx-auto mb-4">
+            <Calculator className="h-8 w-8 text-white animate-pulse" />
+          </div>
+          <h2 className="text-xl font-bold text-white">Cargando...</h2>
+        </div>
+      </div>
+    );
   }
 
   if (user.role !== 'teacher') {
-    navigate('/accounting/dashboard');
     return null;
   }
 

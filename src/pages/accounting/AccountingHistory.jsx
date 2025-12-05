@@ -12,19 +12,38 @@ import { Calculator, ArrowLeft, FileText, Calendar, TrendingUp, Eye } from 'luci
 import { calculateRatios, formatCurrency, formatPercentage } from '@/lib/accounting-data';
 
 const AccountingHistory = () => {
-  const { user, currentRoom } = useAccountingContext();
+  const { user, currentRoom, isLoading } = useAccountingContext();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [selectedAnalysis, setSelectedAnalysis] = useState(null);
   const [showDetailDialog, setShowDetailDialog] = useState(false);
 
-  if (!user || !currentRoom) {
-    navigate('/accounting/rooms');
-    return null;
+  React.useEffect(() => {
+    if (!isLoading && (!user || !currentRoom)) {
+      navigate('/accounting/rooms');
+    }
+  }, [user, currentRoom, navigate, isLoading]);
+
+  React.useEffect(() => {
+    if (!isLoading && user && user.role !== 'student') {
+      navigate('/accounting/dashboard');
+    }
+  }, [user, navigate, isLoading]);
+
+  if (isLoading || !user || !currentRoom) {
+    return (
+      <div className="min-h-screen accounting-bg flex items-center justify-center">
+        <div className="text-center">
+          <div className="h-12 w-12 rounded-lg accounting-icon-bg flex items-center justify-center mx-auto mb-4">
+            <Calculator className="h-8 w-8 text-white animate-pulse" />
+          </div>
+          <h2 className="text-xl font-bold text-white">Cargando...</h2>
+        </div>
+      </div>
+    );
   }
 
   if (user.role !== 'student') {
-    navigate('/accounting/dashboard');
     return null;
   }
 

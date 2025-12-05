@@ -58,7 +58,7 @@ const DashboardContent = () => {
 
 
 const Dashboard = ({ mainContent }) => {
-  const { isLoading, user } = useTradingContext();
+  const { isLoading, user, currentRoom } = useTradingContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   if (isLoading) {
@@ -74,6 +74,10 @@ const Dashboard = ({ mainContent }) => {
 
   if (!user) {
      return <Navigate to="/trading/login" replace />;
+  }
+
+  if (!currentRoom) {
+    return <Navigate to="/trading/rooms" replace />;
   }
   
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);

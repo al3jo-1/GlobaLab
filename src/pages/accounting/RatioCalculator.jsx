@@ -14,7 +14,7 @@ import AnalysisForm from '@/components/accounting/AnalysisForm';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const RatioCalculator = () => {
-  const { user, currentRoom, saveAnalysis } = useAccountingContext();
+  const { user, currentRoom, saveAnalysis, isLoading } = useAccountingContext();
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
@@ -25,9 +25,23 @@ const RatioCalculator = () => {
   const [selectedCaseId, setSelectedCaseId] = useState(initialCase?.id || (assignedCases[0]?.id || null));
   const [activeTab, setActiveTab] = useState('liquidity');
 
-  if (!user || !currentRoom) {
-    navigate('/accounting/rooms');
-    return null;
+  React.useEffect(() => {
+    if (!isLoading && (!user || !currentRoom)) {
+      navigate('/accounting/rooms');
+    }
+  }, [user, currentRoom, navigate, isLoading]);
+
+  if (isLoading || !user || !currentRoom) {
+    return (
+      <div className="min-h-screen accounting-bg flex items-center justify-center">
+        <div className="text-center">
+          <div className="h-12 w-12 rounded-lg accounting-icon-bg flex items-center justify-center mx-auto mb-4">
+            <Calculator className="h-8 w-8 text-white animate-pulse" />
+          </div>
+          <h2 className="text-xl font-bold accounting-heading">Cargando...</h2>
+        </div>
+      </div>
+    );
   }
 
   const selectedCase = assignedCases.find(c => c.id === selectedCaseId);
