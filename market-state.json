@@ -1,25 +1,25 @@
 {
-  "lastUpdate": 1778730842231,
+  "lastUpdate": 1778731613886,
   "symbols": {
     "BTCUSD": {
-      "lastClose": 45000.5,
-      "lastUpdate": 1763317619941
+      "lastClose": 79021.99,
+      "lastUpdate": 1778731404808
     },
     "ETHUSD": {
-      "lastClose": 2800.75,
-      "lastUpdate": 1763317620941
+      "lastClose": 2242.75,
+      "lastUpdate": 1778731404808
     },
     "XRPUSD": {
-      "lastClose": 0.55,
-      "lastUpdate": 1763317621942
+      "lastClose": 1.4216,
+      "lastUpdate": 1778731306248
     },
     "ADAUSD": {
       "lastClose": 0.45,
       "lastUpdate": 1763317622943
     },
     "SOLUSD": {
-      "lastClose": 105.5,
-      "lastUpdate": 1763317623945
+      "lastClose": 89.92,
+      "lastUpdate": 1778731404808
     },
     "ECOPETROL": {
       "lastClose": 2500,
@@ -30,16 +30,128 @@
       "lastUpdate": 1763317625946
     },
     "AAPL": {
-      "lastClose": 178.25,
-      "lastUpdate": 1763317626947
+      "lastClose": 298.88,
+      "lastUpdate": 1778731404808
     },
     "EURUSD": {
-      "lastClose": 1.09,
-      "lastUpdate": 1763317627947
+      "lastClose": 1.17122,
+      "lastUpdate": 1778731404808
     },
     "SPX": {
-      "lastClose": 4500,
-      "lastUpdate": 1763317628949
+      "lastClose": 7444.25,
+      "lastUpdate": 1778731404808
+    },
+    "DOTUSD": {
+      "lastClose": 8.5,
+      "lastUpdate": 1778731299227
+    },
+    "MATICUSD": {
+      "lastClose": 0.9,
+      "lastUpdate": 1778731299227
+    },
+    "AVAXUSD": {
+      "lastClose": 40,
+      "lastUpdate": 1778731299227
+    },
+    "PFBCOLOM": {
+      "lastClose": 24,
+      "lastUpdate": 1778731299227
+    },
+    "GRUPOARGOS": {
+      "lastClose": 7,
+      "lastUpdate": 1778731299227
+    },
+    "GRUPOSURA": {
+      "lastClose": 18,
+      "lastUpdate": 1778731299227
+    },
+    "PFGRUPSURA": {
+      "lastClose": 14,
+      "lastUpdate": 1778731299227
+    },
+    "ISA": {
+      "lastClose": 12,
+      "lastUpdate": 1778731299227
+    },
+    "CEMARGOS": {
+      "lastClose": 3.5,
+      "lastUpdate": 1778731299227
+    },
+    "CORFICOLCF": {
+      "lastClose": 11,
+      "lastUpdate": 1778731299227
+    },
+    "GRUPOAVAL": {
+      "lastClose": 0.95,
+      "lastUpdate": 1778731299227
+    },
+    "CELSIA": {
+      "lastClose": 3.2,
+      "lastUpdate": 1778731299227
+    },
+    "GRUPONUTRESA": {
+      "lastClose": 22,
+      "lastUpdate": 1778731299227
+    },
+    "EXITO": {
+      "lastClose": 2.8,
+      "lastUpdate": 1778731299227
+    },
+    "DAVIVIENDA": {
+      "lastClose": 17,
+      "lastUpdate": 1778731299227
+    },
+    "MINEROS": {
+      "lastClose": 2.5,
+      "lastUpdate": 1778731299227
+    },
+    "NU": {
+      "lastClose": 14.5,
+      "lastUpdate": 1778731299227
+    },
+    "GOOGL": {
+      "lastClose": 180,
+      "lastUpdate": 1778731299227
+    },
+    "MSFT": {
+      "lastClose": 405.21,
+      "lastUpdate": 1778731306248
+    },
+    "AMZN": {
+      "lastClose": 220,
+      "lastUpdate": 1778731299227
+    },
+    "TSLA": {
+      "lastClose": 445.27,
+      "lastUpdate": 1778731306248
+    },
+    "NVDA": {
+      "lastClose": 225.87,
+      "lastUpdate": 1778731404808
+    },
+    "GBPUSD": {
+      "lastClose": 1.27,
+      "lastUpdate": 1778731299227
+    },
+    "USDJPY": {
+      "lastClose": 149,
+      "lastUpdate": 1778731299227
+    },
+    "AUDUSD": {
+      "lastClose": 0.65,
+      "lastUpdate": 1778731299227
+    },
+    "DJI": {
+      "lastClose": 43000,
+      "lastUpdate": 1778731299227
+    },
+    "NDX": {
+      "lastClose": 20500,
+      "lastUpdate": 1778731299227
+    },
+    "FTSE": {
+      "lastClose": 8300,
+      "lastUpdate": 1778731299227
     }
   }
 }

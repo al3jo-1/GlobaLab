@@ -5,30 +5,50 @@ export const generateMarketData = (symbol, currency = 'USD', baseVolatility = 0.
   let basePrice;
   
   switch (symbol) {
-    case 'BTCUSD': basePrice = 60000; break;
-    case 'ETHUSD': basePrice = 3500; break;
-    // Colombian Stocks - converted from thousands of COP to USD (multiply by 1000 then convert)
-    case 'ECOPETROL': basePrice = 2300 * 1000 * COP_TO_USD_RATE; break; // 2,300,000 COP = ~575 USD
-    case 'BANCOLOMBIA': basePrice = 35000 * 1000 * COP_TO_USD_RATE; break; // 35,000,000 COP = ~8,750 USD
-    case 'PFBCOLOM': basePrice = 29000 * 1000 * COP_TO_USD_RATE; break; // 29,000,000 COP = ~7,250 USD
-    case 'GRUPOARGOS': basePrice = 11000 * 1000 * COP_TO_USD_RATE; break; // 11,000,000 COP = ~2,750 USD
-    case 'GRUPOSURA': basePrice = 27000 * 1000 * COP_TO_USD_RATE; break; // 27,000,000 COP = ~6,750 USD
-    case 'PFGRUPSURA': basePrice = 20000 * 1000 * COP_TO_USD_RATE; break; // 20,000,000 COP = ~5,000 USD
-    case 'ISA': basePrice = 17000 * 1000 * COP_TO_USD_RATE; break; // 17,000,000 COP = ~4,250 USD
-    case 'CEMARGOS': basePrice = 4500 * 1000 * COP_TO_USD_RATE; break; // 4,500,000 COP = ~1,125 USD
-    case 'CORFICOLCF': basePrice = 15000 * 1000 * COP_TO_USD_RATE; break; // 15,000,000 COP = ~3,750 USD
-    case 'GRUPOAVAL': basePrice = 600 * 1000 * COP_TO_USD_RATE; break; // 600,000 COP = ~150 USD
-    case 'CELSIA': basePrice = 3800 * 1000 * COP_TO_USD_RATE; break; // 3,800,000 COP = ~950 USD
-    case 'GRUPONUTRESA': basePrice = 45000 * 1000 * COP_TO_USD_RATE; break; // 45,000,000 COP = ~11,250 USD
-    case 'EXITO': basePrice = 3000 * 1000 * COP_TO_USD_RATE; break; // 3,000,000 COP = ~750 USD
-    case 'DAVIVIENDA': basePrice = 25000 * 1000 * COP_TO_USD_RATE; break; // 25,000,000 COP = ~6,250 USD
-    case 'MINEROS': basePrice = 3000 * 1000 * COP_TO_USD_RATE; break; // 3,000,000 COP = ~750 USD
-    // USD Stocks & Crypto
-    case 'NU': basePrice = 11.50; break; // USD
-    case 'XRPUSD': basePrice = 0.52; break; // USD
-    case 'ADAUSD': basePrice = 0.45; break; // USD
-    case 'SOLUSD': basePrice = 150; break; // USD
-    default: basePrice = 100; // USD default
+    // Crypto (live-anchored — backend overrides these with real TwelveData prices)
+    case 'BTCUSD':    basePrice = 79000;  break;
+    case 'ETHUSD':    basePrice = 3400;   break;
+    case 'XRPUSD':   basePrice = 0.55;   break;
+    case 'ADAUSD':   basePrice = 0.45;   break;
+    case 'SOLUSD':   basePrice = 170;    break;
+    case 'DOTUSD':   basePrice = 8.5;    break;
+    case 'MATICUSD': basePrice = 0.9;    break;
+    case 'AVAXUSD':  basePrice = 40;     break;
+    // US Stocks
+    case 'NU':    basePrice = 14.5;  break;
+    case 'AAPL':  basePrice = 215;   break;
+    case 'GOOGL': basePrice = 180;   break;
+    case 'MSFT':  basePrice = 430;   break;
+    case 'AMZN':  basePrice = 220;   break;
+    case 'TSLA':  basePrice = 290;   break;
+    case 'NVDA':  basePrice = 950;   break;
+    // Forex
+    case 'EURUSD': basePrice = 1.085; break;
+    case 'GBPUSD': basePrice = 1.27;  break;
+    case 'USDJPY': basePrice = 149;   break;
+    case 'AUDUSD': basePrice = 0.65;  break;
+    // Indices
+    case 'SPX':  basePrice = 5800;  break;
+    case 'DJI':  basePrice = 43000; break;
+    case 'NDX':  basePrice = 20500; break;
+    case 'FTSE': basePrice = 8300;  break;
+    // Colombian Stocks (USD equivalents via US-listed ADRs/proxies)
+    case 'ECOPETROL':    basePrice = 10.5; break;
+    case 'BANCOLOMBIA':  basePrice = 28;   break;
+    case 'PFBCOLOM':     basePrice = 24;   break;
+    case 'GRUPOARGOS':   basePrice = 7;    break;
+    case 'GRUPOSURA':    basePrice = 18;   break;
+    case 'PFGRUPSURA':   basePrice = 14;   break;
+    case 'ISA':          basePrice = 12;   break;
+    case 'CEMARGOS':     basePrice = 3.5;  break;
+    case 'CORFICOLCF':   basePrice = 11;   break;
+    case 'GRUPOAVAL':    basePrice = 0.95; break;
+    case 'CELSIA':       basePrice = 3.2;  break;
+    case 'GRUPONUTRESA': basePrice = 22;   break;
+    case 'EXITO':        basePrice = 2.8;  break;
+    case 'DAVIVIENDA':   basePrice = 17;   break;
+    case 'MINEROS':      basePrice = 2.5;  break;
+    default: basePrice = 100;
   }
   
   const data = [];

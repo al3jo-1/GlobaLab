@@ -192,6 +192,13 @@ export default defineConfig({
                         'Cross-Origin-Embedder-Policy': 'credentialless',
                 },
                 allowedHosts: true,
+                proxy: {
+                        '/api': {
+                                target: 'http://localhost:3000',
+                                changeOrigin: true,
+                                secure: false,
+                        },
+                },
         },
         resolve: {
                 extensions: ['.jsx', '.js', '.tsx', '.ts', '.json', ],

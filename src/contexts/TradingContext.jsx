@@ -10,9 +10,13 @@ import { usePortfolioManager } from '@/hooks/usePortfolioManager';
 import { useChartPreferences } from '@/hooks/useChartPreferences';
 import { useAutomationEngine } from '@/hooks/useAutomationEngine';
 import { useSocketManager } from '@/hooks/useSocketManager';
+import { useRealMarketData } from '@/hooks/useRealMarketData';
 
 
 const TradingContext = createContext({});
+
+// Featured symbols to seed with real historical OHLC data from the backend
+const FEATURED_SYMBOLS = ['BTCUSD', 'ETHUSD', 'AAPL', 'EURUSD', 'SPX', 'NVDA', 'SOLUSD'];
 
 export const useTradingContext = () => useContext(TradingContext);
 
@@ -185,7 +189,10 @@ export const TradingProvider = ({ children }) => {
   }, []);
 
   useMarketDataUpdater(setMarketData, initialSymbols, activeSimulation, !socketManager.isConnected);
-  
+
+  // Seed real historical OHLC data from backend for featured symbols
+  useRealMarketData(FEATURED_SYMBOLS, setMarketData, true);
+
   useAutomationEngine(
     currentUser?.positions || [],
     marketData,
