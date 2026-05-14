@@ -1,13 +1,33 @@
 import { useEffect, useCallback } from 'react';
 
+const RETRY_DELAYS = [2000, 5000, 10000]; // ms between retries
+
+/**
+ * Fetch with retry — waits for the backend to be ready on cold starts.
+ */
+async function fetchWithRetry(url, retries = 3) {
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const res = await fetch(url);
+      if (res.ok) return res;
+      return null; // non-retryable HTTP error
+    } catch {
+      if (i < retries) {
+        await new Promise(r => setTimeout(r, RETRY_DELAYS[i] ?? 10000));
+      }
+    }
+  }
+  return null;
+}
+
 /**
  * Fetches real historical OHLC data from the backend for a given symbol/timeframe.
  * Uses relative /api path — Vite proxies it to the backend on port 3000.
  */
 export async function fetchRealHistory(symbolId, timeframe = '1m') {
   try {
-    const res = await fetch(`/api/history/${symbolId}?timeframe=${timeframe}`);
-    if (!res.ok) return null;
+    const res = await fetchWithRetry(`/api/history/${symbolId}?timeframe=${timeframe}`);
+    if (!res) return null;
     const candles = await res.json();
     if (!Array.isArray(candles) || candles.length === 0) return null;
     return candles.map(c => ({ ...c, time: new Date(c.time), value: c.close }));
@@ -22,8 +42,8 @@ export async function fetchRealHistory(symbolId, timeframe = '1m') {
  */
 export async function fetchRealQuote(symbolId) {
   try {
-    const res = await fetch(`/api/quote/${symbolId}`);
-    if (!res.ok) return null;
+    const res = await fetchWithRetry(`/api/quote/${symbolId}`);
+    if (!res) return null;
     return await res.json();
   } catch {
     return null;
@@ -52,8 +72,8 @@ export function useRealMarketData(prioritySymbols, setMarketData, enabled = true
   }, [prioritySymbols, setMarketData, enabled]);
 
   useEffect(() => {
-    // Wait 2 s to let socket connect first — socket data takes priority
-    const timer = setTimeout(seedHistoricalData, 2000);
+    // Wait 3 s to let socket connect first and backend warm up
+    const timer = setTimeout(seedHistoricalData, 3000);
     return () => clearTimeout(timer);
   }, [seedHistoricalData]);
 }

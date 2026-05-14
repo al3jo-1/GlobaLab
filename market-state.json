@@ -1,13 +1,13 @@
 {
-  "lastUpdate": 1778731613886,
+  "lastUpdate": 1778732029367,
   "symbols": {
     "BTCUSD": {
-      "lastClose": 79021.99,
-      "lastUpdate": 1778731404808
+      "lastClose": 79211.58,
+      "lastUpdate": 1778732000315
     },
     "ETHUSD": {
-      "lastClose": 2242.75,
-      "lastUpdate": 1778731404808
+      "lastClose": 2248.74,
+      "lastUpdate": 1778732000315
     },
     "XRPUSD": {
       "lastClose": 1.4216,
@@ -18,8 +18,8 @@
       "lastUpdate": 1763317622943
     },
     "SOLUSD": {
-      "lastClose": 89.92,
-      "lastUpdate": 1778731404808
+      "lastClose": 90.11,
+      "lastUpdate": 1778732000315
     },
     "ECOPETROL": {
       "lastClose": 2500,
@@ -31,15 +31,15 @@
     },
     "AAPL": {
       "lastClose": 298.88,
-      "lastUpdate": 1778731404808
+      "lastUpdate": 1778732000315
     },
     "EURUSD": {
-      "lastClose": 1.17122,
-      "lastUpdate": 1778731404808
+      "lastClose": 1.17152,
+      "lastUpdate": 1778732000315
     },
     "SPX": {
       "lastClose": 7444.25,
-      "lastUpdate": 1778731404808
+      "lastUpdate": 1778732000315
     },
     "DOTUSD": {
       "lastClose": 8.5,
@@ -127,7 +127,7 @@
     },
     "NVDA": {
       "lastClose": 225.87,
-      "lastUpdate": 1778731404808
+      "lastUpdate": 1778732000315
     },
     "GBPUSD": {
       "lastClose": 1.27,
