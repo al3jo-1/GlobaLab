@@ -82,6 +82,26 @@ export const useSocketManager = ({
       setMarketData(formattedMarketData);
     });
 
+    // live_prices: scheduler broadcasts real prices every 60 s.
+    // Only updates the close/value of the LAST candle — no full rerender.
+    socket.on('live_prices', (prices) => {
+      setMarketData(prev => {
+        const next = { ...prev };
+        for (const [symbolId, price] of Object.entries(prices)) {
+          if (!next[symbolId] || next[symbolId].length === 0) continue;
+          const arr = [...next[symbolId]];
+          const last = { ...arr[arr.length - 1] };
+          last.close = price;
+          last.value = price;
+          last.high  = Math.max(last.high, price);
+          last.low   = Math.min(last.low, price);
+          arr[arr.length - 1] = last;
+          next[symbolId] = arr;
+        }
+        return next;
+      });
+    });
+
     socket.on('simulation_started', (simulation) => {
       setActiveSimulation(simulation);
       toast({

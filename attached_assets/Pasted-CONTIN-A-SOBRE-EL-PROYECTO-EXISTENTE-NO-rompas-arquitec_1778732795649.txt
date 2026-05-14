@@ -1,0 +1,324 @@
+CONTINÚA SOBRE EL PROYECTO EXISTENTE. 
+NO rompas arquitectura actual.
+NO recrees componentes innecesariamente.
+MODIFICA y EXTIENDE lo ya funcional.
+
+==================================================
+CAMBIOS PRIORITARIOS OBLIGATORIOS
+==================================================
+
+La API de TwelveData se está agotando demasiado rápido.
+
+Debes REDUCIR RADICALMENTE el consumo API.
+
+==================================================
+1. CAMBIO CRÍTICO — REFRESH GLOBAL CADA 1 MINUTO
+==================================================
+
+Actualmente el sistema está consumiendo demasiadas requests.
+
+CAMBIAR la estrategia de actualización live:
+
+ANTES:
+- updates frecuentes cada pocos segundos/minutos.
+
+AHORA:
+- actualizar TODOS los activos UNA sola vez por minuto.
+
+IMPORTANTE:
+NO hacer requests individuales por usuario.
+NO hacer polling por cliente.
+NO hacer requests redundantes.
+
+Debe existir:
+
+1 fetch batch global
+→ cache Redis/Supabase
+→ broadcast websocket a todos los usuarios.
+
+==================================================
+IMPLEMENTACIÓN OBLIGATORIA
+==================================================
+
+Crear scheduler global:
+
+- cada 60 segundos,
+- actualizar TODOS los símbolos disponibles,
+- usando batch requests,
+- usando una sola llamada cuando sea posible.
+
+Ejemplo correcto:
+
+AAPL,TSLA,NVDA,MSFT,BTC/USD,ETH/USD
+
+NO:
+1 request por símbolo.
+
+==================================================
+REQUERIMIENTO IMPORTANTE
+==================================================
+
+Actualizar TODOS los activos registrados en la plataforma automáticamente.
+
+Fuentes posibles:
+- watchlists,
+- positions,
+- asset_cache,
+- market_subscriptions.
+
+Crear agregador inteligente de símbolos únicos:
+
+Ejemplo:
+Si 100 usuarios ven AAPL,
+SOLO hacer 1 fetch externo.
+
+==================================================
+2. TABLAS FALTANTES EN SUPABASE
+==================================================
+
+Analiza las tablas existentes actualmente.
+
+Actualmente detectadas:
+
+- asset_cache
+- market_subscriptions
+- paper_orders
+- portfolios
+- positions
+- profiles
+- room_members
+- rooms
+- transactions
+- watchlist_items
+- watchlists
+
+FALTAN TABLAS IMPORTANTES.
+
+==================================================
+CREAR LAS SIGUIENTES TABLAS FALTANTES
+==================================================
+
+users
+- id
+- email
+- created_at
+
+historical_cache
+- id
+- symbol
+- timeframe
+- candles_json
+- updated_at
+
+live_market_state
+- symbol
+- last_price
+- previous_close
+- percent_change
+- volume
+- updated_at
+
+api_usage_logs
+- provider
+- endpoint
+- request_count
+- created_at
+
+system_settings
+- key
+- value
+- updated_at
+
+==================================================
+IMPORTANTE
+==================================================
+
+Implementar:
+- índices,
+- foreign keys,
+- timestamps,
+- constraints,
+- RLS policies.
+
+==================================================
+3. HISTÓRICOS MÁS AMPLIOS
+==================================================
+
+Actualmente el frontend carga históricos limitados.
+
+CAMBIAR comportamiento COMPLETAMENTE.
+
+==================================================
+REQUERIMIENTO NUEVO
+==================================================
+
+Cargar automáticamente:
+
+- mínimo 6 meses de históricos por defecto.
+
+==================================================
+TEMPORALIDADES
+==================================================
+
+Si usuario aumenta timeframe:
+
+1D
+→ 1 mes
+
+1W
+→ 6 meses
+
+1M
+→ 1–5 años
+
+1Y
+→ máximo histórico disponible.
+
+==================================================
+COMPORTAMIENTO OBLIGATORIO
+==================================================
+
+A mayor timeframe:
+→ más histórico cargado automáticamente.
+
+NO mantener cantidad fija de velas.
+
+==================================================
+YAHOO FINANCE
+==================================================
+
+Usar Yahoo Finance como fuente principal histórica.
+
+Cachear históricos en:
+- Redis
+- Supabase historical_cache
+
+TTL históricos:
+- intraday → 15 min
+- daily → 6h
+
+==================================================
+CHART OPTIMIZATION
+==================================================
+
+NO recargar gráfico completo en cada actualización.
+
+Solo:
+- actualizar última vela live,
+- append incremental candles.
+
+==================================================
+4. OPTIMIZACIÓN EXTREMA DE API USAGE
+==================================================
+
+Implementar sistema real de minimización API.
+
+==================================================
+OBLIGATORIO
+==================================================
+
+1. Batch fetching
+2. Symbol deduplication
+3. Redis cache layer
+4. Historical cache
+5. Scheduler global
+6. Dynamic priority system
+7. API fallback system
+
+==================================================
+FALLBACKS
+==================================================
+
+Si TwelveData falla:
+→ usar cache
+→ luego Yahoo fallback.
+
+==================================================
+5. MARKET ENGINE
+==================================================
+
+Refactorizar market engine para:
+
+- trabajar con symbol pools,
+- mantener hot assets,
+- detener símbolos muertos,
+- registrar métricas.
+
+==================================================
+AGREGAR MÉTRICAS
+==================================================
+
+Guardar:
+- requests por minuto,
+- símbolos activos,
+- cache hits,
+- cache misses,
+- API failures.
+
+==================================================
+6. FRONTEND
+==================================================
+
+Actualizar frontend para:
+
+- consumir datos desde cache backend,
+- soportar históricos largos,
+- soportar cambio dinámico timeframe,
+- mantener live updates sin reload total.
+
+==================================================
+WEBSOCKET
+==================================================
+
+Mantener websocket SOLO para:
+- último precio,
+- última vela,
+- market state updates.
+
+NO enviar históricos completos por websocket.
+
+==================================================
+7. AUTHENTICATION
+==================================================
+
+SÍ:
+integrar Supabase Auth completamente.
+
+Eliminar dependencia localStorage-only.
+
+Implementar:
+- login persistente,
+- sesiones reales,
+- refresh tokens,
+- auth middleware,
+- protected routes.
+
+==================================================
+8. PRODUCCIÓN
+==================================================
+
+Verificar:
+
+✅ no loops infinitos
+✅ no duplicate fetches
+✅ no frontend polling masivo
+✅ no memory leaks
+✅ no websocket room leaks
+✅ no exposed API keys
+✅ no full chart rerenders
+
+==================================================
+OBJETIVO FINAL
+==================================================
+
+Dejar el sistema funcionando como:
+
+- una fintech real,
+- optimizada para APIs limitadas,
+- escalable,
+- eficiente,
+- estable.
+
+La prioridad ABSOLUTA es:
+REDUCIR CONSUMO DE TWELVEDATA
+sin perder experiencia realtime.

@@ -33,6 +33,7 @@ export const TradingProvider = ({ children }) => {
   const [isLoadingAuth, setIsLoadingAuth] = useState(true);
   const [activeSimulation, setActiveSimulationState] = useLocalStorage('trading_activeSimulation', null);
   const [theme, setThemeState] = useLocalStorage('trading_theme', 'dark');
+  const [selectedTimeframe, setSelectedTimeframe] = useState('1d');
   const { preferences: chartPreferences, updatePreferences: updateChartPreferences, resetToDefaults: resetChartPreferences } = useChartPreferences();
 
 
@@ -190,8 +191,8 @@ export const TradingProvider = ({ children }) => {
 
   useMarketDataUpdater(setMarketData, initialSymbols, activeSimulation, !socketManager.isConnected);
 
-  // Seed real historical OHLC data from backend for featured symbols
-  useRealMarketData(FEATURED_SYMBOLS, setMarketData, true);
+  // Seed real historical OHLC data from backend — reloads when timeframe changes
+  useRealMarketData(FEATURED_SYMBOLS, setMarketData, true, selectedTimeframe);
 
   useAutomationEngine(
     currentUser?.positions || [],
@@ -496,6 +497,8 @@ export const TradingProvider = ({ children }) => {
     priceAlarms: socketManager.priceAlarms,
     createPriceAlarm: socketManager.createPriceAlarm,
     deletePriceAlarm: socketManager.deletePriceAlarm,
+    selectedTimeframe,
+    setSelectedTimeframe,
   };
   
   return (
