@@ -1,0 +1,575 @@
+ACTÚA COMO UN ARQUITECTO DE SOFTWARE SENIOR Y DESARROLLADOR FULL STACK EXPERTO.
+
+Tu tarea NO es crear una demo simple.
+Tu tarea es TERMINAR la infraestructura REAL de Global Trade Lab conectando correctamente:
+
+- Supabase
+- TwelveData
+- Yahoo Finance
+- Backend completo
+- Frontend completo
+- WebSockets
+- Cache
+- Estado global
+- Scheduler
+- APIs internas
+- Streaming live
+
+La plataforma YA EXISTE parcialmente.
+NO destruyas componentes existentes.
+Debes ANALIZAR el proyecto actual y EXTENDERLO correctamente.
+
+# OBJETIVO
+
+Dejar Global Trade Lab completamente funcional a nivel:
+
+- backend,
+- frontend,
+- conexión APIs,
+- sincronización live,
+- base de datos,
+- arquitectura escalable.
+
+NO crear mocks falsos.
+NO dejar TODOs vacíos.
+NO crear placeholders inútiles.
+TODO debe quedar funcional.
+
+==================================================
+ARQUITECTURA OBLIGATORIA
+==================================================
+
+Frontend:
+- Next.js
+- React
+- TypeScript
+- Tailwind
+- Zustand
+- React Query
+- Socket.IO Client
+
+Backend:
+- Node.js
+- Fastify
+- Socket.IO
+- Redis
+- Supabase
+- BullMQ o scheduler interno
+
+APIs:
+- TwelveData → realtime
+- Yahoo Finance → histórico
+
+==================================================
+REGLA CRÍTICA
+==================================================
+
+EL FRONTEND JAMÁS debe consumir TwelveData directamente.
+
+Toda comunicación debe pasar por:
+
+Frontend → Backend → Cache/API Providers
+
+==================================================
+ANALIZA AUTOMÁTICAMENTE EL PROYECTO EXISTENTE
+==================================================
+
+Primero:
+1. inspecciona la estructura actual,
+2. detecta frontend y backend,
+3. identifica rutas existentes,
+4. identifica componentes existentes,
+5. reutiliza código ya creado,
+6. evita duplicación,
+7. corrige arquitectura defectuosa.
+
+NO recrees archivos innecesariamente.
+
+==================================================
+CONFIGURACIÓN DE VARIABLES DE ENTORNO
+==================================================
+
+Crear soporte completo para:
+
+.env
+
+Variables:
+
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+
+TWELVEDATA_API_KEY=
+
+REDIS_URL=
+
+NEXT_PUBLIC_BACKEND_URL=
+
+Crear loaders seguros para variables.
+
+Validar errores si faltan variables.
+
+==================================================
+SUPABASE — IMPLEMENTACIÓN COMPLETA
+==================================================
+
+Conectar Supabase correctamente.
+
+Crear:
+
+/lib/supabase.ts
+/lib/supabase-admin.ts
+
+Separar:
+- cliente público
+- cliente admin
+
+==================================================
+CREAR TODAS LAS TABLAS SQL
+==================================================
+
+Generar automáticamente scripts SQL listos para Supabase.
+
+Crear tablas:
+
+users
+profiles
+portfolios
+positions
+watchlists
+watchlist_items
+paper_orders
+transactions
+asset_cache
+market_subscriptions
+
+==================================================
+ESTRUCTURA SQL
+==================================================
+
+users:
+- id
+- email
+- created_at
+
+profiles:
+- id
+- user_id
+- username
+- avatar_url
+- created_at
+
+portfolios:
+- id
+- user_id
+- balance
+- created_at
+
+positions:
+- id
+- portfolio_id
+- symbol
+- quantity
+- average_price
+- current_price
+- pnl
+- updated_at
+
+watchlists:
+- id
+- user_id
+- name
+- created_at
+
+watchlist_items:
+- id
+- watchlist_id
+- symbol
+
+paper_orders:
+- id
+- user_id
+- symbol
+- side
+- quantity
+- price
+- status
+- created_at
+
+transactions:
+- id
+- portfolio_id
+- symbol
+- quantity
+- price
+- type
+- created_at
+
+asset_cache:
+- symbol
+- price
+- change_percent
+- updated_at
+
+market_subscriptions:
+- symbol
+- subscribers_count
+- updated_at
+
+==================================================
+ROW LEVEL SECURITY
+==================================================
+
+Implementar políticas RLS correctamente.
+
+Cada usuario SOLO puede:
+- ver sus portfolios,
+- modificar sus órdenes,
+- ver sus watchlists.
+
+NO dejar tablas inseguras.
+
+==================================================
+BACKEND — IMPLEMENTACIÓN COMPLETA
+==================================================
+
+Crear backend profesional modular.
+
+Estructura:
+
+/backend/src
+  /api
+  /providers
+  /market-engine
+  /websocket
+  /cache
+  /scheduler
+  /services
+  /utils
+  /types
+
+==================================================
+IMPLEMENTAR PROVIDERS
+==================================================
+
+Crear:
+
+providers/twelvedata.ts
+providers/yahoo.ts
+
+==================================================
+TWELVEDATA PROVIDER
+==================================================
+
+Implementar:
+- fetchQuote(symbol)
+- fetchBatchQuotes(symbols[])
+- fetchLivePrice(symbol)
+
+Usar:
+- batching
+- rate limiting
+- retries
+- exponential backoff
+
+IMPORTANTE:
+minimizar requests al máximo.
+
+==================================================
+YAHOO PROVIDER
+==================================================
+
+Implementar:
+- fetchHistorical(symbol, interval)
+- fetchCandles()
+- historical caching
+
+Usar Yahoo SOLO para:
+- histórico,
+- OHLC,
+- velas.
+
+==================================================
+REDIS CACHE
+==================================================
+
+Implementar Redis profesionalmente.
+
+Crear:
+
+cache/redis.ts
+
+Cachear:
+- últimos precios,
+- históricos recientes,
+- candles,
+- symbols populares.
+
+TTL:
+- live prices → 5s
+- historical → 1h
+
+==================================================
+MARKET ENGINE
+==================================================
+
+Crear motor centralizado.
+
+Responsabilidades:
+- decidir qué símbolos actualizar,
+- manejar prioridades,
+- consultar APIs,
+- actualizar cache,
+- emitir websocket broadcasts.
+
+==================================================
+SISTEMA DE PRIORIDADES
+==================================================
+
+HIGH PRIORITY:
+- gráficos abiertos,
+- activos visibles,
+- símbolos populares.
+
+Refresh:
+2–5s
+
+MEDIUM:
+- watchlists.
+
+Refresh:
+15–30s
+
+LOW:
+- activos inactivos.
+
+Refresh:
+1–5min
+
+==================================================
+WEBSOCKET SERVER
+==================================================
+
+Implementar Socket.IO server.
+
+Características:
+- auto reconnect
+- subscribe/unsubscribe
+- rooms por símbolo
+- broadcasts eficientes
+
+Ejemplo:
+
+socket.on("subscribe", ["AAPL"])
+
+Un usuario que se desconecta:
+- debe liberar subscripciones.
+
+==================================================
+OPTIMIZACIÓN CRÍTICA
+==================================================
+
+SI 1000 usuarios ven AAPL:
+NO hacer 1000 requests.
+
+Hacer:
+1 request externo
++
+1000 broadcasts internos.
+
+==================================================
+SCHEDULER
+==================================================
+
+Crear scheduler inteligente.
+
+NO usar:
+setInterval global simple.
+
+El scheduler debe:
+- detectar símbolos activos,
+- detener símbolos muertos,
+- ajustar frecuencia dinámicamente.
+
+==================================================
+API ROUTES
+==================================================
+
+Crear endpoints:
+
+GET /api/quote/:symbol
+GET /api/history/:symbol
+GET /api/watchlist
+POST /api/order
+GET /api/portfolio
+
+==================================================
+FRONTEND — IMPLEMENTACIÓN
+==================================================
+
+Conectar frontend COMPLETAMENTE al backend.
+
+NO usar mocks.
+
+==================================================
+STATE MANAGEMENT
+==================================================
+
+Implementar Zustand store:
+
+- auth store
+- market store
+- portfolio store
+- websocket store
+
+==================================================
+MARKET STORE
+==================================================
+
+El market store debe:
+- recibir websocket updates,
+- actualizar precios live,
+- sincronizar watchlists.
+
+==================================================
+WEBSOCKET CLIENT
+==================================================
+
+Implementar:
+- auto reconnect,
+- heartbeat,
+- reconnect strategy,
+- dynamic subscriptions.
+
+==================================================
+CHARTS
+==================================================
+
+Conectar TradingView Lightweight Charts.
+
+Funcionalidades:
+- histórico desde Yahoo
+- updates live desde websocket
+- live candles
+- timeframe selector
+
+==================================================
+IMPORTANTE
+==================================================
+
+NO recargar gráfico completo en cada tick.
+
+Actualizar SOLO la última vela.
+
+==================================================
+PERFORMANCE
+==================================================
+
+Implementar:
+- memoization
+- lazy loading
+- code splitting
+- suspense
+- virtualized watchlists
+
+==================================================
+SEGURIDAD
+==================================================
+
+Implementar:
+- validación inputs
+- sanitización
+- rate limiting
+- protección API keys
+
+Las API keys NUNCA deben exponerse al frontend.
+
+==================================================
+ERROR HANDLING
+==================================================
+
+Crear:
+- retry logic
+- graceful fallbacks
+- websocket recovery
+- provider failover
+
+Si TwelveData falla:
+- intentar fallback cache,
+- luego Yahoo.
+
+==================================================
+ABSTRACCIÓN PROFESIONAL
+==================================================
+
+Crear Provider Abstraction Layer.
+
+Ejemplo:
+
+providers/
+  twelvedata.ts
+  yahoo.ts
+  provider-manager.ts
+
+Para que en el futuro pueda:
+- cambiar APIs,
+- agregar Polygon,
+- agregar AlphaVantage,
+sin romper arquitectura.
+
+==================================================
+UI/UX
+==================================================
+
+La UI debe verse:
+- moderna,
+- minimalista,
+- tipo Bloomberg/TradingView.
+
+Implementar:
+- skeleton loaders
+- empty states
+- loading states
+- realtime indicators
+- live price flashes
+
+==================================================
+RESULTADO FINAL
+==================================================
+
+El resultado debe dejar:
+
+✅ Supabase conectado
+✅ tablas listas
+✅ backend funcional
+✅ websocket funcional
+✅ realtime funcionando
+✅ histórico funcionando
+✅ charts funcionando
+✅ watchlists funcionando
+✅ paper trading funcionando
+✅ cache funcionando
+✅ Redis funcionando
+✅ arquitectura escalable
+✅ mínimo consumo API
+✅ frontend conectado
+✅ backend modular
+✅ sin mocks
+✅ sin TODOs
+✅ sin placeholders
+✅ listo para producción
+
+==================================================
+IMPORTANTE FINAL
+==================================================
+
+Cada decisión debe priorizar:
+1. escalabilidad,
+2. optimización API,
+3. rendimiento,
+4. arquitectura limpia,
+5. mantenimiento futuro.
+
+NO generar código mediocre.
+NO generar arquitectura junior.
+Construir como una fintech real.
