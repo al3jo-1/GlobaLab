@@ -26,10 +26,21 @@ function headers(extra = {}) {
   };
 }
 
-async function pgPost(table, body, prefer = 'resolution=merge-duplicates') {
+/**
+ * POST/upsert to a PostgREST table.
+ * @param {string} table        - Table name
+ * @param {*}      body         - Row or array of rows
+ * @param {string} prefer       - Prefer header value
+ * @param {string} onConflict   - Comma-separated conflict columns for upsert
+ *                                (required when unique constraint is not the PK)
+ */
+async function pgPost(table, body, prefer = 'resolution=merge-duplicates', onConflict = '') {
   if (!enabled()) return false;
   try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+    const url = onConflict
+      ? `${SUPABASE_URL}/rest/v1/${table}?on_conflict=${onConflict}`
+      : `${SUPABASE_URL}/rest/v1/${table}`;
+    const res = await fetch(url, {
       method: 'POST',
       headers: headers({ 'Prefer': prefer }),
       body: JSON.stringify(body),
@@ -118,12 +129,12 @@ export async function getCachedHistorical(symbol, timeframe) {
 }
 
 export async function setCachedHistorical(symbol, timeframe, candles) {
-  return pgPost('historical_cache', {
-    symbol,
-    timeframe,
-    candles_json: JSON.stringify(candles),
-    updated_at:   new Date().toISOString(),
-  });
+  return pgPost(
+    'historical_cache',
+    { symbol, timeframe, candles_json: JSON.stringify(candles), updated_at: new Date().toISOString() },
+    'resolution=merge-duplicates',
+    'symbol,timeframe'
+  );
 }
 
 // ─── api_usage_logs ───────────────────────────────────────────────────────────

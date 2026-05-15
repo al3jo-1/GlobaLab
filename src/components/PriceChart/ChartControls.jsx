@@ -26,10 +26,18 @@ const ChartControls = ({
   ];
 
   const timeframes = [
-    { value: "1S", label: "1S" }, { value: "30S", label: "30S" },
-    { value: "1M", label: "1M" }, { value: "5M", label: "5M" }, { value: "15M", label: "15M" }, { value: "30M", label: "30M" },
-    { value: "1H", label: "1H" }, { value: "2H", label: "2H" }, { value: "4H", label: "4H" }, 
-    { value: "1D", label: "1D" },
+    { value: "1S",  label: "1S"  },
+    { value: "30S", label: "30S" },
+    { value: "1M",  label: "1m"  },
+    { value: "5M",  label: "5m"  },
+    { value: "15M", label: "15m" },
+    { value: "30M", label: "30m" },
+    { value: "1H",  label: "1h"  },
+    { value: "2H",  label: "2h"  },
+    { value: "4H",  label: "4h"  },
+    { value: "1D",  label: "1D"  },
+    { value: "1W",  label: "1W"  },
+    { value: "1MO", label: "1MO" },
   ];
 
 

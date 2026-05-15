@@ -27,7 +27,7 @@ const PriceChart = () => {
   const signalSeriesRef = useRef(null);
   const histogramSeriesRef = useRef(null);
 
-  const { marketData, selectedSymbol, initialSymbols, chartPreferences } = useTradingContext();
+  const { marketData, selectedSymbol, initialSymbols, chartPreferences, setSelectedTimeframe } = useTradingContext();
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [chartType, setChartType] = useState('candlestick'); 
   const [activeTool, setActiveTool] = useState(null);
@@ -39,7 +39,30 @@ const PriceChart = () => {
   const [emaPeriod, setEmaPeriod] = useState(20);
   const [showEMA, setShowEMA] = useState(false);
   const [showMACD, setShowMACD] = useState(false);
-  const [currentTimeframe, setCurrentTimeframe] = useState('1M');
+  const [currentTimeframe, setCurrentTimeframe] = useState('1D');
+
+  // Map chart display timeframe → backend fetch timeframe (Yahoo Finance / TwelveData)
+  const CHART_TF_TO_BACKEND = {
+    '1S':  '1m',
+    '30S': '1m',
+    '1M':  '1m',
+    '5M':  '5m',
+    '15M': '15m',
+    '30M': '15m',
+    '1H':  '1h',
+    '2H':  '1h',
+    '4H':  '4h',
+    '1D':  '1d',
+    '1W':  '1w',
+    '1MO': '1M',
+  };
+
+  // Called by ChartControls — updates display AND triggers backend fetch if needed
+  const handleTimeframeChange = useCallback((displayTf) => {
+    setCurrentTimeframe(displayTf);
+    const backendTf = CHART_TF_TO_BACKEND[displayTf] ?? '1d';
+    setSelectedTimeframe(backendTf);
+  }, [setSelectedTimeframe]);
 
   const currentSymbolInfo = initialSymbols.find(s => s.id === selectedSymbol);
   const currency = currentSymbolInfo ? currentSymbolInfo.currency : 'USD';
@@ -298,7 +321,7 @@ const PriceChart = () => {
         clearDrawings={clearDrawingObjects}
         hasDrawings={drawingObjects.length > 0 || tempDrawingPoints.length > 0}
         currentTimeframe={currentTimeframe}
-        setCurrentTimeframe={setCurrentTimeframe}
+        setCurrentTimeframe={handleTimeframeChange}
       />
       {!isFullScreen && <ChartOHLCInfo ohlc={currentOHLC} currency={currency} />}
       

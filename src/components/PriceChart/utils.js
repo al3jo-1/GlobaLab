@@ -258,7 +258,7 @@ export const aggregateDataForTimeframe = (data, timeframe) => {
     value: parseFloat(p.close) || 0,
   });
 
-  if (timeframe === "1M" || timeframe.endsWith("S")) return data.map(ensureNumericOHLCV);
+  if (timeframe === "1M" || timeframe === "1W" || timeframe === "1MO" || timeframe.endsWith("S")) return data.map(ensureNumericOHLCV);
 
   const timeframeMinutes = {
     "5M": 5, "15M": 15, "30M": 30,
