@@ -126,10 +126,14 @@ export async function tick() {
     Object.fromEntries(Object.entries(realPrices).filter(([, p]) => p > 0))
   ).catch(() => {});
 
-  // 5. Broadcast to all connected clients
+  // 5. Broadcast to all connected clients — send price + percentChange
   if (_broadcastCallback) {
     _broadcastCallback(Object.fromEntries(
-      [...priceStore.entries()].map(([sym, d]) => [sym, d.price])
+      [...priceStore.entries()].map(([sym, d]) => [sym, {
+        price:         d.price,
+        percentChange: d.percentChange,
+        ts:            d.ts,
+      }])
     ));
   }
 

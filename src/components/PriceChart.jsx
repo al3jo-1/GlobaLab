@@ -27,7 +27,7 @@ const PriceChart = () => {
   const signalSeriesRef = useRef(null);
   const histogramSeriesRef = useRef(null);
 
-  const { marketData, selectedSymbol, initialSymbols, chartPreferences, setSelectedTimeframe } = useTradingContext();
+  const { marketData, selectedSymbol, initialSymbols, chartPreferences, setSelectedTimeframe, isTimeframeLoading } = useTradingContext();
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [chartType, setChartType] = useState('candlestick'); 
   const [activeTool, setActiveTool] = useState(null);
@@ -300,7 +300,7 @@ const PriceChart = () => {
   
   const chartWrapperClass = isFullScreen 
     ? "fixed inset-0 bg-background z-50 p-4 flex flex-col" 
-    : "glass-card rounded-lg p-4 h-auto flex flex-col";
+    : "glass-card rounded-lg p-4 h-auto flex flex-col relative";
 
   return (
     <div className={chartWrapperClass}>
@@ -324,6 +324,18 @@ const PriceChart = () => {
         setCurrentTimeframe={handleTimeframeChange}
       />
       {!isFullScreen && <ChartOHLCInfo ohlc={currentOHLC} currency={currency} />}
+
+      {/* Timeframe loading overlay */}
+      {isTimeframeLoading && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/60 backdrop-blur-sm rounded-lg pointer-events-none">
+          <div className="flex flex-col items-center gap-2">
+            <div className="h-6 w-6 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+            <span className="text-xs text-muted-foreground font-medium">
+              Cargando datos históricos…
+            </span>
+          </div>
+        </div>
+      )}
       
       <ChartIndicatorControls
         showPanel={showIndicatorPanel}

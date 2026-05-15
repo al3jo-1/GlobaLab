@@ -34,6 +34,8 @@ export const TradingProvider = ({ children }) => {
   const [activeSimulation, setActiveSimulationState] = useLocalStorage('trading_activeSimulation', null);
   const [theme, setThemeState] = useLocalStorage('trading_theme', 'dark');
   const [selectedTimeframe, setSelectedTimeframe] = useState('1d');
+  // Live price store: {[symbolId]: {price, percentChange, ts, source}}
+  const [livePrices, setLivePrices] = useState({});
   const { preferences: chartPreferences, updatePreferences: updateChartPreferences, resetToDefaults: resetChartPreferences } = useChartPreferences();
 
 
@@ -166,6 +168,7 @@ export const TradingProvider = ({ children }) => {
     currentRoom,
     setMarketData,
     setActiveSimulation,
+    setLivePrices,
     toast,
   });
 
@@ -191,8 +194,10 @@ export const TradingProvider = ({ children }) => {
 
   useMarketDataUpdater(setMarketData, initialSymbols, activeSimulation, !socketManager.isConnected);
 
-  // Seed real historical OHLC data from backend — reloads when timeframe changes
-  useRealMarketData(FEATURED_SYMBOLS, setMarketData, true, selectedTimeframe);
+  // Seed real historical OHLC data — also bootstraps livePrices from last candle
+  const { isFetching: isTimeframeLoading } = useRealMarketData(
+    FEATURED_SYMBOLS, setMarketData, true, selectedTimeframe, setLivePrices
+  );
 
   useAutomationEngine(
     currentUser?.positions || [],
@@ -222,12 +227,15 @@ export const TradingProvider = ({ children }) => {
   }, [marketData]);
 
   const getSymbolData = useCallback(() => {
-    return initialSymbols.map(symbol => ({
-      ...symbol,
-      price: getCurrentPrice(symbol.id),
-      change: calculateChange(symbol.id),
-    }));
-  }, [initialSymbols, getCurrentPrice, calculateChange]);
+    return initialSymbols.map(symbol => {
+      const live  = livePrices[symbol.id];
+      return {
+        ...symbol,
+        price:  live?.price          ?? getCurrentPrice(symbol.id),
+        change: live?.percentChange  ?? calculateChange(symbol.id),
+      };
+    });
+  }, [initialSymbols, getCurrentPrice, calculateChange, livePrices]);
 
   const PLAN_LIMITS = {
     starter: { maxRooms: 1, maxStudents: 10 },
@@ -499,6 +507,10 @@ export const TradingProvider = ({ children }) => {
     deletePriceAlarm: socketManager.deletePriceAlarm,
     selectedTimeframe,
     setSelectedTimeframe,
+    livePrices,
+    isTimeframeLoading,
+    socketStatus: socketManager.socketStatus,
+    lastDataAt:   socketManager.lastDataAt,
   };
   
   return (

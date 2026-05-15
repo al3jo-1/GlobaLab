@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTradingContext } from '@/contexts/TradingContext';
-import { Sun, Moon, Menu, Bell, Wallet, Users } from 'lucide-react';
+import { Sun, Moon, Menu, Bell, Wallet, Users, Wifi, WifiOff, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -16,9 +16,23 @@ import { useNavigate } from 'react-router-dom';
 import { formatCurrency } from '@/lib/market-data';
 
 const Header = ({ isMobileMenuOpen, toggleMobileMenu }) => {
-  const { user, logout, theme, toggleTheme, balance } = useTradingContext(); // Added balance
+  const { user, logout, theme, toggleTheme, balance, socketStatus, lastDataAt } = useTradingContext();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [ageLabel, setAgeLabel] = useState('');
+
+  // Refresh "X s ago" label every 15 s
+  useEffect(() => {
+    const refresh = () => {
+      if (!lastDataAt) { setAgeLabel(''); return; }
+      const secs = Math.round((Date.now() - lastDataAt) / 1000);
+      if (secs < 60)   setAgeLabel(`${secs}s`);
+      else             setAgeLabel(`${Math.round(secs / 60)}m`);
+    };
+    refresh();
+    const id = setInterval(refresh, 15_000);
+    return () => clearInterval(id);
+  }, [lastDataAt]);
 
   const handleLogout = () => {
     logout();
@@ -43,6 +57,30 @@ const Header = ({ isMobileMenuOpen, toggleMobileMenu }) => {
         </div>
 
         <div className="flex items-center space-x-2 md:space-x-3">
+          {/* Connection status badge */}
+          {user && (
+            <div className={`hidden sm:flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-medium ${
+              socketStatus === 'live'
+                ? 'bg-green-500/10 text-green-500'
+                : socketStatus === 'degraded'
+                ? 'bg-yellow-500/10 text-yellow-500'
+                : 'bg-secondary/50 text-muted-foreground'
+            }`}>
+              <span className={`inline-block w-1.5 h-1.5 rounded-full ${
+                socketStatus === 'live'
+                  ? 'bg-green-500 animate-pulse'
+                  : socketStatus === 'degraded'
+                  ? 'bg-yellow-500 animate-pulse'
+                  : 'bg-muted-foreground'
+              }`} />
+              {socketStatus === 'live'
+                ? `Live${ageLabel ? ` · ${ageLabel}` : ''}`
+                : socketStatus === 'degraded'
+                ? 'Degraded'
+                : 'Offline'}
+            </div>
+          )}
+
           {user && (
             <div className="hidden sm:flex items-center space-x-2 p-2 rounded-md bg-secondary/50">
               <Wallet className="h-5 w-5 text-primary" />
