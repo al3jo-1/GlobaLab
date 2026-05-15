@@ -1,309 +1,433 @@
 {
-  "lastUpdate": 1778813252022,
+  "lastUpdate": 1778815185250,
   "symbols": {
     "BTCUSD": {
       "lastClose": {
-        "price": 81084.27,
-        "percentChange": -0.0206,
-        "ts": 1778813252021
+        "price": 81215.99,
+        "percentChange": 0.0395,
+        "ts": 1778815185249
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "ETHUSD": {
       "lastClose": {
-        "price": 2271.37,
-        "percentChange": -0.0141,
-        "ts": 1778813252021
+        "price": 2275.44,
+        "percentChange": 0.0466,
+        "ts": 1778815185249
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "XRPUSD": {
       "lastClose": {
-        "price": 1.4216,
+        "price": {
+          "price": 1.4216,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "ADAUSD": {
       "lastClose": {
-        "price": 0.45,
+        "price": {
+          "price": 0.45,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "SOLUSD": {
       "lastClose": {
-        "price": 92.11,
-        "percentChange": 0.0217,
-        "ts": 1778813252021
+        "price": 92.2,
+        "percentChange": 0.0434,
+        "ts": 1778815185249
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "ECOPETROL": {
       "lastClose": {
-        "price": 2500,
+        "price": {
+          "price": 2500,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "BANCOLOMBIA": {
       "lastClose": {
-        "price": 35000,
+        "price": {
+          "price": 35000,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "AAPL": {
       "lastClose": {
         "price": 298.16501,
-        "percentChange": -0.0151,
-        "ts": 1778813252021
+        "percentChange": 0,
+        "ts": 1778815185249
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "EURUSD": {
       "lastClose": {
-        "price": 1.16542,
-        "percentChange": -0.0326,
-        "ts": 1778813252021
+        "price": 1.16516,
+        "percentChange": -0.0051,
+        "ts": 1778815185249
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "SPX": {
       "lastClose": {
         "price": 7501.24,
         "percentChange": 0,
-        "ts": 1778813252021
+        "ts": 1778815185249
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "DOTUSD": {
       "lastClose": {
-        "price": 8.5,
+        "price": {
+          "price": 8.5,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "MATICUSD": {
       "lastClose": {
-        "price": 0.9,
+        "price": {
+          "price": 0.9,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "AVAXUSD": {
       "lastClose": {
-        "price": 40,
+        "price": {
+          "price": 40,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "PFBCOLOM": {
       "lastClose": {
-        "price": 24,
+        "price": {
+          "price": 24,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "GRUPOARGOS": {
       "lastClose": {
-        "price": 7,
+        "price": {
+          "price": 7,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "GRUPOSURA": {
       "lastClose": {
-        "price": 18,
+        "price": {
+          "price": 18,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "PFGRUPSURA": {
       "lastClose": {
-        "price": 14,
+        "price": {
+          "price": 14,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "ISA": {
       "lastClose": {
-        "price": 12,
+        "price": {
+          "price": 12,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "CEMARGOS": {
       "lastClose": {
-        "price": 3.5,
+        "price": {
+          "price": 3.5,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "CORFICOLCF": {
       "lastClose": {
-        "price": 11,
+        "price": {
+          "price": 11,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "GRUPOAVAL": {
       "lastClose": {
-        "price": 0.95,
+        "price": {
+          "price": 0.95,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "CELSIA": {
       "lastClose": {
-        "price": 3.2,
+        "price": {
+          "price": 3.2,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "GRUPONUTRESA": {
       "lastClose": {
-        "price": 22,
+        "price": {
+          "price": 22,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "EXITO": {
       "lastClose": {
-        "price": 2.8,
+        "price": {
+          "price": 2.8,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "DAVIVIENDA": {
       "lastClose": {
-        "price": 17,
+        "price": {
+          "price": 17,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "MINEROS": {
       "lastClose": {
-        "price": 2.5,
+        "price": {
+          "price": 2.5,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "NU": {
       "lastClose": {
-        "price": 14.5,
+        "price": {
+          "price": 14.5,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "GOOGL": {
       "lastClose": {
-        "price": 180,
+        "price": {
+          "price": 180,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "MSFT": {
       "lastClose": {
-        "price": 405.21,
+        "price": {
+          "price": 405.21,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "AMZN": {
       "lastClose": {
-        "price": 220,
+        "price": {
+          "price": 220,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "TSLA": {
       "lastClose": {
-        "price": 445.27,
+        "price": {
+          "price": 445.27,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "NVDA": {
       "lastClose": {
         "price": 235.745,
-        "percentChange": 0.0021,
-        "ts": 1778813252021
+        "percentChange": 0,
+        "ts": 1778815185249
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "GBPUSD": {
       "lastClose": {
-        "price": 1.27,
+        "price": {
+          "price": 1.27,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "USDJPY": {
       "lastClose": {
-        "price": 149,
+        "price": {
+          "price": 149,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "AUDUSD": {
       "lastClose": {
-        "price": 0.65,
+        "price": {
+          "price": 0.65,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "DJI": {
       "lastClose": {
-        "price": 43000,
+        "price": {
+          "price": 43000,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "NDX": {
       "lastClose": {
-        "price": 20500,
+        "price": {
+          "price": 20500,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     },
     "FTSE": {
       "lastClose": {
-        "price": 8300,
+        "price": {
+          "price": 8300,
+          "percentChange": 0,
+          "ts": 1778813190966
+        },
         "percentChange": 0,
-        "ts": 1778813190966
+        "ts": 1778813384122
       },
-      "lastUpdate": 1778813252022
+      "lastUpdate": 1778815185250
     }
   }
 }
